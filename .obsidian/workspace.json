@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00_MATRIX/00_INDEX.md.md",
+                "file": "10_PROJECTS/10.1_DP700-FABRIC/10.1_NOTES/Bez názvu.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "00_INDEX.md"
+              "title": "Bez názvu"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "00_MATRIX/00_INDEX.md.md",
+                "file": "10_PROJECTS/10.1_DP700-FABRIC/10.1_NOTES/Bez názvu.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Zpětné odkazy pro 00_INDEX.md"
+              "title": "Zpětné odkazy pro Bez názvu"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "00_MATRIX/00_INDEX.md.md",
+                "file": "10_PROJECTS/10.1_DP700-FABRIC/10.1_NOTES/Bez názvu.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Odchozí odkazy z 00_INDEX.md"
+              "title": "Odchozí odkazy z Bez názvu"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "00_MATRIX/00_INDEX.md.md",
+                "file": "10_PROJECTS/10.1_DP700-FABRIC/10.1_NOTES/Bez názvu.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Přehled 00_INDEX.md"
+              "title": "Přehled Bez názvu"
             }
           }
         ]
@@ -181,18 +181,23 @@
       "templates:Vložit šablonu": false,
       "command-palette:Otevřít paletu příkazů": false,
       "bases:Create new base": false,
-      "templater-obsidian:Templater": false
+      "templater-obsidian:Templater": false,
+      "omnisearch:Omnisearch": false,
+      "github-sync:Sync with Remote": false
     }
   },
   "active": "3f206976cfa9f217",
   "lastOpenFiles": [
+    "00_MATRIX/00_INDEX.md.md",
+    "10_PROJECTS/10.1_DP700-FABRIC/10.1_NOTES/Bez názvu.md",
+    "README.md",
+    "LICENSE",
     "40_ARCHIVE/Bez názvu.md",
     "00_MATRIX/new-journey.md",
     "40_ARCHIVE/SCHEDULE.md",
     "40_ARCHIVE/10.1_INDEX.md.md",
     "40_ARCHIVE/00_INDEX.md",
     "40_ARCHIVE/README.md",
-    "00_MATRIX/00_INDEX.md.md",
     "40_ARCHIVE/STUDY_NOTES_CZ.md",
     "10_PROJECTS/10.1_DP700-FABRIC/10.3_EXAM_PREP",
     "10_PROJECTS/10.1_DP700-FABRIC/10.1_NOTES",
@@ -202,7 +207,6 @@
     "10_PROJECTS/10.2_POST_DP700_PLAN",
     "30_RESOURCES/30.2_CHEAT_SHEETS",
     "40_ARCHIVE/30.4_REFERENCE_DOCS",
-    "40_ARCHIVE/50_DAILY_CHECKLISTS",
-    "10_PROJECTS/10.1_DP700-FABRIC"
+    "40_ARCHIVE/50_DAILY_CHECKLISTS"
   ]
 }
