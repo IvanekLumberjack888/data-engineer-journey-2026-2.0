@@ -1,4 +1,4 @@
-# Logs
+# Node modules, logs etc. (default Node.gitignore)
 logs
 *.log
 npm-debug.log*
@@ -137,3 +137,8 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Special for Obsidian - exclude settings and workspace
+.obsidian/
+
+# End Obsidian Gitignore
