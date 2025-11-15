@@ -70,14 +70,6 @@
 
 ---
 
-## ✨ Jak repozitář používat / How to use
-
-- Otevři repozitář jako hlavní **Obsidian Vault**
-- Aktivuj plugin **Obsidian Git** pro denní automatické commity a synchronizaci s GitHubem
-- Všechny studijní poznámky, projekty, trackery a reference najdeš v jednotlivých adresářích výše
-- Repo je strukturován tak, aby vyhovoval dlouhodobému systematickému růstu datového inženýra
-
----
 
 ## 📜 Licence
 
