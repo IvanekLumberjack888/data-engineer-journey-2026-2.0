@@ -79,3 +79,6 @@
 ---
 
 ## KONEC TEORIE ✅
+
+## ⬇️ Praxe ⬇️
+## [[1_LAB_LAKEHOUSE.md]]
