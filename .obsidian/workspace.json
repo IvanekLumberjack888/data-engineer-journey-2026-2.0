@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_PROJECTS/10.1_DP700-FABRIC/10.1_NOTES/Bez názvu.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Bez názvu"
+              "title": "README"
             }
           }
         ]
@@ -198,8 +198,8 @@
   },
   "active": "3f206976cfa9f217",
   "lastOpenFiles": [
-    "00_MATRIX/00_INDEX.md.md",
     "10_PROJECTS/10.1_DP700-FABRIC/10.1_NOTES/Bez názvu.md",
+    "00_MATRIX/00_INDEX.md.md",
     "README.md",
     "LICENSE",
     "40_ARCHIVE/Bez názvu.md",
