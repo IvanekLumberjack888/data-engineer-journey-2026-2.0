@@ -9,7 +9,7 @@
 
 ---
 
-## 🇨🇿 Přehled
+## Přehled
 
 > **Kompletní studijní vault k přípravě na certifikaci _DP-700: Microsoft Fabric Data Engineer Associate_ a dlouhodobému rozvoji datové engineerské kariéry. Spravováno a verzováno pomocí Obsidian + Git s důrazem na čistotu, údržbu a kontinuální rozvoj.**
 
