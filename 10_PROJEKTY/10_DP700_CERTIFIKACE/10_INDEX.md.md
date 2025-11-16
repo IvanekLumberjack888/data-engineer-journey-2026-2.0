@@ -40,7 +40,7 @@
 Dělej [[10_LABS]]:
 
 - [ ] [[1_LAB_LAKEHOUSE|Lab 1: Lakehouse]]
-- [ ] [[2_LAB_SPARK|Lab 2: Spark]]
+- [ ] [[2_LAB_SPARK.md|Lab 2: Spark]]
 - [ ] [[3_LAB_DATAFLOW|Lab 3: Dataflow]]
 - [ ] [[4_LAB_WAREHOUSE|Lab 4: Warehouse]]
 - [ ] [[5_LAB_EVENTSTREAM|Lab 5: Eventstream]]

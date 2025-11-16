@@ -462,7 +462,7 @@ Files vs Tables:
 
 ---
 
-## Next: [[2_LAB_SPARK]]
+## Next: [[2_LAB_SPARK.md]]
 ```
 
 ---
