@@ -43,7 +43,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "40_ARCHIV/new-journey.md",
+                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -58,7 +58,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "new-journey"
+              "title": "1_FABRIC_ARCHITEKTURA.md"
             }
           }
         ]
@@ -228,8 +228,8 @@
   },
   "active": "20d572c56895b954",
   "lastOpenFiles": [
-    "30_ZDROJE/EXTERNÍ_LINKY.md.md",
     "40_ARCHIV/new-journey.md",
+    "30_ZDROJE/EXTERNÍ_LINKY.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/1_LAB_LAKEHOUSE.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/2_LAB_SPARK.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md.md",

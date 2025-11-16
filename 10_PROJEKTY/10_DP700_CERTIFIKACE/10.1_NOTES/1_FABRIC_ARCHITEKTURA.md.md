@@ -2,49 +2,78 @@
 
 ## Teorie
 
-### Co je Fabric?
+### Co je Microsoft Fabric?
 
-SaaS platforma pro analytics + data engineering.
+Unified SaaS platforma pro end-to-end data analytics.
 
-**Stack:**
-- Data Factory (Pipelines)
-- Data Engineering (Lakehouse, Spark)
-- Data Warehouse (SQL)
-- Real-Time Intelligence (Events, KQL)
-- Power BI (Dashboards)
+**Všechno v jednom místě:**
+- Data loading (ingestion)
+- Transformace (ETL/ELT)
+- Data warehouse (SQL queries)
+- Real-time analytics (events, streaming)
+- Business intelligence (dashboards, reports)
+- Machine learning (notebooks, models)
 
 ### OneLake
 
-Jeden centrální data repository.
+Jeden centrální data repository pro celou organizaci.
 
-- Hierarchická struktura
-- Delta Lake format (standard)
-- Všechny experiences ho sdílí
+**Jak funguje:**
+- Jeden OneLake per tenant (organization)
+- Hierarchická struktura (folder-like)
+- Delta Lake format (standardní)
+- Všechny Fabric experiences ho sdílí
+- Single source of truth
+
+**Výhoda:** Všichni v org. mají přístup ke stejným datům, bez duplikátů
+
+### Fabric Experiences
+
+Různé tools pro různé role a use case:
+
+| Experience | Primární role | Co to dělá |
+|------------|---------------|-----------|
+| **Data Factory** | Data Engineer, Admin | Pipelines, orchestration, scheduling |
+| **Data Engineering** | Data Engineer | Lakehouse, Spark notebooks, transformace |
+| **Data Warehouse** | Data Analyst, DBA | SQL queries, T-SQL, BI queries |
+| **Real-Time Intelligence** | Data Engineer, Analyst | Eventstreams, KQL, real-time dashboards |
+| **Power BI** | BI Developer, Analyst | Reports, dashboards, visualizations |
 
 ### Workspace
 
-Container pro items.
+Container pro všechny Fabric items v jedné logické jednotce.
 
-- Permissions
-- Capacity
-- Members
+**Workspace obsahuje:**
+- Lakehouses
+- Warehouses
+- Dataflows
+- Pipelines
+- Reports
+- Notebooks
+- Eventstreams
+- itd.
 
----
+**Permissions:**
+- Admin (full access)
+- Member (create + edit)
+- Contributor (limited)
+- Viewer (read-only)
 
-## Praktika
+### Capacity
 
-- [ ] Login Fabric trial
-- [ ] Create workspace
-- [ ] View OneLake structure
-- [ ] Screenshot
+Compute resources potřebné pro běh Fabric.
 
----
+**Fabric SKUs:**
+- F2 (1 CU - compute unit)
+- F4 (2 CU)
+- F8 (4 CU)
+- F16 (8 CU)
+- P1-P5 (premium - 4-32 CU)
 
-## Otázky
+**Co kapacita zajišťuje:**
+- Refresh rates (Dataflows, pipelines)
+- Query performance (SQL, KQL)
+- Notebook compute (Spark)
+- Real-time processing
 
-- Co je Consumer Group?
-- OneLake vs ADLS? (Solve: Tomorrow)
-
----
-
-## Next: [[2_LAKEHOUSE_SPARK]]
+**Auto-scale:** Opcionálně povolíš, aby se kapacita autom
