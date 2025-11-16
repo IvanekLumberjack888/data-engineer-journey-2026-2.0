@@ -1,63 +1,92 @@
 # 1️⃣ LAB: LAKEHOUSE
 
-## Co dělám
+## Cíl
 
-Vytvoř lakehouse, nahraj data, queryuj.
+Vytvořit Lakehouse, načíst data, provést SQL dotazy na souborech a tabulkách.
 
 ---
 
-## Kroky
+## Praxe - Krok za krokem
 
-### Fáze 1: Create
+### Krok 1: Create Lakehouse
 
-Workspace → New item → Lakehouse
-Name: "Sales_DW"
-Create
-
-- [ ] Hotovo
-
-### Fáze 2: Load Data
-
-Upload files (CSV/Parquet)
-To: Tables
-
-- [ ] Hotovo
-
-### Fáze 3: Query
-
-```sql
-SELECT TOP 100 * FROM table_name
+```
+1. Jdi do tvého workspace (Data Engineer Journey)
+2. New item → Lakehouse
+3. Name: "Sales_DW"
+4. Create
 ```
 
-- [ ] Hotovo
+- [ ] Lakehouse vytvořen
+
+### Krok 2: Upload Data
+
+```
+1. Lakehouse → Files
+2. Upload → Vyber CSV soubor
+3. (Nebo si stáhni: https://aka.ms/fabric-sample-data)
+```
+
+- [ ] CSV nahran do Files
+
+### Krok 3: Load to Table
+
+```
+1. Files → Pravý klik na CSV
+2. Load to New Table
+3. Confirm schema
+```
+
+- [ ] Tabulka vytvořena z CSV
+
+### Krok 4: SQL Query na File
+
+```sql
+SELECT TOP 10 * FROM 'Files/sales.csv'
+```
+
+- [ ] Query spuštěn
+
+### Krok 5: SQL Query na Table
+
+```sql
+SELECT TOP 10 * FROM Sales
+```
+
+- [ ] Query spuštěn (měl by být rychlejší než Files)
+
+### Krok 6: Aggregation Query
+
+```sql
+SELECT 
+  Category,
+  SUM(Amount) as Total,
+  COUNT(*) as Count
+FROM Sales
+GROUP BY Category
+ORDER BY Total DESC
+```
+
+- [ ] Aggregace funguje
 
 ---
 
-## Co jsem zjistil
+## Pozorování
 
-Files vs Tables:
-- Files: raw
-- Tables: indexed, queryable
+**Files vs Tables:**
+- Files query: Pravděpodobně pomalejší (bez indexů)
+- Table query: Rychlejší (indexed)
+
+**Poznámka si:**
+- Jak dlouho trvala Files query?
+- Jak dlouho trvala Table query?
+
+---
+
+## Výstup
+
+Screenshot SQL results ✓
 
 ---
 
 ## Next: [[2_LAB_SPARK.md]]
-
----
-
-## 30_ZDROJE/SLOVNÍK_CZ.md
-
-```markdown
-# 📚 SLOVNÍK - EN → ČJ
-
-| EN | CZ | Kontext |
-|----|----|----|
-| Aggregate | Agregovat | summarize |
-| Architecture | Architektura | design |
-| Authentication | Ověřování | login |
-| Backfill | Zpětné naplnění | mat. view |
-| Bronze | Bronze | layer 1 |
-| Capacity | Kapacita | resources |
-| Cluster | Shluk | Spark |
-
-...doplňuji jak potřebuji

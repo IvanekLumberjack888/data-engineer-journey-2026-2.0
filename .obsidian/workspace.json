@@ -13,6 +13,36 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "40_ARCHIV/new-journey.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "new-journey"
+            }
+          }
+        ]
+      },
+      {
+        "id": "9c922aa53b03230d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "20d572c56895b954",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10_INDEX.md.md",
                 "mode": "source",
                 "source": false,
@@ -29,36 +59,6 @@
               },
               "icon": "lucide-file",
               "title": "10_INDEX.md"
-            }
-          }
-        ]
-      },
-      {
-        "id": "9c922aa53b03230d",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "20d572c56895b954",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/7_LAB_SECURITY.md.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "7_LAB_SECURITY.md"
             }
           }
         ]
@@ -226,18 +226,19 @@
       "github-sync:Sync with Remote": false
     }
   },
-  "active": "3f206976cfa9f217",
+  "active": "20d572c56895b954",
   "lastOpenFiles": [
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/7_LAB_SECURITY.md.md",
-    "40_ARCHIV/new-journey.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/6_LAB_KQL.md.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/13_CASE_STUDIES.md.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/1_LAB_LAKEHOUSE.md.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10_INDEX.md.md",
-    "10_NOTES.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/5_LAB_EVENTSTREAM.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/4_LAB_WAREHOUSE.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/3_LAB_DATAFLOW.md.md",
+    "40_ARCHIV/new-journey.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/2_LAB_SPARK.md.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/1_LAB_LAKEHOUSE.md.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10_INDEX.md.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/13_CASE_STUDIES.md.md",
+    "10_NOTES.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/12_ADMINISTRACE.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/11_CI_CD.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/10_BEZPEČNOST.md.md",
@@ -253,7 +254,6 @@
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md.md",
     "30_ZDROJE/EXTERNÍ_LINKY.md.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/2_LAB_SPARK.md.md",
     "20_POST_DP700",
     "20_OBLASTI",
     "10_PROJEKTY/20_POST_DP700/20.2_PORTFOLIO",

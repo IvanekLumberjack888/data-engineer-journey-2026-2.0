@@ -42,10 +42,10 @@ Dělej 10.2_LABS:
 - [ ] [[1_LAB_LAKEHOUSE.md]]
 - [ ] [[2_LAB_SPARK.md]]
 - [ ] [[3_LAB_DATAFLOW.md]]
-- [ ] [[4_LAB_WAREHOUSE
-- [ ] [[5_LAB_EVENTSTREAM|Lab 5: Eventstream]]
-- [ ] [[6_LAB_KQL|Lab 6: KQL]]
-- [ ] [[7_LAB_SECURITY|Lab 7: Security]]
+- [ ] [[4_LAB_WAREHOUSE.md]]
+- [ ] [[5_LAB_EVENTSTREAM.md]]
+- [ ] [[6_LAB_KQL.md]]
+- [ ] [[7_LAB_SECURITY.md]]
 
 ---
 
@@ -60,4 +60,4 @@ Dělej 10.2_LABS:
 
 ---
 
-## Next: [[20_POST_DP700/20_INDEX|Po DP-700]]
+## Next: 10_PROJEKTY/20_POST_DP700/20.1_FABRIC_DOJO
