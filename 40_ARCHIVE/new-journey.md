@@ -24,7 +24,7 @@ DATA-ENGINEER-JOURNEY-2026/
 ├── 10_PROJEKTY/
 │   ├── 10_DP700_CERTIFIKACE/
 │   │   ├── 10_INDEX.md          # Projekt: DP-700
-│   │   ├── 10_NOTES/            # Teorie
+│   │   ├── 10.1_NOTES/          # Teorie
 │   │   │   ├── 1_FABRIC_ARCHITEKTURA.md
 │   │   │   ├── 2_LAKEHOUSE_SPARK.md
 │   │   │   ├── 3_DELTA_LAKE.md
@@ -39,7 +39,7 @@ DATA-ENGINEER-JOURNEY-2026/
 │   │   │   ├── 12_ADMINISTRACE.md
 │   │   │   └── 13_CASE_STUDIES.md
 │   │   │
-│   │   └── 10_LABS/             # Praktika
+│   │   └── 10.2_LABS/            # Praxe
 │   │       ├── 1_LAB_LAKEHOUSE.md
 │   │       ├── 2_LAB_SPARK.md
 │   │       ├── 3_LAB_DATAFLOW.md

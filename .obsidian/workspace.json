@@ -32,6 +32,36 @@
             }
           }
         ]
+      },
+      {
+        "id": "9c922aa53b03230d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "20d572c56895b954",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "40_ARCHIVE/new-journey.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "new-journey"
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -196,30 +226,32 @@
       "github-sync:Sync with Remote": false
     }
   },
-  "active": "3f206976cfa9f217",
+  "active": "ef6fadf720f573b6",
   "lastOpenFiles": [
+    "20_OBLASTI",
+    "20_OBLASTI/20_KARIÉRNÍ_RŮST.md",
+    "10_PROJEKTY/20_POST_DP700/20.2_PORTFOLIO",
+    "10_PROJEKTY/20_POST_DP700/20.1_FABRIC_DOJO",
     "40_ARCHIVE/STUDY_NOTES_CZ.md",
     "40_ARCHIVE/new-journey.md",
     "40_ARCHIVE/SCHEDULE.md",
     "40_ARCHIVE/README.md",
     "00_MATRIX/02_CHECKLIST.md.md",
     "40_ARCHIVE/00_INDEX.md",
-    "00_MATRIX/01_PLAN.md.md",
+    "00_MATRIX/01_PLÁN.md.md",
     "00_MATRIX/00_INDEX.md.md",
     "00_MATRIX/01_PLAN.md",
     "README.md",
-    "10_PROJECTS/10.1_DP700-FABRIC/10.1_NOTES/Bez názvu.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10_NOTES/Bez názvu.md",
     "LICENSE",
     "40_ARCHIVE/Bez názvu.md",
     "40_ARCHIVE/10.1_INDEX.md.md",
     "10_PROJECTS/10.1_DP700-FABRIC/10.3_EXAM_PREP",
-    "10_PROJECTS/10.1_DP700-FABRIC/10.1_NOTES",
-    "10_PROJECTS/10.1_DP700-FABRIC/10.2_LABS",
-    "30_RESOURCES/30.1_LEARNING_PLATFORMS",
-    "01_TRACKING_METRICS/01_DAILY_NOTES",
-    "10_PROJECTS/10.2_POST_DP700_PLAN",
-    "30_RESOURCES/30.2_CHEAT_SHEETS",
-    "40_ARCHIVE/30.4_REFERENCE_DOCS",
-    "40_ARCHIVE/50_DAILY_CHECKLISTS"
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10_NOTES",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS",
+    "30_ZDROJE/30.1_LEARNING_PLATFORMS",
+    "01_DENNÍ_LOGY",
+    "10_PROJEKTY/20_POST_DP700",
+    "30_ZDROJE/30.2_CHEAT_SHEETS"
   ]
 }
