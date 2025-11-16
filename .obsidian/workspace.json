@@ -196,10 +196,51 @@
       "github-sync:Sync with Remote": false
     }
   },
+  "floating": {
+    "id": "67ccf60a23c2466a",
+    "type": "floating",
+    "children": [
+      {
+        "id": "9fb8b8d9511888f2",
+        "type": "window",
+        "children": [
+          {
+            "id": "4860741ef49f83af",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "25f94aa91326b98c",
+                "type": "leaf",
+                "state": {
+                  "type": "webviewer",
+                  "state": {
+                    "url": "https://momentjs.com/docs/#/displaying/format/",
+                    "title": "Moment.js | Docs",
+                    "mode": "webview"
+                  },
+                  "icon": "globe-2",
+                  "title": "Moment.js | Docs"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 385,
+        "y": 103,
+        "width": 1025,
+        "height": 802,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
+  },
   "active": "3f206976cfa9f217",
   "lastOpenFiles": [
-    "2025-11-16.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10_INDEX.md",
     "30_ZDROJE/ŠABLONY/ŠABLONA_DENNÍ_LOG.md.md",
+    "01_DENNÍ_LOGY/2025-11-16 (neděle) - 46. week.md",
+    "2025-11-16.md",
     "30_ZDROJE/EXTERNÍ_LINKY.md.md",
     "30_ZDROJE/KQL_PŘÍKAZY.md.md",
     "30_ZDROJE/SQL_SCRIPTS.md.md",
@@ -222,8 +263,6 @@
     "10_PROJEKTY/20_POST_DP700/20.1_FABRIC_DOJO/01_PLÁN_DOJO.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/2_LAB_SPARK.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/1_LAB_LAKEHOUSE.md.md",
-    "10_NOTES.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/12_ADMINISTRACE.md.md",
     "20_POST_DP700",
     "20_OBLASTI",
     "10_PROJEKTY/20_POST_DP700/20.2_PORTFOLIO",

@@ -6,10 +6,10 @@ Prostě každý den si zkopíruj jeden blok níže, přejmenuj na YYYY-MM-DD.md 
 
 # 📝 2025-11-17 (Pondělí)
 
-**[[10_PROJEKTY/10_DP700_CERTIFIKACE/10_INDEX|DP-700]]**
+
 
 **Plán:**
-- [ ] [[1_FABRIC_ARCHITEKTURA|Fabric Architecture]]
+- [ ] [[1_FABRIC_ARCHITEKTURA.md]]
 - [ ] Setup Obsidian
 - [ ] Fabric trial
 
@@ -28,11 +28,11 @@ Prostě každý den si zkopíruj jeden blok níže, přejmenuj na YYYY-MM-DD.md 
 
 # 📝 2025-11-18 (Úterý)
 
-**[[10_PROJEKTY/10_DP700_CERTIFIKACE/10_INDEX|DP-700]]**
+
 
 **Plán:**
-- [ ] [[1_FABRIC_ARCHITEKTURA|Fabric Architecture]] - pokračování
-- [ ] [[1_LAB_LAKEHOUSE|Lab 1 Lakehouse]]
+- [ ] [[1_FABRIC_ARCHITEKTURA.md]] - pokračování
+- [ ] [[1_LAB_LAKEHOUSE.md]]
 
 **Co jsem dělal:**
 - Přečetl jsem: 
