@@ -80,4 +80,4 @@ lakehouse/
 - Data Architecture: https://www.databricks.com/blogs/2019/08/01/delta-lake-underlying-machinery-open-format.html
 
 ---
-## NEXT -> [[6_REAL_TIME.md]]
+## NEXT -> 

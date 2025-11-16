@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/6_REAL_TIME.md.md",
+                "file": "40_ARCHIV/new-journey.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "6_REAL_TIME.md"
+              "title": "new-journey"
             }
           }
         ]
@@ -43,7 +43,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/6_REAL_TIME.md.md",
+                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/7_KQL_EVENTHOUSE.md.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -58,7 +58,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "6_REAL_TIME.md"
+              "title": "7_KQL_EVENTHOUSE.md"
             }
           }
         ]
@@ -228,9 +228,18 @@
   },
   "active": "20d572c56895b954",
   "lastOpenFiles": [
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/5_MEDALLION_ARCHITEKTURA.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/6_REAL_TIME.md.md",
+    "5_MEDALLION_ARCHITEKTURA.md",
+    "7_KQL_EVENTHOUSE.md",
     "40_ARCHIV/new-journey.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/13_CASE_STUDIES.md.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/12_ADMINISTRACE.md.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/11_CI_CD.md.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/10_BEZPEČNOST.md.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/9_MONITORING.md.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/8_WAREHOUSE_SQL.md.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/7_KQL_EVENTHOUSE.md.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/5_MEDALLION_ARCHITEKTURA.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/4_DATAFLOW_PIPELINE.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/3_DELTA_LAKE.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md.md",
@@ -249,16 +258,7 @@
     "10_PROJEKTY/20_POST_DP700/20.2_PORTFOLIO",
     "10_PROJEKTY/20_POST_DP700/20.1_FABRIC_DOJO",
     "40_ARCHIVE/STUDY_NOTES_CZ.md",
-    "40_ARCHIVE/SCHEDULE.md",
-    "40_ARCHIVE/README.md",
-    "00_MATRIX/02_CHECKLIST.md.md",
-    "40_ARCHIVE/00_INDEX.md",
-    "00_MATRIX/01_PLÁN.md.md",
-    "00_MATRIX/00_INDEX.md.md",
-    "00_MATRIX/01_PLAN.md",
-    "README.md",
     "LICENSE",
-    "40_ARCHIVE/Bez názvu.md",
     "10_PROJECTS/10.1_DP700-FABRIC/10.3_EXAM_PREP",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS",
