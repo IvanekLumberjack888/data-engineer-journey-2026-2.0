@@ -23,8 +23,8 @@ Hybrid mezi Data Lake (flexibilita) a Data Warehouse (struktura).
 - Versionování
 
 **Vztah:**
-- Lakehouse → [[3_DELTA_LAKE|3. Delta Lake]]
-- Lakehouse → [[5_MEDALLION_ARCHITEKTURA|5. Medallion]]
+- Lakehouse → [[3_DELTA_LAKE.md]]
+- Lakehouse → [[5_MEDALLION_ARCHITEKTURA.md]]
 
 ### Files vs Tables
 
@@ -84,7 +84,7 @@ df.write.saveAsTable("table_name")
 
 Úkoly:
 
-- [ ] Create Lakehouse (viz [[1_LAB_LAKEHOUSE|Lab 1]])
+- [ ] Create Lakehouse (viz [[1_LAB_LAKEHOUSE.md]])
 - [ ] Upload sample CSV
 - [ ] Query via SQL endpoint
 - [ ] Create Spark notebook
@@ -96,10 +96,10 @@ df.write.saveAsTable("table_name")
 
 ## 🔗 INTERNÍ LINKY
 
-- Praxe: [[1_LAB_LAKEHOUSE|Lab 1: Lakehouse]], [[2_LAB_SPARK|Lab 2: Spark]]
-- Next: [[3_DELTA_LAKE|3. Delta Lake]]
-- Back: [[1_FABRIC_ARCHITEKTURA|1. Fabric]]
-- Resources: [[30_ZDROJE/PYSPARK_KÓDY|PySpark snippety]]
+- Praxe: [[1_LAB_LAKEHOUSE.md]], [[2_LAB_SPARK.md]]
+- Next: [[3_DELTA_LAKE.md]]
+- Back: [[1_FABRIC_ARCHITEKTURA.md]]
+- Resources: [[PYSPARK_KÓDY.md]]
 
 ---
 

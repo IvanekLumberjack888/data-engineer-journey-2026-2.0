@@ -68,10 +68,10 @@ OPTIMIZE table_name ZORDER BY (col1, col2)
 
 ## 🔗 INTERNÍ LINKY
 
-- Back: [[2_LAKEHOUSE_SPARK|2. Lakehouse & Spark]]
-- Next: [[4_DATAFLOW_PIPELINE|4. Dataflow & Pipeline]]
-- Praxe: [[3_LAB_DATAFLOW|Lab 3]]
-- Resources: [[30_ZDROJE/SQL_SCRIPTS|SQL scripts]]
+- Back: [[2_LAKEHOUSE_SPARK.md]]
+- Next: [[4_DATAFLOW_PIPELINE.md]]
+- Praxe: [[3_LAB_DATAFLOW.md]]
+- Resources: [[SQL_SCRIPTS.md]]
 
 ---
 

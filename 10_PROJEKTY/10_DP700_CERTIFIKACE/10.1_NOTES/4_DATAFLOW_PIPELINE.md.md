@@ -69,10 +69,10 @@ Orchestration engine.
 
 ## 🔗 INTERNÍ LINKY
 
-- Back: [[3_DELTA_LAKE|3. Delta Lake]]
-- Next: [[5_MEDALLION_ARCHITEKTURA|5. Medallion]]
-- Praxe: [[3_LAB_DATAFLOW|Lab 3]]
-- Cheatsheet: [[30_ZDROJE/EXTERNAL_LINKS|Resources]]
+- Back: [[3_DELTA_LAKE.md]]
+- Next: [[5_MEDALLION_ARCHITEKTURA.md]]
+- Praxe: [[3_LAB_DATAFLOW.md]]
+- Cheatsheet: [[30_ZDROJE/EXTERNÍ_LINKY]]
 
 ---
 

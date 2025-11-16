@@ -66,10 +66,10 @@ lakehouse/
 
 ## 🔗 INTERNÍ LINKY
 
-- Back: [[4_DATAFLOW_PIPELINE|4. Dataflow]]
-- Next: [[6_REAL_TIME|6. Real-Time]]
-- Case Study: [[13_CASE_STUDIES|Case Studies]]
-- Architecture: [[20_OBLASTI/20_KARIÉRNÍ_RŮST|Career]]
+- Back: [[4_DATAFLOW_PIPELINE.md]]
+- Next: [[6_REAL_TIME.md]]
+- Case Study: [[13_CASE_STUDIES.md]]
+- Architecture: [[20_OBLASTI/20_KARIÉRNÍ_RŮST]]
 
 ---
 
@@ -80,4 +80,4 @@ lakehouse/
 - Data Architecture: https://www.databricks.com/blogs/2019/08/01/delta-lake-underlying-machinery-open-format.html
 
 ---
-## NEXT -> 
+## NEXT -> [[6_REAL_TIME.md]]
