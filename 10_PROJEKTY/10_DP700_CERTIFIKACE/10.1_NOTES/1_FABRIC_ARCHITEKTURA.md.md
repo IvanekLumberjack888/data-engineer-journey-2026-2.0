@@ -86,7 +86,7 @@ Organizační struktura pro větší organizace.
 
 ---
 
-## Praxe
+## Praktika
 
 Co dělat:
 
