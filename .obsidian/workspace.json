@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "40_ARCHIVE/new-journey.md",
+                "file": "40_ARCHIV/new-journey.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -43,7 +43,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "40_ARCHIVE/new-journey.md",
+                "file": "40_ARCHIV/new-journey.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -226,14 +226,20 @@
       "github-sync:Sync with Remote": false
     }
   },
-  "active": "ef6fadf720f573b6",
+  "active": "20d572c56895b954",
   "lastOpenFiles": [
+    "30_ZDROJE/ŠABLONY/ŠABLONA_DENNÍ_LOG.md.md",
+    "40_ARCHIV/new-journey.md",
+    "20_OBLASTI/KARIÉRNÍ_RŮST.md.md",
+    "20_POST_DP700/20_INDEX.md",
+    "10_PROJEKTY/20_POST_DP700/20_INDEX.md.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10_INDEX.md.md",
+    "20_POST_DP700",
     "20_OBLASTI",
     "20_OBLASTI/20_KARIÉRNÍ_RŮST.md",
     "10_PROJEKTY/20_POST_DP700/20.2_PORTFOLIO",
     "10_PROJEKTY/20_POST_DP700/20.1_FABRIC_DOJO",
     "40_ARCHIVE/STUDY_NOTES_CZ.md",
-    "40_ARCHIVE/new-journey.md",
     "40_ARCHIVE/SCHEDULE.md",
     "40_ARCHIVE/README.md",
     "00_MATRIX/02_CHECKLIST.md.md",
@@ -242,16 +248,14 @@
     "00_MATRIX/00_INDEX.md.md",
     "00_MATRIX/01_PLAN.md",
     "README.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10_NOTES/Bez názvu.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/Bez názvu.md",
     "LICENSE",
     "40_ARCHIVE/Bez názvu.md",
     "40_ARCHIVE/10.1_INDEX.md.md",
     "10_PROJECTS/10.1_DP700-FABRIC/10.3_EXAM_PREP",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10_NOTES",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS",
     "30_ZDROJE/30.1_LEARNING_PLATFORMS",
-    "01_DENNÍ_LOGY",
-    "10_PROJEKTY/20_POST_DP700",
-    "30_ZDROJE/30.2_CHEAT_SHEETS"
+    "01_DENNÍ_LOGY"
   ]
 }

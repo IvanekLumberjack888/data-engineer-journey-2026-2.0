@@ -50,12 +50,12 @@ DATA-ENGINEER-JOURNEY-2026/
 │   │
 │   └── 20_POST_DP700/
 │       ├── 20_INDEX.md          # Co je po certifikaci
-│       ├── 20_FABRIC_DOJO/      # Will's program
+│       ├── 20.1_FABRIC_DOJO/    # Will's program
 │       │   ├── 01_PLÁN_DOJO.md
 │       │   ├── 02_PROJEKT_REÁLNÝ.md
 │       │   └── 03_KOMUNITA.md
 │       │
-│       └── 20_PORTFOLIO/        # GitHub + LinkedIn
+│       └── 20.2_PORTFOLIO/      # GitHub + LinkedIn
 │           ├── PROJEKTY_NÁPADY.md
 │           └── CASE_STUDIES.md
 │
