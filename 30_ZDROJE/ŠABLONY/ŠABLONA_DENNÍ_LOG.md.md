@@ -10,8 +10,8 @@ Prostě každý den si zkopíruj jeden blok níže, přejmenuj na YYYY-MM-DD.md 
 
 **Plán:**
 - [ ] [[1_FABRIC_ARCHITEKTURA.md]]
-- [ ] Setup Obsidian
-- [ ] Fabric trial
+- [x] Setup Obsidian
+- [x] Fabric trial
 
 **Co jsem dělal:**
 - Přečetl jsem: 

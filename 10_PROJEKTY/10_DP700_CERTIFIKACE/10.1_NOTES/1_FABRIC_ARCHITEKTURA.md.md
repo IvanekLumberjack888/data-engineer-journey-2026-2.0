@@ -73,10 +73,10 @@ Jednotlivé tools v Fabric:
 
 Úkoly k provedení:
 
-- [ ] Login do Fabric trial: https://app.fabric.microsoft.com
-- [ ] Create workspace (název: "Learning")
-- [ ] Prozkoumej OneLake (File menu)
-- [ ] View workspace settings
+- [x] Login do Fabric trial: https://app.fabric.microsoft.com
+- [x] Create workspace (název: "Learning")
+- [x] Prozkoumej OneLake (File menu)
+- [x] View workspace settings
 - [ ] Check capacity information
 - [ ] Screenshot uložit
 
