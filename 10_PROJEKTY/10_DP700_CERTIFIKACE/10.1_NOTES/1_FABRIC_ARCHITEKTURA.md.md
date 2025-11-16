@@ -114,5 +114,4 @@ Jednotlivé tools v Fabric:
 | Jak se mění capacity v průběhu? | Vyřešit | 🟡 |
 
 ---
-
-obsidian://open?vault=data-engineering-journey-2026-2.0&file=10_PROJEKTY%2F10_DP700_CERTIFIKACE%2F10.1_NOTES%2F2_LAKEHOUSE_SPARK.md
+## NEXT -> [[2_LAKEHOUSE_SPARK.md]]

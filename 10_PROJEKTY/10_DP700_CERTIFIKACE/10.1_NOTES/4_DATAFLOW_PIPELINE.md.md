@@ -1,122 +1,86 @@
 # 4️⃣ DATAFLOW & PIPELINE
 
-## Teorie
+**Cíl:** ETL/ELT orchestration
 
-### Dataflow Gen2
+---
 
-Cloud-based ETL tool (drag-and-drop transformations).
+## 📖 TEORIE
 
-**Power Query Online interface:**
-- Visual, no-code transformations
-- Connect to 500+ data sources
-- Schedule refreshes
+### Dataflow Gen2 (Power Query Online)
 
-**Transformations dostupné:**
-- Filter (WHERE clause)
-- Group by (aggregations)
-- Merge (JOINs)
-- Append (UNION)
-- Pivot/Unpivot
-- Split column
-- Replace values
+ETL transformation tool.
+
+**Workflow:**
+1. Source (data import)
+2. Transform (Power Query)
+3. Destination (load)
+
+**Transformace:**
+- Column operations
+- Merge queries
+- Group & aggregate
 - Custom formulas
+- Error handling
 
-**Output:** Can load to:
-- Lakehouse (Tables or Files)
-- Warehouse
-- Azure Data Lake
-- etc.
+### Data Pipeline
 
-### Pipeline (Data Factory)
+Orchestration engine.
 
-Orchestration tool pro scheduling a koordinaci.
+**Komponenty:**
+- Activities (jobs)
+- Control flow (if/for)
+- Error handling
+- Scheduling
 
-**Activities:**
-- Copy data (one-time or scheduled)
-- Run Dataflow (trigger transformation)
-- Run notebook (Spark code)
-- Run SQL script
-- Wait (sleep)
-- If/else conditions
-- Loop (for each)
-- itd.
-
-**Flow control:**
-```
-Start → Copy data → Run Dataflow → Run Notebook → End
-         ├─ Success → notify
-         └─ Error → retry
-```
+**Activity Types:**
+- Copy data
+- Dataflow
+- Spark job
+- Notebook
+- SQL query
+- Python script
 
 ### ETL vs ELT
 
-**ETL (Extract, Transform, Load):**
-1. Extract (get source data)
-2. **Transform** (clean, aggregate, combine)
-3. Load (to warehouse)
+**ETL:**
+- Transform before load
+- Slower (transform first)
+- Better for warehouses
 
-**ELT (Extract, Load, Transform):**
-1. Extract (get source data)
-2. Load (raw to lake)
-3. **Transform** (in place, with SQL/Spark)
-
-**Fabric approach:** Hybrid
-- Load raw to Files (ELT part)
-- Transform with Spark/SQL in Lakehouse (Transform part)
-- Load clean to Warehouse or BI
-
-### Scheduled refresh vs Pipeline
-
-| Aspect | Dataflow refresh | Pipeline |
-|--------|------------------|----------|
-| **Trigger** | On schedule | On schedule + manual |
-| **Complexity** | Single Dataflow | Multiple activities, logic |
-| **Parallelism** | Sequential | Can run in parallel |
-| **Use case** | Simple loads | Complex orchestration |
+**ELT:**
+- Load then transform
+- Faster (load raw)
+- Better for lakes
 
 ---
 
-## Praxe
+## 🛠️ PRAXE
 
-**Part 1: Dataflow Gen2**
 - [ ] Create Dataflow
-  - New item → Dataflow Gen2
-- [ ] Connect to data source (CSV, API, SQL, etc.)
+- [ ] Add CSV source
 - [ ] Add transformations
-  - Filter
-  - Group by (aggregation)
-  - Merge (JOIN)
-- [ ] Set destination (Lakehouse table)
-- [ ] Save & Refresh
-- [ ] Check results
-
-**Part 2: Pipeline**
+- [ ] Set destination
 - [ ] Create Pipeline
-  - New item → Data pipeline
-- [ ] Add activities
-  - Copy data activity
-  - Run Dataflow activity
-  - Run notebook activity
-- [ ] Connect activities (success/failure paths)
-- [ ] Set schedule (daily, weekly, etc.)
-- [ ] Test run
+- [ ] Add Dataflow activity
+- [ ] Schedule pipeline
+- [ ] Monitor execution
 
 ---
 
-## Otázky
+## 🔗 INTERNÍ LINKY
 
-- Jaký je max refresh frequency v Dataflow?
-- Jak se pipeline triggery stackují (co když běží dlouhodoběěžně)?
-
----
-
-## Key Takeaways
-
-1. **Dataflow** = No-code ETL (Power Query)
-2. **Pipeline** = Orchestration engine (scheduling + logic)
-3. **ETL vs ELT** = Transform before/after loading
-4. **Fabric hybrid** = Load raw (ELT) + Transform (T)
+- Back: [[3_DELTA_LAKE|3. Delta Lake]]
+- Next: [[5_MEDALLION_ARCHITEKTURA|5. Medallion]]
+- Praxe: [[3_LAB_DATAFLOW|Lab 3]]
+- Cheatsheet: [[30_ZDROJE/EXTERNAL_LINKS|Resources]]
 
 ---
 
-## Next: [[5_MEDALLION_ARCHITEKTURA|5. Medallion Architektura]]
+## 🔗 EXTERNÍ LINKY
+
+- Dataflow Gen2: https://learn.microsoft.com/power-query/dataflows/dataflows-overview
+- Pipelines: https://learn.microsoft.com/fabric/data-factory/create-your-first-pipeline
+- ETL vs ELT: https://learn.microsoft.com/fabric/data-engineering/star-schema-vs-medallion
+
+---
+## NEXT -> [[5_MEDALLION_ARCHITEKTURA.md]]
