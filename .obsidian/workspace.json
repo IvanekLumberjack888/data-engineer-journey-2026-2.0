@@ -43,7 +43,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md.md",
+                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -58,7 +58,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2_LAKEHOUSE_SPARK.md"
+              "title": "1_FABRIC_ARCHITEKTURA.md"
             }
           }
         ]
@@ -228,11 +228,13 @@
   },
   "active": "20d572c56895b954",
   "lastOpenFiles": [
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md.md",
-    "40_ARCHIV/new-journey.md",
-    "30_ZDROJE/EXTERNÍ_LINKY.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/1_LAB_LAKEHOUSE.md.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/3_DELTA_LAKE.md.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/4_DATAFLOW_PIPELINE.md.md",
+    "40_ARCHIV/new-journey.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md.md",
+    "30_ZDROJE/EXTERNÍ_LINKY.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/2_LAB_SPARK.md.md",
     "30_ZDROJE/ŠABLONY/ŠABLONA_DENNÍ_LOG.md.md",
     "20_OBLASTI/KARIÉRNÍ_RŮST.md.md",

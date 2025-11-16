@@ -113,7 +113,7 @@ df.show()  # Terminal-like output
 
 ---
 
-## Praktika
+## Praxe
 
 - [ ] Create Lakehouse
   - Workspace → New item → Lakehouse

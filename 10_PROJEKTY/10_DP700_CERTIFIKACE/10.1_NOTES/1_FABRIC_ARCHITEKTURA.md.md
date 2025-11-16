@@ -1,120 +1,118 @@
 # 1️⃣ FABRIC ARCHITEKTURA
 
-## Teorie
+**Cíl:** Pochopit Fabric jako platformu a její klíčové komponenty
+
+---
+
+## 📖 TEORIE
 
 ### Co je Microsoft Fabric?
 
-Unified SaaS platforma pro end-to-end data analytics.
+SaaS platforma pro end-to-end data analytics a engineering.
 
-**Všechno v jednom místě:**
-- Data loading (ingestion)
-- Transformace (ETL/ELT)
-- Data warehouse (SQL queries)
-- Real-time analytics (events, streaming)
-- Business intelligence (dashboards, reports)
-- Machine learning (notebooks, models)
+- Všechno v jednom stacku
+- Jednotný datový model
+- Integrované nástroje
+- Cloud-native řešení
 
-### OneLake
+**Zkratky:**
+- SaaS = Software as a Service
+- ETL = Extract, Transform, Load
+- OneLake = Centrální data repository
 
-Jeden centrální data repository pro celou organizaci.
+### OneLake - Centrální úložiště
 
-**Jak funguje:**
-- Jeden OneLake per tenant (organization)
+Jeden data lake na tenant.
+
+**Charakteristiky:**
 - Hierarchická struktura (folder-like)
-- Delta Lake format (standardní)
-- Všechny Fabric experiences ho sdílí
-- Single source of truth
+- Delta Lake format (standard)
+- OneCopy - fyzicky jeden, logicky více
+- Všechny experiences ho sdílí
+- Verzování obsahu
 
-**Výhoda:** Všichni v org. mají přístup ke stejným datům, bez duplikátů
-
-### Fabric Experiences
-
-Různé tools pro různé role a use case:
-
-| Experience | Primární role | Co to dělá |
-|------------|---------------|-----------|
-| **Data Factory** | Data Engineer, Admin | Pipelines, orchestration, scheduling |
-| **Data Engineering** | Data Engineer | Lakehouse, Spark notebooks, transformace |
-| **Data Warehouse** | Data Analyst, DBA | SQL queries, T-SQL, BI queries |
-| **Real-Time Intelligence** | Data Engineer, Analyst | Eventstreams, KQL, real-time dashboards |
-| **Power BI** | BI Developer, Analyst | Reports, dashboards, visualizations |
+**Vztah:**
+- OneLake ↔ [[20_OBLASTI/20_KARIÉRNÍ_RŮST|Dlouhodobý rozvoj]]
+- OneLake ↔ Azure ADLS Gen2
 
 ### Workspace
 
-Container pro všechny Fabric items v jedné logické jednotce.
+Container pro všechny Fabric items.
 
-**Workspace obsahuje:**
-- Lakehouses
-- Warehouses
-- Dataflows
-- Pipelines
-- Reports
-- Notebooks
-- Eventstreams
-- itd.
+**Vlastnosti:**
+- Permissions (kdo má přístup)
+- Capacity (kolik resources)
+- Members (uživatelé)
+- Settings (konfigurace)
 
-**Permissions:**
-- Admin (full access)
-- Member (create + edit)
-- Contributor (limited)
-- Viewer (read-only)
+### Fabric Experiences (6 hlavních)
 
-### Capacity
+Jednotlivé tools v Fabric:
 
-Compute resources potřebné pro běh Fabric.
+1. **Data Factory** — Pipelines, orchestrace
+2. **Data Engineering** — Lakehouse, Spark notebooks
+3. **Data Warehouse** — SQL queries
+4. **Real-Time Intelligence** — Eventstreams, KQL
+5. **Power BI** — Reports, dashboards
+6. **Databases** — SQL databases
 
-**Fabric SKUs:**
-- F2 (1 CU - compute unit)
-- F4 (2 CU)
-- F8 (4 CU)
-- F16 (8 CU)
-- P1-P5 (premium - 4-32 CU)
+### Capacity & Licensing
 
-**Co kapacita zajišťuje:**
-- Refresh rates (Dataflows, pipelines)
-- Query performance (SQL, KQL)
-- Notebook compute (Spark)
-- Real-time processing
+**Fabric SKU:**
+- F2, F4, F8, F16, F32... (Fabric units)
+- Pay per hour
+- Auto-scale (volitelné)
 
-**Auto-scale:** Opcionálně povolíš, aby se kapacita automatic scala
-
-### Domains (Optional)
-
-Organizační struktura pro větší organizace.
-
-**Use case:** Rozdělení Fabric assetu po týmech/odděleních
+**License types:**
+- Premium capacity
+- Trial (60 dní zdarma)
 
 ---
 
-## Praktika
+## 🛠️ PRAXE
 
-Co dělat:
+Úkoly k provedení:
 
-- [ ] Login do Fabric trial (https://fabric.microsoft.com)
-- [ ] Create workspace (dej mu jméno "DP700-Learning")
-- [ ] Prozkoumej OneLake struktura
-- [ ] Klikni na každou Experience (jen se koukat, ne editovat)
-- [ ] Screenshot workspace struktura
-- [ ] Podívej se do Workspace settings (permissions, capacity)
-
----
-
-## Otázky k vyřešení později
-
-- Jaká je cena za Fabric per měsíc?
-- Jaký je F2 vs P1 rozdíl konkrétně?
-- Jak dlouho trvá trial?
+- [ ] Login do Fabric trial: https://app.fabric.microsoft.com
+- [ ] Create workspace (název: "Learning")
+- [ ] Prozkoumej OneLake (File menu)
+- [ ] View workspace settings
+- [ ] Check capacity information
+- [ ] Screenshot uložit
 
 ---
 
-## Key Takeaways
+## 🔗 INTERNÍ LINKY
 
-1. **Fabric = Unified Platform** — Data Factory + Warehouse + BI + Real-time ALL in one
-2. **OneLake = Central Hub** — Všechna data na jednom místě, všichni mají přístup
-3. **Experiences = Tools** — Různé nástroje pro různé lidi (data engineer, analyst, etc.)
-4. **Workspace = Container** — Logické seskupení všech itemů
-5. **Capacity = Resources** — Pay for compute, not storage
+- Next: [[2_LAKEHOUSE_SPARK|2. Lakehouse & Spark]]
+- Back: [[10_INDEX|Projekt DP-700]]
+- Checklist: [[02_CHECKLIST|Co musím zvládnout]]
 
 ---
 
-## Next: [[2_LAKEHOUSE_SPARK|2. Lakehouse & Spark]]
+## 🔗 EXTERNÍ LINKY
+
+**Microsoft Learn:**
+- Fabric Overview: https://learn.microsoft.com/en-us/fabric/get-started/microsoft-fabric-overview
+- Workspace Setup: https://learn.microsoft.com/fabric/admin/admin-overview
+
+**Official Docs:**
+- Fabric Documentation: https://learn.microsoft.com/fabric
+- OneLake: https://learn.microsoft.com/fabric/onelake/onelake-overview
+
+**YouTube:**
+- Fabric Intro: https://www.youtube.com/results?search_query=Microsoft+Fabric+introduction
+- Workspace Setup: https://www.youtube.com/results?search_query=Fabric+workspace+creation
+
+---
+
+## ❓ OTÁZKY
+
+| Otázka | Odpověď | Status |
+|--------|---------|--------|
+| Jaký je max file size v OneLake? | Vyřešit | 🟡 |
+| Jak se mění capacity v průběhu? | Vyřešit | 🟡 |
+
+---
+
+obsidian://open?vault=data-engineering-journey-2026-2.0&file=10_PROJEKTY%2F10_DP700_CERTIFIKACE%2F10.1_NOTES%2F2_LAKEHOUSE_SPARK.md
