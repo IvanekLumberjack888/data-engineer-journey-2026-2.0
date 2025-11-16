@@ -9,7 +9,7 @@ Prostě každý den si zkopíruj jeden blok níže, přejmenuj na YYYY-MM-DD.md 
 
 
 **Plán:**
-- [ ] [[1_FABRIC_ARCHITEKTURA.md]]
+- [x] [[1_FABRIC_ARCHITEKTURA.md]]
 - [x] Setup Obsidian
 - [x] Fabric trial
 
