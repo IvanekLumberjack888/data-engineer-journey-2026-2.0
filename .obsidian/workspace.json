@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md.md",
+                "file": "01_DENNÍ_LOGY/2025-11-16 (neděle) - 46. week.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "1_FABRIC_ARCHITEKTURA.md"
+              "title": "2025-11-16 (neděle) - 46. week"
             }
           }
         ]
@@ -196,48 +196,11 @@
       "github-sync:Sync with Remote": false
     }
   },
-  "floating": {
-    "id": "67ccf60a23c2466a",
-    "type": "floating",
-    "children": [
-      {
-        "id": "9fb8b8d9511888f2",
-        "type": "window",
-        "children": [
-          {
-            "id": "4860741ef49f83af",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "25f94aa91326b98c",
-                "type": "leaf",
-                "state": {
-                  "type": "webviewer",
-                  "state": {
-                    "url": "https://momentjs.com/docs/#/displaying/format/",
-                    "title": "Moment.js | Docs",
-                    "mode": "webview"
-                  },
-                  "icon": "globe-2",
-                  "title": "Moment.js | Docs"
-                }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": 385,
-        "y": 103,
-        "width": 1025,
-        "height": 802,
-        "maximize": false,
-        "zoom": 0
-      }
-    ]
-  },
-  "active": "25f94aa91326b98c",
+  "active": "3f206976cfa9f217",
   "lastOpenFiles": [
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md.md",
+    "README.md",
+    "Pasted image 20251116175433.png",
     "01_DENNÍ_LOGY/2025-11-16 (neděle) - 46. week.md",
     "30_ZDROJE/ŠABLONY/ŠABLONA_DENNÍ_LOG.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10_INDEX.md",
@@ -262,7 +225,6 @@
     "10_PROJEKTY/20_POST_DP700/20.1_FABRIC_DOJO/03_KOMUNITA.md.md",
     "10_PROJEKTY/20_POST_DP700/20.1_FABRIC_DOJO/02_PROJEKT_REÁLNÝ.md.md",
     "10_PROJEKTY/20_POST_DP700/20.1_FABRIC_DOJO/01_PLÁN_DOJO.md.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/2_LAB_SPARK.md.md",
     "20_POST_DP700",
     "20_OBLASTI",
     "10_PROJEKTY/20_POST_DP700/20.2_PORTFOLIO",

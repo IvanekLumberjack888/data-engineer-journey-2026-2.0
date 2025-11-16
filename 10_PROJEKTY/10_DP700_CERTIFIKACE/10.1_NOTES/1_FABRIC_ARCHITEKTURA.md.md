@@ -77,16 +77,8 @@ Jednotlivé tools v Fabric:
 - [x] Create workspace (název: "Learning")
 - [x] Prozkoumej OneLake (File menu)
 - [x] View workspace settings
-- [ ] Check capacity information
-- [ ] Screenshot uložit
-
----
-
-## 🔗 INTERNÍ LINKY
-
-- Next: [[2_LAKEHOUSE_SPARK|2. Lakehouse & Spark]]
-- Back: [[10_INDEX|Projekt DP-700]]
-- Checklist: [[02_CHECKLIST|Co musím zvládnout]]
+- [x] Check capacity information
+- [x] Screenshot uložit ![[Pasted image 20251116175433.png]]
 
 ---
 
@@ -108,10 +100,10 @@ Jednotlivé tools v Fabric:
 
 ## ❓ OTÁZKY
 
-| Otázka | Odpověď | Status |
-|--------|---------|--------|
-| Jaký je max file size v OneLake? | Vyřešit | 🟡 |
-| Jak se mění capacity v průběhu? | Vyřešit | 🟡 |
+| Otázka                           | Odpověď                     | Status |
+| -------------------------------- | --------------------------- | ------ |
+| Jaký je max file size v OneLake? | 10 GB                       | 🟢     |
+| Jak se mění capacity v průběhu?  | Fabric Capacity Metrics App | 🟢     |
 
 ---
 ## NEXT -> [[2_LAKEHOUSE_SPARK.md]]

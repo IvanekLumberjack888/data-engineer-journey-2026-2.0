@@ -75,11 +75,11 @@ DATA-ENGINEER-JOURNEY-2026/
 
 ### 📊 Timeline
 
-| Fáze | Období | Co | Status |
-|------|--------|-----|--------|
-| **1. Solo Study** | 17.11 - 31.12.2025 | DP-700 příprava (40 dní) | 🔴 V přípravě |
-| **2. Dojo** | 15.12 - 31.01.2026 | Real-world projekt (10 týdnů) | 🟡 Volitelně |
-| **3. Kariéra** | Dlouhodobě | Portfolio, síťování, certifikace | 🟢 Trvale |
+| Fáze              | Období             | Co                               | Status        |
+| ----------------- | ------------------ | -------------------------------- | ------------- |
+| **1. Solo Study** | 17.11 - 31.12.2025 | DP-700 příprava (40 dní)         | 🔴 V přípravě |
+| **2. Dojo**       | 15.12 - 31.01.2026 | Real-world projekt (10 týdnů)    | 🟡 Volitelně  |
+| **3. Kariéra**    | Dlouhodobě         | Portfolio, síťování, certifikace | 🟢 Trvale     |
 
 ---
 
