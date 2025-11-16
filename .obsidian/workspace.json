@@ -43,7 +43,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md.md",
+                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -58,7 +58,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "1_FABRIC_ARCHITEKTURA.md"
+              "title": "2_LAKEHOUSE_SPARK.md"
             }
           }
         ]
@@ -229,10 +229,11 @@
   "active": "20d572c56895b954",
   "lastOpenFiles": [
     "40_ARCHIV/new-journey.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md.md",
     "30_ZDROJE/EXTERNÍ_LINKY.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/1_LAB_LAKEHOUSE.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/2_LAB_SPARK.md.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md.md",
     "30_ZDROJE/ŠABLONY/ŠABLONA_DENNÍ_LOG.md.md",
     "20_OBLASTI/KARIÉRNÍ_RŮST.md.md",
     "20_POST_DP700/20_INDEX.md",
@@ -252,7 +253,6 @@
     "00_MATRIX/00_INDEX.md.md",
     "00_MATRIX/01_PLAN.md",
     "README.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/Bez názvu.md",
     "LICENSE",
     "40_ARCHIVE/Bez názvu.md",
     "40_ARCHIVE/10.1_INDEX.md.md",

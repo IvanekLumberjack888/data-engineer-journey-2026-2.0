@@ -76,4 +76,45 @@ Compute resources potřebné pro běh Fabric.
 - Notebook compute (Spark)
 - Real-time processing
 
-**Auto-scale:** Opcionálně povolíš, aby se kapacita autom
+**Auto-scale:** Opcionálně povolíš, aby se kapacita automatic scala
+
+### Domains (Optional)
+
+Organizační struktura pro větší organizace.
+
+**Use case:** Rozdělení Fabric assetu po týmech/odděleních
+
+---
+
+## Praxe
+
+Co dělat:
+
+- [ ] Login do Fabric trial (https://fabric.microsoft.com)
+- [ ] Create workspace (dej mu jméno "DP700-Learning")
+- [ ] Prozkoumej OneLake struktura
+- [ ] Klikni na každou Experience (jen se koukat, ne editovat)
+- [ ] Screenshot workspace struktura
+- [ ] Podívej se do Workspace settings (permissions, capacity)
+
+---
+
+## Otázky k vyřešení později
+
+- Jaká je cena za Fabric per měsíc?
+- Jaký je F2 vs P1 rozdíl konkrétně?
+- Jak dlouho trvá trial?
+
+---
+
+## Key Takeaways
+
+1. **Fabric = Unified Platform** — Data Factory + Warehouse + BI + Real-time ALL in one
+2. **OneLake = Central Hub** — Všechna data na jednom místě, všichni mají přístup
+3. **Experiences = Tools** — Různé nástroje pro různé lidi (data engineer, analyst, etc.)
+4. **Workspace = Container** — Logické seskupení všech itemů
+5. **Capacity = Resources** — Pay for compute, not storage
+
+---
+
+## Next: [[2_LAKEHOUSE_SPARK|2. Lakehouse & Spark]]
