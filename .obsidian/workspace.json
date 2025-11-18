@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "30_ZDROJE/SQL_SCRIPTS.md.md",
+                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "SQL_SCRIPTS.md"
+              "title": "2_LAKEHOUSE_SPARK.md"
             }
           }
         ]
@@ -196,12 +196,16 @@
       "github-sync:Sync with Remote": false
     }
   },
-  "active": "ef6fadf720f573b6",
+  "active": "3f206976cfa9f217",
   "lastOpenFiles": [
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md.md",
+    "30_ZDROJE/ŠABLONY/ŠABLONA_DENNÍ_LOG.md.md",
+    "01_DENNÍ_LOGY/2025-11-18 (úterý) - 47. week.md",
     "01_DENNÍ_LOGY/2025-11-17 (pondělí) - 47. week.md",
+    "30_ZDROJE/EXTERNÍ_LINKY.md.md",
+    "30_ZDROJE/SQL_SCRIPTS.md.md",
     "30_ZDROJE/IMAGES 🔮",
     "30_ZDROJE/IMAGES 🔮/Pasted image 20251117205057.png",
-    "30_ZDROJE/ŠABLONY/ŠABLONA_DENNÍ_LOG.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/13_CASE_STUDIES.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/12_ADMINISTRACE.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/11_CI_CD.md.md",
@@ -216,14 +220,11 @@
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md.md",
     "1_LAB_LAKEHOUSE.md",
     "01_DENNÍ_LOGY/2025-11-16 (neděle) - 46. week.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md.md",
     "README.md",
     "30_ZDROJE/IMAGES 🔮/Pasted image 20251116175433.png",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10_INDEX.md",
     "2025-11-16.md",
-    "30_ZDROJE/EXTERNÍ_LINKY.md.md",
     "30_ZDROJE/KQL_PŘÍKAZY.md.md",
-    "30_ZDROJE/SQL_SCRIPTS.md.md",
     "30_ZDROJE/PYSPARK_KÓDY.md.md",
     "40_ARCHIV/new-journey.md",
     "20_POST_DP700",
