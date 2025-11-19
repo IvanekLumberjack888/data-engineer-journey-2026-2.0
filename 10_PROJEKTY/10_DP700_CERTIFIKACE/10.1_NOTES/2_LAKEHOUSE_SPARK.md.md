@@ -84,10 +84,10 @@ df.write.saveAsTable("table_name")
 
 Úkoly:
 
-- [ ] Create Lakehouse (viz [[1_LAB_LAKEHOUSE.md]])
-- [ ] Upload sample CSV
-- [ ] Query via SQL endpoint
-- [ ] Create Spark notebook
+- [x] Create Lakehouse (viz [[1_LAB_LAKEHOUSE.md]])
+- [x] Upload sample CSV
+- [x] Query via SQL endpoint
+- [x] Create Spark notebook
 - [ ] Load DataFrame z table
 - [ ] Transform data (filter, select)
 - [ ] Write back to table
