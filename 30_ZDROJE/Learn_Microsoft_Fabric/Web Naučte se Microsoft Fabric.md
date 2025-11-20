@@ -1,4 +1,4 @@
-# Why you should watch this course! - Fabric Foundation Microsoft Fabric
+# 🚀 Why you should watch this course! - Fabric Foundation Microsoft Fabric
 https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=8abba5d02fa241aab9af28a738319f8d
 
 ---
@@ -73,7 +73,7 @@ Tento kurz **pokrývá všechny klíčové aspekty Microsoft Fabric** — od dů
 ---
 ---
 
-# Shrnutí obsahu „The story of Houston Electrics“ – Fabric Foundation
+# 🚀 The story of Houston Electrics – Fabric Foundation
 
 ---
 
@@ -144,3 +144,84 @@ Tento příběh vysvětluje, **jaké typické problémy ve firmách Fabric řeš
 ---
 ---
 
+# 🚀 How Fabric is different – Fabric Foundation
+
+---
+
+## Jak se Microsoft Fabric liší od starých datových platforem
+
+- V rámci Fabric je celá rodina datových produktů rozdělená do čtyř hlavních oblastí:
+    
+    - Data ingestion (samoobslužné načítání dat)
+        
+    - Data storage (ukládání dat)
+        
+    - Data engineering (datové inženýrství)
+        
+    - Data science & business intelligence
+        
+
+---
+
+## Největší mýty o Fabric
+
+- Častý omyl: Fabric je „jen přemalovaný Power BI nebo stávající technologie“. **Ve skutečnosti byl vyvinut úplně od základu** – odpovídá na klíčové problémy, které mají firmy se správou dat.
+    
+
+---
+
+## Hlavní inovace Fabric
+
+1. **OneLake ruší datová sila**
+    
+    - Veškerá firemní data jsou v jednom místě – OneLake.
+        
+    - _Konec kopírování dat mezi odděleními._
+        
+2. **Jediná kopie datasetu**
+    
+    - Každý dataset existuje v systému pouze na jednom místě, ostatní týmy data pouze „odkazují“ pomocí Shortcuts.
+        
+3. **Jednotný otevřený formát – Delta Parquet**
+    
+    - Všechny tabulková data jsou ukládána v OneLake v Delta Parquet formátu – usnadňuje integraci mezi týmy i technologiemi.
+        
+4. **Jednotné rozhraní pro všechny role**
+    
+    - Přihlašujete se do stejných webových stránek (podobné Microsoft 365), všechny součásti Fabric vypadají a ovládají se velmi podobně.
+        
+    - Zvyšuje efektivitu – neřešíte rozdíly mezi platformami.
+        
+5. **Jednotný způsob správy přístupů a bezpečnosti**
+    
+    - Všechna oprávnění a bezpečnostní politiky jsou spravovány jednotně přes Workspaces.
+        
+    - Zjednodušená správa napříč celou organizací.
+        
+6. **Lepší governance a dohledatelnost**
+    
+    - Všechna data jsou snadno dohledatelná, governance je centrální.
+        
+    - Fabric nabízí vestavěné funkce pro správu datasetů.
+        
+7. **Jedno monitorovací centrum**
+    
+    - Fabric Monitoring Hub monitoruje veškerou infrastrukturu na jednom místě.
+        
+8. **Zjednodušené billing/licence**
+    
+    - Stačí koupit kapacitu Fabric a máte přístup ke všem funkcím – žádné další produkty/licence.
+        
+    - Power BI Premium capcity lze využít i pro Fabric.
+        
+
+---
+
+**Shrnutí:**  
+Fabric znamená sjednocení, otevřenost, jednoduchost a efektivitu pro celou datovou organizaci. Vše je postaveno tak, aby zmizely datová sila, složitá správa, duplicity a problémy s integrací dat mezi týmy.
+
+1. [https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=214c577eb0334ea993d4dfa4120296cb](https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=214c577eb0334ea993d4dfa4120296cb)
+   
+---
+---
+# 🚀 
