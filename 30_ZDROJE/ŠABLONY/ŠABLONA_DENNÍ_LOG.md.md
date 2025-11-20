@@ -53,7 +53,7 @@ Prostě každý den si zkopíruj jeden blok níže, přejmenuj na YYYY-MM-DD.md 
 
 **Plán:**
 - [ ] [[2_LAKEHOUSE_SPARK|Lakehouse & Spark]]
-- [ ] [[1_LAB_LAKEHOUSE|Lab 1]] - pokračování
+- [ ] [[1_LAB_LAKEHOUSE.md]] - pokračování
 
 **Co jsem dělal:**
 - Přečetl jsem: 
