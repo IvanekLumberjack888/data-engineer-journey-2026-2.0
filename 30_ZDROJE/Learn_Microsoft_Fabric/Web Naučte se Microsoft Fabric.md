@@ -224,4 +224,180 @@ Fabric znamená sjednocení, otevřenost, jednoduchost a efektivitu pro celou da
    
 ---
 ---
-# 🚀 
+# 🚀 Fundamental concepts in Fabric – Fabric Foundation
+
+---
+
+## Hlavní koncepty v Microsoft Fabric
+
+- Většina uživatelů **nepracuje přímo s OneLake** – hlavní aktivita probíhá v tzv. „experiencích“ Fabricu.
+    
+
+---
+
+## Co je „Fabric experience“?
+
+- Experience je **seskupení nástrojů podle rolí**.
+    
+- Každá role v datové oblasti má svůj vlastní set: například Data Engineering experience obsahuje vše, co potřebuje datový inženýr.
+    
+
+---
+
+## Sedm základních „experiencí“ v Microsoft Fabric
+
+- **Data Factory** – stavba pipelines a transformace dat
+    
+- **Data Warehouse** – transakční datový sklad pro strukturovaná data (SQL)
+    
+- **Data Engineering** – nástroje pro datové inženýrství, Lakehouse, notebooky
+    
+- **Data Science** – nástroje pro ML experimenty, modelování, notebooky
+    
+- **Real-time Analytics** – zpracování a ukládání dat v reálném čase (KQL engine)
+    
+- **Power BI** – BI reporty pro vizualizaci dat
+    
+- **Data Activator** – automatizace akcí podle vzorců v datech (např. spouštění workflow při detekci události v datech)
+    
+
+---
+
+## 4 výpočetní enginy Fabricu
+
+- **SQL engine** – pro Data Warehouse, umí T-SQL
+    
+- **Spark engine** – pro Data Engineering/Data Science, umí Python (PySpark), R, Scala, SparkSQL
+    
+- **KQL engine** – pro Real-time Analytics (dotazy v KQL)
+    
+- **Analysis Services engine** – pro Power BI
+    
+
+---
+
+## Princip: Oddělení úložiště od výpočtu
+
+- **Uživatel pracuje s jednotlivými experiences**
+    
+- **Výpočetní engine působí jako překladač mezi uživatelem/UI a úložištěm (OneLake)**
+    
+- Například SQL engine vezme SQL dotaz, převede ho na dotaz do Delta tabulek v OneLake, vrátí výsledek do Data Warehouse UI.
+    
+
+---
+
+Tento koncept **umožňuje jednotnou správu dat, snadné zabezpečení** i governance napříč všemi datovými platformami a rolemi v organizaci. Každý engine je optimalizován pro jiné uživatelské scénáře a typy datových úloh.
+
+1. [https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=1ad2fc9aa60f4bd08608e2dedba75893](https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=1ad2fc9aa60f4bd08608e2dedba75893)
+
+---
+---
+
+# 🚀 Data Factory experience – Fabric Foundation
+
+---
+
+## Hlavní zaměření Data Factory v Microsoft Fabric
+
+- **Jádro:** Pohyb a transformace dat (ETL – Extract, Transform, Load).
+    
+- **Klíčový scénář:** Přenést nová data do Fabric, např. z externího API nebo firemních systémů.
+    
+- **Podobnost s:** Azure Data Factory, Synapse Pipelines, Power BI Data Flow (Gen 1).
+    
+- **Určeno pro:** Enterprise škálu – zvládne velké objemy dat i vysokou frekvenci obnovení.
+    
+
+---
+
+## Hlavní objekty v Data Factory experience
+
+- **Data Pipelines:** Orchestrace zpracování dat – např. spuštění Fabric Notebooku podle plánu, volání uložených procedur, přenos dat do Fabric.
+    
+- **Dataflows:** No-code/low-code nástroj s Power Query rozhraním – umožňuje napojit přes 300 zdrojů dat, transformovat je a zapsat do Lakehouse či Data Warehouse v rámci Fabric.
+    
+
+---
+
+## Pro koho je Data Factory určena
+
+- **Datoví inženýři**
+    
+- **Vývojáři Power BI**
+    
+
+---
+
+## Další zdroje k tématu
+
+- Data Factory – high-level video overview
+    
+- Dataflows v Fabric – přehled
+    
+- Novinky v Data Factory (YouTube)
+    
+- Nejčastější scénáře pro data pipeline (YouTube)
+    
+- Kompletní end-to-end projekt s Dataflows
+    
+
+---
+
+Data Factory je hlavním místem v rámci Fabric pro orchestraci a automatizaci pohybu dat napříč všemi dalšími částmi platformy. Otevírá jednoduchý i robustní způsob jak budovat ETL procesy s minimem kódu i v enterprise prostředí.
+
+1. [https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=2ca9b39c8f24466983f937038c1ac962](https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=2ca9b39c8f24466983f937038c1ac962)
+
+---
+---
+
+# 🚀## Data Engineering experience – Fabric Foundation
+
+---
+
+## Hlavní účel Data Engineering v Microsoft Fabric
+
+- Umožňuje **návrh, stavbu a správu infrastruktury a systémů**, které podporují organizaci při sběru, ukládání, zpracování a analýze velkých objemů dat.
+    
+- Příklady podobných nástrojů: **Azure Data Lake Services (ADLS Gen2), Databricks, Snowflake**.
+    
+
+---
+
+## Klíčové objekty Data Engineering experience
+
+- **Lakehouse**: Kombinace datového jezera a skladiště – umožňuje ukládat nestrukturovaná data (soubory) a pomocí notebooků je převádět na strukturované tabulky.
+    
+- **Fabric Notebook**: Skriptovací prostředí pro data engineering úlohy (čištění, validace dat atd.), podporuje Python, R a Scala, běží na Apache Spark.
+    
+- **Data Pipeline**: Orchestrace datových workflow (automatizované kroky i napojení na další části Fabric).
+    
+- **Spark job definition**: Definice úloh pro Spark cluster (vstupní/výstupní data, transformace, nastavení běhu apod.).
+    
+
+---
+
+## Pro koho je určena
+
+- **Datoví inženýři** – hlavní cílová skupina tohoto pracovního prostoru.
+    
+
+---
+
+## Další zdroje a doporučení
+
+- Videoprůvodce: „Lakehouse Complete Guide (YouTube)“
+    
+- Dokumentace: Přehled Data Engineering v Microsoft Fabric
+    
+
+---
+
+Tato „experience“ je základní stavební kámen pro datové inženýry ve Fabric, kde vytváří a spravují datovou architekturu, připravují data pro analytické i BI scénáře, často ve spolupráci s dalšími rolemi v datovém týmu.
+
+1. [https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=ebfe2960e1c5457da278f9e45a9b4205](https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=ebfe2960e1c5457da278f9e45a9b4205)
+
+---
+---
+
+# 🚀
