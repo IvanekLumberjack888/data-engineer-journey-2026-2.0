@@ -400,4 +400,61 @@ Tato „experience“ je základní stavební kámen pro datové inženýry ve F
 ---
 ---
 
-# 🚀
+# 🚀## Data Warehouse experience – Fabric Foundation
+
+---
+
+## Hlavní účel Data Warehouse v Microsoft Fabric
+
+- Poskytuje **transakční datový sklad** se vším, co od něj čekáte:
+    
+    - tabulky, schémata, pohledy, uložené procedury
+        
+    - dotazování přes známý jazyk **T-SQL**
+        
+- Nabízí podporu **low-code/no-code**: Analytici mohou využívat vizuální skripty pro snazší práci.
+    
+- Je **“lake-centric”** – vše běží na vysoce škálovatelné architektuře, je optimalizované pro libovolně velké datové objemy.
+    
+- Není to klasický SQL Server, ale můžete používat T-SQL.
+    
+
+---
+
+## Podobné nástroje
+
+- Synapse SQL Serverless/Dedicated
+    
+- Snowflake
+    
+
+---
+
+## Klíčové objekty Data Warehouse experience
+
+- **Data Warehouse** – vlastní datový sklad, postavený na enginu Polaris (distribuovaný SQL engine).
+    
+
+---
+
+## Pro koho je určena
+
+- Správci databází
+    
+- Datoví inženýři
+    
+- Datoví analytici
+    
+
+---
+
+## Další zdroje a doporučení
+
+- Kompletní video-průvodce „Fabric Data Warehouse Complete Guide (YouTube)“
+    
+
+---
+
+Tento pracovní prostor v rámci Fabric je ideální pro ty, kdo chtějí stavět škálovatelné, transakční datové sklady s moderní architekturou napojenou na celé Fabric prostředí a OneLake.
+
+1. [https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=51f72a7d6a5f483baefac215d9cf426e](https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=51f72a7d6a5f483baefac215d9cf426e)
