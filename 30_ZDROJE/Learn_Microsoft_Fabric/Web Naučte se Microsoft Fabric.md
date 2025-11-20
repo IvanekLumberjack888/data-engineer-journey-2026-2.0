@@ -69,3 +69,78 @@ https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=8abba5d02fa241aab9a
 Tento kurz **pokrývá všechny klíčové aspekty Microsoft Fabric** — od důvodů vzniku přes hlavní koncepty až po praktické využití pro různé role v datové oblasti. Vhodné pro úplné začátečníky, pokročilé uživatele Power BI, datové inženýry i manažery, kteří potřebují o Fabric rozhodovat nebo ho vysvětlit jiným. Každá část je doplněna praktickými ukázkami a autor je připraven se podělit o své bohaté zkušenosti.
 
 1. [https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=8abba5d02fa241aab9af28a738319f8d](https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=8abba5d02fa241aab9af28a738319f8d)
+   
+---
+---
+
+# Shrnutí obsahu „The story of Houston Electrics“ – Fabric Foundation
+
+---
+
+## Úvod: Jak vznikají problémy v datové infrastruktuře (příběh Houston Electrics)
+
+- Houston Electrics je **fiktivní firma** (internetový prodejce elektrotechniky), která rychle rostla a chtěla být inovativní díky práci s daty.
+    
+- V roce 2015 najala prvního **Chief Data Officer** a spustila digitální transformaci: založila centrální datové oddělení (přes 50 lidí), investovala do cloudových technologií (Azure, AWS) a začala používat Power BI.
+    
+
+---
+
+## Realita: Organický růst způsobuje problémy
+
+- Firma má několik technických oddělení, **každé používá jiné technologie na správu a analýzu dat**.
+    
+- Data se mezi odděleními **kopírují, transformují** – vzniká spousta datových sil.
+    
+- Na příkladu workflow recenzí zákazníků:
+    
+    - Recenze se ukládají v Azure SQL databázi.
+        
+    - Data engineering tým buduje pipeline, která každé ráno kopíruje data do data lake.
+        
+    - Data science tým provádí sentiment analýzu, výsledky ukládá do další složky v data lake.
+        
+    - BI tým z Power BI sděluje výsledky produktovému týmu.
+        
+    - _Jeden workflow – čtyři technologie, čtyři formáty, všude kopie dat._
+        
+
+---
+
+## Hlavní problémy ve firmě
+
+- **Mnoho datových sil:** Oddělení mají vlastní kopie dat, špatná integrace.
+    
+- **Stovky pipeline:** Data engineering tým jen kopíruje data mezi odděleními, pipeline často selhávají, údržba zabírá většinu času.
+    
+- **Proprietární formáty:** Data science týmu trvá dlouho připravit data – různé formáty, není jistota kvality ani aktuálnosti.
+    
+- **Rozdílná uživatelská zkušenost:** Každý systém má jiné ovládání, nové zaměstnance trvá měsíce zaučit.
+    
+- **Různá pravidla pro přístup, bezpečnost, governance:** IT oddělení složitě spravuje přístupy a zabezpečení, každá technologie je jiná.
+    
+- **Složitá a nepředvídatelná fakturace:** Každý produkt má jiné licencování a model účtování, pro IT je těžké predikovat náklady.
+    
+
+---
+
+## Shrnutí: Proč je to relevantní pro Microsoft Fabric
+
+- **Fabric vznikl zejména kvůli nutnosti sjednotit a zjednodušit data infrastrukturu**, aby:
+    
+    - odstranil datová sila a kopie,
+        
+    - vytvořil jednotné formáty,
+        
+    - sjednotil uživatelskou zkušenost,
+        
+    - zjednodušil governance, zabezpečení a billing.
+        
+
+Tento příběh vysvětluje, **jaké typické problémy ve firmách Fabric řeší** – sjednocení datové platformy, snížení komplexity a údržby, zvýšení efektivity práce s daty napříč organizací.
+
+1. [https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=cd17025fb2be4fb4b85cb257693e8a31](https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=cd17025fb2be4fb4b85cb257693e8a31)
+   
+---
+---
+
