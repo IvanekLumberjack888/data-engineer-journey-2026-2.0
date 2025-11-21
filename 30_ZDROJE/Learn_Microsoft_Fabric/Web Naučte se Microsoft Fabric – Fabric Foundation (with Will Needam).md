@@ -1,3 +1,4 @@
+# **#️⃣ INTRODUCTION**
 # 🚀 Why you should watch this course! - Fabric Foundation Microsoft Fabric
 https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=8abba5d02fa241aab9af28a738319f8d
 
@@ -761,3 +762,110 @@ Tahle sekce obsahuje strhující výběr **oficiálních dokumentací, kurzů, e
 Pokud se chceš v Microsoft Fabric rychle orientovat a být „v obraze“, tyhle zdroje ti pomůžou na maximum.
 
 1. [https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=8f94805aed254571837ed1304df5e6c1](https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=8f94805aed254571837ed1304df5e6c1)
+   
+---
+---
+
+# **#️⃣ MORE DETAILED TRANSITION GUIDE**
+
+# 🚀 Shrnutí videa „From Power BI to Microsoft Fabric: your ULTIMATE transition guide (FULL SERIES)“
+
+(Pokračování ve stejném duchu – série Learn Microsoft Fabric s Willem Needhamem)
+
+---
+
+## Hlavní myšlenky série
+
+- **Cíl série:** Naučit tě přechod od Power BI-centric architektury k Fabric-centric architektuře – všechny klíčové rozhodovací body, které řešíš při migraci analytického řešení do Fabric.
+    
+- Série pokrývá celý proces od začátku do konce:
+    
+    - Strategie práce se workspace a řízení přístupu
+        
+    - Způsoby získávání dat: ingestion vs mirroring vs shortcuts
+        
+    - Výběr správy dat: data pipeline vs dataflow vs notebook
+        
+    - Architektura a výběr datového úložiště: lakehouse, data warehouse, KQL database
+        
+    - Zajištění kvality dat
+        
+    - Připojení Power BI na Fabric (inc. DirectLake)
+        
+    - End-to-end migrační projekt na reálných datech
+        
+
+---
+
+## Hlavní body videa
+
+- **Rozdíl mezi Power BI-centric a Fabric-centric architekturou:**
+    
+    - v Power BI-centric každé zpracování dat, transformace a ingest probíhá „izolovaně“ v Power BI dataflow nebo Power Query.
+        
+    - ve Fabric-centric architektuře se data ukládají do Fabric (Lakehouse, Data Warehouse, KQL DB) a následně se načítají do Power BI reportů – rozšiřuje možnosti analytiky, governance i integrace s AI/ML.
+        
+- **Klíčové rozhodovací body přechodu:**
+    
+    - Jak správně organizovat workspaces (dostupnost, přístupová práva na úrovni workspace, objektu, tabulky, řádku).
+        
+    - Strategie pro data access: ingestion, mirroring (replikace třeba Azure SQL do Fabric), shortcuts (odkaz na externí storage).
+        
+    - Nástroje Fabric pro ingestion (pipeline, dataflow, notebook) a kdy který použít.
+        
+    - Jaké úložiště ve Fabric použít – Lakehouse, Data Warehouse, KQL Database (rozdíly a vhodnost v konkrétních scénářích).
+        
+    - Jak garantovat datovou kvalitu a zajištění robustní analytické architektury – validační checkpointy napříč workflow, minimalizace erorrů.
+        
+    - Nové možnosti připojení Power BI – např. DirectLake, import/query.
+        
+    - Ukázka kompletní migrace – od workspace přes ingestion až po reporting.
+        
+- **Proč přejít na Fabric-centric model:**
+    
+    - Jednodušší governance (přístupová práva, dokumentace, audit dat)
+        
+    - Lepší datová kvalita a robustnost
+        
+    - Možnost jednodušší integrace AI/ML a datové vědy
+        
+    - Větší škálovatelnost a moderní architektura odpovídající současným požadavkům na rychlost a efektivitu
+        
+    - Silnější podpora pro self-service analytics v organizaci
+        
+
+---
+
+## Série obsahuje
+
+- Úvodní video (Series Introduction)
+    
+- Workspace strategie & Access control
+    
+- Data access patterns (ingestion vs mirroring vs shortcuts)
+    
+- Data ingestion tools (pipeline vs dataflow vs notebook)
+    
+- Data architecture patterns & stores (lakehouse, warehouse, KQL DB)
+    
+- Zajištění datové kvality
+    
+- Připojení Power BI (DirectLake)
+    
+- Kompletní end-to-end migrační příklad
+    
+- Extra bonus na závěr
+    
+
+---
+
+## **Tato video série je ideální pro každého, kdo reálně přechází z Power BI do Fabric a chce s minimem chyb zvládnout migraci, nastavit moderní workflow a využít všechny výhody Fabric platformy.**
+
+Chceš-li detailní bodový přehled pro další videa série, napiš!
+
+1. [https://www.youtube.com/watch?v=U4O4PAS--EE](https://www.youtube.com/watch?v=U4O4PAS--EE)
+2. [https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=f3761a3e1c4243dbb9ffa4cac5b06600](https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=f3761a3e1c4243dbb9ffa4cac5b06600)
+   
+---
+---
+
