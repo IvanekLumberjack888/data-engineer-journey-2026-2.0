@@ -869,3 +869,168 @@ Chceš-li detailní bodový přehled pro další videa série, napiš!
 ---
 ---
 
+# 🚀 Checklisty a podrobný rozpis nejčastějších chyb u nastavení Microsoft Fabric (podle videa „Capacities, Workspaces and Access Control“)
+
+---
+
+## 1. Nastavení kapacit
+
+**Chyby**
+
+- Příliš mnoho nebo příliš málo kapacit – chaos v billing, správa, výkon
+    
+- Nesprávné regionální nastavení (porušení GDPR, data residency)
+    
+- Špatné rozdělení workloadů mezi kapacity (např. BI vs. datové zpracování)  
+    **Checklist**
+    
+- Zvolit minimum kapacit, ideálně jednu (zjednodušení správy)
+    
+- Vytvořit dodatečné kapacity pouze:
+    
+    - pro regionální regulace (např. EU, USA)
+        
+    - pro účtování podle oddělení (nákladová střediska)
+        
+    - pro rozdělení workloadu (BI/reporting vs. ETL/ML)
+        
+- Ujistit se, že nákup kapacit odpovídá skutečné spotřebě a potřeba firmy
+    
+
+---
+
+## 2. Správa workspace
+
+**Chyby**
+
+- Přespříliš workspace – roztříštěná data, složitá orientace, náročná údržba
+    
+- Špatná struktura workspace (nejasné rozlišení rolí, vývoj/prod/test)  
+    **Checklist**
+    
+- Plánovat workspace podle:
+    
+    - týmových/persónních rolí (Data Engineering, Data Science, BI…)
+        
+    - architektury projektu (Medallion, Data Mesh…)
+        
+    - vrstvy nasazení (Development, Test, Production – ideálně naming konvencí v jednom workspace)
+        
+- Minimalizovat počet workspace:
+    
+    - Sloučit, pokud málo uživatelů/objektů, nebo podobné workflow
+        
+    - Rozlišovat workspace primárně podle spolupráce týmů, ne technologických objektů
+        
+
+---
+
+## 3. Správa přístupu a rolí
+
+**Chyby**
+
+- Individuální přidělování práv (komplikace při onboarding/offboarding, audit)
+    
+- Nejasný rozdíl mezi rolemi (admin, member, contributor, viewer)  
+    **Checklist**
+    
+- Vždy nastavovat přístup přes:
+    
+    - Entra ID security groups
+        
+    - Microsoft 365 Groups
+        
+- Přidělovat role skupinám, nikdy jednotlivcům
+    
+- Dokumentovat, kdo má jakou roli (a proč)
+    
+- Nastavit workflow pro správné mapování nových uživatelů do skupin
+    
+
+---
+
+## 4. Práva podle objektů (Fabric items)
+
+**Chyby**
+
+- Přístup na nesprávné úrovni (workspaces místo item/object level)
+    
+- Nesprávné interpretace práv u různých typů objektů  
+    **Checklist**
+    
+- Ověřit práva pro každý typ itemu:
+    
+    - admin, member, contributor: stejné pravomoci u většiny itemů
+        
+    - viewer: pouze čtení obsahu, omezené spouštění (pipeline – může spustit i zrušit)
+        
+    - u Lakehouse: viewer může pouze přes SQL endpoint, ne Spark
+        
+- Sdílet pouze objekty, které to podporují! (např. Data Pipeline, Dataflow – pouze přes workspace, nikoliv individuálně)
+    
+
+---
+
+## 5. Objekt-level sharing (tabulka, sloupec, řádek)
+
+**Chyby**
+
+- Nesprávné nastavení sdílení objektů (nefunguje vždy u Spark)
+    
+- Sdílené objekty pouze v Data Warehouse/SQL endpoint Lakehouse  
+    **Checklist**
+    
+- Pro složité scénáře používat:
+    
+    - Objektové sdílení (tabulka, pohled, sloupec, řádek)
+        
+    - Row-level security, Column-level security, Dynamic data masking
+        
+- Sdílet item/objekt pouze tam, kde to má význam (neukládat do Spark, nefunguje fine-grain security)
+    
+
+---
+
+## 6. Orchestrace napříč workspace
+
+**Chyby**
+
+- Pokusy o kopírování dat skrz různé workspace pomocí pipeline – nejde!
+    
+- Špatné plánování workflow (pipeline vs. notebook vs. dataflow vs. eventstream)  
+    **Checklist**
+    
+- Pipeline: zdroj i cíl musí být ve stejném workspace
+    
+- Notebook nebo Dataflow: lze napříč workspace, v případě potřeby orchestrace mezi projekty, používat tyto objekty
+    
+- Plánovat workflow podle možností Fabric nástrojů, ne podle starých zvyklostí z Power BI/SQL
+    
+
+---
+
+## 7. Naming konvence, dokumentace, audit
+
+**Checklist**
+
+- Vždy používat jasné naming konvence:
+    
+    - „Hedin_Automotive_Engineering_Dev“, „Hedin_Automotive_Engineering_Test“, „Hedin_Automotive_Engineering_Prod“
+        
+- Evidovat workspace, kapacity, role, itemy a jejich sdílení (technická dokumentace + průběžná maintenance)
+    
+- Udržovat seznam skupin a jejich mapování, onboarding checklist pro nové uživatele
+    
+- Kontrolovat přístup a sdílení každý kvartál (běžný security/audit proces)
+    
+
+---
+
+**Doporučení:**  
+Pro tým/středně velkou firmu doporučuji jeden workspace per tým/role, silnou naming konvenci a veškeré sdílení přes skupiny. Orchestraci na cross-workspace řešit notebookem/dataflow, kapacitu držet na minimum. Přístup auditovat a pravidelně aktualizovat.
+
+Potřebuješ konkrétní vzor checklist, technický audit nebo naming konvenci? Dej vědět, doplním detailní template!
+
+1. [https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=5247e9c3ed2e4b64858a2a5e53c36481](https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=5247e9c3ed2e4b64858a2a5e53c36481)
+   
+---
