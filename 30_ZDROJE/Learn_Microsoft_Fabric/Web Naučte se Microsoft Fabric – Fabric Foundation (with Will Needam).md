@@ -1209,3 +1209,82 @@ Tato struktura ti pomůže **rozhodnout, jaký nástroj použít v konkrétním 
 
 1. [https://www.youtube.com/watch?v=t5mUKaLWpHE](https://www.youtube.com/watch?v=t5mUKaLWpHE)
 2. [https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=76945d8a83dd4ce7a396a71642f4b28e](https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=76945d8a83dd4ce7a396a71642f4b28e)
+
+---
+---
+
+# 🚀 Shrnutí obsahu „Choosing a data store - Fabric Foundation · Learn Microsoft Fabric“
+
+---
+
+## Cíl sekce/videa
+
+- **Pomoc s výběrem správného datového úložiště v Microsoft Fabric** pro různé analytické scénáře.
+    
+
+---
+
+## Hlavní typy datových úložišť:
+
+- **Lakehouse**
+    
+- **Data Warehouse**
+    
+- **KQL Database**
+    
+
+---
+
+## Porovnání hlavních úložišť
+
+|Typ úložiště|Kdy použít|Engine|Formát dat|Vhodné scénáře|
+|---|---|---|---|---|
+|Lakehouse|Velká, nestrukturovaná/strukturovaná data, moderní ELT workflow|Spark, SQL|Delta/Parquet|Data engineering, ML, BI, reporting|
+|Data Warehouse|Strukturovaná data, transakční analytika, SQL pohledy|Polaris (SQL)|Delta/Parquet (interně)|BI reporting, SQL analytika|
+|KQL Database|Logy, telemetry, streamovaná/event data|Kusto (KQL)|KQL native|Real-time analytics, time series|
+
+---
+
+## Checklist podle scénáře
+
+- Pokud potřebuješ **dělat datové inženýrství, pokročilé datové transformace, ML — Lakehouse** (přístup přes Spark/SQL, ideální pro notebooky, work with files i tabulky).
+    
+- Pokud potřebuješ **SQL reporting, tabulkovou analytiku, BI, governance — Data Warehouse** (T-SQL, možnost pohledů, výkonná BI analytika, security na úrovni objektu).
+    
+- Pokud řešíš **real-time analýzu na event datech, telemetry, clickstream — KQL Database** (Kusto engine, KQL dotazy, rychlá analýza velkých streamovaných dat).
+    
+- _Vždy ověř, co bude typicky tvůj hlavní typ workflow_:
+    
+    - Chci robustní data engineering? → Lakehouse
+        
+    - Potřebuji bezpečnost a SQL reporting? → Data Warehouse
+        
+    - Potřebuji real-time pohledy na eventy/logy? → KQL Database
+        
+
+---
+
+## Poznámky:
+
+- Všechny typy úložišť v Fabric sdílí jednotné OneLake jádro (data v Delta/Parquet nebo nativních formátech).
+    
+- Lakehouse je vhodný pro flexibilní ingest dat i pokročilé transformace, Data Warehouse exceluje ve škálovatelném BI/reportingu s detailním security, KQL je best pro telemetry/log scénáře.
+    
+- Připojení na Power BI lze dělat prakticky z každého úložiště (Direct Lake, Import, nebo DirectQuery).
+    
+- U komplexních projektů lze vrstvy kombinovat, např. Data pipeline → Lakehouse → BI přes Data Warehouse.
+    
+
+---
+
+**Stručné pravidlo**:  
+_„Vyber podle dominantního analytického workflow, zvaž možnosti enginu, datových typů, potřeb security i očekávané integrace na reporting/BI.“_
+
+Pokud chceš tabulku s podrobným porovnáním, konkrétní workflow, nebo architekturu na míru, napiš!
+
+1. [https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=f52947275c0d4db68b1d1ad9e93c5a6a](https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=f52947275c0d4db68b1d1ad9e93c5a6a)
+2. ![[Data stores.pdf]]
+---
+---
+
+#🚀
