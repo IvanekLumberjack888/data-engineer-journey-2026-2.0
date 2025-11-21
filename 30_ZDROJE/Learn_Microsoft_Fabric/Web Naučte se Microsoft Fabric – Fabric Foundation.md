@@ -592,4 +592,172 @@ Real-time Intelligence experience umožňuje bezkódově napojit streamované zd
 ---
 ---
 
-# 🚀
+# 🚀 Power BI experience – Fabric Foundation
+
+---
+
+## Hlavní účel Power BI ve Fabric
+
+- **Power BI** je BI řešení od Microsoftu pro tvorbu reportů a vizualizaci datových poznatků pro business uživatele.
+    
+- Umožňuje vytvářet přehledné, interaktivní reporty a sdílet je v rámci firmy.
+    
+
+---
+
+## Podobné nástroje
+
+- Tableau
+    
+- Looker
+    
+
+---
+
+## Klíčové objekty Power BI experience
+
+- **Reports** – uživatelsky přívětivé BI reporty poskytující vizuální pohled na klíčová data a trendy.
+    
+- **Semantic models** (dříve: Datasets) – vše, co tvoří „back-end“ reportu v Power BI (tabulky, relace, metriky, DAX výpočty atd.).
+    
+
+---
+
+## Pro koho je určena
+
+- Business uživatelé (konzumace reportů)
+    
+- Power BI vývojáři (tvorba a správa reportů/datových modelů)
+    
+- Datoví analytici (analýzy, vizualizace)
+    
+
+---
+
+## Doporučené zdroje
+
+- [Oficiální dokumentace Power BI](https://learn.microsoft.com/en-us/power-bi/fundamentals/power-bi-overview)
+    
+
+---
+
+Power BI experience je hlavní BI/analytická vrstva Microsoft Fabric, umožňuje firmám snadno sdílet data, vizualizace a analýzy napříč organizací přes moderní interaktivní uživatelské rozhraní.
+
+1. [https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=41390a874171415f9908a13023b95ebd](https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=41390a874171415f9908a13023b95ebd)
+
+---
+---
+
+# 🚀 Data Activator experience – Fabric Foundation
+
+---
+
+## Hlavní účel Data Activator v Microsoft Fabric
+
+- **No-code prostředí pro automatické spouštění akcí** při detekci vzorců nebo podmínek ve měnících se datech.
+    
+    - Typické akce: spuštění automatizace (např. Power Automate) při splnění podmínky.
+        
+    - Sleduje data v Power BI reportech nebo v event streamech (Real-time Intelligence).
+        
+
+---
+
+## Podobné nástroje
+
+- IFTTT
+    
+- Zapier
+    
+
+---
+
+## Klíčový objekt: Reflex
+
+- **Reflex**: je centrum Data Activatoru, zde definujete:
+    
+    - _Objekty_ – co chcete monitorovat (reálná nebo virtuální entita, např. návštěvy webu).
+        
+    - _Vlastnosti_ – konkrétní sledovaná metrika (např. počet návštěv za hodinu).
+        
+    - _Spouštěče_ – hodnoty/vzorce, které vyvolají akci (např. návštěvnost nad 1000/hod).
+        
+    - _Akce_ – co se má stát (např. odeslání emailu, spuštění workflow).
+        
+
+---
+
+## Komu je určeno
+
+- Business uživatelé
+    
+- Power BI vývojáři
+    
+
+---
+
+## Doporučený zdroj
+
+- Praktický tutorial: [Data Activator na ukázkových datech](https://learn.microsoft.com/en-us/fabric/data-activator/data-activator-tutorial)
+    
+
+---
+
+Data Activator je určen k **automatizaci reakcí na data** bez nutnosti programování – umožňuje okamžité spouštění akcí při zjištění definovaného vzorce či podmínky v datech. Ideální pro monitoring, alerty a propojení s automatizačními platformami napříč Fabric.
+
+1. [https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=aec580787fdd44708b5057ac53246a0f](https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=aec580787fdd44708b5057ac53246a0f)
+
+---
+---
+
+# 🚀Zdroje k Microsoft Fabric – sekce „More resources“
+
+---
+
+## Odkazy od Microsoftu:
+
+- Produktové oznámení: aka.ms/fabric
+    
+- Digitální event Build (videa): aka.ms/build-with-analytics
+    
+- Produktový web: aka.ms/microsoft-fabric
+    
+- Dokumentace: aka.ms/fabric-docs
+    
+- E-book k Fabric: aka.ms/fabric-get-started-ebook
+    
+- Microsoft Learn moduly: aka.ms/learn-fabric
+    
+- End-to-end scénáře a tutoriály: aka.ms/fabric-tutorials
+    
+- Fabric Notes: aka.ms/fabric-notes
+    
+
+---
+
+## Osobní doporučení na kvalitní zdroje:
+
+- **Azure Synapse YouTube channel**: Série Fabric Espresso, videa s členy produktového týmu Microsoft Fabric – praktické ukázky funkcí.
+    
+- **Advancing Analytics YouTube channel**: Skvělý pro témata Lakehouse a Spark engine ve Fabric.
+    
+- **KratosBI YouTube channel**: Obsah o Fabric, zejména série Fabric Fridays (praktické příklady a tipy).
+    
+- **Tales from the Field YouTube channel**: Diskuze a roundupy z komunity Fabric (Microsoft zaměstnanci).
+    
+- **Fabric.guru**: Hloubkové technické rozbory od Sandeep Pawar.
+    
+- **Data Mozart**: Zaměřuje se hlavně na Power BI + DP-600 Fabric certifikace (skvělý obsah pro analytiky).
+    
+- **Blog Sam Debruyn**: Široká škála datových témat, poslední dobou hlavně o Fabric.
+    
+
+---
+
+## Co zde najdete?
+
+Tahle sekce obsahuje strhující výběr **oficiálních dokumentací, kurzů, e-booků, tutoriálů i komunitních blogů a YouTube kanálů**, které jsou ideální k dalšímu rozvoji ve světě Microsoft Fabric. Vhodné pro všechny role: od datových inženýrů přes BI analytiky až po tech leadery – podle preferovaného stylu učení (video, praktický projekt, dokumentace).
+
+Pokud se chceš v Microsoft Fabric rychle orientovat a být „v obraze“, tyhle zdroje ti pomůžou na maximum.
+
+1. [https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=8f94805aed254571837ed1304df5e6c1](https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=8f94805aed254571837ed1304df5e6c1)
