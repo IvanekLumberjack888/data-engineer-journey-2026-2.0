@@ -462,4 +462,134 @@ Tento pracovní prostor v rámci Fabric je ideální pro ty, kdo chtějí stavě
 ---
 ---
 
+# 🚀Data Science experience – Fabric Foundation
+
+---
+
+## Hlavní účel Data Science v Microsoft Fabric
+
+- **Kompletní workflow pro data science v rámci firmy:**
+    
+    - Průzkum dat
+        
+    - Příprava a čištění dat
+        
+    - Experimentování a modelování
+        
+    - Scoring a nasazení modelů
+        
+    - Publikace prediktivních výstupů do Power BI reportů
+        
+
+---
+
+## Co je možné tvořit v Data Science experience
+
+- **Notebooky** – hlavní nástroj pro exploraci dat a tvorbu kódu (Python, R). Používají se na zkoušení dat, experimenty a trénování ML modelů.
+    
+- **Experimenty** – přesná evidence a logování trénovacích procesů v ML (parametry, verze kódu, metriky z běhu modelu). Používají MLFlow pro tracking experimentů.
+    
+- **ML Modely** – správa a sledování verzí modelů během experimentování, možnost registrace a review díky MLFlow.
+    
+
+---
+
+## Komu je určena
+
+- **Data scientists** – hlavní cílová skupina této části.
+    
+
+---
+
+## Podobné nástroje
+
+- Azure Machine Learning
+    
+- Synapse Notebooks
+    
+- Databricks Notebooks
+    
+
+---
+
+## Doporučené zdroje
+
+- Dokumentace Data Science experience v Microsoft Fabric (learn.microsoft.com)
+    
+- Průvodce MLFlow (mlflow.org)
+    
+- Přehled ML modelů ve Fabric (learn.microsoft.com)
+    
+
+---
+
+Data Science experience ve Fabric integruje všechny nástroje potřebné pro celý životní cyklus machine learningu, od explorace až po nasazení výsledků do BI reportů — s trackováním a správou modelů i experimentů.
+
+1. [https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=7a6f319fbdae478ba52d771376128a9b](https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=7a6f319fbdae478ba52d771376128a9b)
+
+---
+---
+
+# 🚀 Real-time Intelligence experience – Fabric Foundation
+
+---
+
+## Hlavní účel Real-time Intelligence v Microsoft Fabric
+
+- **Nástroje pro ingest, správu a analýzu real-time event dat**  
+    (např. data ze senzorů, logovacích systémů, streamů).
+    
+
+---
+
+## Klíčové inovace a objekty
+
+- **Eventstream:**  
+    No-code nástroj pro registraci, zpracování a směrování streamovaných dat ke správným cílům ve Fabric.
+    
+- **KQL Database:**  
+    Datové úložiště pro streamovaná data, postavené na enginu KQL (Kusto Query Language), stejně jako Azure Data Explorer.
+    
+- **KQL Queryset:**  
+    Sada dotazů nad KQL databází, využívající jazyk KQL (vhodné pro analýzu logů, telemetrie apod.).
+    
+
+---
+
+## Komu je určena
+
+- Datoví inženýři
+    
+- IoT inženýři
+    
+- Real-time data specialisté
+    
+
+---
+
+## Podobné technologie
+
+- Azure Data Explorer
+    
+- Azure Event Hubs
+    
+- Azure Stream Analytics
+    
+
+---
+
+## Doporučené zdroje
+
+- [Real-Time Intelligence experience v Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/real-time-analytics/overview)
+    
+
+---
+
+Real-time Intelligence experience umožňuje bezkódově napojit streamované zdroje dat, ukládat je v KQL databázích, analyzovat v reálném čase a rychle reagovat na události v datech. Ideální prostředí pro IoT, telemetry a všechny scénáře, kde jsou data generována a zpracovávána „za běhu“.
+
+1. [https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=de978916ad734d7db83e9518a4375915](https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=de978916ad734d7db83e9518a4375915)
+
+---
+---
+
 # 🚀
