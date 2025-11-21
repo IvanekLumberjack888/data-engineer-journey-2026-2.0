@@ -1032,5 +1032,180 @@ Pro tým/středně velkou firmu doporučuji jeden workspace per tým/role, silno
 Potřebuješ konkrétní vzor checklist, technický audit nebo naming konvenci? Dej vědět, doplním detailní template!
 
 1. [https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=5247e9c3ed2e4b64858a2a5e53c36481](https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=5247e9c3ed2e4b64858a2a5e53c36481)
-   
+
+![[Workspaces.excalidraw]]
+
 ---
+---
+
+# 🚀 Shrnutí videa „Data pipeline vs Dataflow vs Shortcut vs Notebook in Microsoft Fabric“
+
+---
+
+## Účel videa
+
+- Pomáhá **rozhodnout**, jaké nástroje použít pro **dostávání dat do Fabric**
+    
+- Popisuje, kdy je vhodné použít:
+    
+    - Dataflow (Gen2)
+        
+    - Data pipeline
+        
+    - Fabric notebook (Spark)
+        
+    - OneLake shortcut
+        
+    - Database mirroring
+        
+
+---
+
+## Klíčová témata a checklist
+
+## 1. Dataflow Gen2
+
+- **Kdy použít:**
+    
+    - Nutnost použít některý ze 300+ konektorů
+        
+    - No-code/low-code scénáře (Power Query), přístup pro netechnické uživatele
+        
+    - Přístup k on-premise datům (jediná cesta v současnosti)
+        
+    - ETL (Extract, Transform, Load) v jednom workflow
+        
+- **Kdy ne:**
+    
+    - Velké datové objemy (může být pomalé/neefektivní v kapacitním vytížení)
+        
+    - Potřeba složité validace dat
+        
+    - Rozsáhlé control flow/looping (raději pipeline/notebook)
+        
+- **Poznámky:**
+    
+    - Lze napojit dataflow do pipeline (lepší orchestrace/logování)
+        
+    - Není podpora parametrů, looping
+        
+    - Umožňuje čtení/zápis napříč workspace
+        
+
+---
+
+## 2. Data pipeline
+
+- **Kdy použít:**
+    
+    - Potřeba orchestrace více aktivit (triggování, rozvětvené workflow, error handling)
+        
+    - Velké datové objemy (efektivnější než dataflow na kopírování dat)
+        
+    - Přístup k cloudovým zdrojům (Azure SQL, Data Lake, apod.)
+        
+    - Control flow logika (podmínky, větvení, sekvenční operace)
+        
+- **Kdy ne:**
+    
+    - Chybí transformační možnosti (musíš vkládat dataflow/notebook pro transformace)
+        
+    - Nelze napojit na on-premise data (chybí gateway support)
+        
+    - Nelze nahrávat lokální soubory
+        
+    - Omezení napříč workspace (zdroj/cíl musí být ve stejném workspace)
+        
+- **Poznámky:**
+    
+    - Podpora nested pipelines
+        
+    - Vhodné pro metadata-driven ETL orchestrace
+        
+
+---
+
+## 3. Fabric notebook (Spark/Python)
+
+- **Kdy použít:**
+    
+    - Extrakce z API (REST, client Python knihovny)
+        
+    - Složitá autentifikace, vlastní logika připojení
+        
+    - Validace dat, pokročilé testování kvality dat
+        
+    - Velké datové objemy (scale-out pomocí Spark)
+        
+    - Kód můžeš znovupoužívat a sdílet
+        
+- **Kdy ne:**
+    
+    - Nedostatek Python znalostí v týmu
+        
+    - Organizace preferuje low/no code řešení
+        
+
+---
+
+## 4. OneLake shortcut
+
+- **Kdy použít:**
+    
+    - Externí data (ADLS, Amazon S3, Dataverse)
+        
+    - Potřeba live synchronizace souborů/folderů bez ETL
+        
+    - Interní propojení tabulek napříč Fabric (omezené podle typu zdroje/cíle)
+        
+- **Kdy ne:**
+    
+    - Omezené typy dat/zdrojů, některé směry nejsou možné (např. Lakehouse → Data Warehouse neprojde shortcutem)
+        
+- **Poznámky:**
+    
+    - Pozor na cross-region egress fees (přenos mezi regiony)
+        
+    - Shortcut musí mít uživatel přístup v obou workspace (source/target)
+        
+    - Lze automatizovat přes Fabric REST API
+        
+
+---
+
+## 5. Database mirroring
+
+- **Kdy použít:**
+    
+    - Třeba realtime synchronizace dat z podporovaných databází (Snowflake, Cosmos DB, Azure SQL)
+        
+    - Chcete využít Delta/Parquet formát a time travel pro tracking změn
+        
+- **Kdy ne:**
+    
+    - Zatím v preview, omezené typy databází
+        
+
+---
+
+## Rozhodovací kritéria (kdy co zvolit):
+
+- Potřeba real-time dat → Shortcut, Database mirroring
+    
+- Velikost/škálovatelnost dat → Notebook, Pipeline
+    
+- Skillset týmu → Notebook (Pythonista), Dataflow/Pipeline (Low-code)
+    
+- Přístup k on-prem → Dataflow
+    
+- Orchestrace/workflow → Pipeline
+    
+- Náklady/efektivita → Otestuj ingestion na malém vzorku a sleduj kapacitu
+    
+
+---
+
+Tato struktura ti pomůže **rozhodnout, jaký nástroj použít v konkrétním scénáři pro ingest dat do Fabric. Pokud chceš workflow diagram nebo konkrétní příklady, stačí říct!**
+
+1. [https://www.youtube.com/watch?v=t5mUKaLWpHE](https://www.youtube.com/watch?v=t5mUKaLWpHE)
+2. [https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=76945d8a83dd4ce7a396a71642f4b28e](https://www.skool.com/microsoft-fabric/classroom/d154aad4?md=76945d8a83dd4ce7a396a71642f4b28e)
