@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "30_ZDROJE/Learn_Microsoft_Fabric/Web Naučte se Microsoft Fabric – Fabric Foundation (with Will Needam).md",
+                "file": "01_DENNÍ_LOGY/2025-11-22 (sobota) - 47. week.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Web Naučte se Microsoft Fabric – Fabric Foundation (with Will Needam)"
+              "title": "2025-11-22 (sobota) - 47. week"
             }
           }
         ]
@@ -199,10 +199,12 @@
   },
   "active": "3f206976cfa9f217",
   "lastOpenFiles": [
+    "Pasted image 20251122104926.png",
+    "30_ZDROJE/Learn_Microsoft_Fabric/Web Naučte se Microsoft Fabric – Fabric Foundation (with Will Needam).md",
+    "01_DENNÍ_LOGY/2025-11-22 (sobota) - 47. week.md",
     "Data stores.pdf",
     "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
     "Excalidraw/Drawing 2025-11-21 16.37.12.excalidraw.md",
-    "30_ZDROJE/Learn_Microsoft_Fabric/Web Naučte se Microsoft Fabric – Fabric Foundation (with Will Needam).md",
     "Excalidraw",
     "01_DENNÍ_LOGY/2025-11-21 (pátek) - 47. week.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md.md",
@@ -229,13 +231,11 @@
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/6_REAL_TIME.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/4_DATAFLOW_PIPELINE.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/5_MEDALLION_ARCHITEKTURA.md.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/3_DELTA_LAKE.md.md",
     "30_ZDROJE/IMAGES 🔮/Pasted image 20251116175433.png",
     "20_POST_DP700",
     "20_OBLASTI",
     "10_PROJEKTY/20_POST_DP700/20.2_PORTFOLIO",
     "10_PROJEKTY/20_POST_DP700/20.1_FABRIC_DOJO",
-    "LICENSE",
-    "10_PROJECTS/10.1_DP700-FABRIC/10.3_EXAM_PREP"
+    "LICENSE"
   ]
 }
