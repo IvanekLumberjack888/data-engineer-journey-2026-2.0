@@ -1319,4 +1319,146 @@ Toto video vysvětluje, co je režim Direct Lake v Microsoft Fabric a jak lze s 
 ---
 ---
 
+# 🚀 End-to-end data validation strategies in Microsoft Fabric (+ 3 DEMOS) — Kompletní český markdown shrnutí
+
+---
+
+## Proč je validace dat tak důležitá?
+
+- Bez kvalitních ověřených dat nemá smysl analyzovat ani prezentovat výstupy (ML model, Power BI report).
+    
+- Špatná data znamenají špatná rozhodnutí, finanční ztráty, ztrátu důvěry uživatelů i audity (regulace finanční/healthcare sektoru).
+    
+
+---
+
+## Co se může pokazit v analytickém pipeline?
+
+- Změny schématu zdrojových dat (nové/odstraněné sloupce, změna názvů)
+    
+- Expirace tokenů, chybějící data z API
+    
+- Špatné/trochu nečekané datové typy/formaty
+    
+- Null hodnoty ve sloupcích důležitých pro join/analýzy
+    
+- Chyby v čistících/transformačních krocích
+    
+- Nesprávně nastavené relace, duplicitní primární klíče
+    
+
+---
+
+## Problém s Power BI („black box“ v Power Query)
+
+- Mnohé transformační kroky probíhají neviditelně, bez systémové validace dat mezi kroky, což vede k problémům: komplikovaná údržba, těžké hledání chyb a problémů v datech po změně zdrojů.
+    
+
+---
+
+## Velká příležitost ve Fabric
+
+- Architektura v několika vrstvách (Medallion): raw/bronze, silver, gold tables, semantic model — každá nová vrstva = checkpoint na kvalitu dat.
+    
+- Důraz na progresivní ověřování kvality dat v každé fázi od zdroje až po finální report.
+    
+
+---
+
+## 3 typy validace dat ve Fabric
+
+1. **Schéma validace (Schema validation):**
+    
+    - Ověření: správný počet sloupců, správné datové typy, správné názvy, lze správně načíst soubor.
+        
+    - Typický nástroj: _Great Expectations_ (Python).
+        
+    - Workflow: validace příchozího souboru (např. CSV), soubory podle výsledku přesunuty do „passed/failed“ složky, logování výsledků.
+        
+2. **Validace tabulek/spark dataframe:**
+    
+    - Po čisticích/transformačních skriptech ve vrstvě (např. silver table/datový rámec).
+        
+    - Kontrola: důležité sloupce nemají null, hodnoty v očekávaném rozsahu, deduplikace, unikátní PK.
+        
+    - Nástroje: Great Expectations, Pandera (Python), DBT (SQL transformace s validací).
+        
+    - Workflow: validace Spark DataFrame, logování, přenos na další vrstvu podle výsledného statutu.
+        
+3. **Validace semantic modelu:**
+    
+    - Kontrola: správně nastavené relace, správné DAX míry, výsledky dotazů odpovídají doménovým očekáváním.
+        
+    - Nástroje: _Semantic Link_ (nová knihovna, Fabric), Great Expectations.
+        
+    - Workflow: notebook, který přes semantic link vytáhne data/míry/relace a ověří je podle pravidel.
+        
+
+---
+
+## Recenze nástrojů pro validaci ve Fabric
+
+|Nástroj|Jazyk|Složitost|Vhodné pro enterprise|Cena|Poznámky|
+|---|---|---|---|---|---|
+|Vlastní kód|Python/SQL|vysoká|špatné|zdarma|Nedoporučeno|
+|Pandera/Pantic|Python|nízká|omezené|zdarma|Jen jednoduché validace|
+|Great Expectations|Python|střední-vysoká|vynikající|zdarma|Nejkomplexnější, dokumentace, „Data Docs“|
+|DBT|SQL|střední|výborné|paid/cloud|Ověřuje při transformaci DB|
+|DAX|DAX|nízká|špatné|zdarma|Ověřuje jen semantic model|
+
+---
+
+## Enterprise monitoring kvality dat
+
+- Pokud máš stovky pipeline a datových sad, je nutné centrálně monitorovat kvalitu: logování checkpointů (např. všechny výsledky validací z _Great Expectations_ píšeš do centrální Lakehouse).
+    
+- Možnost „Data docs“ — automatická dokumentace pravidel.
+    
+- Důraz na použití jednoho nástroje pro konzistentní formát výsledků.
+    
+
+---
+
+## Failure monitoring + certifikace dat
+
+- Nová funkce Data Activator — monitoring, trigger alertů při neúspěšné validaci (Teams, Jira, e-mail).
+    
+- Certifikace datasetů: označení důvěryhodných datových sad v gold layer nebo semantic modelu → lze připojit URL k validaci.
+    
+
+---
+
+## Doporučené kroky k zavedení validace a kvality dat v organizaci
+
+- Datová kvalita musí být v jádru architektury — ne až jako poslední krok!
+    
+- Architektura musí povolit více checkpointů kvality mezi vrstvami.
+    
+- Správné nástroje, systémové logování, procesy pro řešení chyb (failure strategy).
+    
+- Využívat governance a certifikaci, sdílet validované data sets s celou organizací.
+    
+
+---
+
+## Praktické ukázky (demo notebooks - jsou k dispozici zdarma)
+
+- Ověření schématu CSV přes Great Expectations v Python notebooku (parameterizovatelné v pipeline)
+    
+- Validace datového rámce Spark, typicky ve „silver“ vrstvě, přes GE + logování do Lakehouse
+    
+- Validace semantic modelu (relationships, DAX), napojení na Semantic Link
+    
+
+---
+
+**Tento videoseriál nabízí detailní návody, jak od mikro-validace dat až po enterprise monitoring budovat skutečně důvěryhodnou datovou platformu ve Fabric. Neboj se pustit do notebooků a vyzkoušet vše v praxi — všechny materiály jsou zdarma.**[youtube](https://www.youtube.com/watch?v=wAayC-J9TsU&list=PLug2zSFKZmV3eee0W2PJU8XNJbu1dn3-P&index=6)​
+
+1. [https://www.youtube.com/watch?v=wAayC-J9TsU&list=PLug2zSFKZmV3eee0W2PJU8XNJbu1dn3-P&index=6](https://www.youtube.com/watch?v=wAayC-J9TsU&list=PLug2zSFKZmV3eee0W2PJU8XNJbu1dn3-P&index=6)
+2. ![[00 Schema validation of incoming files with GX 1.ipynb]]
+3. ![[01 Spark DF validation with GX 1.ipynb]]
+4. ![[03 Semantic model validation with GX 1.ipynb]]
+---
+---
+
 # 🚀

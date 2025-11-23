@@ -199,6 +199,9 @@
   },
   "active": "3f206976cfa9f217",
   "lastOpenFiles": [
+    "03 Semantic model validation with GX 1.ipynb",
+    "01 Spark DF validation with GX 1.ipynb",
+    "00 Schema validation of incoming files with GX 1.ipynb",
     "01_DENNÍ_LOGY/2025-11-23 (neděle) - 47. week.md",
     "03 Semantic model validation with GX.ipynb",
     "01 Spark DF validation with GX.ipynb",
@@ -224,7 +227,6 @@
     "1_LAB_LAKEHOUSE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md.md",
     "30_ZDROJE/SQL_SCRIPTS.md.md",
-    "30_ZDROJE/IMAGES 🔮",
     "30_ZDROJE/IMAGES 🔮/Pasted image 20251117205057.png",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/13_CASE_STUDIES.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/12_ADMINISTRACE.md.md",
@@ -235,7 +237,6 @@
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/7_KQL_EVENTHOUSE.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/6_REAL_TIME.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/4_DATAFLOW_PIPELINE.md.md",
-    "30_ZDROJE/IMAGES 🔮/Pasted image 20251116175433.png",
-    "20_POST_DP700"
+    "30_ZDROJE/IMAGES 🔮/Pasted image 20251116175433.png"
   ]
 }
