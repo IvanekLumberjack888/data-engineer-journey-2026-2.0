@@ -1287,4 +1287,36 @@ Pokud chceš tabulku s podrobným porovnáním, konkrétní workflow, nebo archi
 ---
 ---
 
-#🚀
+# 🚀 České shrnutí videa „Building Power BI semantic models with Direct Lake in Microsoft Fabric“:
+
+Toto video vysvětluje, co je režim Direct Lake v Microsoft Fabric a jak lze s jeho pomocí stavět extrémně rychlé Power BI reporty, i nad opravdu velkými datovými sadami.
+
+- **Režim Direct Lake** je nový způsob propojení Power BI s daty uloženými v Lakehouse (OneLake, Delta Parquet). Kombinuje výhody Importu (rychlost načítání) a Direct Query (aktuálnost dat).
+    
+- Výchozí „default semantic model“ nevzniká automaticky, musí se ručně synchronizovat, často je lepší si vytvořit vlastní nový model.
+    
+- V ukázce se pracuje s datovou sadou z Kaggle (Yelp recenze), kterou do Lakehouse načítá Python notebook.
+    
+- Vytvoření semantic modelu: vyberete požadované tabulky, nastavíte relace (například „business“ 1:N „reviews“), můžete vytvářet míry, výpočtové skupiny a spravovat role.
+    
+- Výchozí storage mód pro nové semantic modely je právě Direct Lake – to znamená, že vizualizace v reportu načítají data velmi rychle přímo z Delta Lake tabulek, ale pokaždé aktuální data.
+    
+- Není nutné nastavovat obnovování dat, protože reporty vždy pracují s čerstvými daty z Lakehouse.
+    
+- **Funkce fallback**: Pokud Direct Lake nedokáže něco zpracovat (například složitý DAX, View nebo použití SQL v modelu, které není podporováno), Fabric se automaticky přepne do režimu Direct Query.
+    
+    - Možnosti jsou: „Automatic“ (výchozí, přepíná mezi Direct Lake a Direct Query dle potřeby), „Direct Lake only“ (pokud něco nejde, report selže), „Direct Query only“ (vždy dotazuje SQL endpoint).
+        
+- Důležitá je i volba, kdy se model automaticky synchronizuje s daty (obvykle zapnuto, lze ale vypnout a ovládat aktualizace ručně například přes API).
+    
+- Závěr: Direct Lake v Microsoft Fabric je mimořádně rychlý, poskytuje čerstvá data a odstraňuje nutnost pravidelného obnovování importovaných datasetů v Power BI. V dalších videích autor pokračuje tématem validace a kvality dat.
+    
+​
+
+1. [https://www.youtube.com/watch?v=ACbBgCwTXSg](https://www.youtube.com/watch?v=ACbBgCwTXSg)
+2. [https://www.youtube.com/watch?v=wAayC-J9TsU&list=PLug2zSFKZmV3eee0W2PJU8XNJbu1dn3-P&index=6](https://www.youtube.com/watch?v=wAayC-J9TsU&list=PLug2zSFKZmV3eee0W2PJU8XNJbu1dn3-P&index=6)
+
+---
+---
+
+# 🚀
