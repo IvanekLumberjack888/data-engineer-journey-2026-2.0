@@ -90,4 +90,4 @@
 
 ---
 
-*Doplňuj nové linky jak je nacházíš!*
+![[GetDataFromKaggle-PowerBi connection modes (inc DirectLake).ipynb]]
