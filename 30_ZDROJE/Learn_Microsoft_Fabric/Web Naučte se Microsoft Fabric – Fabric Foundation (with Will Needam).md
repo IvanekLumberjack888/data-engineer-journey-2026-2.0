@@ -1461,4 +1461,112 @@ Toto video vysvětluje, co je režim Direct Lake v Microsoft Fabric a jak lze s 
 ---
 ---
 
-# 🚀
+# 🚀DESIGN END-TO-END SOLUTIONS
+
+# Guidance for designing end-to-end data solutions for your organization in Microsoft Fabric
+
+**Poslední aktualizace:** 31. 3. 2024  
+**Autor:** Will Needham (Learn Microsoft Fabric YouTube channel)
+
+## 1. Účel dokumentu
+- Existuje nekonečné množství způsobů jak nakonfigurovat Microsoft Fabric.
+- Každá organizace má jiné požadavky, data jsou v různých systémech, různé regulace, odlišné dovednosti, atd.
+
+Namísto konkrétní architektury jsou zde **vodítka a otázky** pro návrh řešení dle vašich potřeb.
+
+---
+
+## 2. Struktura dokumentu
+Obsahuje klíčová rozhodnutí:
+1. Struktura Fabric tenant (kapacity, workspace, přístupová práva)
+2. Načítání dat do Fabric
+3. Ukládání dat ve Fabric
+4. Sémantické modely ve Fabric
+5. Validace dat a modelů
+
+---
+
+## 3. Struktura Fabric tenant
+
+### Návrh kapacit
+- **Otázky:**
+  - Musíte ukládat data v konkrétní zemi/regionu (např. kvůli GDPR)?
+  - Potřebujete oddělit zpracování/ukládání dat od konzumace reportů v Power BI?
+  - Potřebujete samostatné fakturace pro oddělení?
+  - Jaký je plánovaný objem workloadů a jak důležitá je rychlost?
+
+### Návrh workspace
+- Ovlivněno správou přístupu, použitím Data Pipelines, verzováním/Git.
+- **Otázky:**
+  - Kdo potřebuje přístup ke kterým položkám? Vytvářejte workspace podle skupin.
+  - Oddělení DEV/TEST/PROD dat a přístupu?
+  - Potřebujete Git verzování v rámci Fabric?
+  - Používáte Data Pipelines? Pozor na cross-workspace limity.
+
+### Bezpečnost a přístup
+- Hlavní prostředek: Entra ID skupiny.
+- Row-Level Security (RLS) – brzy funkce OneSecurity pro šíření.
+- Přístup k datům za firewally (Private Endpoints, VNet, atd.)
+
+---
+
+## 4. Načítání dat do Fabric
+
+- **Otázky:**
+  - Data v ADLS Gen2, Amazon S3, Google Cloud Storage, Dataverse? → Shortcuts
+  - Data v Azure SQL, Snowflake, Cosmos DB? → Database Mirroring (preview)
+  - On-premise data? → Dataflow přes gateway nebo Data pipeline (preview)
+  - Real-time event data? → Eventstream
+  - Jiné? → Dataflow, Data Pipeline CopyData nebo Fabric notebook
+
+  - Předchozí Power BI Gen1 dataflows? → Portace do Dataflow Gen2
+  - Úroveň dovedností – low/no-code = Dataflows/Pipeline CopyData; Spark (Python/Scala) = pipeline + notebook.
+  - REST API s autentizací/paginací? → Fabric notebook
+  - Python knihovny? → Fabric notebook
+  - Chcete verzovat ETL? → Pipeline lze verzovat, Dataflow ne.
+
+---
+
+## 5. Výběr úložiště dat
+
+- Lakehouse, Data Warehouse, KQL database – různé typy/uživatele.
+- Vše Delta format – do určité míry vzájemně kompatibilní.
+
+### Výběr úložiště dle typu dat:
+- Strukturovaná/semi-strukturovaná/nestrukturovaná → Lakehouse (práce se soubory)
+- Real-time event data → KQL database (pro analýzy časových řad), event data lze mít i v Lakehouse.
+- Skills týmu: SQL = Data Warehouse, Python/Scala = Lakehouse.
+
+### Kombinace více úložišť
+- **Medailonová architektura:** Bronze = Lakehouse; Silver/Gold = Lakehouse/Data Warehouse.
+- Machine learning modely: nejlépe Lakehouse.
+- Vyžadujete RLS/OLS, Data Masking? Gold vrstva = Data Warehouse.
+
+---
+
+## 6. Tvorba sémantických modelů
+
+Existují tři způsoby připojení: Import, Direct Query, Direct Lake.
+
+- Používáte pohledy z Data Warehouse? Direct Lake nelze, použít Direct Query.
+- Import mode – kdy je vhodný: Malá data, není potřeba real-time, import SQL views.
+- Kombinace víc datových úložišť v jednom modelu? Lze přes Power BI Desktop a Direct Query.
+
+---
+
+## 7. Validace dat a modelů
+
+- Otevřená technologie pro ověření dat, tabulek i sémantických modelů (např. Great Expectations).
+- SQL uživatelé mohou validovat v Data Warehouse, nebo použít DBT.
+- Python: framework Great Expectations.
+- Které datové sady/sloupce jsou nejdůležitější? Jak je validovat?
+- Chcete podnikové monitorování kvality? Nejsnáze přes Great Expectations.
+
+---
+
+**Díky za přečtení!**  
+Pokud se vám dokument líbil, dejte vědět v komentáři na YouTube.  
+Dotazy a připomínky → Skool community.
+
+Will Needham  
+Learn Microsoft Fabric YouTube channel
