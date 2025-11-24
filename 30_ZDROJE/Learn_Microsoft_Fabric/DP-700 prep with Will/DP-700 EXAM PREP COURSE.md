@@ -1,4 +1,4 @@
-# Introduction
+# 🚀 Introduction
 
 # DP-700 EXAM PREP COURSE | Video 1 of 11 (Úvod) – Learn Microsoft Fabric with Will
 
@@ -193,4 +193,156 @@ _Tento markdown je podrobným přehledem z úvodního videa DP-700 série. Hodí
 ---
 ---
 
-# Workspace settings
+# 🚀 Workspace settings
+
+# Workspace Settings v Microsoft Fabric | DP-700 EXAM PREP (Video 2/11)
+
+**Témata videa na základě timeline:**
+
+- Spark Settings a tvorba vlastních Spark poolů
+    
+- Domains
+    
+- OneLake & OneLake File Explorer
+    
+- Shortcuts & Shortcut Caching
+    
+- Nastavení pro Apache Airflow Job
+    
+
+---
+
+## 1. Spark Settings
+
+**Starter Pool (výchozí Spark cluster):**
+
+- **Rychlý start:** Spark cluster je dostupný neustále (start pod 10 sekund), dokud se nespustí kód, neplatíš nic navíc.
+    
+- **Autoškálování:** 1–10 uzlů podle použité SKU, dynamická alokace executorů (Java VM procházející data v partition).
+    
+- **Distribuované výpočty:** Škálovatelnost přes více uzlů, paralelismus přes více executorů.
+    
+- **Limity starter poolu:**
+    
+    - **Velikost dat:** Nad určitou velikost už starter pool nemusí stačit, je vhodné vytvořit custom pool.
+        
+    - **Konkurence:** Větší počet uživatelů/jobů znamená nutnost custom poolu.
+        
+    - **Vysoká variabilita jobů:** Různě náročné úlohy – rozdělit do více custom poolů.
+        
+    - **Specifická práce:** Data scientist, ML training – vhodné používat custom spark pool.
+        
+
+**Custom Spark Pool:**
+
+- V workspace settings lze kromě starter poolu vytvořit vlastní pool (změna node size, autoscale, executor range).
+    
+- Vlastní pool zpomalí startup na několik minut (více jako klasický Spark).
+    
+- Po zapnutí „manage private endpoints“ ve Fabric nelze používat starter pool v tenantovi.
+    
+
+**Nastavení poolů:**
+
+- Workspace -> Spark settings -> vytvořit pool, nastavit parametry.
+    
+- **Environment:** speciální Fabric asset, kde lze nastavit Spark konfigurace a instalovat Python knihovny.
+    
+    - Environment lze použít jako default workspace environment nebo i pro individuální job/notebook.
+        
+    - Výhoda: git integrace, možnost verzování v kontrolním systému.
+        
+    - Nevýhoda: nelze použít napříč workspace, musí se duplikovat.
+        
+
+**Job-level konfigurace:**
+
+- Lze vytvořit více environmentů a přiřadit k různým notebookům/jobům.
+    
+- Optimální konfigurace pro různé úkoly.
+    
+
+---
+
+## 2. Další Spark settingy workspace:
+
+- **Reserve maximum cores:** Můžeš rezervovat maximální počet jader pro job („pessimistické plánování“ – zvyšuje stabilitu, omezuje dostupnost zdrojů pro jiné joby).
+    
+- **High concurrency:** Povolení vícenásobných Spark session pro jednoho uživatele nebo pipeline (tagování session).
+    
+- **Capacity-level settings:** Capacity admin může povolit či zakázat tvorbu custom poolů/workspaces, případně i starter pool.
+    
+
+---
+
+## 3. Domains (Domény ve Fabric)
+
+- **Logické seskupení dat:** Mapování firemní organizační struktury na Fabric — doména = skupina workspace (např. region, oddělení).
+    
+- **Role:**
+    
+    - **Fabric admin:** Správa (tvorba/mazání) domén, jmenování domain adminů, přehled všech domén.
+        
+    - **Domain admin:** Správa a přiřazování workspace do domény, jmenování domain contributorů.
+        
+    - **Domain contributor:** Workspace admin — může workspace přiřadit do domény.
+        
+- **Delegované nastavení tenant:** Defaultní sensitivity label a endorsement/certifikace lze povolit na úrovni domény.
+    
+
+---
+
+## 4. OneLake & OneLake File Explorer
+
+- Veškerá data z Fabric (lakehouse, warehouse) lze spravovat v centrálním cloudovém uložišti OneLake.
+    
+- **File Explorer:** Podobně jako OneDrive klient, umožňuje stáhnout a prohlížet obsah OneLake (jenom Delta tabulky z lakehouse/warehouse).
+    
+    - KQL databáze a Power BI semantic modely standardně nejsou viditelné v File Explorer až po aktivaci „OneLake integration“ v nastavení (nutné, aby byly v režimu import, ne direct).
+        
+- **OneLake integration:** Pro nové tabulky v KQL db a Power BI semantic modelu; existující tabulky se backfillují jen s novou funkcí.
+    
+
+---
+
+## 5. Shortcuts & Shortcut Caching
+
+- **Shortcuts:** Referencování externích dat (S3, Google Cloud Storage, ADLS Gen2).
+    
+- **Shortcut caching:** Snížení nákladů na egress u cloud providerů ukládáním dat do Azure (caching).
+    
+    - Pravidla: max 1 GB soubor, retention 1–28 dnů (po každém přístupu se prodlouží).
+        
+    - Po 24+ hodinách (nebo nastavené době) neaktivace je cache odstraněna.
+        
+
+---
+
+## 6. Apache Airflow Pools
+
+- **Orchestrátor:** Slouží ke spouštění DAGů (workflow, pipeline) — Fabric umožňuje řídit joby přes pool (nastavení node size, autoscale).
+    
+- **NENÍ hlavním tématem DP-700**, ale nastavení je nutná znát.
+    
+
+---
+
+## Doporučení
+
+- Pro praktický trénink používat hands-on tutoriály a případně bootcampy.
+    
+- Kombinovat zdroje: video, dokumentace, živé sessions.
+    
+- Správně konfigurovat Spark pooly podle reálných datových potřeb, nejen podle defaultů.
+    
+
+---
+
+_Tento markdown ti poskytne detailní zápis k Workspace Settings, Spark poolům, doménám, OneLake, shortcutům a Airflow pools v Microsoft Fabric pro přípravu na DP-700 zkoušku._[youtube](https://www.youtube.com/watch?v=-64AAqSavfo)​
+
+1. [https://www.youtube.com/watch?v=-64AAqSavfo](https://www.youtube.com/watch?v=-64AAqSavfo)
+
+---
+---
+
+# 🚀 CI/CD
