@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01_DENNÍ_LOGY/2025-11-24 (pondělí) - 48. week.md",
+                "file": "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will/DP-700 EXAM PREP COURSE.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2025-11-24 (pondělí) - 48. week"
+              "title": "DP-700 EXAM PREP COURSE"
             }
           }
         ]
@@ -199,8 +199,10 @@
   },
   "active": "3f206976cfa9f217",
   "lastOpenFiles": [
-    "30_ZDROJE/Learn_Microsoft_Fabric/Web Naučte se Microsoft Fabric – Fabric Foundation (with Will Needam).md",
     "01_DENNÍ_LOGY/2025-11-24 (pondělí) - 48. week.md",
+    "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will/DP-700 EXAM PREP COURSE.md",
+    "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will",
+    "30_ZDROJE/Learn_Microsoft_Fabric/Web Naučte se Microsoft Fabric – Fabric Foundation (with Will Needam).md",
     "03 Semantic model validation with GX 1.ipynb",
     "01 Spark DF validation with GX 1.ipynb",
     "00 Schema validation of incoming files with GX 1.ipynb",
@@ -215,7 +217,6 @@
     "30_ZDROJE/IMAGES 🔮/Pasted image 20251122104926.png",
     "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
     "Excalidraw/Drawing 2025-11-21 16.37.12.excalidraw.md",
-    "Excalidraw",
     "01_DENNÍ_LOGY/2025-11-21 (pátek) - 47. week.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md.md",
     "01_DENNÍ_LOGY/2025-11-20 (čtvrtek) - 47. week.md",
@@ -236,7 +237,6 @@
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/8_WAREHOUSE_SQL.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/7_KQL_EVENTHOUSE.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/6_REAL_TIME.md.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/4_DATAFLOW_PIPELINE.md.md",
     "30_ZDROJE/IMAGES 🔮/Pasted image 20251116175433.png"
   ]
 }
