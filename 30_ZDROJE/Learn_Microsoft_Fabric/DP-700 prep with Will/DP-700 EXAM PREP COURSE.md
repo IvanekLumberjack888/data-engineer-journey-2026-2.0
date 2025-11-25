@@ -346,3 +346,113 @@ _Tento markdown ti poskytne detailní zápis k Workspace Settings, Spark poolům
 ---
 
 # 🚀 CI/CD
+
+# CI/CD v Microsoft Fabric | DP-700 EXAM PREP (Video 3/11)
+
+**Témata videa dle timeline:**
+
+- Version Control (Git integrace)
+    
+- Deployment Pipelines
+    
+- Database Projects
+    
+
+---
+
+## 1. Version Control (Git integrace)
+
+- **Možnosti:** Lze propojit workspace s Azure DevOps nebo GitHub repozitářem.
+    
+- **Nastavení:**
+    
+    - Na úrovni tenant admina je nutné povolit integraci s Gitem v admin portálu Fabric (například povolit synchronizaci workspace items s Gitem, mezinárodní repozitáře, integrace s GitHubem).
+        
+    - Na straně Azure DevOps: je třeba nastavit organizaci, projekt, repozitář a přidat správné uživatele (musí mít oprávnění).
+        
+    - Konektivita workspace: v nastavení workspace se definuje organizace, projekt, repozitář, branch (případně složka/multirepo strategie v Gitu).
+        
+    - GitHub připojení vyžaduje osobní access token.
+        
+- **Role a oprávnění:**
+    
+    - _Admin_: může připojit workspace, měnit branch pro všechny uživatele, spravovat spojení.
+        
+    - _Member/Contributor_: mohou commitovat a pullovat změny, mohou vytvářet nové workspaces (pokud mají povoleno).
+        
+    - _Viewer_: pouze čtení, nemá práva na git operace.
+        
+- **Co se verzionuje?**
+    
+    - **NE verzionuje se:** žádná zdrojová data (tabulky, soubory v lakehouse/warehouse, schémata dat), plánovače refreshů.
+        
+    - **Ano:** struktura data warehouse (create table/view), kód notebooků, pipelines atd.
+        
+    - Pokud není něco ve version control, není to ani deployováno (například refresh schedule je třeba nastavit manuálně nebo přes API).
+        
+
+---
+
+## 2. Deployment Pipelines
+
+- **Princip:** Umožňuje posouvat položky mezi různými prostředími (běžně Dev → Test → Prod, lze nastavit až 10 stages).
+    
+- **Praktické použití:** Kopírování notebooků, pipelines, semantic models atd. mezi workspaces – testování a nasazení.
+    
+- **Proces může být manuální nebo automatizovaný** (API, PowerShell, Azure Pipelines).
+    
+- **Důležité koncepty:**
+    
+    - **Deployment rules:** Lze měnit propojená data mezi prostředími (například změnit cílový Lakehouse ve vyšším prostředí).
+        
+    - **Item pairing:** Při nasazení se propojí položky mezi prostředími (dokonce i při změně názvu zůstává logické propojení).
+        
+    - **Coverage není 100%:** Nejlepší pokrytí je pro semantic models, pipelines, notebooks.
+        
+
+---
+
+## 3. Database Projects
+
+- **Co to je:** SQL Database Project představuje způsob, jak verzovat a automatizovaně nasazovat strukturu Fabric Data Warehouse.
+    
+- **Proces:**
+    
+    - _Workspace s git integrací_: Po commitu database warehouse do Gitu vznikne SQL project (soubor .sql s CREATE TABLE atd.).
+        
+    - _Pro práci lokálně_: Klonování repozitáře, otevření v VS Code (rozšíření SQL Database Projects).
+        
+    - _Editace schématu_: Přidávání tabulek, změny struktury.
+        
+    - _Build_: Vzniká DACPAC artifact (reprezentace schématu, bez dat).
+        
+    - _Deploy_: Pomocí connection stringu lze nasadit DACPAC zpět do Fabric (a to i plně automatizovaně – např. pomocí Azure Pipelines).
+        
+- **Výhoda:** Lze automatizovat celý CI/CD proces schématu data warehouse, včetně buildů, testů, release steps.
+    
+
+---
+
+## Shrnutí: Klíčové poznatky
+
+- Správně nastavená CI/CD pipeline umožňuje:
+    
+    - verzování kódu a struktury datových objektů v Gitu (Azure DevOps, GitHub)
+        
+    - automatizované/manaulní nasazování mezi prostředími přes deployment pipelines
+        
+    - deklarativní správu datových warehouse přes SQL projects (infrastruktura jako kód)
+        
+- Vždy si dej pozor, co je a není ve version control – pouze to, co je verzováno, je opravdu automatizovatelně nasaditelné!
+    
+
+---
+
+_Doporučení: Vyzkoušej si prakticky Git integraci, deployment pipelines i SQL database projects ve vlastním test workspace s Azure DevOps nebo GitHubem._
+
+1. [https://www.youtube.com/watch?v=JhTl_fDZsE0](https://www.youtube.com/watch?v=JhTl_fDZsE0)
+
+---
+---
+
+# 🚀 Security & Governance
