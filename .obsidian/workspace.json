@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "30_ZDROJE/EXTERNÍ_LINKY.md.md",
+                "file": "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will/DP-700 EXAM PREP COURSE.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "EXTERNÍ_LINKY.md"
+              "title": "DP-700 EXAM PREP COURSE"
             }
           }
         ]
@@ -199,10 +199,12 @@
   },
   "active": "3f206976cfa9f217",
   "lastOpenFiles": [
+    "30_ZDROJE/Learn_Microsoft_Fabric/Web Naučte se Microsoft Fabric – Fabric Foundation (with Will Needam).md",
     "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will/DP-700 EXAM PREP COURSE.md",
+    "01_DENNÍ_LOGY/2025-11-25 (úterý) - 48. week.md",
+    "30_ZDROJE/EXTERNÍ_LINKY.md.md",
     "01_DENNÍ_LOGY/2025-11-24 (pondělí) - 48. week.md",
     "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will",
-    "30_ZDROJE/Learn_Microsoft_Fabric/Web Naučte se Microsoft Fabric – Fabric Foundation (with Will Needam).md",
     "03 Semantic model validation with GX 1.ipynb",
     "01 Spark DF validation with GX 1.ipynb",
     "00 Schema validation of incoming files with GX 1.ipynb",
@@ -210,7 +212,6 @@
     "03 Semantic model validation with GX.ipynb",
     "01 Spark DF validation with GX.ipynb",
     "00 Schema validation of incoming files with GX.ipynb",
-    "30_ZDROJE/EXTERNÍ_LINKY.md.md",
     "Excalidraw/Data stores.pdf",
     "GetDataFromKaggle-PowerBi connection modes (inc DirectLake).ipynb",
     "01_DENNÍ_LOGY/2025-11-22 (sobota) - 47. week.md",
@@ -236,7 +237,6 @@
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/9_MONITORING.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/8_WAREHOUSE_SQL.md.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/7_KQL_EVENTHOUSE.md.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/6_REAL_TIME.md.md",
     "30_ZDROJE/IMAGES 🔮/Pasted image 20251116175433.png"
   ]
 }
