@@ -456,3 +456,182 @@ _Doporučení: Vyzkoušej si prakticky Git integraci, deployment pipelines i SQL
 ---
 
 # 🚀 Security & Governance
+
+# Konfigurace řízení přístupu v Microsoft Fabric (DP-700)
+
+**Video:** [Configuring Access Control in Microsoft Fabric | DP-700 EXAM PREP (Video 4 of 11)]  
+**Autor:** Learn Microsoft Fabric with Will  
+**Délka:** 28 minut  
+**Obsah videa:** Bezpečnost, správa přístupu a governance v Microsoft Fabric
+
+---
+
+## 1. Úrovně řízení přístupu
+
+Microsoft Fabric umožňuje nastavovat přístup na několika úrovních:
+
+- **Úroveň workspace** – přístup ke všem objektům v workspace.
+    
+- **Úroveň položky (item)** – přístup pouze ke konkrétní položce (např. datový sklad nebo lakehouse).
+    
+- **Úroveň objektu nebo souboru** – přístup ke konkrétnímu objektu nebo souboru.
+    
+- **Granulární úroveň** – řádek, sloupec, tabulka, soubor.
+    
+
+Princip **nejmenších práv ("least privilege")**: dávejte vždy jen minimální nutná práva.
+
+---
+
+## 2. Workspace-level Access Control
+
+Role ve workspace:
+
+|Role|Práva|
+|---|---|
+|Admin|Všechna práva.|
+|Member|Většina práv, nemůže přidávat adminy ani mazat workspace.|
+|Contributor|Zápis na úrovni položek, nemůže sdílet ani měnit některé položky.|
+|Viewer|Pouze prohlížení dat (přes SQL endpoint), nemůže spouštět pipeliny.|
+
+Workspace sdílíte přes **Manage Access** → definujete uživatele/skupinu a přiřadíte roli.
+
+---
+
+## 3. Item-level Access Control
+
+- Uživatel nebo skupina dostane přístup jen ke konkrétní položce (např. jen k Data Warehousu).
+    
+- Uživatel nevidí workspace samotný, jen item přes **OneLake Catalog**.
+    
+- Bez dalších zaškrtnutých práv = pouze „read“ – tedy přístup k samotné skladbě, ne datům v tabulkách.
+    
+
+**Další volby při sdílení:**
+
+- Read all data using SQL – čtení všech dat přes T-SQL.
+    
+- Read all OneLake data – čtení přes Spark, pipeliny, externí nástroje.
+    
+- Build report on semantic model – tvorba reportů.
+    
+
+---
+
+## 4. Granulární řízení přístupu
+
+Každý typ engine (Lakehouse, Data Warehouse) má vlastní možnosti:
+
+|Typ|Metoda|Endpoint|
+|---|---|---|
+|Objektové|OneLake Data Access / Grant Select|Lakehouse/Spark/T-SQL|
+|Řádkové (RLS)|Security Policy + TVF|T-SQL (DW/Lakehouse)|
+|Sloupcové|Grant Select (columns)|T-SQL|
+
+**Pozor:** Vyšší úroveň přístupu (např. workspace Viewer) přeplní nižší nastavení.
+
+---
+
+## 5. Implementace Row Level Security (RLS)
+
+## Postup (T-SQL):
+
+1. Vytvořte schema `security` (volitelné)
+    
+2. Vytvořte Table Valued Function (TVF), která filtruje řádky podle uživatele
+    
+3. Definujte Security Policy, která tuto funkci aplikuje na konkrétní tabulku
+    
+
+sql
+
+`CREATE FUNCTION security.FilterRowForUser(@salesRep NVARCHAR) RETURNS TABLE AS RETURN SELECT * FROM Sales.Orders WHERE SalesRep = USER_NAME();`
+
+sql
+
+`CREATE SECURITY POLICY SalesOrderFilter ADD FILTER PREDICATE security.FilterRowForUser(SalesRep) ON Sales.Orders WITH (STATE = ON);`
+
+---
+
+## 6. Objektová/sloupcová bezpečnost
+
+- **Grant SELECT na konkrétní tabulku nebo sloupce**
+    
+- Sdílíte s SQL rolí nebo konkrétním uživatelem (entra ID)
+    
+- Opět – bez workspace práv
+    
+
+sql
+
+`GRANT SELECT ON Sales.Orders TO SalesReps; GRANT SELECT ON Sales.CustomerDetails (CustomerID, Name) TO SalesReps;`
+
+---
+
+## 7. OneLake Data Access (Lakehouse)
+
+- Role-based přístup k tabulkám/souborům
+    
+- V Lakehouse vytvoříte roli, přiřadíte tabulky/soubory, přidáte členy (ručně nebo podle existujících práv)
+    
+- Po aktivaci funkce už ji nelze vrátit zpět
+    
+
+---
+
+## 8. Dynamické maskování dat (Dynamic Data Masking)
+
+Zakrytí vybraných dat pro vybrané uživatele – data zůstávají neměněna v pozadí.
+
+Použití v T-SQL (při vytváření či úpravě tabulky):
+
+sql
+
+`CREATE TABLE EmployeeData (     FirstName NVARCHAR(100) MASKED WITH (FUNCTION = 'default()') ); ALTER TABLE EmployeeData ALTER COLUMN Email ADD MASKED WITH (FUNCTION = 'email()'); ALTER TABLE EmployeeData ALTER COLUMN Salary ADD MASKED WITH (FUNCTION = 'random(50000, 100000)'); ALTER TABLE EmployeeData ALTER COLUMN Phone ADD MASKED WITH (FUNCTION = 'partial(4,"X",0)');`
+
+Typy masek:
+
+- **default** – univerzální maska
+    
+- **email** – maskuje vše kromě prvního znaku a části po @
+    
+- **random** – generuje náhodné číslo (např. pro plat)
+    
+- **partial** – viditelný prefix/padding/suffix
+    
+
+**Pozor:** Maskování není bezpečnostní opatření – lze obejít chytrými dotazy.
+
+---
+
+## 9. Data Governance (označování a endorsement)
+
+- **Sensitivity label:** Ochrana informací, spravováno v Purview, nastavitelné na položkách v topbar/settings
+    
+- **Endorsement:**
+    
+    - Promoted – připravené k sdílení/reuse
+        
+    - Certified – splňuje firemní standardy (pouze určená skupina může certifikovat)
+        
+    - Master data – core datový zdroj (jen admin skupina)
+        
+
+---
+
+## Klíčové fráze pro zkoušku DP-700
+
+- **Certified:** Splňuje standardy kvality organizace
+    
+- **Master data:** Hlavní zdroj dat organizace
+    
+- **Promoted:** Připraveno k sdílení
+    
+
+---
+
+> Další DP-700 studijní materiály najdeš na fabricdojo nebo playlistu Learn Microsoft Fabric.[youtube](https://www.youtube.com/watch?v=pFvVAZCyYhc)​
+
+---
+
+1. [https://www.youtube.com/watch?v=pFvVAZCyYhc](https://www.youtube.com/watch?v=pFvVAZCyYhc)
