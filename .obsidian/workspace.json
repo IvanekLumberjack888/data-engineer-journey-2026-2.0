@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "01_DENNÍ_LOGY/2025-11-27 (čtvrtek) - 48. week.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "2025-11-27 (čtvrtek) - 48. week"
             }
           }
         ],
@@ -224,6 +224,21 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
+    "01_DENNÍ_LOGY/2025-11-26 (středa) - 48. week.md",
+    "01_DENNÍ_LOGY/2025-11-25 (úterý) - 48. week.md",
+    "01_DENNÍ_LOGY/2025-11-24 (pondělí) - 48. week.md",
+    "01_DENNÍ_LOGY/2025-11-23 (neděle) - 47. week.md",
+    "01_DENNÍ_LOGY/2025-11-22 (sobota) - 47. week.md",
+    "01_DENNÍ_LOGY/2025-11-20 (čtvrtek) - 47. week.md",
+    "01_DENNÍ_LOGY/2025-11-21 (pátek) - 47. week.md",
+    "01_DENNÍ_LOGY/2025-11-19 (středa) - 47. week.md",
+    "01_DENNÍ_LOGY/2025-11-18 (úterý) - 47. week.md",
+    "01_DENNÍ_LOGY/2025-11-17 (pondělí) - 47. week.md",
+    "01_DENNÍ_LOGY/2025-11-16 (neděle) - 46. week.md",
+    "00_MATRIX/00_INDEX.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10_INDEX.md",
+    "10_PROJEKTY/20_POST_DP700/20_INDEX.md",
+    "README.md",
     "Excalidraw/Data stores.pdf",
     "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
     "40_ARCHIV/new-journey.md",
@@ -237,20 +252,6 @@
     "30_ZDROJE/ŠABLONY/ŠABLONA_LAB.md",
     "30_ZDROJE/ŠABLONY/ŠABLONA_DENNÍ_LOG.md",
     "30_ZDROJE/Learn_Microsoft_Fabric/Web Naučte se Microsoft Fabric - Fabric Foundation (with Will Needam).md",
-    "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will/DP-700 EXAM PREP COURSE.md",
-    "00_MATRIX/00_INDEX.md",
-    "00_MATRIX/01_PLÁN.md",
-    "00_MATRIX/02_CHECKLIST.md",
-    "20_OBLASTI/KARIÉRNÍ_RŮST.md",
-    "10_PROJEKTY/20_POST_DP700/20.2_PORTFOLIO/CASE_STUDIES.md",
-    "10_PROJEKTY/20_POST_DP700/20.1_FABRIC_DOJO/03_KOMUNITA.md",
-    "10_PROJEKTY/20_POST_DP700/20.1_FABRIC_DOJO/02_PROJEKT_REÁLNÝ.md",
-    "10_PROJEKTY/20_POST_DP700/20.2_PORTFOLIO/PROJEKTY_NÁPADY.md",
-    "10_PROJEKTY/20_POST_DP700/20_INDEX.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10_INDEX.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/7_LAB_SECURITY.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/6_LAB_KQL.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/5_LAB_EVENTSTREAM.md",
     "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will",
     "03 Semantic model validation with GX 1.ipynb",
     "01 Spark DF validation with GX 1.ipynb",

@@ -11,14 +11,14 @@ Cíl: DP-700 + Real-world projekt + Portfolio
 
 **Projekt:** [[10_PROJEKTY/10_DP700_CERTIFIKACE/10_INDEX|DP-700 Certifikace]] (40 dní)
 
-Teorie → Praktika → Zkouška
+Teorie → Praxe → Zkouška
 
 ---
 
 ## 🎯 Aktuální úkoly
 
 - Teorie: Čti [[10_PROJEKTY/10_DP700_CERTIFIKACE/10_NOTES/1_FABRIC_ARCHITEKTURA|Fabric Architektura]]
-- Praktika: Dělej [[10_PROJEKTY/10_DP700_CERTIFIKACE/10_LABS/1_LAB_LAKEHOUSE|Lab 1: Lakehouse]]
+- Praxe: Dělej [[10_PROJEKTY/10_DP700_CERTIFIKACE/10_LABS/1_LAB_LAKEHOUSE|Lab 1: Lakehouse]]
 - Denní log: [[01_DENNÍ_LOGY/2025-11-17|Dnes]]
 
 ---
@@ -51,7 +51,7 @@ Teorie → Praktika → Zkouška
 
 **DP-700:**
 - Teorie: 0/13 modulů ✗
-- Praktika: 0/7 labs ✗
+- Praxe: 0/7 labs ✗
 - Připraveno: ✗
 
 **Fabric Dojo:**
