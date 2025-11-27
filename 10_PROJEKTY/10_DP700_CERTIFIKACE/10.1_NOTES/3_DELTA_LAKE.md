@@ -71,7 +71,7 @@ OPTIMIZE table_name ZORDER BY (col1, col2)
 - Back: [[2_LAKEHOUSE_SPARK]]
 - Next: [[4_DATAFLOW_PIPELINE]]
 - Praxe: [[3_LAB_DATAFLOW]]
-- Resources: [[SQL_SCRIPTS.md]]
+- Resources: [[SQL_SCRIPTS]]
 
 ---
 

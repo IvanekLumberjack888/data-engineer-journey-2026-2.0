@@ -99,7 +99,7 @@ df.write.saveAsTable("table_name")
 - Praxe: [[1_LAB_LAKEHOUSE]], [[2_LAB_SPARK]]
 - Next: [[3_DELTA_LAKE]]
 - Back: [[1_FABRIC_ARCHITEKTURA]]
-- Resources: [[PYSPARK_KÓDY.md]]
+- Resources: [[PYSPARK_KÓDY]]
 
 ---
 

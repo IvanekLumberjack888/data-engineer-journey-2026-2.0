@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00_MATRIX/00_INDEX.md",
+                "file": "40_ARCHIV/new-journey.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "00_INDEX"
+              "title": "new-journey"
             }
           }
         ],
@@ -222,8 +222,20 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "ef6fadf720f573b6",
+  "active": "e33c863b8b007f22",
   "lastOpenFiles": [
+    "30_ZDROJE/SQL_SCRIPTS.md",
+    "30_ZDROJE/SLOVNÍK_CZ.md",
+    "30_ZDROJE/SKILL_DP700_STUDY_HELPER.md",
+    "30_ZDROJE/PYSPARK_KÓDY.md",
+    "30_ZDROJE/KQL_PŘÍKAZY.md",
+    "30_ZDROJE/EXTERNÍ_LINKY.md",
+    "30_ZDROJE/ŠABLONY/ŠABLONA_POZNÁMKA.md",
+    "30_ZDROJE/ŠABLONY/ŠABLONA_LAB.md",
+    "30_ZDROJE/ŠABLONY/ŠABLONA_DENNÍ_LOG.md",
+    "30_ZDROJE/Learn_Microsoft_Fabric/Web Naučte se Microsoft Fabric - Fabric Foundation (with Will Needam).md",
+    "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will/DP-700 EXAM PREP COURSE.md",
+    "00_MATRIX/00_INDEX.md",
     "00_MATRIX/01_PLÁN.md",
     "00_MATRIX/02_CHECKLIST.md",
     "20_OBLASTI/KARIÉRNÍ_RŮST.md",
@@ -238,18 +250,6 @@
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/5_LAB_EVENTSTREAM.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/4_LAB_WAREHOUSE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/3_LAB_DATAFLOW.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/2_LAB_SPARK.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/1_LAB_LAKEHOUSE.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/13_CASE_STUDIES.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/12_ADMINISTRACE.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/10_BEZPEČNOST.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/11_CI_CD.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/9_MONITORING.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/8_WAREHOUSE_SQL.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/7_KQL_EVENTHOUSE.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/6_REAL_TIME.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/5_MEDALLION_ARCHITEKTURA.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/4_DATAFLOW_PIPELINE.md",
     "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will",
     "03 Semantic model validation with GX 1.ipynb",
     "01 Spark DF validation with GX 1.ipynb",
