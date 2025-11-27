@@ -52,32 +52,43 @@ lakehouse/
 
 ---
 
-## 🛠️ PRAXE
+## 5️⃣ MEDALLION ARCHITEKTURA
 
-- [ ] Design Medallion structure
-- [ ] Create 3 layer folders
-- [ ] Bronze: Raw data load
-- [ ] Silver: Transform Bronze
-- [ ] Gold: Aggregate Silver
-- [ ] Query each layer
-- [ ] Measure performance
+**Cíl:** Pochopit 3-vrstvou architekturu: Bronze → Silver → Gold
+
+### 🔑 3-5 Key Bullet Points (EN)
+
+- Medallion architecture defines three layers: Bronze (raw ingested data as-is), Silver (cleaned, deduplicated, validated), and Gold (business-ready aggregations)
+- Bronze layer receives all raw data with minimal transformation, serving as immutable data archive and audit trail for compliance and debugging
+- Silver layer applies data quality rules, deduplication, joins reference data, and standardizes formats, creating trusted source for analytics
+- Gold layer contains business-specific aggregations, dimensional tables, and fact tables optimized for specific use cases (reporting, ML, dashboards, APIs)
+- Each layer can use different storage formats and partitioning strategies - Bronze typically uses raw files, Silver uses Delta tables, Gold uses optimized dimensional structures
+
+### ❓ 5 DP-700 Style Exam Questions (EN)
+
+1. Your data pipeline ingests 10 million JSON records daily with some missing fields and unexpected data types. Which medallion layer should apply cleansing?
+
+2. You are building a real-time dashboard showing sales by region and product. Raw source has 50 columns but dashboard needs 5. Which layer would you query?
+
+3. A compliance audit requires proving what data was ingested 6 months ago, including errors. Which medallion layer would you use?
+
+4. Your organization has two use cases: (A) HR dashboard and (B) Supply chain ML model, both needing cleaned data but different aggregations. How to handle this?
+
+5. Your Bronze layer receives 100GB daily, but only 5GB survives deduplication in Silver. Is this normal? Which layer is responsible?
+
+### ✅ Checklist: Co musím umět (CZ)
+
+- ✅ Pochopit 3-vrstvou architekturu: Bronze → Silver → Gold
+- ✅ Definovat odpovědnost každé vrstvy
+- ✅ Implementovat Bronze vrstvu s minimálními transformacemi
+- ✅ Aplikovat data quality v Silver vrstvě
+- ✅ Vytvořit Gold vrstvu optimalizovanou pro use cases
+- ✅ Designovat partitioning strategii pro každou vrstvu
+- ✅ Implementovat UPSERT/SCD logiku v Silver a Gold
+
+### 🔗 Linky
+- Praxe: [[5_LAB_EVENTSTREAM|Lab 5: Eventstream]]
+- Následující: [[6_REAL_TIME|Note 6: Real-Time Intelligence]]
+- Zpět: [[4_DATAFLOW_PIPELINE|Note 4: Dataflow & Pipeline]]
 
 ---
-
-## 🔗 INTERNÍ LINKY
-
-- Back: [[4_DATAFLOW_PIPELINE]]
-- Next: [[6_REAL_TIME]]
-- Case Study: [[13_CASE_STUDIES]]
-- Architecture: [[20_OBLASTI/20_KARIÉRNÍ_RŮST]]
-
----
-
-## 🔗 EXTERNÍ LINKY
-
-- Medallion Pattern: https://learn.microsoft.com/fabric/onelake/medallion-lakehouse-architecture
-- Implementation Guide: https://learn.microsoft.com/en-us/azure/databricks/lakehouse/medallion-architecture
-- Data Architecture: https://www.databricks.com/blogs/2019/08/01/delta-lake-underlying-machinery-open-format.html
-
----
-## NEXT -> [[6_REAL_TIME]]
