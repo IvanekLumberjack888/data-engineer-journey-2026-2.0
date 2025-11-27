@@ -2286,3 +2286,110 @@ Klíčové oblasti, které je potřeba znát:[youtube](https://www.youtube.com/w
 ---
 
 # 🚀 Exam Tips and Tricks
+# DP‑700 Exam Tips & Tricks (Video 11/11)skool+1​
+
+## 1. Před zkouškou – rezervace a forma
+
+- Zkoušku rezervuj vždy na **osobní e‑mail**, aby certifikace zůstala navázaná na tebe, ne na zaměstnavatele (firemní účet lze později sloučit, ale je to zbytečná komplikace).[skool](https://www.skool.com/microsoft-fabric/steal-my-exam-technique-to-pass-the-dp-700-first-time-video-11-of-11)​
+    
+- Pokud můžeš, zvol **test centrum**: odpadá instalace proctoring softwaru, problémy s kamerou i riziko pádu zkoušky; domácí forma vyžaduje instalaci nástroje, vyklizený stůl, jeden monitor a je častějším zdrojem technických potíží.[skool](https://www.skool.com/microsoft-fabric/steal-my-exam-technique-to-pass-the-dp-700-first-time-video-11-of-11)​
+    
+
+---
+
+## 2. Jak se připravovat (obsah + praxe)
+
+- Nestačí jen projít video kurz – DP‑700 počítá s **hands‑on zkušeností ve Fabricu** (pipelines, Lakehouse/Warehouse, Spark, KQL, security, monitoring).learn.microsoft+1​
+    
+- Základ: projít znovu celý kurz, doplnit dokumentací na Learn, použít hands‑on laby (Fabric Dojo, oficiální Microsoft moduly, další tvůrci jako Valerie Y., Alexey P., Abu Bakar Ali) a dělat si poznámky z vlastních scénářů.learn.microsoft+1​
+    
+
+---
+
+## 3. Struktura zkoušky a čas
+
+- Dostaneš cca **52–58 otázek** a **100 minut čistého času** na odpovědi; v tom je typicky **1 case study (8–10 otázek)**.scribd+1​
+    
+- Case study může být **na začátku nebo na konci**; nelze se k ní vrátit, jakmile ji uzavřeš, takže je nutné mít předem jasnou strategii pro rozdělení času.scribd+1​
+    
+
+---
+
+## 4. Strategie, když je case study na ZAČÁTKU
+
+- **Case study**: alokuj ~30 minut (≈ 2 min na otázku) – čti scénář jen jednou, pak řeš otázky, a snaž se skončit dřív, abys získal pár minut rezervy.[skool](https://www.skool.com/microsoft-fabric/steal-my-exam-technique-to-pass-the-dp-700-first-time-video-11-of-11)​
+    
+- Zbytek (~70 min) věnuj **cca 45 ostatním otázkám**, cíl je **1 minuta na otázku**:
+    
+    - Pokud odpověď víš: odpověz a jdi dál.
+        
+    - Pokud si nejsi jistý: **tipni, označ „Mark for review“**, ale nezdržuj se u ní déle než minutu.[skool](https://www.skool.com/microsoft-fabric/steal-my-exam-technique-to-pass-the-dp-700-first-time-video-11-of-11)​
+        
+- Posledních ~10–15 min využij na návrat k označeným otázkám a teprve teď otevři Learn dokumentaci pro ověření konkrétního detailu.[skool](https://www.skool.com/microsoft-fabric/steal-my-exam-technique-to-pass-the-dp-700-first-time-video-11-of-11)​
+    
+
+---
+
+## 5. Strategie, když je case study na KONCI
+
+- Prvních ~70 minut řešíš **všechny „běžné“ otázky**:
+    
+    - Cíl: projít **všech cca 45 otázek** do 70. minuty (opět cca 1 min/otázka).[skool](https://www.skool.com/microsoft-fabric/steal-my-exam-technique-to-pass-the-dp-700-first-time-video-11-of-11)​
+        
+    - Princip: rychlé rozhodnutí, případně tip + „Mark for review“, Learn ignoruj až do doby, kdy jsi viděl všechny otázky.[skool](https://www.skool.com/microsoft-fabric/steal-my-exam-technique-to-pass-the-dp-700-first-time-video-11-of-11)​
+        
+- Zbylých ~30 minut věnuj case study (8–10 otázek); protože se nelze vracet, case study řeš v kuse a bez spolehání na to, že „se k ní vrátíš později“.scribd+1​
+    
+
+---
+
+## 6. Jak (ne)používat Microsoft Learn během zkoušky
+
+- Learn máš během DP‑700 povolený, ale je to **nejčastější past na čas** – lidé tráví 5–10 minut u jedné otázky a pak nestihnou zbytek testu.[skool](https://www.skool.com/microsoft-fabric/steal-my-exam-technique-to-pass-the-dp-700-first-time-video-11-of-11)​
+    
+- Doporučený přístup:
+    
+    - **První průchod**: Learn nepoužívej, jen odpovídej / tipuj a znač otázky pro review.
+        
+    - **Review fáze**: cíleně vyhledej 3–5 nejspornějších otázek a pomocí Learn si ověř konkrétní syntaxi/feature (ne číst celé články).[skool](https://www.skool.com/microsoft-fabric/steal-my-exam-technique-to-pass-the-dp-700-first-time-video-11-of-11)​
+        
+
+---
+
+## 7. Taktika pro jednotlivé otázky
+
+- Každou otázku + odpovědi si jednou celé přečti; nezačínej „přeskakovat“ text, jinak ti utečou podmínky (požadavek na low‑code, on‑prem, real‑time, minimalizaci nákladů atd.).[skool](https://www.skool.com/microsoft-fabric/steal-my-exam-technique-to-pass-the-dp-700-first-time-video-11-of-11)​
+    
+- Pokud jsi **>90% jistý**, odpověz a pokračuj; pokud ne, zvol nejlepší kandidát, otázku označ pro review a jdi dál – **neexistuje negativní bodování**, takže tip je vždy lepší než prázdná odpověď.reddit+1​
+    
+
+---
+
+## 8. Po zkoušce – výsledek a další kroky
+
+- Výsledek (pass/fail) se dozvíš okamžitě; detailní report ukáže, ve kterých sekcích jsi byl pod hranicí (škála 100–1000, pass je 700).shabnamwatson+1​
+    
+- Při neúspěchu použij report k identifikaci slabších oblastí a zapracuj na nich (další hands‑on, dokumentace, cílené laby), pak znovu naplánuj termín; při úspěchu počítej s **ročným online recertem zdarma**, který ověřuje, že sleduješ novinky ve Fabricu.learn.microsoft+1​
+    
+
+1. [https://www.skool.com/microsoft-fabric/steal-my-exam-technique-to-pass-the-dp-700-first-time-video-11-of-11](https://www.skool.com/microsoft-fabric/steal-my-exam-technique-to-pass-the-dp-700-first-time-video-11-of-11)
+2. [https://www.youtube.com/playlist?list=PLug2zSFKZmV2Ue5udYFeKnyf1Jj0-y5Gy](https://www.youtube.com/playlist?list=PLug2zSFKZmV2Ue5udYFeKnyf1Jj0-y5Gy)
+3. [https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-700](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-700)
+4. [https://www.scribd.com/document/949100012/DP-700-Q-A](https://www.scribd.com/document/949100012/DP-700-Q-A)
+5. [https://www.reddit.com/r/MicrosoftFabric/comments/1l98x7y/passed_dp_700_some_basic_advice/](https://www.reddit.com/r/MicrosoftFabric/comments/1l98x7y/passed_dp_700_some_basic_advice/)
+6. [https://shabnamwatson.com/2025/02/05/how-i-passed-dp-700-implementing-data-engineering-solutions-using-microsoft-fabric/](https://shabnamwatson.com/2025/02/05/how-i-passed-dp-700-implementing-data-engineering-solutions-using-microsoft-fabric/)
+7. [https://www.youtube.com/watch?v=05rEidzRgkY](https://www.youtube.com/watch?v=05rEidzRgkY)
+8. [https://www.skool.com/microsoft-fabric/classroom/4a13f708?md=c1e534c04b364d1aa714cfce4a84fe1c](https://www.skool.com/microsoft-fabric/classroom/4a13f708?md=c1e534c04b364d1aa714cfce4a84fe1c)
+9. [https://www.youtube.com/watch?v=KiB4eAeFRsw](https://www.youtube.com/watch?v=KiB4eAeFRsw)
+10. [https://www.youtube.com/watch?v=38cLTNoPLu0](https://www.youtube.com/watch?v=38cLTNoPLu0)
+11. [https://www.skool.com/microsoft-fabric/passed-dp-900-exam-tips?p=2b8543a6](https://www.skool.com/microsoft-fabric/passed-dp-900-exam-tips?p=2b8543a6)
+12. [https://www.exam-labs.com/blog/microsoft-fabric-data-engineering-dp-700-a-streamlined-certification-guide-for-2025](https://www.exam-labs.com/blog/microsoft-fabric-data-engineering-dp-700-a-streamlined-certification-guide-for-2025)
+13. [https://www.youtube.com/channel/UCrvoIYkzS-RvCEb0x7wfmwQ/about](https://www.youtube.com/channel/UCrvoIYkzS-RvCEb0x7wfmwQ/about)
+14. [https://testpreptraining.com/blog/microsoft-dp-700-study-guide-exam-preparation-resources/](https://testpreptraining.com/blog/microsoft-dp-700-study-guide-exam-preparation-resources/)
+15. [https://www.reddit.com/r/MicrosoftFabric/comments/1mw4vxg/from_scratch_data_engineer_beginner_to_passing/](https://www.reddit.com/r/MicrosoftFabric/comments/1mw4vxg/from_scratch_data_engineer_beginner_to_passing/)
+16. [https://www.reddit.com/r/MicrosoftFabric/comments/1ijcxn5/tips_guide_and_resources/](https://www.reddit.com/r/MicrosoftFabric/comments/1ijcxn5/tips_guide_and_resources/)
+17. [https://sqlbits.com/attend/the-agenda-2025/thursday/From_Zero_to_DP-700_in_a_Day_Get_Ready_for_Fabric_Data_Engineer_Associate_Certification](https://sqlbits.com/attend/the-agenda-2025/thursday/From_Zero_to_DP-700_in_a_Day_Get_Ready_for_Fabric_Data_Engineer_Associate_Certification)
+18. [https://www.youtube.com/watch?v=jTDSP7KBavI](https://www.youtube.com/watch?v=jTDSP7KBavI)
+19. [https://www.youtube.com/watch?v=XECqSfKmtCk](https://www.youtube.com/watch?v=XECqSfKmtCk)
+20. [https://www.examtopics.com/discussions/microsoft/view/154905-exam-dp-700-topic-2-question-3-discussion/](https://www.examtopics.com/discussions/microsoft/view/154905-exam-dp-700-topic-2-question-3-discussion/)
+21. [https://www.linkedin.com/posts/learnmicrosoftfabric_dp700-microsoftfabric-dataengineering-activity-7285311090819743744-YUQ-](https://www.linkedin.com/posts/learnmicrosoftfabric_dp700-microsoftfabric-dataengineering-activity-7285311090819743744-YUQ-)
