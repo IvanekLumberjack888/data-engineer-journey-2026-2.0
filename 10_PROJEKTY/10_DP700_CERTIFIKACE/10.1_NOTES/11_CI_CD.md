@@ -78,4 +78,4 @@ MultiStage deployment.
 
 ---
 
-## NEXT → [[12_ADMINISTRACE.md]]
+## NEXT → [[12_ADMINISTRACE]]

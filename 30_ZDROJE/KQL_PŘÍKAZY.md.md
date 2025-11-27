@@ -199,5 +199,5 @@ MyView
 
 ---
 
-Interní: [[7_KQL_EVENTHOUSE.md]]
+Interní: [[7_KQL_EVENTHOUSE]]
 External: https://learn.microsoft.com/en-us/kusto/query/

@@ -89,4 +89,4 @@ Screenshot SQL results ✓
 
 ---
 
-## Next: [[2_LAB_SPARK.md]]
+## Next: [[2_LAB_SPARK]]

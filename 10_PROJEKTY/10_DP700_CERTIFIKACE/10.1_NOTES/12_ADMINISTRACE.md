@@ -89,4 +89,4 @@ Centrální místo pro správu.
 
 ---
 
-## NEXT → [[13_CASE_STUDIES.md]]
+## NEXT → [[13_CASE_STUDIES]]

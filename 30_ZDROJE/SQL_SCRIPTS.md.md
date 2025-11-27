@@ -220,5 +220,5 @@ IF @@ERROR <> 0 ROLLBACK ELSE COMMIT
 
 ---
 
-Interní: [[8_WAREHOUSE_SQL.md]]
+Interní: [[8_WAREHOUSE_SQL]]
 External: https://learn.microsoft.com/en-us/sql/t-sql/language-reference

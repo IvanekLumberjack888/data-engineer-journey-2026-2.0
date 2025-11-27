@@ -75,4 +75,4 @@ Design pattern: Uklady všechny eventy jako immutable log.
 
 ---
 
-## NEXT → [[7_KQL_EVENTHOUSE.md]]
+## NEXT → [[7_KQL_EVENTHOUSE]]

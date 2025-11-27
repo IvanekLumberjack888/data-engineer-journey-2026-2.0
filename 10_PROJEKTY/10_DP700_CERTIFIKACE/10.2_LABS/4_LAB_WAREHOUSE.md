@@ -107,4 +107,4 @@ SELECT * FROM SalesOverview
 
 ---
 
-## Next: [[5_LAB_EVENTSTREAM.md]]
+## Next: [[5_LAB_EVENTSTREAM]]

@@ -105,4 +105,4 @@ Označit data dle sensitivity.
 
 ---
 
-## NEXT →  [[11_CI_CD.md]]
+## NEXT →  [[11_CI_CD]]

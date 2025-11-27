@@ -9,7 +9,7 @@ Prostě každý den si zkopíruj jeden blok níže, přejmenuj na YYYY-MM-DD.md 
 
 
 **Plán:**
-- [x] [[1_FABRIC_ARCHITEKTURA.md]]
+- [x] [[1_FABRIC_ARCHITEKTURA]]
 - [x] Setup Obsidian
 - [x] Fabric trial
 
@@ -31,8 +31,8 @@ Prostě každý den si zkopíruj jeden blok níže, přejmenuj na YYYY-MM-DD.md 
 
 
 **Plán:**
-- [ ] [[1_FABRIC_ARCHITEKTURA.md]] - pokračování
-- [ ] [[1_LAB_LAKEHOUSE.md]]
+- [ ] [[1_FABRIC_ARCHITEKTURA]] - pokračování
+- [ ] [[1_LAB_LAKEHOUSE]]
 
 **Co jsem dělal:**
 - Přečetl jsem: 
@@ -53,7 +53,7 @@ Prostě každý den si zkopíruj jeden blok níže, přejmenuj na YYYY-MM-DD.md 
 
 **Plán:**
 - [ ] [[2_LAKEHOUSE_SPARK|Lakehouse & Spark]]
-- [ ] [[1_LAB_LAKEHOUSE.md]] - pokračování
+- [ ] [[1_LAB_LAKEHOUSE]] - pokračování
 
 **Co jsem dělal:**
 - Přečetl jsem: 

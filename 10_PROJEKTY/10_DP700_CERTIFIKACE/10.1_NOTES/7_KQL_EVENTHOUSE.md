@@ -88,4 +88,4 @@ Reusable KQL dotazy s parametry.
 
 ---
 
-## NEXT → [[8_WAREHOUSE_SQL.md]]
+## NEXT → [[8_WAREHOUSE_SQL]]

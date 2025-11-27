@@ -106,4 +106,4 @@ Jednotlivé tools v Fabric:
 | Jak se mění capacity v průběhu?  | Fabric Capacity Metrics App | 🟢     |
 
 ---
-## NEXT -> [[2_LAKEHOUSE_SPARK.md]]
+## NEXT -> [[2_LAKEHOUSE_SPARK]]

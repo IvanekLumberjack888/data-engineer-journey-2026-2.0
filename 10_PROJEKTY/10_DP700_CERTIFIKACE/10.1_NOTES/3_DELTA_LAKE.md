@@ -68,9 +68,9 @@ OPTIMIZE table_name ZORDER BY (col1, col2)
 
 ## 🔗 INTERNÍ LINKY
 
-- Back: [[2_LAKEHOUSE_SPARK.md]]
-- Next: [[4_DATAFLOW_PIPELINE.md]]
-- Praxe: [[3_LAB_DATAFLOW.md]]
+- Back: [[2_LAKEHOUSE_SPARK]]
+- Next: [[4_DATAFLOW_PIPELINE]]
+- Praxe: [[3_LAB_DATAFLOW]]
 - Resources: [[SQL_SCRIPTS.md]]
 
 ---
@@ -83,4 +83,4 @@ OPTIMIZE table_name ZORDER BY (col1, col2)
 - Learn Path: https://learn.microsoft.com/en-us/training/modules/analyze-data-delta-lake/
 
 ---
-## NEXT -> [[4_DATAFLOW_PIPELINE.md]]
+## NEXT -> [[4_DATAFLOW_PIPELINE]]

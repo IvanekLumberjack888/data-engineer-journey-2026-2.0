@@ -99,4 +99,4 @@ Vytvořit Dataflow Gen2 (no-code ETL) s transformacemi.
 
 ---
 
-## Next: [[4_LAB_WAREHOUSE.md]]
+## Next: [[4_LAB_WAREHOUSE]]

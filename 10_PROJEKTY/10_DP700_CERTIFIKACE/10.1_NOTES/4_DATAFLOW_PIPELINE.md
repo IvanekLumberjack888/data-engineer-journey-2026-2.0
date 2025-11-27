@@ -69,9 +69,9 @@ Orchestration engine.
 
 ## 🔗 INTERNÍ LINKY
 
-- Back: [[3_DELTA_LAKE.md]]
-- Next: [[5_MEDALLION_ARCHITEKTURA.md]]
-- Praxe: [[3_LAB_DATAFLOW.md]]
+- Back: [[3_DELTA_LAKE]]
+- Next: [[5_MEDALLION_ARCHITEKTURA]]
+- Praxe: [[3_LAB_DATAFLOW]]
 - Cheatsheet: [[30_ZDROJE/EXTERNÍ_LINKY]]
 
 ---
@@ -83,4 +83,4 @@ Orchestration engine.
 - ETL vs ELT: https://learn.microsoft.com/fabric/data-engineering/star-schema-vs-medallion
 
 ---
-## NEXT -> [[5_MEDALLION_ARCHITEKTURA.md]]
+## NEXT -> [[5_MEDALLION_ARCHITEKTURA]]

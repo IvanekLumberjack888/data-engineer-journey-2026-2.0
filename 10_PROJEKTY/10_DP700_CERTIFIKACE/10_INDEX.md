@@ -19,19 +19,19 @@
 
 Časti 10.1_NOTES:
 
-- [[1_FABRIC_ARCHITEKTURA.md]]]
-- [[2_LAKEHOUSE_SPARK.md]]
-- [[3_DELTA_LAKE.md]]
-- [[4_DATAFLOW_PIPELINE.md]]
-- [[5_MEDALLION_ARCHITEKTURA.md]]
-- [[6_REAL_TIME.md]]
-- [[7_KQL_EVENTHOUSE.md]]
-- [[8_WAREHOUSE_SQL.md]]
-- [[9_MONITORING.md]]
-- [[10_BEZPEČNOST.md]]
-- [[11_CI_CD.md]]
-- [[12_ADMINISTRACE.md]]
-- [[13_CASE_STUDIES.md]]
+- [[1_FABRIC_ARCHITEKTURA]]
+- [[2_LAKEHOUSE_SPARK]]
+- [[3_DELTA_LAKE]]
+- [[4_DATAFLOW_PIPELINE]]
+- [[5_MEDALLION_ARCHITEKTURA]]
+- [[6_REAL_TIME]]
+- [[7_KQL_EVENTHOUSE]]
+- [[8_WAREHOUSE_SQL]]
+- [[9_MONITORING]]
+- [[10_BEZPEČNOST]]
+- [[11_CI_CD]]
+- [[12_ADMINISTRACE]]
+- [[13_CASE_STUDIES]]
 
 ---
 
@@ -39,13 +39,13 @@
 
 Dělej 10.2_LABS:
 
-- [ ] [[1_LAB_LAKEHOUSE.md]]
-- [ ] [[2_LAB_SPARK.md]]
-- [ ] [[3_LAB_DATAFLOW.md]]
-- [ ] [[4_LAB_WAREHOUSE.md]]
-- [ ] [[5_LAB_EVENTSTREAM.md]]
-- [ ] [[6_LAB_KQL.md]]
-- [ ] [[7_LAB_SECURITY.md]]
+- [ ] [[1_LAB_LAKEHOUSE]]
+- [ ] [[2_LAB_SPARK]]
+- [ ] [[3_LAB_DATAFLOW]]
+- [ ] [[4_LAB_WAREHOUSE]]
+- [ ] [[5_LAB_EVENTSTREAM]]
+- [ ] [[6_LAB_KQL]]
+- [ ] [[7_LAB_SECURITY]]
 
 ---
 

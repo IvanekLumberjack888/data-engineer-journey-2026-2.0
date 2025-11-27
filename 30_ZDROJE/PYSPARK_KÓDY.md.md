@@ -187,5 +187,5 @@ df.withColumn("upper_name", upper_case(col("name")))
 
 ---
 
-Interní: [[2_LAKEHOUSE_SPARK.md]]
+Interní: [[2_LAKEHOUSE_SPARK]]
 External: https://spark.apache.org/docs/latest/api/python/

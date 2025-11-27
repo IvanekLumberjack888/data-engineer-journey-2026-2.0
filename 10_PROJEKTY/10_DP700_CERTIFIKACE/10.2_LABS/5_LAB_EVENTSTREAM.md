@@ -90,4 +90,4 @@ BikeData
 
 ---
 
-## Next: [[6_LAB_KQL.md]]
+## Next: [[6_LAB_KQL]]

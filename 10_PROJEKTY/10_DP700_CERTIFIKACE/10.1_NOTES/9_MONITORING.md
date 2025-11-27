@@ -84,4 +84,4 @@ Jak SQL engine bude spouštět query.
 
 ---
 
-## NEXT → [[10_BEZPEČNOST.md]]
+## NEXT → [[10_BEZPEČNOST]]
