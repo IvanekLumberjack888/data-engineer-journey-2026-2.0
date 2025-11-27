@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01_DENNÍ_LOGY/2025-11-27 (čtvrtek) - 48. week.md",
+                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2025-11-27 (čtvrtek) - 48. week"
+              "title": "2_LAKEHOUSE_SPARK"
             }
           }
         ],
@@ -224,6 +224,9 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md",
+    "01_DENNÍ_LOGY/2025-11-27 (čtvrtek) - 48. week.md",
     "01_DENNÍ_LOGY/2025-11-26 (středa) - 48. week.md",
     "01_DENNÍ_LOGY/2025-11-25 (úterý) - 48. week.md",
     "01_DENNÍ_LOGY/2025-11-24 (pondělí) - 48. week.md",
@@ -249,9 +252,6 @@
     "30_ZDROJE/KQL_PŘÍKAZY.md",
     "30_ZDROJE/EXTERNÍ_LINKY.md",
     "30_ZDROJE/ŠABLONY/ŠABLONA_POZNÁMKA.md",
-    "30_ZDROJE/ŠABLONY/ŠABLONA_LAB.md",
-    "30_ZDROJE/ŠABLONY/ŠABLONA_DENNÍ_LOG.md",
-    "30_ZDROJE/Learn_Microsoft_Fabric/Web Naučte se Microsoft Fabric - Fabric Foundation (with Will Needam).md",
     "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will",
     "03 Semantic model validation with GX 1.ipynb",
     "01 Spark DF validation with GX 1.ipynb",

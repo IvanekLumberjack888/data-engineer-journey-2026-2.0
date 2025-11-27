@@ -1,121 +1,40 @@
-# 2️⃣ LAKEHOUSE & SPARK
+## 2️⃣ LAKEHOUSE & SPARK
 
 **Cíl:** Pochopit Lakehouse a PySpark pro transformace
 
----
+### 🔑 3-5 Key Bullet Points (EN)
 
-## 📖 TEORIE
+- Apache Lakehouse is a hybrid architecture combining Data Lake flexibility with Data Warehouse structure, enabling both Spark compute and SQL query access on Delta Lake tables
+- Lakehouse separates Files (raw unstructured data) from Tables (structured Delta format), allowing gradual transformation from bronze to gold layers
+- Apache Spark is a distributed computing engine with lazy evaluation - transformations are queued but only executed when an action is called, optimizing resource usage
+- PySpark DataFrame API provides SQL-like interface for distributed data processing with native support for complex transformations, aggregations, and machine learning
+- OneLake integration with Fabric Lakehouse enables shared data access across all Fabric experiences (Data Engineering, Warehouse, Power BI) through the same logical lakehouse
 
-### Co je Lakehouse?
+### ❓ 5 DP-700 Style Exam Questions (EN)
 
-Hybrid mezi Data Lake (flexibilita) a Data Warehouse (struktura).
+1. You are designing a data ingestion pipeline in Microsoft Fabric. Users need both SQL and Spark access to the same dataset without duplication. Which Fabric component enables this shared access model?
 
-**Struktura:**
-- Files folder (raw data)
-- Tables folder (structured data)
-- SQL Analytics endpoint (queryable)
-- Spark compute engine
+2. A data engineering team is comparing performance between querying raw Parquet files and Delta Lake tables in a lakehouse. Why would the Delta Lake queries be faster in most scenarios?
 
-**Výhody:**
-- Flexibilita lake + struktura warehouse
-- ACID transactions (Delta Lake)
-- SQL + Spark access
-- Versionování
+3. You have written a PySpark transformation with 10 sequential steps (select, filter, groupBy, etc.). However, when you run the code, nothing happens until you call `.show()`. What is this behavior called in Spark?
 
-**Vztah:**
-- Lakehouse → [[3_DELTA_LAKE]]
-- Lakehouse → [[5_MEDALLION_ARCHITEKTURA]]
+4. Your team needs to implement a medallion architecture (Bronze/Silver/Gold) in Fabric Lakehouse. Which component of the Lakehouse structure would you use to store each layer?
 
-### Files vs Tables
+5. You are troubleshooting why a PySpark notebook job is consuming more memory than expected. You notice there are many transformations chained together. What Spark optimization technique could help reduce memory pressure?
 
-**Files (Raw Data):**
-- Fyzické soubory (CSV, Parquet, JSON)
-- Bez schématu
-- Není indexed
-- Pomalý na queries
+### ✅ Checklist: Co musím umět (CZ)
 
-**Tables (Structured):**
-- Delta Lake format
-- Mají schéma
-- Indexed
-- Rychlé queries
-- ACID support
+- ✅ Pochopit rozdíl mezi Files folder (raw) a Tables folder (Delta structured)
+- ✅ Vysvětlit, proč je Lakehouse lepší než separátní Lake + Warehouse
+- ✅ Napsat základní PySpark kód: read, select, filter, groupBy, write
+- ✅ Rozlišit lazy evaluation a kdy se transformace skutečně provedou (actions)
+- ✅ Implementovat OneLake shortcuts pro sdílená data
+- ✅ Chápat roli Spark compute engine v architektuře
+- ✅ Prakticky vytvořit lakehouse s Files + Tables strukturou
 
-### Apache Spark
-
-Distribuovaný computing engine.
-
-**Komponenty:**
-- Driver (coordinator)
-- Executors (workers)
-- Spark SQL engine
-- PySpark (Python API)
-
-**Základy:**
-- RDD (Resilient Distributed Dataset)
-- DataFrame (tabulární data)
-- Lazy evaluation
-- Transformace vs Akce
-
-### PySpark Syntax
-
-**DataFrame create:**
-```python
-df = spark.read.parquet("path/to/file")
-df = spark.sql("SELECT * FROM table")
-```
-
-**Transformace:**
-```python
-df.select("col1", "col2")
-df.filter(df.age > 30)
-df.groupBy("category").count()
-```
-
-**Akce:**
-```python
-df.show()
-df.write.saveAsTable("table_name")
-```
+### 🔗 Linky
+- Praxe: [[2_LAB_SPARK|Lab 2: Spark Notebook]]
+- Následující: [[3_DELTA_LAKE|Note 3: Delta Lake]]
+- Zpět: [[1_FABRIC_ARCHITEKTURA|Note 1: Fabric Architektura]]
 
 ---
-
-## 🛠️ PRAXE
-
-Úkoly:
-
-- [x] Create Lakehouse (viz [[1_LAB_LAKEHOUSE]])
-- [x] Upload sample CSV
-- [x] Query via SQL endpoint
-- [x] Create Spark notebook
-- [ ] Load DataFrame z table
-- [ ] Transform data (filter, select)
-- [ ] Write back to table
-
----
-
-## 🔗 INTERNÍ LINKY
-
-- Praxe: [[1_LAB_LAKEHOUSE]], [[2_LAB_SPARK]]
-- Next: [[3_DELTA_LAKE]]
-- Back: [[1_FABRIC_ARCHITEKTURA]]
-- Resources: [[PYSPARK_KÓDY]]
-
----
-
-## 🔗 EXTERNÍ LINKY
-
-**Learn:**
-- Lakehouse: https://learn.microsoft.com/fabric/data-engineering/create-lakehouse
-- PySpark: https://spark.apache.org/docs/latest/api/python/
-- Spark SQL: https://learn.microsoft.com/fabric/data-engineering/workspace-admin
-
-**Docs:**
-- Delta Lake: https://docs.delta.io/latest/quick-start.html
-- PySpark API: https://spark.apache.org/docs/latest/api/python/reference/
-
-**Videos:**
-- Lakehouse Tutorial: https://www.youtube.com/results?search_query=Fabric+Lakehouse+tutorial
-- PySpark Basics: https://www.youtube.com/results?search_query=PySpark+tutorial
----
-## NEXT -> [[3_DELTA_LAKE]]
