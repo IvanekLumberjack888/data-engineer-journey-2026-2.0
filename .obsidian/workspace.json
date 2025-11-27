@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "40_ARCHIV/new-journey.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "new-journey"
+              "title": "README"
             }
           }
         ],
@@ -224,6 +224,9 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
+    "Excalidraw/Data stores.pdf",
+    "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
+    "40_ARCHIV/new-journey.md",
     "30_ZDROJE/SQL_SCRIPTS.md",
     "30_ZDROJE/SLOVNÍK_CZ.md",
     "30_ZDROJE/SKILL_DP700_STUDY_HELPER.md",
@@ -248,8 +251,6 @@
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/7_LAB_SECURITY.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/6_LAB_KQL.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/5_LAB_EVENTSTREAM.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/4_LAB_WAREHOUSE.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/3_LAB_DATAFLOW.md",
     "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will",
     "03 Semantic model validation with GX 1.ipynb",
     "01 Spark DF validation with GX 1.ipynb",
@@ -257,10 +258,8 @@
     "03 Semantic model validation with GX.ipynb",
     "01 Spark DF validation with GX.ipynb",
     "00 Schema validation of incoming files with GX.ipynb",
-    "Excalidraw/Data stores.pdf",
     "GetDataFromKaggle-PowerBi connection modes (inc DirectLake).ipynb",
     "30_ZDROJE/IMAGES 🔮/Pasted image 20251122104926.png",
-    "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
     "30_ZDROJE/IMAGES 🔮/Pasted image 20251117205057.png",
     "30_ZDROJE/IMAGES 🔮/Pasted image 20251116175433.png"
   ]
