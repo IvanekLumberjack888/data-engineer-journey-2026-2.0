@@ -1,89 +1,156 @@
-# 2️⃣ LAB: SPARK NOTEBOOK
+# 🔬 Lab 2: Spark Notebook Transformations
 
-## Cíl
-
-Psát PySpark kód v Notebooku. DataFrame transformace.
+**Cíl:** Napsat PySpark transformace a pochopit lazy evaluation
 
 ---
 
-## Praxe - Krok za krokem
+## ⏱️ Čas
+60 minut
 
-### Krok 1: Create Notebook
+## 📋 Prerequisites
+- Dokončený Lab 1
+- Table `bronze_sales` existuje
 
-```
-1. New item → Notebook
-2. Name: "Sales_Transformations"
-3. Create
-```
+---
 
-- [ ] Notebook vytvořen
+## 🔨 Kroky
 
-### Krok 2: Read Table as DataFrame
+### 1️⃣ Create Notebook
 
-**Cell 1:**
+1. V lakehouse klikni **Open notebook** → **New notebook**
+2. Název: `Lab02_Transformations`
+
+---
+
+### 2️⃣ Load Data
+
 ```python
-df = spark.sql("SELECT * FROM Sales")
-display(df)  # Beautiful output
+# Load bronze table
+df = spark.read.table("bronze_sales")
+
+# Show schema
+df.printSchema()
+
+# Count rows
+print(f"Total rows: {df.count()}")
 ```
 
-- [ ] Tabulka načtena do DataFrame
+---
 
-### Krok 3: Filter
+### 3️⃣ Filter Data
 
-**Cell 2:**
 ```python
-from pyspark.sql.functions import col
+# Filter: Only sales > $100
+df_filtered = df.filter(df["SalesAmount"] > 100)
 
-# Filter: Amount > 1000
-df_filtered = df.filter(col("Amount") > 1000)
-display(df_filtered)
+# POZOR: Zatím se NIC neprovedlo! (lazy evaluation)
+
+# Action - TEĎ se provede
+print(f"Rows with sales > 100: {df_filtered.count()}")
 ```
 
-- [ ] Filtrováno
+---
 
-### Krok 4: Groupby + Aggregate
+### 4️⃣ Select Columns
 
-**Cell 3:**
 ```python
-from pyspark.sql.functions import sum, count
-
-df_agg = df.groupBy("Category").agg(
-  sum("Amount").alias("TotalAmount"),
-  count("*").alias("Count")
+# Select only certain columns
+df_selected = df_filtered.select(
+    "OrderDate",
+    "ProductName",
+    "SalesAmount"
 )
-display(df_agg)
+
+display(df_selected.limit(10))
 ```
-
-- [ ] Agregováno
-
-### Krok 5: Write to Table
-
-**Cell 4:**
-```python
-# Save back to Lakehouse as new table
-df_agg.write.mode("overwrite").option("mergeSchema", "true").saveAsTable("Sales_Summary")
-```
-
-- [ ] Tabulka uložena
-
-### Krok 6: Verify
-
-**Cell 5:**
-```python
-# Verify the new table
-df_verify = spark.sql("SELECT * FROM Sales_Summary")
-display(df_verify)
-```
-
-- [ ] Ověřeno
 
 ---
 
-## Pozorování
+### 5️⃣ Aggregate Data
 
-- Kolik řádků bylo filtrováno?
-- Jaké byly top 3 kategorie?
+```python
+from pyspark.sql.functions import sum, count, avg
+
+# Group by ProductName
+df_agg = df.groupBy("ProductName").agg(
+    sum("SalesAmount").alias("TotalSales"),
+    count("*").alias("OrderCount"),
+    avg("SalesAmount").alias("AvgSale")
+)
+
+display(df_agg.orderBy("TotalSales", ascending=False))
+```
 
 ---
 
-## Next: [[3_LAB_DATAFLOW]]
+### 6️⃣ Write to Silver Layer
+
+```python
+# Write aggregated data to silver table
+df_agg.write.format("delta")\
+    .mode("overwrite")\
+    .saveAsTable("silver_product_summary")
+
+print("✅ Silver table created!")
+```
+
+---
+
+### 7️⃣ Verify Silver Table
+
+```sql
+-- Change to SQL cell
+SELECT * FROM silver_product_summary
+ORDER BY TotalSales DESC
+```
+
+---
+
+### 8️⃣ Test Lazy Evaluation
+
+```python
+# Chain multiple transformations
+df_lazy = df\
+    .filter(df["SalesAmount"] > 50)\
+    .select("ProductName", "SalesAmount")\
+    .groupBy("ProductName")\
+    .sum("SalesAmount")
+
+print("Transformations defined!")
+print("Nothing executed yet!")
+
+# NOW execute
+df_lazy.show(10)  # Action triggers execution
+```
+
+---
+
+## ✅ Success Criteria
+
+- [ ] Notebook `Lab02_Transformations` vytvořený
+- [ ] PySpark filter, select, groupBy běží
+- [ ] Silver table `silver_product_summary` vytvořená
+- [ ] Rozumíš lazy evaluation (transformations vs actions)
+- [ ] Umíš chain multiple transformations
+
+---
+
+## 💡 Tips
+
+- **Transformations** (lazy): filter, select, join, groupBy
+- **Actions** (execute): show, count, write, collect
+- Chain transformations před action pro lepší optimization
+- `display()` je Fabric-specific (use `show()` in production)
+
+---
+
+## 🔗 Linky
+
+- **Teorie:** [[10.1_NOTES/2_LAKEHOUSE_SPARK|Note 2: Lakehouse & Spark]]
+- **Další Lab:** [[3_LAB_DATAFLOW|Lab 3: Dataflow Gen2]]
+- **Předchozí:** [[1_LAB_LAKEHOUSE|Lab 1: Lakehouse]]
+- **Index:** [[10_INDEX|Zpět na index]]
+
+---
+
+## NEXT → [[3_LAB_DATAFLOW|Lab 3: Dataflow Gen2]]

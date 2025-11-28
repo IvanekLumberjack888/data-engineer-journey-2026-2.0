@@ -1,95 +1,192 @@
 # 3️⃣ DELTA LAKE
 
-**Cíl:** ACID transactions, time travel, optimizace
+**Cíl:** Pochopit Delta Lake, ACID transactions, time-travel
 
 ---
 
 ## 📖 TEORIE
 
-### Co je Delta Lake?
+### Delta Lake Format
 
-Open-source storage format s ACID properties.
+Open-source storage layer built on Parquet.
 
-**ACID:**
-- **A**tomicity — All or nothing
-- **C**onsistency — Valid state
-- **I**solation — No dirty reads
-- **D**urability — Persisted
+**Features:**
+- ACID transactions
+- Schema enforcement
+- Time-travel
+- UPSERT support
+- Z-ordering optimization
 
-### Key Features
-
-**Time Travel:**
-```sql
-SELECT * FROM table TIMESTAMP AS OF '2025-11-17'
-SELECT * FROM table VERSION AS OF 0
+**Architektura:**
 ```
-
-**Schema Evolution:**
-- Adding columns
-- Renaming columns
-- Nullable changes
-
-**Transactions:**
-- Multi-part writes
-- Rollback support
-- Conflict resolution
-
-### Optimizace
-
-**VACUUM** — Remove old files:
-```sql
-VACUUM table_name
-```
-
-**OPTIMIZE** — Compact files:
-```sql
-OPTIMIZE table_name
-```
-
-**Z-order** — Clustered index:
-```sql
-OPTIMIZE table_name ZORDER BY (col1, col2)
+delta_table/
+├── _delta_log/          ← Transaction log
+│   ├── 00000.json
+│   └── 00001.json
+└── part-*.parquet       ← Data files
 ```
 
 ---
 
-## 3️⃣ DELTA LAKE
+### ACID Transactions
 
-**Cíl:** Pochopit Delta Lake, ACID transactions, time-travel
+**Atomicity** — All or nothing (transaction buď celá nebo vůbec)  
+**Consistency** — Data vždy v konzistentním stavu  
+**Isolation** — Concurrent reads/writes se neovlivňují  
+**Durability** — Committed data = permanently stored
 
-### 🔑 3-5 Key Bullet Points (EN)
-
-- Delta Lake is an open-source storage format built on Parquet that adds ACID transaction support, schema enforcement, and time-travel capabilities to data lakes
-- ACID transactions (Atomicity, Consistency, Isolation, Durability) ensure data reliability even during concurrent reads/writes, preventing data corruption from failed writes
-- Schema enforcement prevents accidental data type mismatches or unexpected column changes, automatically rejecting writes that violate the defined schema
-- Time-travel functionality allows querying historical versions of a table using `@timestamp` or `@version` syntax, enabling data lineage tracking and rollback capabilities
-- Z-ordering and liquid clustering optimize query performance by physically organizing data for frequently filtered columns, dramatically reducing scan times
-
-### ❓ 5 DP-700 Style Exam Questions (EN)
-
-1. A write operation in Delta Lake fails midway through. Some records are written, others are not. What Delta Lake feature prevents this partial state from corrupting the table?
-
-2. Your team is debugging a data quality issue and needs to see what the table looked like 3 days ago. Which Delta Lake feature enables this investigation?
-
-3. You are loading new data into an existing Delta table, but the schema has slightly changed (new column added). Delta Lake rejects the write. Which Delta Lake feature is preventing this?
-
-4. Your organization stores 1 million records and performs frequent queries filtering by `customer_id`. Performance is degrading. Which Delta Lake optimization technique would help most?
-
-5. You need to implement a slowly-changing dimension (SCD Type 2) in Delta Lake. Which Delta Lake feature would allow you to track historical changes efficiently?
-
-### ✅ Checklist: Co musím umět (CZ)
-
-- ✅ Definovat ACID transactions a proč jsou důležité v data lakech
-- ✅ Vysvětlit schema enforcement a ochrana proti data corruption
-- ✅ Použít time-travel syntax pro historická data
-- ✅ Aplikovat Z-ordering pro optimalizaci queries
-- ✅ Pochopit versionování tabulky
-- ✅ Implementovat UPSERT operace s Delta Lake
-- ✅ Monitorit table cleanup s VACUUM a OPTIMIZE
-
-### 🔗 Linky
-- Praxe: [[3_LAB_DATAFLOW|Lab 3: Dataflow Gen2]]
-- Následující: [[4_DATAFLOW_PIPELINE|Note 4: Dataflow & Pipeline]]
-- Zpět: [[2_LAKEHOUSE_SPARK|Note 2: Lakehouse & Spark]]
+**Příklad:**
+```python
+# Failed write WON'T corrupt table
+df.write.format("delta").mode("append").save("Tables/sales")
+# If this fails midway, previous state remains intact
+```
 
 ---
+
+### Time-Travel
+
+Query historical versions of table.
+
+**By version:**
+```python
+df = spark.read.format("delta")\
+    .option("versionAsOf", 5)\
+    .load("Tables/sales")
+```
+
+**By timestamp:**
+```python
+df = spark.read.format("delta")\
+    .option("timestampAsOf", "2025-01-01")\
+    .load("Tables/sales")
+```
+
+**View history:**
+```sql
+DESCRIBE HISTORY sales
+```
+
+---
+
+### Schema Enforcement
+
+Rejects writes that don't match schema.
+
+**Example:**
+```python
+# Table schema: (id INT, name STRING, age INT)
+# This WILL FAIL:
+df_wrong = spark.createDataFrame([(1, "John", "thirty")])
+df_wrong.write.format("delta").mode("append").save("Tables/users")
+# ERROR: age must be INT, not STRING
+```
+
+**Schema evolution:**
+```python
+# Allow new columns
+df.write.format("delta")\
+    .mode("append")\
+    .option("mergeSchema", "true")\
+    .save("Tables/users")
+```
+
+---
+
+### UPSERT (MERGE)
+
+Update existing + Insert new records.
+
+```python
+from delta.tables import DeltaTable
+
+deltaTable = DeltaTable.forPath(spark, "Tables/users")
+
+deltaTable.alias("target").merge(
+    updates.alias("source"),
+    "target.id = source.id"
+).whenMatchedUpdate(set = {
+    "name": "source.name",
+    "age": "source.age"
+}).whenNotMatchedInsert(values = {
+    "id": "source.id",
+    "name": "source.name",
+    "age": "source.age"
+}).execute()
+```
+
+---
+
+### Z-Ordering
+
+Physical data organization for query optimization.
+
+**Use case:** Frequent filtering on specific columns
+
+```sql
+OPTIMIZE sales ZORDER BY (customer_id, date)
+```
+
+**Benefit:** Reduces files scanned → faster queries
+
+---
+
+### VACUUM
+
+Clean up old data files.
+
+```sql
+-- Remove files older than 7 days
+VACUUM sales RETAIN 168 HOURS
+```
+
+**Warning:** Can't time-travel past VACUUM retention!
+
+---
+
+## 🔑 Key Bullet Points (EN)
+
+- Delta Lake is open-source storage format built on Parquet that adds ACID transaction support, schema enforcement, and time-travel capabilities
+- ACID transactions ensure data reliability even during concurrent reads/writes, preventing data corruption from failed writes
+- Schema enforcement prevents accidental data type mismatches or unexpected column changes, automatically rejecting writes that violate schema
+- Time-travel allows querying historical versions using `@version` or `@timestamp` syntax, enabling data lineage tracking and rollback
+- Z-ordering optimizes query performance by physically organizing data for frequently filtered columns, dramatically reducing scan times
+
+---
+
+## ❓ DP-700 Exam Questions (EN)
+
+**Q1.** A write operation fails midway. Some records written, others not. What Delta feature prevents table corruption?
+
+**Q2.** Your team debugs data quality issue and needs to see table state 3 days ago. Which Delta feature enables this?
+
+**Q3.** You load new data into existing Delta table, but schema changed (new column). Delta rejects write. Which feature prevents this?
+
+**Q4.** Your table has 1M records with frequent queries filtering by `customer_id`. Performance degrades. Which optimization helps most?
+
+**Q5.** You need slowly-changing dimension (SCD Type 2) in Delta Lake. Which feature allows tracking historical changes efficiently?
+
+---
+
+## ✅ Checklist: Co musím umět (CZ)
+
+- [ ] Definovat ACID transactions a proč jsou důležité
+- [ ] Vysvětlit schema enforcement
+- [ ] Použít time-travel syntax pro historická data
+- [ ] Aplikovat Z-ordering pro query optimization
+- [ ] Pochopit versionování tabulky
+- [ ] Implementovat UPSERT operace
+- [ ] Monitorit table cleanup s VACUUM a OPTIMIZE
+
+---
+
+## 🔗 Linky
+
+- **Praxe:** [[10.2_LABS/2_LAB_SPARK|Lab 2: Spark Notebook]]
+- **Následující:** [[4_DATAFLOW_PIPELINE|Note 4: Dataflow & Pipeline]]
+- **Zpět:** [[2_LAKEHOUSE_SPARK|Note 2]]
+- **Index:** [[10_INDEX|Zpět na index]]
+
+---
+
+## NEXT → [[4_DATAFLOW_PIPELINE|4️⃣ Dataflow & Pipeline]]
