@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/7_KQL_EVENTHOUSE.md",
+                "file": "01_DENNÍ_LOGY/2025-11-28 (pátek) - 48. week.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "7_KQL_EVENTHOUSE"
+              "title": "2025-11-28 (pátek) - 48. week"
             }
           }
         ],
@@ -224,6 +224,8 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/7_KQL_EVENTHOUSE.md",
+    "01_DENNÍ_LOGY/2025-11-28 (pátek) - 48. week.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/6_REAL_TIME.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/5_MEDALLION_ARCHITEKTURA.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/4_DATAFLOW_PIPELINE.md",
@@ -250,8 +252,6 @@
     "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
     "40_ARCHIV/new-journey.md",
     "30_ZDROJE/SQL_SCRIPTS.md",
-    "30_ZDROJE/SLOVNÍK_CZ.md",
-    "30_ZDROJE/SKILL_DP700_STUDY_HELPER.md",
     "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will",
     "03 Semantic model validation with GX 1.ipynb",
     "01 Spark DF validation with GX 1.ipynb",
