@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00_MATRIX/01_PLÁN.md",
+                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/1_LAB_LAKEHOUSE.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "01_PLÁN"
+              "title": "1_LAB_LAKEHOUSE"
             }
           }
         ],
@@ -224,12 +224,15 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10_INDEX.md",
+    "00_MATRIX/02_CHECKLIST.md",
+    "00_MATRIX/01_PLÁN.md",
+    "00_MATRIX/00_INDEX.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/10_BEZPEČNOST.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/9_MONITORING.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/8_WAREHOUSE_SQL.md",
-    "00_MATRIX/00_INDEX.md",
     "30_ZDROJE/EXTERNÍ_LINKY.md",
-    "00_MATRIX/01_PLÁN.md",
     "30_ZDROJE/ŠABLONY/ŠABLONA_DENNÍ_LOG.md",
     "10_PROJEKTY/20_POST_DP700/20.1_FABRIC_DOJO/01_PLÁN_DOJO.md.md",
     "10_PROJEKTY/20_POST_DP700/20.1_FABRIC_DOJO/03_KOMUNITA.md",
@@ -243,13 +246,10 @@
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/4_DATAFLOW_PIPELINE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/3_DELTA_LAKE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md",
     "01_DENNÍ_LOGY/2025-11-27 (čtvrtek) - 48. week.md",
     "01_DENNÍ_LOGY/2025-11-26 (středa) - 48. week.md",
     "01_DENNÍ_LOGY/2025-11-25 (úterý) - 48. week.md",
     "01_DENNÍ_LOGY/2025-11-24 (pondělí) - 48. week.md",
-    "01_DENNÍ_LOGY/2025-11-23 (neděle) - 47. week.md",
-    "01_DENNÍ_LOGY/2025-11-22 (sobota) - 47. week.md",
     "Excalidraw/Data stores.pdf",
     "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
     "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will",

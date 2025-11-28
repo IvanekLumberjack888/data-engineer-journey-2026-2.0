@@ -1,92 +1,71 @@
-# 1️⃣ LAB: LAKEHOUSE
+# 🔬 Lab 1: Lakehouse Setup
 
-## Cíl
-
-Vytvořit Lakehouse, načíst data, provést SQL dotazy na souborech a tabulkách.
+**Cíl:** Vytvořit Fabric Lakehouse a nahrát první data
 
 ---
 
-## Praxe - Krok za krokem
+## ⏱️ Čas
+45 minut
 
-### Krok 1: Create Lakehouse
-
-```
-1. Jdi do tvého workspace (Data Engineer Journey)
-2. New item → Lakehouse
-3. Name: "Sales_DW"
-4. Create
-```
-
-- [ ] Lakehouse vytvořen
-
-### Krok 2: Upload Data
-
-```
-1. Lakehouse → Files
-2. Upload → Vyber CSV soubor
-3. (Nebo si stáhni: https://aka.ms/fabric-sample-data)
-```
-
-- [ ] CSV nahran do Files
-
-### Krok 3: Load to Table
-
-```
-1. Files → Pravý klik na CSV
-2. Load to New Table
-3. Confirm schema
-```
-
-- [ ] Tabulka vytvořena z CSV
-
-### Krok 4: SQL Query na File
-
-```sql
-SELECT TOP 10 * FROM 'Files/sales.csv'
-```
-
-- [ ] Query spuštěn
-
-### Krok 5: SQL Query na Table
-
-```sql
-SELECT TOP 10 * FROM Sales
-```
-
-- [ ] Query spuštěn (měl by být rychlejší než Files)
-
-### Krok 6: Aggregation Query
-
-```sql
-SELECT 
-  Category,
-  SUM(Amount) as Total,
-  COUNT(*) as Count
-FROM Sales
-GROUP BY Category
-ORDER BY Total DESC
-```
-
-- [ ] Aggregace funguje
+## 📋 Prerequisites
+- Fabric trial account aktivní
+- Workspace vytvořený
 
 ---
 
-## Pozorování
+## 🔨 Kroky
 
-**Files vs Tables:**
-- Files query: Pravděpodobně pomalejší (bez indexů)
-- Table query: Rychlejší (indexed)
+### 1️⃣ Vytvoř Lakehouse
 
-**Poznámka si:**
-- Jak dlouho trvala Files query?
-- Jak dlouho trvala Table query?
-
----
-
-## Výstup
-
-Screenshot SQL results ✓
+1. Otevři workspace
+2. **+ New** → **Lakehouse**
+3. Název: `Lab01_Lakehouse`
+4. **Create**
 
 ---
 
-## Next: [[2_LAB_SPARK]]
+### 2️⃣ Upload Sample Data
+
+Download: [sales.csv](https://raw.githubusercontent.com/MicrosoftLearning/dp-data/main/sales.csv)
+
+Upload do Files folder
+
+---
+
+### 3️⃣ Vytvoř Delta Table
+
+```python
+df = spark.read.format("csv")\
+    .option("header", "true")\
+    .load("Files/sales.csv")
+
+df.write.format("delta")\
+    .mode("overwrite")\
+    .saveAsTable("bronze_sales")
+```
+
+---
+
+### 4️⃣ Verify
+
+Check Tables folder → `bronze_sales` existuje
+
+---
+
+## ✅ Success Criteria
+
+- [ ] Lakehouse vytvořený
+- [ ] Data uploadovaná
+- [ ] Delta table vytvořená
+- [ ] SQL query funguje
+
+---
+
+## 🔗 Linky
+
+- **Teorie:** [[10.1_NOTES/2_LAKEHOUSE_SPARK|Note 2]]
+- **Další:** [[2_LAB_SPARK|Lab 2: Spark]]
+
+---
+
+NEXT → [[2_LAB_SPARK|Lab 2]]

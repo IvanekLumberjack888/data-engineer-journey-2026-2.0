@@ -1,109 +1,109 @@
 # 1️⃣ FABRIC ARCHITEKTURA
 
-**Cíl:** Pochopit Fabric jako platformu a její klíčové komponenty
+**Cíl:** Pochopit základní architekturu Microsoft Fabric a OneLake
 
 ---
 
 ## 📖 TEORIE
 
-### Co je Microsoft Fabric?
+### Microsoft Fabric
 
-SaaS platforma pro end-to-end data analytics a engineering.
+Unified SaaS analytics platform - všechno v jednom.
 
-- Všechno v jednom stacku
-- Jednotný datový model
-- Integrované nástroje
-- Cloud-native řešení
+**Co zahrnuje:**
+- Power BI (reporting)
+- Data Factory (pipelines)
+- Synapse (data engineering)
+- Data Activator (alerting)
+- Real-Time Intelligence (streaming)
 
-**Zkratky:**
-- SaaS = Software as a Service
-- ETL = Extract, Transform, Load
-- OneLake = Centrální data repository
-
-### OneLake - Centrální úložiště
-
-Jeden data lake na tenant.
-
-**Charakteristiky:**
-- Hierarchická struktura (folder-like)
-- Delta Lake format (standard)
-- OneCopy - fyzicky jeden, logicky více
-- Všechny experiences ho sdílí
-- Verzování obsahu
-
-**Vztah:**
-- OneLake ↔ [[20_OBLASTI/20_KARIÉRNÍ_RŮST|Dlouhodobý rozvoj]]
-- OneLake ↔ Azure ADLS Gen2
-
-### Workspace
-
-Container pro všechny Fabric items.
-
-**Vlastnosti:**
-- Permissions (kdo má přístup)
-- Capacity (kolik resources)
-- Members (uživatelé)
-- Settings (konfigurace)
-
-### Fabric Experiences (6 hlavních)
-
-Jednotlivé tools v Fabric:
-
-1. **Data Factory** — Pipelines, orchestrace
-2. **Data Engineering** — Lakehouse, Spark notebooks
-3. **Data Warehouse** — SQL queries
-4. **Real-Time Intelligence** — Eventstreams, KQL
-5. **Power BI** — Reports, dashboards
-6. **Databases** — SQL databases
-
-### Capacity & Licensing
-
-**Fabric SKU:**
-- F2, F4, F8, F16, F32... (Fabric units)
-- Pay per hour
-- Auto-scale (volitelné)
-
-**License types:**
-- Premium capacity
-- Trial (60 dní zdarma)
+**Výhody:**
+- Jeden login, jeden billing
+- Sdílené OneLake storage
+- Integrated security
+- No data duplication
 
 ---
 
-## 🛠️ PRAXE
+### OneLake
 
-Úkoly k provedení:
+Unified data lake pro celý Fabric tenant.
 
-- [x] Login do Fabric trial: https://app.fabric.microsoft.com
-- [x] Create workspace (název: "Learning")
-- [x] Prozkoumej OneLake (File menu)
-- [x] View workspace settings
-- [x] Check capacity information
-- [x] Screenshot uložit ![[Pasted image 20251116175433.png]]
-
----
-
-## 🔗 EXTERNÍ LINKY
-
-**Microsoft Learn:**
-- Fabric Overview: https://learn.microsoft.com/en-us/fabric/get-started/microsoft-fabric-overview
-- Workspace Setup: https://learn.microsoft.com/fabric/admin/admin-overview
-
-**Official Docs:**
-- Fabric Documentation: https://learn.microsoft.com/fabric
-- OneLake: https://learn.microsoft.com/fabric/onelake/onelake-overview
-
-**YouTube:**
-- Fabric Intro: https://www.youtube.com/results?search_query=Microsoft+Fabric+introduction
-- Workspace Setup: https://www.youtube.com/results?search_query=Fabric+workspace+creation
+**Key Features:**
+- Built on Azure Data Lake Storage Gen2
+- Every tenant has ONE OneLake
+- All Fabric workloads share same storage
+- Delta Lake as native format
+- Shortcuts pro external data
 
 ---
 
-## ❓ OTÁZKY
+### Workspaces
 
-| Otázka                           | Odpověď                     | Status |
-| -------------------------------- | --------------------------- | ------ |
-| Jaký je max file size v OneLake? | 10 GB                       | 🟢     |
-| Jak se mění capacity v průběhu?  | Fabric Capacity Metrics App | 🟢     |
+Logical containers pro Fabric items.
+
+**Workspace roles:**
+- **Admin** — Full control
+- **Member** — Can create items
+- **Contributor** — Can edit existing items
+- **Viewer** — Read-only access
 
 ---
-## NEXT -> [[2_LAKEHOUSE_SPARK]]
+
+### Capacity
+
+Compute resource pool (billing unit).
+
+**Capacity tiers:**
+- **F2-F8** — Trial, small dev
+- **F64** — Small production
+- **F128-F256** — Medium production
+
+**Capacity Units (CU):** Every operation consumes CUs
+
+---
+
+## 🔑 Key Bullet Points (EN)
+
+- Microsoft Fabric is unified SaaS analytics platform combining Power BI, Data Factory, Synapse in single environment with shared capacity billing
+- OneLake is single data lake foundation built on ADLS Gen2, automatically created with every Fabric tenant
+- Fabric workspaces are logical containers for items with role-based access control (Admin, Member, Contributor, Viewer)
+- Capacity-based compute model charges for CU consumption rather than per-item pricing
+- All Fabric experiences share same OneLake storage, eliminating data duplication
+
+---
+
+## ❓ DP-700 Exam Questions (EN)
+
+**Q1.** Your organization has multiple teams needing isolated environments but shared capacity. Which Fabric construct per team?
+
+**Q2.** You need store data accessed by both Spark notebooks and SQL queries without duplication. Which component?
+
+**Q3.** Project requires 1000 CU-hours monthly. Finance wants predictable costs. Recommend pay-as-you-go or capacity-based?
+
+**Q4.** You want analyze costs for Data Engineering workload separately from Power BI. Which feature provides this?
+
+**Q5.** Your team needs read-only access to lakehouse but shouldn't create new items. Which workspace role?
+
+---
+
+## ✅ Checklist: Co musím umět (CZ)
+
+- [ ] Vysvětlit rozdíl mezi Fabric a samostatnými Azure službami
+- [ ] Pochopit OneLake jako unified storage layer
+- [ ] Vytvořit workspace a nastavit role
+- [ ] Rozlišit Fabric experiences
+- [ ] Pochopit Capacity Units (CU) a billing
+- [ ] Znát základní Fabric items
+
+---
+
+## 🔗 Linky
+
+- **Praxe:** [[10.2_LABS/1_LAB_LAKEHOUSE|Lab 1: Lakehouse]]
+- **Další:** [[2_LAKEHOUSE_SPARK|Note 2: Lakehouse & Spark]]
+- **Index:** [[10_INDEX|Index]]
+
+---
+
+NEXT → [[2_LAKEHOUSE_SPARK|2️⃣ Lakehouse & Spark]]
