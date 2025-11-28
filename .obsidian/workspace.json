@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00_MATRIX/01_PLÁN.md",
+                "file": "30_ZDROJE/EXTERNÍ_LINKY.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "01_PLÁN"
+              "title": "EXTERNÍ_LINKY"
             }
           }
         ],
@@ -224,8 +224,8 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
-    "00_MATRIX/00_INDEX.md",
     "00_MATRIX/01_PLÁN.md",
+    "00_MATRIX/00_INDEX.md",
     "30_ZDROJE/ŠABLONY/ŠABLONA_DENNÍ_LOG.md",
     "10_PROJEKTY/20_POST_DP700/20.1_FABRIC_DOJO/01_PLÁN_DOJO.md.md",
     "10_PROJEKTY/20_POST_DP700/20.1_FABRIC_DOJO/03_KOMUNITA.md",
