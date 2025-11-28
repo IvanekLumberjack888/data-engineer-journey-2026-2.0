@@ -9,8 +9,8 @@ Týdenní breakdown od 17.11.2025 do 31.12.2025
 **Cíl:** Pochopme Fabric architekturu
 
 ### Teorie
-- [ ] [[10_PROJEKTY/10_DP700_CERTIFIKACE/10_NOTES/1_FABRIC_ARCHITEKTURA|1. Fabric Architektura]]
-- [ ] [[10_PROJEKTY/10_DP700_CERTIFIKACE/10_NOTES/2_LAKEHOUSE_SPARK|2. Lakehouse & Spark]] - začátek
+- [x] [[10_PROJEKTY/10_DP700_CERTIFIKACE/10_NOTES/1_FABRIC_ARCHITEKTURA|1. Fabric Architektura]]
+- [x] [[10_PROJEKTY/10_DP700_CERTIFIKACE/10_NOTES/2_LAKEHOUSE_SPARK|2. Lakehouse & Spark]] - začátek
 
 ### Praktika
 - [ ] [[10_PROJEKTY/10_DP700_CERTIFIKACE/10_LABS/1_LAB_LAKEHOUSE|Lab 1: Lakehouse]]

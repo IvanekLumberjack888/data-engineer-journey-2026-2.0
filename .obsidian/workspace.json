@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01_DENNÍ_LOGY/2025-11-28 (pátek) - 48. week.md",
+                "file": "10_PROJEKTY/20_POST_DP700/20.2_PORTFOLIO/CASE_STUDIES.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2025-11-28 (pátek) - 48. week"
+              "title": "CASE_STUDIES"
             }
           }
         ],
@@ -224,7 +224,9 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/1_LAB_LAKEHOUSE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/7_KQL_EVENTHOUSE.md",
+    "00_MATRIX/01_PLÁN.md",
     "01_DENNÍ_LOGY/2025-11-28 (pátek) - 48. week.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/6_REAL_TIME.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/5_MEDALLION_ARCHITEKTURA.md",
@@ -250,8 +252,6 @@
     "README.md",
     "Excalidraw/Data stores.pdf",
     "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
-    "40_ARCHIV/new-journey.md",
-    "30_ZDROJE/SQL_SCRIPTS.md",
     "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will",
     "03 Semantic model validation with GX 1.ipynb",
     "01 Spark DF validation with GX 1.ipynb",

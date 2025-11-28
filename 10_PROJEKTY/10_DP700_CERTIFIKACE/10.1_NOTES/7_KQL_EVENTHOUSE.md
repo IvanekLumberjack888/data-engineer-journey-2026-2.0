@@ -67,24 +67,44 @@ Reusable KQL dotazy s parametry.
 
 ---
 
-## 🛠️ PRAXE
+## 7️⃣ KQL & EVENTHOUSE
 
-- [ ] Basic KQL: take, where, project
-- [ ] Aggregation: summarize, group by
-- [ ] Sorting: sort by asc/desc
-- [ ] Joins: inner, left, right
-- [ ] Temporal windows: bin()
-- [ ] Create materialized view
-- [ ] Create stored function
-- [ ] Call function with parameters
+**Cíl:** Pochopit KQL syntax a Eventhouse pro real-time analytics
 
----
+### 🔑 3-5 Key Bullet Points (EN)
 
-## 🔗 EXTERNÍ LINKY
+- KQL (Kusto Query Language) is designed specifically for time-series and event data with native support for filtering, aggregation, and pattern detection optimized for logs and metrics
+- Eventhouse in Fabric is the specialized database optimized for real-time analytics, built on Kusto technology, with automatic retention policies and streaming ingestion
+- KQL queries use pipe-based syntax (`| filter | summarize | project`) enabling operator chaining for complex transformations more efficiently than SQL
+- Temporal operators in KQL (`between`, `ago`, `range`) enable easy time-window queries without complex date arithmetic, critical for monitoring scenarios
+- Retention policies in Eventhouse automatically age out old data, balancing storage costs with historical data availability for compliance
 
-- KQL Documentation: https://learn.microsoft.com/en-us/kusto/query/
-- KQL Tutorial: https://learn.microsoft.com/en-us/kusto/query/tutorials/learn-common-operators
-- Temporal Windows: https://learn.microsoft.com/en-us/kusto/query/summarizeoperator
+### ❓ 5 DP-700 Style Exam Questions (EN)
+
+1. You need to find all error events from last 7 days where response time exceeded 1 second. Would KQL be better than SQL, and why?
+
+2. A KQL query aggregates 100 billion rows but takes 30 seconds. You need sub-second response. Which KQL feature would help most?
+
+3. Your application logs 50 GB of events daily. Eventhouse retention is 30 days. How much storage should you budget?
+
+4. You are migrating Application Insights to Fabric Eventhouse. What data format changes are required?
+
+5. Your KQL query uses `summarize` over 1 billion rows to calculate percentiles. Should you use `percentiles_approx()` or `percentiles()`?
+
+### ✅ Checklist: Co musím umět (CZ)
+
+- ✅ Napsat KQL query s filter, project, summarize
+- ✅ Používat temporal operátory (ago, between, range)
+- ✅ Vytvořit materialized views v Eventhouse
+- ✅ Pochopit partitioning pro optimalizaci
+- ✅ Konfigurovat retention policies
+- ✅ Implementovat alerting na KQL query
+- ✅ Debugovat performance problémů v KQL
+
+### 🔗 Linky
+- Praxe: [[7_LAB_SECURITY|Lab 7: Security & RBAC]]
+- Následující: [[8_WAREHOUSE_SQL|Note 8: Warehouse & SQL]]
+- Zpět: [[6_REAL_TIME|Note 6: Real-Time Intelligence]]
 
 ---
 
