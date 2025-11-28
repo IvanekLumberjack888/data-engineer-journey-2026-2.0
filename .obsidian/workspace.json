@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "30_ZDROJE/EXTERNÍ_LINKY.md",
+                "file": "00_MATRIX/01_PLÁN.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "EXTERNÍ_LINKY"
+              "title": "01_PLÁN"
             }
           }
         ],
@@ -224,8 +224,12 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
-    "00_MATRIX/01_PLÁN.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/10_BEZPEČNOST.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/9_MONITORING.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/8_WAREHOUSE_SQL.md",
     "00_MATRIX/00_INDEX.md",
+    "30_ZDROJE/EXTERNÍ_LINKY.md",
+    "00_MATRIX/01_PLÁN.md",
     "30_ZDROJE/ŠABLONY/ŠABLONA_DENNÍ_LOG.md",
     "10_PROJEKTY/20_POST_DP700/20.1_FABRIC_DOJO/01_PLÁN_DOJO.md.md",
     "10_PROJEKTY/20_POST_DP700/20.1_FABRIC_DOJO/03_KOMUNITA.md",
@@ -246,10 +250,6 @@
     "01_DENNÍ_LOGY/2025-11-24 (pondělí) - 48. week.md",
     "01_DENNÍ_LOGY/2025-11-23 (neděle) - 47. week.md",
     "01_DENNÍ_LOGY/2025-11-22 (sobota) - 47. week.md",
-    "01_DENNÍ_LOGY/2025-11-20 (čtvrtek) - 47. week.md",
-    "01_DENNÍ_LOGY/2025-11-21 (pátek) - 47. week.md",
-    "01_DENNÍ_LOGY/2025-11-19 (středa) - 47. week.md",
-    "01_DENNÍ_LOGY/2025-11-18 (úterý) - 47. week.md",
     "Excalidraw/Data stores.pdf",
     "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
     "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will",
