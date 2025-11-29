@@ -1,40 +1,46 @@
 # 📅 STUDY PLÁN - DP-700
 
-**Zkouška:** 23-27.12.2025  
-**Dnes:** 29.11.2025
+**Exam:** End of December 2025  
+**Today:** 29.11.2025
 
 ---
 
 ## Timeline
 
 ```
-17-30.11     1-15.12      16-22.12     23-27.12
-Teorie       DOJO         Practice     EXAM
+5-16.11      17-30.11     1-15.12      16-22.12     23-31.12
+Commitment   Teorie       DOJO         Practice     EXAM
 ```
 
 ---
 
-## ✅ FÁZE 1: Teorie (17-30.11)
+## ✅ FÁZE 1: Teorie (17-30.11) ✅ COMPLETED
 
 - [x] Fabric trial setup
-- [x] Will - Learn Microsoft Fabric
-- [x] Notes 1-7
-- [ ] Notes 8-13 review
-- [ ] DOJO prep
+- [x] Will - Learn Microsoft Fabric (Skool)
+- [x] Notes 1-13 (all modules)
+- [x] Labs 1-2 (initial practice)
+- [x] DOJO prep
+
+**Status:** ✅ Theory phase DONE! Ready for DOJO.
 
 ---
 
-## 🔨 FÁZE 2: DOJO (1-15.12)
+## 🔨 FÁZE 2: DOJO (1-15.12) 👉 NEXT
 
 ### Week 1 (1-7.12)
-- [ ] Lakehouse + Spark
-- [ ] Dataflow + Pipeline
-- [ ] Medallion architecture
+- [ ] DOJO registration complete
+- [ ] Lakehouse + Spark hands-on
+- [ ] Dataflow + Pipeline implementation
+- [ ] Medallion architecture setup
 
 ### Week 2 (8-15.12)
-- [ ] Eventstream + KQL
-- [ ] Warehouse + Security
-- [ ] Case Studies
+- [ ] Eventstream + KQL practice
+- [ ] Warehouse + Security implementation
+- [ ] Case Studies review
+- [ ] Real-world project work
+
+**Note:** DOJO runs parallel with DP-700 prep, not after certification.
 
 ---
 
@@ -43,7 +49,8 @@ Teorie       DOJO         Practice     EXAM
 - [ ] Practice test 1
 - [ ] Practice test 2
 - [ ] Review mistakes
-- [ ] Final review
+- [ ] Final review of all modules
+- [ ] Labs 3-7 completion
 
 **Links:**
 - [Practice Assessment](https://learn.microsoft.com/cs-cz/credentials/certifications/fabric-analytics-engineer-associate/practice/assessment?assessment-type=practice&assessmentId=90)
@@ -51,10 +58,20 @@ Teorie       DOJO         Practice     EXAM
 
 ---
 
-## 🎓 FÁZE 4: EXAM (23-27.12)
+## 🎓 FÁZE 4: EXAM (23-31.12)
 
 - [ ] Exam scheduled
 - [ ] Exam completed
+- [ ] DP-700 certified! 🎉
+
+---
+
+## 📈 Next Steps After Certification
+
+- Continue DOJO (weeks 3-10)
+- Build portfolio projects
+- Azure deep dive
+- Job applications
 
 ---
 
