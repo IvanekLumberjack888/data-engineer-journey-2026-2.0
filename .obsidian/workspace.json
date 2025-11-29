@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/2_LAB_SPARK.md",
+                "file": "01_DENNÍ_LOGY/2025-11-20 (čtvrtek) - 47. week.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2_LAB_SPARK"
+              "title": "2025-11-20 (čtvrtek) - 47. week"
             }
           }
         ],
@@ -224,6 +224,12 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
+    "01_DENNÍ_LOGY/2025-11-19 (středa) - 47. week.md",
+    "01_DENNÍ_LOGY/2025-11-18 (úterý) - 47. week.md",
+    "01_DENNÍ_LOGY/2025-11-20 (čtvrtek) - 47. week.md",
+    "01_DENNÍ_LOGY/2025-11-17 (pondělí) - 47. week.md",
+    "01_DENNÍ_LOGY/2025-11-16 (neděle) - 46. week.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/2_LAB_SPARK.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/7_KQL_EVENTHOUSE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/4_DATAFLOW_PIPELINE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/3_DELTA_LAKE.md",
@@ -244,12 +250,6 @@
     "10_PROJEKTY/20_POST_DP700/20.2_PORTFOLIO/PROJEKTY_NÁPADY.md",
     "10_PROJEKTY/20_POST_DP700/20.2_PORTFOLIO/CASE_STUDIES.md",
     "01_DENNÍ_LOGY/2025-11-28 (pátek) - 48. week.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/6_REAL_TIME.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/5_MEDALLION_ARCHITEKTURA.md",
-    "01_DENNÍ_LOGY/2025-11-27 (čtvrtek) - 48. week.md",
-    "01_DENNÍ_LOGY/2025-11-26 (středa) - 48. week.md",
-    "01_DENNÍ_LOGY/2025-11-25 (úterý) - 48. week.md",
-    "01_DENNÍ_LOGY/2025-11-24 (pondělí) - 48. week.md",
     "Excalidraw/Data stores.pdf",
     "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
     "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will",
