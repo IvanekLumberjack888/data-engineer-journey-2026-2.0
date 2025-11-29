@@ -1,58 +1,56 @@
-# 🥋 FABRIC DOJO 2025
+# Fabric Dojo 2025
 
-**Start:** 1.12.2025  
-**Duration:** 10 weeks  
-**Community:** [Microsoft Fabric (Skool)](https://www.skool.com/microsoft-fabric)
+This folder contains my personal work, notes, and code produced during the Fabric Dojo program.  
+I only share my own implementations and learnings here – no paid course content or proprietary materials are included.
 
----
+## 🎯 Goal
 
-## 🎯 About
+Use a 3–4 week access to Fabric Dojo to:
 
-Real-world Microsoft Fabric project guided by Will's Fabric DOJO program. Running parallel with DP-700 certification preparation.
+- Build one solid end-to-end Microsoft Fabric project
+- Deepen understanding of lakehouse, pipelines, warehouse, and real-time components
+- Prepare material for a public portfolio (GitHub + LinkedIn)
 
----
+## 🕒 Duration
 
-## 📁 Structure (After Registration)
+- Approx. 3–4 weeks (intensive sprint)
+- Start: 1 December 2025
+- End: By end of December 2025 (aligned with DP-700 exam target)
 
-```
-20_DOJO_2025/
-├── WEEK_01/
-├── WEEK_02/
-├── ...
-├── WEEK_10/
-├── MY_CODE/       # Personal implementations
-├── MY_NOTES.md    # Learning notes
-└── LEARNINGS.md   # Key takeaways
-```
+## 📅 Structure
 
-**Note:** Weekly folders will be created as DOJO progresses.
+Instead of a 10-week program, I compress my work into 3 focused blocks:
 
----
+- Block 1: Onboarding & Setup (Week 1)
+  - Access, environment setup, understanding the main project
+  - First small tasks, exploration, notes
 
-## 📜 What Will Be Shared
+- Block 2: Core Implementation (Week 2–3)
+  - Main project work: ingestion, transformation, modeling, reporting
+  - Frequent iterations and testing
 
-✅ **My original code** — Personal implementations and solutions  
-✅ **My notes** — Learnings in my own words  
-✅ **My insights** — Reflections and takeaways  
+- Block 3: Wrap-up & Portfolio (Week 4)
+  - Refactoring, documentation
+  - Screenshots, diagrams, final write-up for portfolio
 
-❌ **NOT shared:** Course materials, assignments (word-by-word), proprietary content
+## 📂 Folder Layout
 
----
+- `WEEK_01/` – First block: onboarding, setup, first tasks
+- `WEEK_02_03/` – Core implementation
+- `WEEK_04/` – Wrap-up, polish, portfolio assets
+- `MY_CODE/` – Reusable scripts, notebooks, and configs
+- `MY_NOTES.md` – High-level notes and reflections
+- `LEARNINGS.md` – Key takeaways, mistakes, and lessons learned
 
-## 🔒 Legal Compliance
+## ⚖️ Legal & Ethics
 
-This folder contains ONLY my personal work and implementations. Course content from Skool/Fabric DOJO is NOT included per Terms of Service.
+- I only publish:
+  - My own code
+  - My own notes in my own words
+  - My own diagrams, reflections, and learnings
+- I do not publish:
+  - Course videos, PDFs, or raw assignments
+  - Screenshots of paid materials
+  - Direct copy of any protected content
 
----
-
-## 🚀 Timeline
-
-| Week | Dates | Focus |
-|------|-------|-------|
-| **1-2** | 1-15.12 | Initial setup + First projects |
-| **3-6** | 16.12-12.1 | Core implementation |
-| **7-10** | 13.1-9.2 | Advanced topics + Portfolio |
-
----
-
-**Status:** 🟡 Waiting for registration
+This keeps me aligned with Skool / Fabric Dojo Terms of Service.
