@@ -26,7 +26,7 @@ Complete study vault for **DP-700: Microsoft Fabric Data Engineer Associate** ce
 - **17.11.2025** — Microsoft Learn collection completed (23.5k XP)
 - **18.11.2025** — Challenge finished → Start Skool/Will program
 - **24.11.2025** — Launch public v2.0 repo (this repository)
-- **1.12.2025** — 🚀 **START Fabric DOJO** (10 weeks) — public logging begins
+- **1.12.2025** — 🚀 **START Fabric DOJO** (3-4 week sprint)
 - **End Dec 2025** — 🎯 DP-700 Exam target
 
 ---
@@ -41,9 +41,7 @@ DATA-ENGINEER-JOURNEY-2026/
 │   ├── 10_DP700_CERTIFIKACE/   # DP-700 certification (40 days)
 │   │   ├── 10.1_NOTES/         # Theory (13 modules)
 │   │   └── 10.2_LABS/          # Practice (7 labs)
-│   └── 20_POST_DP700/          # Post-certification
-│       ├── 20.1_FABRIC_DOJO/   # Will's Fabric Dojo program
-│       └── 20.2_PORTFOLIO/     # GitHub + LinkedIn portfolio
+└── 20_DOJO_2025/               # Fabric DOJO (3-4 week sprint)
 ├── 20_OBLASTI/                 # 🎓 Long-term knowledge (no deadline)
 │   └── 20_KARIÉRNÍ_RŮST.md     # Career development
 ├── 30_ZDROJE/                  # 📚 Materials, templates, links
