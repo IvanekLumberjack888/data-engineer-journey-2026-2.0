@@ -1,6 +1,6 @@
 # 📅 20denní studijní plán: Microsoft Fabric Data Engineer (DP-700)
 
-## Fáze 1: Základy a architektura (Dny 1–4)
+## 🚀 Fáze 1: Základy a architektura (Dny 1–4)
 
 |   |   |   |
 |---|---|---|
@@ -66,7 +66,7 @@
 
 --------------------------------------------------------------------------------
 
-## Fáze 2: Pohyb a transformace dat (Dny 5–8)
+## 🚀 Fáze 2: Pohyb a transformace dat (Dny 5–8)
 
 |   |   |   |
 |---|---|---|
@@ -132,7 +132,7 @@
 
 --------------------------------------------------------------------------------
 
-## Fáze 3: Spark, PySpark a Modely (Dny 9–12)
+## 🚀 Fáze 3: Spark, PySpark a Modely (Dny 9–12)
 
 |   |   |   |
 |---|---|---|
@@ -198,7 +198,7 @@
 
 --------------------------------------------------------------------------------
 
-## Fáze 4: Real-Time a Security (Dny 13–16)
+## 🚀 Fáze 4: Real-Time a Security (Dny 13–16)
 
 |   |   |   |
 |---|---|---|
@@ -264,7 +264,7 @@
 
 --------------------------------------------------------------------------------
 
-## Fáze 5: Governance, Monitoring a Finální Příprava (Dny 17–20)
+## 🚀 Fáze 5: Governance, Monitoring a Finální Příprava (Dny 17–20)
 
 |   |   |   |
 |---|---|---|
@@ -330,7 +330,7 @@
 
 --------------------------------------------------------------------------------
 
-## 🚀 Průběžné mikro-hodnocení (Micro-assessment)
+## 🧮 Průběžné mikro-hodnocení (Micro-assessment)
 
 Po dnech 4, 8, 12 a 16 provedeme krátké hodnocení. V praxi to znamená, že mi na konci těchto dnů položíte otázky typu: _„Pochopil/a jsem správně, že pro inkrementální loading je v Lakehouse klíčový MERGE INTO, zatímco DW používá STORED PROCEEDURES a T-SQL?“_
 
