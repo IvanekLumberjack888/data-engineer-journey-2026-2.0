@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01_DENNÍ_LOGY/2025-11-29 (sobota) - 48. week.md",
+                "file": "01_DENNÍ_LOGY/2025-11-30 (neděle) - 48. week.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2025-11-29 (sobota) - 48. week"
+              "title": "2025-11-30 (neděle) - 48. week"
             }
           }
         ],
@@ -224,8 +224,9 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
-    "00_MATRIX/02_CHECKLIST.md",
     "01_DENNÍ_LOGY/2025-11-29 (sobota) - 48. week.md",
+    "01_DENNÍ_LOGY/2025-11-30 (neděle) - 48. week.md",
+    "00_MATRIX/02_CHECKLIST.md",
     "00_MATRIX/01_PLÁN.md",
     "00_MATRIX/00_INDEX.md",
     "README.md",
@@ -253,7 +254,6 @@
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/3_DELTA_LAKE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/1_LAB_LAKEHOUSE.md",
     "Excalidraw/Data stores.pdf",
     "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
     "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will",
