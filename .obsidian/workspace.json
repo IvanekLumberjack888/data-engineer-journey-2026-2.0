@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01_DENNÍ_LOGY/2025-11-30 (neděle) - 48. week.md",
+                "file": "30_ZDROJE/YOUTUBE/Reactor.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2025-11-30 (neděle) - 48. week"
+              "title": "Reactor"
             }
           }
         ],
@@ -224,8 +224,10 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
-    "30_ZDROJE/NtbLM/Os 1.12.25 🗺️ 20denní studijní plán.md",
+    "30_ZDROJE/YOUTUBE/Reactor.md",
     "01_DENNÍ_LOGY/2025-11-30 (neděle) - 48. week.md",
+    "30_ZDROJE/YOUTUBE",
+    "30_ZDROJE/NtbLM/Os 1.12.25 🗺️ 20denní studijní plán.md",
     "30_ZDROJE/NtbLM/Přehled česky.md",
     "30_ZDROJE/NtbLM",
     "01_DENNÍ_LOGY/2025-11-29 (sobota) - 48. week.md",
@@ -254,12 +256,10 @@
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/2_LAB_SPARK.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/7_KQL_EVENTHOUSE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/4_DATAFLOW_PIPELINE.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/3_DELTA_LAKE.md",
     "Excalidraw/Data stores.pdf",
     "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
     "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will",
     "03 Semantic model validation with GX 1.ipynb",
-    "01 Spark DF validation with GX 1.ipynb",
     "30_ZDROJE/IMAGES 🔮/Pasted image 20251122104926.png",
     "30_ZDROJE/IMAGES 🔮/Pasted image 20251117205057.png",
     "30_ZDROJE/IMAGES 🔮/Pasted image 20251116175433.png"
