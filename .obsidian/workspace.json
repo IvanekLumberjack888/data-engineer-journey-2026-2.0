@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "30_ZDROJE/NtbLM/Přehled česky.md",
+                "file": "30_ZDROJE/NtbLM/Os 1.12.25 🚀 20denní studijní plán.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Přehled česky"
+              "title": "Os 1.12.25 🚀 20denní studijní plán"
             }
           }
         ],
@@ -224,8 +224,9 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
-    "01_DENNÍ_LOGY/2025-11-30 (neděle) - 48. week.md",
     "30_ZDROJE/NtbLM/Přehled česky.md",
+    "30_ZDROJE/NtbLM/Os 1.12.25 🚀 20denní studijní plán.md",
+    "01_DENNÍ_LOGY/2025-11-30 (neděle) - 48. week.md",
     "30_ZDROJE/NtbLM",
     "01_DENNÍ_LOGY/2025-11-29 (sobota) - 48. week.md",
     "00_MATRIX/02_CHECKLIST.md",
@@ -254,7 +255,6 @@
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/7_KQL_EVENTHOUSE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/4_DATAFLOW_PIPELINE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/3_DELTA_LAKE.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md",
     "Excalidraw/Data stores.pdf",
     "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
     "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will",
