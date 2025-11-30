@@ -1,4 +1,5 @@
 # 📅 20denní studijní plán: Microsoft Fabric Data Engineer (DP-700)
+[[PLÁN JE JEDNA VĚC (JAK NA NĚJ?)]]
 
 ## 🚀 Fáze 1: Základy a architektura (Dny 1–4)
 
@@ -337,3 +338,73 @@ Po dnech 4, 8, 12 a 16 provedeme krátké hodnocení. V praxi to znamená, že m
 Na základě Vašich odpovědí a případných nejasností **dynamicky přizpůsobím** obsah následující fáze, abychom se zaměřili na Vaše slabší místa.
 
 **Motivace:** Pamatujte, že Data Engineering je základem moderního BI a AI, a poptávka po těchto dovednostech neustále stoupá. Váš strukturovaný přístup k DP-700 Vám dává nejen certifikaci, ale hlavně ucelenou _strukturu pro studium a učení_. Vydržte, jde Vám to skvěle!
+
+# [[PLÁN JE JEDNA VĚC (JAK NA NĚJ?)]]
+## 🎯 Srovnání studijních zdrojů pro DP-700
+
+|   |   |   |
+|---|---|---|
+|Zdroj|Silné stránky (DP-700 Focus)|Slabé stránky (DP-700 Focus)|
+|**Microsoft Learn** (Oficiální moduly, dokumentace)|**Pokrytí teorie (Vysoké)**, Oficiální **anglická terminologie**. Nutné pro získání případného slevového voucheru.|**Praxe/Realismus (Nízké)**. Moduly nejsou _dostatečné_ ke složení zkoušky. Chybí hloubka pro rozhodování ("kdy co použít").|
+|**Fabric Dojo** (Placené moduly 3/13)|**Reálné scénáře (Vysoké)**, **Hyperkondenzovaný** obsah, cílená příprava na orchestraci, CI/CD, Eventhouse. Obsahuje **hands-on tutoriály** a Q&A.|Pokrytí je omezené na zakoupené moduly.|
+|**Hands-on labs / Sandbox**|**Praktické procvičení (Klíčové)**. Zkouška vyžaduje **hands-on zkušenost** s Pipelines, Lakehouse, Spark, KQL a security.|Neposkytuje strukturu ani teoretické vysvětlení.|
+|**Certas.com** (Practice Questions)|**Exam-style otázky (Vysoké)**. Poskytuje custom-made otázky s vysvětlením, které jsou podobné otázkám v reálném testu.|Nepokrývá teorii.|
+|**YouTube Kanály** (Např. Aleksi Partanen, Ansh Lamba, Will Needham)|**Hloubka teorie i praxe (Vysoká)**. Nabízí kompletní série s _teorií_, _hands-on demy_ a _exam-like otázkami_ v každém díle.|Může trvat dlouho (např. 11hodinový kurz), nutná pečlivá filtrace relevantních témat.|
+
+--------------------------------------------------------------------------------
+
+## 🥇 Kombinace a Prioritní Strategie (20 dní)
+
+Vzhledem k časovému limitu a potřebě posílit praktické dovednosti i angličtinu musím 70 % času věnovat praxi a 30 % cílené teorii a terminologii.
+
+### I. Priorita 1: Praktické procvičení a rozhodování (70 % času)
+
+Základem pro úspěch u DP-700 je schopnost **rozhodnout se, který nástroj kdy použít**.
+
+|   |   |   |
+|---|---|---|
+|Zdroj|Doporučená aktivita (Denně)|Proč|
+|**Váš 20denní Plán**|Plňte **Mini-praktické úlohy** a **Domácí procvičení** v testovacím Fabric Workspace.|Ověření znalostí v praxi. Např. implementace **MERGE INTO** pro inkrementální loading.|
+|**YouTube Série / Placené Moduly**|Sledujte **cílené hands-on tutoriály/dema** k aktuálnímu tématu (např. Den 13: Eventstreams dema, Den 16: RLS implementace v DW).|Umožňuje vidět reálné implementační detaily a slyšet klíčovou anglickou terminologii.|
+|**Certas.com**|Denně **10–15 practice questions** k modulům, které jste ten den studoval/a (např. DP-700 Modul 1: Ingest, Modul 2: Lakehouse).|Posiluje **rozhodovací mindset** a přípravu na _exam-style_ otázky.|
+|**GitHub / Sandboxy**|Stáhněte si **kódové ukázky** (např. Python notebooky pro **Great Expectations** validaci nebo CI/CD scénáře s **SQL Database Project**).|Získejte praktické zkušenosti s řešením "full code" scénářů.|
+
+### II. Priorita 2: Cílená Teorie a Terminologie (30 % času)
+
+Zaměřte se na detaily, které dělají rozdíl mezi Lakehouse a Warehouse a na anglické fráze.
+
+|   |   |   |
+|---|---|---|
+|Zdroj|Doporučená aktivita (Denně)|Proč|
+|**Váš 20denní Plán**|Pečlivé prostudování **Theory Focus (English)** a **Mikro lekce angličtiny**.|Přímá příprava na anglickou terminologii a porozumění kontextu zkoušky.|
+|**Microsoft Learn Dokumentace**|Vyhledejte a studujte jen **rozhodovací průvodce** (_Decision Guides_) – např. srovnání Lakehouse vs. Warehouse vs. KQL Database nebo volbu nástrojů Pipeline vs. Dataflow Gen2 vs. Spark.|Poskytuje formální, oficiální a detailní informace nutné pro zkoušku.|
+|**Fabric Dojo** (3 moduly)|Zaměřte se na moduly pokrývající **Deployment Pipelines, Version Control (Git)** a **Granulární Security (RLS/CLS)**.|Tyto pokročilé organizační/správní témata jsou často v testu a vyžadují přesnou znalost terminologie.|
+
+--------------------------------------------------------------------------------
+
+## ⏱️ Denní Rozvrh (Poměr Teorie vs. Praxe)
+
+Využijte strukturu z 20denního plánu a alokujte čas následujícím způsobem:
+
+|   |   |   |
+|---|---|---|
+|Časová Alokace|Aktivita|Zaměření|
+|**30 min**|**Teorie + Terminologie**|Prostudujte **Theory Focus (English)** a **České vysvětlení** k danému dni. Zaměřte se na **Core Terms** a **Fráze** (např. _High Concurrency, Multi-table transactions, Low-Code_).|
+|**70 min**|**Praktické Demos & Hands-on**|Sledujte tutoriály nebo provádějte **Mini-praktické úlohy** (kódování v Notebooku, nastavení Copy Data, KQL dotaz). Důraz na reálné nastavení a **chybové stavy**.|
+|**20 min**|**Testování Znalostí**|10–15 practice questions na Certas.com a řešte **Exam-style questions** z denního plánu.|
+
+--------------------------------------------------------------------------------
+
+## 🚫 Co Přeskočit (Optimalizace času)
+
+Protože máme pouze 20 dní, měli byste se vyhnout aktivitám s nízkou návratností času:
+
+1. **Aplikace znalostí, které nejsou primárně v DP-700:** Přeskočte hloubkové kurzy Power BI Reportingu a DAX (DAX není v DP-700, zaměřte se jen na **Semantic Model** a **Direct Lake** koncepty).
+
+2. **Čtení celých Learn modulů:** Nestravujte celý obsah modulů od Microsoft Learn (protože "nejsou dostatečné na složení zkoušky"). Používejte je jen jako **rychlý referenční zdroj** a pro potvrzení terminologie.
+
+3. **Hluboké ladění Python/PySpark syntaxe:** Nepište složité Python/Pandas transformace od nuly. Místo toho se zaměřte na **integraci Sparku do Fabricu** (Notebooks, `notebookutils`, `%%sql`) a **Delta operace (****MERGE INTO****,** **OPTIMIZE****)**.
+
+4. **Nepotřebné T-SQL detaily:** Zopakujte si klíčové T-SQL příkazy pro DW (např. **CTAS**, **COPY INTO**), ale vyhněte se cvičení, která se silně zaměřují na detaily klasických SQL serverů, které Fabric DW nepodporuje (např. vynucené Primary Keys).
+
+Váš největší nepřítel je čas. Musíte **kombinovat teorii s okamžitou praktickou aplikací**, protože zkouška testuje, zda chápete _dopady_ Vašich architektonických rozhodnutí v reálném Fabric prostředí. Držte se striktně poměru 70:30 (Praxe:Teorie).
