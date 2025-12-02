@@ -1,5 +1,4 @@
 # 📅 20denní studijní plán: Microsoft Fabric Data Engineer (DP-700)
-[[PLÁN JE JEDNA VĚC (JAK NA NĚJ?)]]
 
 ## 🚀 Fáze 1: Základy a architektura (Dny 1–4)
 
