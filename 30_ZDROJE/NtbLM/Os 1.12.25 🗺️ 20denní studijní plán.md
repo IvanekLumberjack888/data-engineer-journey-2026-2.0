@@ -3,13 +3,13 @@
 
 ## 🚀 Fáze 1: Základy a architektura (Dny 1–4)
 
-|   |   |   |
-|---|---|---|
-|Den|Téma|Klíčové Fabric Itemy|
-|**1**|Úvod do Fabric a zkoušky|Tenant, Capacity, Workspace|
-|**2**|OneLake a úložiště|OneLake, Shortcuts, Delta/Parquet|
-|**3**|Lakehouse: Jádro DE|Lakehouse, Files, Tables (Delta)|
-|**4**|Data Warehouse (DW)|Warehouse, T-SQL Endpoint, Schemas|
+|       |                          |                                    |      |
+| ----- | ------------------------ | ---------------------------------- | ---- |
+| Den   | Téma                     | Klíčové Fabric Itemy               | Done |
+| **1** | Úvod do Fabric a zkoušky | Tenant, Capacity, Workspace        |      |
+| **2** | OneLake a úložiště       | OneLake, Shortcuts, Delta/Parquet  |      |
+| **3** | Lakehouse: Jádro DE      | Lakehouse, Files, Tables (Delta)   |      |
+| **4** | Data Warehouse (DW)      | Warehouse, T-SQL Endpoint, Schemas |      |
 
 ### Den 1: Úvod, rozsah zkoušky a základní koncepty
 
