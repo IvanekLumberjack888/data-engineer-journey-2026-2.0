@@ -54,10 +54,10 @@ Check Tables folder → `bronze_sales` existuje
 
 ## ✅ Success Criteria
 
-- [ ] Lakehouse vytvořený
-- [ ] Data uploadovaná
-- [ ] Delta table vytvořená
-- [ ] SQL query funguje
+- [x] Lakehouse vytvořený
+- [x] Data uploadovaná
+- [x] Delta table vytvořená
+- [x] SQL query funguje
 
 ---
 
