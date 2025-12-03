@@ -8,13 +8,13 @@
 - [x] Lakehouse vs Warehouse
 - [x] PySpark basics
 - [x] Delta Lake
-- [ ] Notes 8-13 review
+- [x] Notes 8-13 review
 
 ---
 
 ## FÁZE 2: DOJO
 
-- [ ] Lakehouse created
+- [x] Lakehouse created
 - [ ] PySpark transformations
 - [ ] Pipeline created
 - [ ] KQL queries
