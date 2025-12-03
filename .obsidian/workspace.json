@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md",
+                "file": "01_DENNÍ_LOGY/2025-12-03 (středa) - 49. week.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2_LAKEHOUSE_SPARK"
+              "title": "2025-12-03 (středa) - 49. week"
             }
           },
           {
@@ -238,8 +238,8 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/1_LAB_LAKEHOUSE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/1_LAB_LAKEHOUSE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/9_MONITORING.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/10_BEZPEČNOST.md",
     "00_MATRIX/02_CHECKLIST.md",
