@@ -29,9 +29,9 @@ Commitment   Teorie       DOJO         Practice     EXAM
 ## 🔨 FÁZE 2: DOJO (1-15.12) 👉 NEXT
 
 ### Week 1 (1-7.12)
-- [ ] DOJO registration complete
-- [ ] Lakehouse + Spark hands-on
-- [ ] Dataflow + Pipeline implementation
+- [x] DOJO registration complete
+- [x] Lakehouse + Spark hands-on
+- [x] Dataflow + Pipeline implementation
 - [ ] Medallion architecture setup
 
 ### Week 2 (8-15.12)
