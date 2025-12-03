@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "30_ZDROJE/EXTERNÍ_LINKY.md",
+                "file": "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will/DP-700 EXAM PREP COURSE.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "EXTERNÍ_LINKY"
+              "title": "DP-700 EXAM PREP COURSE"
             }
           },
           {
@@ -238,6 +238,8 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
+    "30_ZDROJE/SKILL_DP700_STUDY_HELPER.md",
+    "30_ZDROJE/EXTERNÍ_LINKY.md",
     "30_ZDROJE/NtbLM/Přehled česky.md",
     "30_ZDROJE/NtbLM/Os 1.12.25 🗺️ 20denní studijní plán.md",
     "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.1_FABRIC_DOJO/01_PLÁN_DOJO.md",
@@ -262,9 +264,7 @@
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/9_MONITORING.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/10_BEZPEČNOST.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md",
-    "30_ZDROJE/SKILL_DP700_STUDY_HELPER.md",
     "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will/DP-700 EXAM PREP COURSE.md",
-    "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20_INDEX.md",
     "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/01_WELCOME_COURSE",
     "30_ZDROJE/YOUTUBE",
     "30_ZDROJE/NtbLM",
