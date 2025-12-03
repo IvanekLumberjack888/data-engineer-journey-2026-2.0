@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "30_ZDROJE/NtbLM/Os 1.12.25 🗺️ 20denní studijní plán.md",
+                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/1_LAB_LAKEHOUSE.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,21 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Os 1.12.25 🗺️ 20denní studijní plán"
+              "title": "1_LAB_LAKEHOUSE"
+            }
+          },
+          {
+            "id": "ea3ca0d2e9607cda",
+            "type": "leaf",
+            "state": {
+              "type": "webviewer",
+              "state": {
+                "url": "https://raw.githubusercontent.com/MicrosoftLearning/dp-data/main/sales.csv",
+                "title": "raw.githubusercontent.com/MicrosoftLearning/dp-data/main/sales.csv",
+                "mode": "webview"
+              },
+              "icon": "globe-2",
+              "title": "raw.githubusercontent.com/MicrosoftLearning/dp-data/main/sales.csv"
             }
           }
         ],
@@ -224,8 +238,10 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
-    "30_ZDROJE/NtbLM/Přehled česky.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/1_LAB_LAKEHOUSE.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md",
     "30_ZDROJE/NtbLM/Os 1.12.25 🗺️ 20denní studijní plán.md",
+    "30_ZDROJE/NtbLM/Přehled česky.md",
     "30_ZDROJE/SKILL_DP700_STUDY_HELPER.md",
     "10_PROJEKTY/20_DOJO_2025/README_DOJO.md",
     "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will/DP-700 EXAM PREP COURSE.md",
@@ -251,11 +267,9 @@
     "00_MATRIX/00_INDEX.md",
     "README.md",
     "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.2_PORTFOLIO/PROJEKTY_NÁPADY.md",
-    "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.2_PORTFOLIO/CASE_STUDIES.md",
     "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.2_PORTFOLIO",
     "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.1_FABRIC_DOJO",
     "10_PROJEKTY/20_DOJO_2025/20_POST_DP700",
-    "10_PROJEKTY/20_DOJO_2025/README.md",
     "10_PROJEKTY/20_DOJO_2025",
     "Excalidraw/Data stores.pdf",
     "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
