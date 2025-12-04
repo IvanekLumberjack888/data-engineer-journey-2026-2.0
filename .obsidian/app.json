@@ -1,4 +1,7 @@
 {
+  "showLineNumber": true,
+  "vimMode": false,
+  "uriCallbacks": true,
   "promptDelete": false,
   "alwaysUpdateLinks": true
 }

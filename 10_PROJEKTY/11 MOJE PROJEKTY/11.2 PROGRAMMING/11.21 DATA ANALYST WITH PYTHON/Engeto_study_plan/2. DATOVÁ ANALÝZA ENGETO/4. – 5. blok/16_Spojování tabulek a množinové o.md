@@ -1,0 +1,2 @@
+
+[Planner – 16. téma - Spojování tabulek a množinové operace](https://planner.cloud.microsoft/webui/v1/list/AAMkAGUyYjYyZmU5LThmMGUtNDNhZC1hMjhlLWQ2ZGQzMTRiMjNjYwAuAAAAAACUeuEdFG22R6SuNUa11SgFAQB7F8WniOebQZajo_0mxCDzAABZHV9oAAA=/task/AAMkAGUyYjYyZmU5LThmMGUtNDNhZC1hMjhlLWQ2ZGQzMTRiMjNjYwBGAAAAAACUeuEdFG22R6SuNUa11SgFBwB7F8WniOebQZajo_0mxCDzAABZHV9oAAB7F8WniOebQZajo_0mxCDzAABc2lVxAAA=?tid=578e8159-3cd3-4036-9b16-eca64560a31c)
