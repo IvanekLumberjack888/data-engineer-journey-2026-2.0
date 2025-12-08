@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01_DENNÍ_LOGY/2025-12-07 (neděle) - 49. week.md",
+                "file": "01_DENNÍ_LOGY/2025-12-08 (pondělí) - 50. week.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2025-12-07 (neděle) - 49. week"
+              "title": "2025-12-08 (pondělí) - 50. week"
             }
           }
         ]
@@ -199,8 +199,9 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
-    "01_DENNÍ_LOGY/2025-12-06 (sobota) - 49. week.md",
     "01_DENNÍ_LOGY/2025-12-07 (neděle) - 49. week.md",
+    "01_DENNÍ_LOGY/2025-12-08 (pondělí) - 50. week.md",
+    "01_DENNÍ_LOGY/2025-12-06 (sobota) - 49. week.md",
     "01_DENNÍ_LOGY/2025-12-05 (pátek) - 49. week.md",
     "01_DENNÍ_LOGY/2025-12-04 (čtvrtek) - 49. week.md",
     "00_FEED/01 DAILY NOTES/2025-11-04 45.t.md",
@@ -234,7 +235,6 @@
     "10 PROJEKTY/10.1 OSOBNI/Seznam modulů.md",
     "10 PROJEKTY/10.1 OSOBNI/CHEAT-SHEET-Vsechny-Prikazy.md",
     "DATA ENGINEER JOURNEY 2026/10_PROJECTS/10.3_OLD-PROJECTS/Kompletní studijní kurz od A do Z - krok po kroku/jen se zeptám jaký máš názor na tohle_ [https___by.md",
-    "DATA ENGINEER JOURNEY 2026/10_PROJECTS/10.3_OLD-PROJECTS/Kompletní studijní kurz od A do Z - krok po kroku/002-Obsidian-Setup.md",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.27 WORKFLOWY/ExFlow FO - Automatizace závazků_files/24px.svg",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.27 WORKFLOWY/ExFlow FO - Automatizace závazků_files/dynamics-365-business-central_ee306cb6322fb31483c1.svg",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.21 DATA ANALYST WITH PYTHON/Engeto_study_plan/2. DATOVÁ ANALÝZA ENGETO/6. blok_Tvorba portfolia",
