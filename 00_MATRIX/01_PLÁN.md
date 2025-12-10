@@ -32,7 +32,7 @@ Commitment   Teorie       DOJO         Practice     EXAM
 - [x] DOJO registration complete
 - [x] Lakehouse + Spark hands-on
 - [x] Dataflow + Pipeline implementation
-- [ ] Medallion architecture setup
+- [x] Medallion architecture setup
 
 ### Week 2 (8-15.12)
 - [ ] Eventstream + KQL practice
