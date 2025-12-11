@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01_DENNÍ_LOGY/2025-12-11 (čtvrtek) - 50. week.md",
+                "file": "30_ZDROJE/EXTERNÍ_LINKY.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2025-12-11 (čtvrtek) - 50. week"
+              "title": "EXTERNÍ_LINKY"
             }
           }
         ]
@@ -199,18 +199,21 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
-    "01_DENNÍ_LOGY/2025-12-10 (středa) - 50. week.md",
+    "30_ZDROJE/PYSPARK_KÓDY.md",
+    "30_ZDROJE/SKILL_DP700_STUDY_HELPER.md",
+    "30_ZDROJE/YOUTUBE/Reactor YT DP-700 Prep for Exam Day and Oper Q&A.md",
+    "30_ZDROJE/30.1_ODKAZY/Webové-zdroje.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md",
     "01_DENNÍ_LOGY/2025-12-11 (čtvrtek) - 50. week.md",
+    "01_DENNÍ_LOGY/2025-12-10 (středa) - 50. week.md",
     "40_ARCHIV/new-journey.md",
     "30_ZDROJE/NtbLM/Přehled česky.md",
     "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
     "30_ZDROJE/Learn_Microsoft_Fabric/Web Naučte se Microsoft Fabric - Fabric Foundation (with Will Needam).md",
-    "30_ZDROJE/30.1_ODKAZY/Webové-zdroje.md",
     "30_ZDROJE/30.2_INTEGRATIONS/GitHub-setup.md",
     "30_ZDROJE/30.2_INTEGRATIONS/Claude-Perplexity-strategy.md",
     "20_OBLASTI/LinkedIn.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10_INDEX.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md",
     "00_MATRIX/00_INDEX.md",
     "00_MATRIX/02_CHECKLIST.md",
     "00_MATRIX/01_PLÁN.md",
@@ -223,8 +226,6 @@
     "00_FEED/01 DAILY NOTES/2025-11-04 45.t.md",
     "30_ZDROJE/YOUTUBE/Bez názvu.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/2_LAB_SPARK.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/3_DELTA_LAKE.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.21 DATA ANALYST WITH PYTHON/Engeto_study_plan/0. Osnova z TODO/00 OSNOVA z TODO.pdf",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.28 AI/CheatSheet-Python-4_-Classes.pdf",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.28 AI/CheatSheet-Python-6_-Coding-Interview-Questions.pdf",
@@ -233,7 +234,6 @@
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.28 AI/CheatSheet-Python-5_-Functions-and-Tricks.pdf",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.28 AI/CheatSheet-Python-1_-Keywords1.pdf",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.28 AI/Finxter-Python-Cheat-Sheet-Complex-Data-Types.pdf",
-    "DATA ENGINEER JOURNEY 2026/10_PROJECTS/10.3_OLD-PROJECTS/Kompletní studijní kurz od A do Z - krok po kroku/22-Tydenni-Pokrocily-Plán-Data-Modeling-Lakehouse.md",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.27 WORKFLOWY/ExFlow FO - Automatizace závazků_files/videoOverlay_7299e00c2e43a32cf9fa.png",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.27 WORKFLOWY/ExFlow FO - Automatizace závazků_files/pdp_CertifiedSoftware_adbfc47cd2c2cfc274f2.svg",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.27 WORKFLOWY/ExFlow FO - Automatizace závazků_files/24px.svg",
