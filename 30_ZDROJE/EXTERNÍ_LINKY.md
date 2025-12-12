@@ -61,6 +61,7 @@
 - YouTube Lakehouse: https://www.youtube.com/results?search_query=Fabric+Lakehouse
 - YouTube PySpark: https://www.youtube.com/results?search_query=PySpark+tutorial
 - YouTube KQL: https://www.youtube.com/results?search_query=KQL+tutorial
+- YouTube DP-700 Associated Exam | Questions, Learn with Priyanka
 
 ---
 
