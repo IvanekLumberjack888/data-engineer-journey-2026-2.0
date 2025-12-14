@@ -1407,3 +1407,371 @@ With the introduction of **Session Tags** in Data Pipelines, you can now also ha
 
 ---
 
+## 4.2 Triggers – core idea
+
+Triggers define **when and how** Fabric items (notebooks, dataflows, pipelines, semantic models) are executed: on a schedule, on demand, or in reaction to events (Fabric/Azure/real‑time).  
+DP‑700 expects you to recognize **where** each trigger type is configured and which trigger fits a given scenario (batch vs event‑driven vs real‑time).
+
+---
+
+## Triggers for core Fabric items
+
+**Notebooks**
+
+- Can be run by a **Schedule trigger** directly on the notebook.
+    
+- Can also be triggered from:
+    
+    - Data Pipeline **Notebook activity**.
+        
+    - Other notebooks via `notebookutils`.
+        
+    - Real‑time events from the Real‑Time Hub (alerts).
+        
+
+**Dataflows**
+
+- Support a **Schedule trigger** (refresh on a defined cadence).
+    
+- Can also be triggered from a **Data Pipeline Dataflow activity**.
+    
+
+**Data Pipelines**
+
+- Support a **Schedule trigger** in the pipeline itself (classic batch scheduling).
+    
+- Support **Azure Blob Storage event triggers** – when a blob/file is created/changed, run the pipeline.
+    
+- Can also be triggered from:
+    
+    - Other data pipelines (Invoke Pipeline activity).
+        
+    - Azure Data Factory pipelines.
+        
+    - **Job Scheduler API** (REST).
+        
+    - Real‑time events from the Real‑Time Hub.
+        
+
+**Semantic Models**
+
+- For **DirectLake** models:
+    
+    - Option: **auto‑refresh on OneLake file changes** (near‑real‑time refresh).
+        
+- For DirectLake and Import models:
+    
+    - **Scheduled Refresh** in semantic model settings.
+        
+    - **Semantic Model Refresh** activity in a Data Pipeline.
+        
+    - Programmatically via **Semantic Link**: `fabric.refresh_dataset()` in `sempy`, or `sempy_labs.refresh_semantic_model()` from a Fabric Notebook.
+        
+
+---
+
+## Real-Time Hub events as triggers
+
+Real-Time Hub adds event‑driven automation on top of the above.
+
+When an alert/condition is met, you can:
+
+- Send notifications (Outlook, Teams).
+    
+- Run a **Data Pipeline** or **Notebook** in Fabric.
+    
+- Integrate with Eventstream‑based flows.
+    
+
+**Fabric Events** (subscribe in Real-Time Hub):
+
+- **Job events** – job created, succeeded, failed (monitor activities).
+    
+- **OneLake events** – file/folder created, deleted, renamed.
+    
+- **Workspace item events** – workspace item created, deleted, renamed.
+    
+
+**Azure Events** (via Real-Time Hub):
+
+- **Azure Blob Storage events** – blob created, deleted, renamed.
+    
+
+These let you build patterns like: “When a file lands in Blob or OneLake → trigger pipeline → refresh semantic model → notify in Teams.”
+
+---
+## 4.3 Orchestration patterns – core idea
+
+For DP‑700, it is enough to understand **why orchestration frameworks are useful** and to recognize two key patterns: **metadata‑driven pipelines** and **parent/child architecture**.  
+Good orchestration should be scalable, modular, testable, low‑maintenance and provide simple, centralized logging.
+
+---
+
+## Metadata‑driven pipeline architecture
+
+Instead of hard‑coding sources, targets and options in the pipeline, you store them as **metadata** (table/JSON) and have **one generic pipeline** loop over that metadata.
+
+Typical use cases:
+
+- Ingest 25 tables from Azure SQL into 25 Warehouse tables.
+    
+- Call 10 REST endpoints from a SaaS API and land all raw JSON into Lakehouse Files.
+    
+
+Key idea:
+
+- The pipeline first **reads metadata**, then for each row/entry runs the same logic with different parameters (source table, target table, endpoint URL, etc.).
+    
+- Adding a new table or endpoint = **add a row in metadata**, not build a new pipeline.
+    
+
+---
+
+## Parent/Child architecture
+
+Here you separate orchestration into a **Parent pipeline** and one or more **Child pipelines**.
+
+**Parent pipeline**:
+
+- Contains an **Invoke Pipeline** activity to call the child.
+    
+- Usually reads metadata and **passes parameters** to the child (e.g. table name, schema, file path).
+    
+
+**Child pipeline**:
+
+- Defines **pipeline parameters** to receive values from the Parent.
+    
+- Uses those parameters dynamically in activities (sources, sinks, queries).
+    
+
+Benefits:
+
+- Reuse the same Child pipeline logic for many entities.
+    
+- Keep the Parent focused on “which things to run” and the Child on “how to process one thing”.
+    
+
+---
+---
+# 5 How to Loading?
+## 5.1 Full and Incremental Loading – core idea
+
+As a data engineer you often need to **replicate source tables into Fabric** (Lakehouse/Warehouse) and keep them up to date.  
+You must choose between **Full load** (always reload everything) and **Incremental load** (load only changes), and know basic implementation options.
+
+---
+
+## Full load – concept, pros, cons
+
+**Definition**
+
+- Full load = copy the **entire source table** into Fabric every time, regardless of what changed.
+    
+
+**Pros**
+
+- Simple to implement, reason about and debug; easy to rerun if something fails.
+    
+- Often more robust when there is no good change tracking in the source.
+    
+
+**Cons**
+
+- Expensive in capacity, IO and time for large tables.
+    
+- Depending on implementation, users might see **partially loaded** destination table during the load window.
+    
+
+---
+
+## Full load – PySpark implementation examples
+
+All examples assume `df` is a Spark DataFrame.
+
+1. **Overwrite managed Lakehouse table**
+    
+    - `df.write.mode("overwrite").format("delta").saveAsTable("Sales")`
+        
+    - Overwrites contents of Lakehouse table `Sales`; creates it if it does not exist.
+        
+2. **Overwrite managed table using `save`**
+    
+    - `df.write.mode("overwrite").format("delta").save("Tables/Sales")`
+        
+    - Same logical result as above, but with explicit path; `save` can also write to Files.
+        
+3. **Overwrite unmanaged Delta in Files**
+    
+    - `df.write.mode("overwrite").format("delta").save("Files/Sales")`
+        
+    - Writes or overwrites an **unmanaged** Delta table in the Lakehouse **Files** area at that path.
+        
+
+---
+
+## Incremental load – concept, pros, cons
+
+**Definition**
+
+- Incremental load = only extract and load **new or changed** records since the last successful load.
+    
+
+**Pros**
+
+- Generally faster and less resource‑intensive than full load, especially for big tables.
+    
+- Better suited for frequent or near‑real‑time updates.
+    
+
+**Cons**
+
+- More complex logic (watermarks, change detection, MERGE conditions).
+    
+- Harder to debug and to recover to a consistent state after partial failures.
+    
+
+---
+
+## Incremental load – implementation with Delta Lake
+
+## Method 2: MERGE using Delta Python library
+
+High‑level steps:
+
+1. Reference existing Delta table:
+    
+    - `healthcare_delta = DeltaTable.forName(spark, "healthcare_delta")`
+        
+2. Load **updates** into a DataFrame from Files:
+    
+    - Read CSV (or other format) into `updates_df` with appropriate schema.
+        
+3. Use `merge` with join condition:
+    
+    - Match on business key `PatientId`.
+        
+    - `whenMatchedUpdateAll()` for updates, `whenNotMatchedInsertAll()` for new rows.
+        
+
+Result: target table is updated in place with inserts/updates based on the key.
+
+## Method 3: Spark SQL MERGE
+
+Equivalent pattern using SQL over Delta tables:
+
+- `MERGE INTO healthcare_delta AS target USING initial_healthcare_load AS source ON target.PatientId = source.PatientId WHEN MATCHED THEN UPDATE SET * WHEN NOT MATCHED THEN INSERT *`
+    
+
+Same logic: update existing rows, insert new ones based on matching key.
+
+---
+
+## Where else is incremental loading supported in Fabric?
+
+Incremental logic is not limited to PySpark/Delta:
+
+- **T‑SQL MERGE** in **Data Warehouse** – now supported; same conceptual MERGE pattern on warehouse tables.
+    
+- **Copy job incremental loading** – built‑in incremental options for Copy activities.
+    
+- **Dataflow Gen2** – supports incremental refresh / loading patterns.
+    
+
+---
+## 5.2 Loading into a Dimensional model – core idea
+
+For DP‑700 you need to understand **Kimball dimensional modelling** and how to implement it in Fabric Data Warehouse: **keys**, **facts**, **dimensions** and **Slowly Changing Dimensions (SCD)**.  
+Implementation examples are shown in T‑SQL for Warehouse, but the concepts apply equally to Lakehouse/Spark.
+
+---
+
+## Implementing keys in Fabric DW
+
+- Primary keys can only be added **after** table creation using `ALTER TABLE ... ADD CONSTRAINT ... PRIMARY KEY ... NOT ENFORCED`.
+    
+- Fabric DW primary keys are **nonclustered only** and **not enforced** (no actual uniqueness enforcement at engine level).
+    
+
+Implication: keys are mainly **modelling and documentation constructs**, not hard integrity constraints; you must still ensure data quality via ETL.
+
+---
+
+## Facts, dimensions, SCD – concepts
+
+- **Fact tables** store numeric measures from real‑world events (e.g. `FactSalesTransactions`).
+    
+- **Dimension tables** store descriptive context (e.g. `DimStores` with store attributes) and have a single primary key referenced by facts as a foreign key.
+    
+
+Slowly Changing Dimensions (SCD) are strategies for handling **changes in dimension attributes over time** (e.g. store moves, manager changes).
+
+---
+
+## SCD Type 1 – overwrite, no history
+
+- When a dimension row changes, the existing row is **updated/overwritten**, no historical versions kept.
+    
+- Pros: simple to implement. Cons: you **lose historical states**, cannot easily answer “what did this look like last year?”.
+    
+
+---
+
+## SCD Type 2 – full history with versions
+
+- For each change, a **new row** is added to the dimension; the old row remains, usually with date/version metadata.
+    
+- Common columns:
+    
+    - `valid_from`, `valid_to` – effective date range.
+        
+    - `is_current` – flag for the active version.
+        
+    - `is_deleted` – to track deletions in the source.
+        
+
+Implementation notes:
+
+- You must use a **surrogate key** (typically BIGINT) because the natural/business key repeats across versions.
+    
+- ETL becomes more complex (correct inserts/updates and date ranges), but you gain complete change history.
+    
+
+---
+---
+
+# 6 Ingestion 🤔
+
+## 6.1 Which data store choose?
+
+For DP‑700, choosing between **Lakehouse, Warehouse and Eventhouse (KQL DB)** mainly depends on data type, skills/tools, and workload pattern shown in that table.
+
+---
+
+## Lakehouse – when to choose it
+
+- Best for **unstructured, semi‑structured and structured** data together (files + tables) with **Spark / PySpark / Spark SQL / R** as primary dev tools.image.jpg​
+    
+- Ideal for data engineers/data scientists, large‑scale batch processing, flexible schema, and when you want both files and tables in OneLake with shortcuts support.image.jpg​
+    
+
+---
+
+## Warehouse – when to choose it
+
+- Best for **structured and semi‑structured (JSON) data** where primary skill is **SQL** and you need **multi‑table transactions**.image.jpg​
+    
+- Fits data warehouse developers/architects, strong T‑SQL workloads, MERGE‑heavy ETL, and when you want tightly controlled schema plus CI/CD over SQL projects.image.jpg​
+    
+
+---
+
+## Eventhouse (KQL DB) – when to choose it
+
+- Best for **time‑series / log / telemetry** scenarios with unstructured, semi‑structured and structured event data, queried mainly via **KQL**.image.jpg​
+    
+- Choose it for app telemetry, monitoring, security logs, geospatial and real‑time analytics where ingestion is continuous and latency must be seconds, not minutes.image.jpg​
+    
+
+1. [https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/images/47041337/2d66319c-7761-4ffe-9bdb-da530e1e340f/image.jpg?AWSAccessKeyId=ASIA2F3EMEYEVVUIBZVW&Signature=DFiS4GHkBtFmAKFXECSHK%2B5olEs%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEG0aCXVzLWVhc3QtMSJHMEUCIQDhKyxZdIyZLoqvIRKxcDCTpAFkoL9iUqt118dNPrAOrwIgSSQwWSEPFWqFnYe5HkaDcve7AJ2O86TJkKhHqj5MIksq8wQINhABGgw2OTk3NTMzMDk3MDUiDAnCL0hsNa%2BegwzmyyrQBEInPhjAAWLtPoq%2FT9K7lwvEBX1PdbNpS%2F9pmFo0H3ZSn5Ik20JDUCbKuCMMKL3bZCOoJtXTtoBfuyXRLdMNE21RJ7jZS1TugFTRoD1j3i0JoiOrsUtsVPmWfSjEO7NBe57b0oTzpVdSLI7uQz8UAlDDsjni9dhiv5Z8YSJGbIg2%2FBToaaxHt0fzUDH9Gn9kP8dG8SLHga5oWQCxYmCfg9PCZySOve%2F8nbwukUXVVFt1p3DIQOW3peDYdTy3LAHHySDnj0PQ0xU1BoEiGpxlkNueQRAaL8nFLmMOUde2SX8e23cUrrudumWlHtwY2%2BDNQxoYgrGhcpfLLeRer7ldJl6Z7F455n7zubpJ257Ulb9CaxV7161Hheq8aMayQ0WTOgbnpOAVlZbXD%2BMySbaMGNz%2FUprkne%2FwtWL7WTXt2HajkEQXoPp7DjeCuw9Mc9kM%2FJ%2FOp%2FBOWwJ1%2FN7I1F%2BqzBCfRdAoZJej9pxAvQcrEGkSbBzl%2F7Q64cfvIF%2B%2BghPl0kFxgWVt32hnmnB7nMjhqx%2BIgOd1AxO5f%2FF99rub90bAzuGjVp2mJDUT5kVksVzb9mD8AQdGn2QIvCQjv9neLX4POFSSpb5xwbzVLoOrA6LeqAVrAcLViAkUkcLaWg9vYbM8MN2GhJ9ETFN4GWi0dM9DR7cHSHyOHWaEsEFDQlDUw3HOQdKSbkFyjxcaQF0iSJCotx6kphe0Vh1GXobFO88p47IsHAaq5%2BymjeZyi94Mptt6NATdKW0eduZQOfdHZIS4DvQ4J%2B8WVBP%2BjvmrDwsw4Nv6yQY6mAGBZGFYqykOJ5c9invhjEpg6boqVhheDmwASOZnum9A%2FQgDmuZHqUj2nSoanj6af%2BUa%2BeJWV7U%2BkApRPVUe4llpbNA%2B2v1MQZNaDOYIPb8mYFcbysiU4UIxam3n73Tr%2BQFgDQqzxq0IplycaC2mrraI%2FGOz%2Ba3jHxEaf3%2BYfZB4drMA0wMVXU4IU7gGHHOsarGrWhvGuZiHzw%3D%3D&Expires=1765717898](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/images/47041337/2d66319c-7761-4ffe-9bdb-da530e1e340f/image.jpg?AWSAccessKeyId=ASIA2F3EMEYEVVUIBZVW&Signature=DFiS4GHkBtFmAKFXECSHK%2B5olEs%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEG0aCXVzLWVhc3QtMSJHMEUCIQDhKyxZdIyZLoqvIRKxcDCTpAFkoL9iUqt118dNPrAOrwIgSSQwWSEPFWqFnYe5HkaDcve7AJ2O86TJkKhHqj5MIksq8wQINhABGgw2OTk3NTMzMDk3MDUiDAnCL0hsNa%2BegwzmyyrQBEInPhjAAWLtPoq%2FT9K7lwvEBX1PdbNpS%2F9pmFo0H3ZSn5Ik20JDUCbKuCMMKL3bZCOoJtXTtoBfuyXRLdMNE21RJ7jZS1TugFTRoD1j3i0JoiOrsUtsVPmWfSjEO7NBe57b0oTzpVdSLI7uQz8UAlDDsjni9dhiv5Z8YSJGbIg2%2FBToaaxHt0fzUDH9Gn9kP8dG8SLHga5oWQCxYmCfg9PCZySOve%2F8nbwukUXVVFt1p3DIQOW3peDYdTy3LAHHySDnj0PQ0xU1BoEiGpxlkNueQRAaL8nFLmMOUde2SX8e23cUrrudumWlHtwY2%2BDNQxoYgrGhcpfLLeRer7ldJl6Z7F455n7zubpJ257Ulb9CaxV7161Hheq8aMayQ0WTOgbnpOAVlZbXD%2BMySbaMGNz%2FUprkne%2FwtWL7WTXt2HajkEQXoPp7DjeCuw9Mc9kM%2FJ%2FOp%2FBOWwJ1%2FN7I1F%2BqzBCfRdAoZJej9pxAvQcrEGkSbBzl%2F7Q64cfvIF%2B%2BghPl0kFxgWVt32hnmnB7nMjhqx%2BIgOd1AxO5f%2FF99rub90bAzuGjVp2mJDUT5kVksVzb9mD8AQdGn2QIvCQjv9neLX4POFSSpb5xwbzVLoOrA6LeqAVrAcLViAkUkcLaWg9vYbM8MN2GhJ9ETFN4GWi0dM9DR7cHSHyOHWaEsEFDQlDUw3HOQdKSbkFyjxcaQF0iSJCotx6kphe0Vh1GXobFO88p47IsHAaq5%2BymjeZyi94Mptt6NATdKW0eduZQOfdHZIS4DvQ4J%2B8WVBP%2BjvmrDwsw4Nv6yQY6mAGBZGFYqykOJ5c9invhjEpg6boqVhheDmwASOZnum9A%2FQgDmuZHqUj2nSoanj6af%2BUa%2BeJWV7U%2BkApRPVUe4llpbNA%2B2v1MQZNaDOYIPb8mYFcbysiU4UIxam3n73Tr%2BQFgDQqzxq0IplycaC2mrraI%2FGOz%2Ba3jHxEaf3%2BYfZB4drMA0wMVXU4IU7gGHHOsarGrWhvGuZiHzw%3D%3D&Expires=1765717898)
+2. [https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=efd40beeb46e4a7d854be0f51ee68a8e](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=efd40beeb46e4a7d854be0f51ee68a8e)
