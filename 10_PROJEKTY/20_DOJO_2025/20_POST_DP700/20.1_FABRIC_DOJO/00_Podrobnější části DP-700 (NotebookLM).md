@@ -2102,3 +2102,64 @@ Fabric provides several components that you combine into real‑time solutions:
 
 Together these let you build pipelines where events flow from sources into Fabric, are stored in Eventhouse or Lakehouse, queried with KQL or Spark and surfaced in dashboards with second‑level latency.
 
+---
+
+## 7.2 Eventstreams ➿
+
+Eventstreams are a **no‑code streaming tool** in Fabric to ingest, transform and route real‑time data from many sources into destinations like Eventhouse, Lakehouse or Activator.
+
+---
+
+## Sources for Eventstreams
+
+You can ingest from multiple real‑time and change‑data sources:
+
+- Azure real‑time PaaS: **Event Hub, IoT Hub**.
+    
+- Cloud DBs with **Change Data Capture**: Azure SQL, PostgreSQL, MySQL, Cosmos DB.
+    
+- Third‑party streaming: **Google Pub/Sub, Amazon Kinesis, Kafka**.
+    
+- **Fabric/Azure events**: Fabric workspace events, Azure Blob Storage events.
+    
+- **Custom endpoints** via Fabric REST API/SDKs and built‑in sample streams.
+    
+
+---
+
+## Transformations in Eventstreams
+
+All done visually, no code:
+
+- **Filter** – keep events matching a condition on a field (e.g. `No_Bikes = 0` or `Neighbourhood = 'Southwark'`).
+    
+- **Manage fields** – choose which columns to keep, rename them, and change data types; typically used early in the flow.
+    
+- **Aggregate** – compute running aggregates over a time window (Average, Min, Max, Sum).
+    
+- **Group By** – windowed aggregations with Tumbling, Hopping, Sliding, Session or Snapshot windows.
+    
+- **Union** – combine two compatible streams into one (non‑matching fields dropped).
+    
+- **Expand** – explode array‑type fields into multiple rows.
+    
+- **Join** – join two streams on a matching condition (stream‑to‑stream join).
+    
+
+---
+
+## Destinations for Eventstreams
+
+You can route the processed stream to:
+
+- **Eventhouse (KQL DB)** – for KQL analytics and Real‑Time Dashboards.
+    
+- **Lakehouse** – to land streaming data alongside batch data or for Spark/ML processing.
+    
+- **Custom endpoint** – push to your own application.
+    
+- **Derived Stream** – a logical output stream after transforms, which can itself be routed and monitored in Real‑Time Hub.
+    
+- **Fabric Activator** – to drive alerting and automated actions based on live stream values.
+    
+
