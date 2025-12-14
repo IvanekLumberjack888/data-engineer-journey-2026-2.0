@@ -1772,6 +1772,79 @@ For DP‑700, choosing between **Lakehouse, Warehouse and Eventhouse (KQL DB)** 
     
 - Choose it for app telemetry, monitoring, security logs, geospatial and real‑time analytics where ingestion is continuous and latency must be seconds, not minutes.image.jpg​
     
+---
 
-1. [https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/images/47041337/2d66319c-7761-4ffe-9bdb-da530e1e340f/image.jpg?AWSAccessKeyId=ASIA2F3EMEYEVVUIBZVW&Signature=DFiS4GHkBtFmAKFXECSHK%2B5olEs%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEG0aCXVzLWVhc3QtMSJHMEUCIQDhKyxZdIyZLoqvIRKxcDCTpAFkoL9iUqt118dNPrAOrwIgSSQwWSEPFWqFnYe5HkaDcve7AJ2O86TJkKhHqj5MIksq8wQINhABGgw2OTk3NTMzMDk3MDUiDAnCL0hsNa%2BegwzmyyrQBEInPhjAAWLtPoq%2FT9K7lwvEBX1PdbNpS%2F9pmFo0H3ZSn5Ik20JDUCbKuCMMKL3bZCOoJtXTtoBfuyXRLdMNE21RJ7jZS1TugFTRoD1j3i0JoiOrsUtsVPmWfSjEO7NBe57b0oTzpVdSLI7uQz8UAlDDsjni9dhiv5Z8YSJGbIg2%2FBToaaxHt0fzUDH9Gn9kP8dG8SLHga5oWQCxYmCfg9PCZySOve%2F8nbwukUXVVFt1p3DIQOW3peDYdTy3LAHHySDnj0PQ0xU1BoEiGpxlkNueQRAaL8nFLmMOUde2SX8e23cUrrudumWlHtwY2%2BDNQxoYgrGhcpfLLeRer7ldJl6Z7F455n7zubpJ257Ulb9CaxV7161Hheq8aMayQ0WTOgbnpOAVlZbXD%2BMySbaMGNz%2FUprkne%2FwtWL7WTXt2HajkEQXoPp7DjeCuw9Mc9kM%2FJ%2FOp%2FBOWwJ1%2FN7I1F%2BqzBCfRdAoZJej9pxAvQcrEGkSbBzl%2F7Q64cfvIF%2B%2BghPl0kFxgWVt32hnmnB7nMjhqx%2BIgOd1AxO5f%2FF99rub90bAzuGjVp2mJDUT5kVksVzb9mD8AQdGn2QIvCQjv9neLX4POFSSpb5xwbzVLoOrA6LeqAVrAcLViAkUkcLaWg9vYbM8MN2GhJ9ETFN4GWi0dM9DR7cHSHyOHWaEsEFDQlDUw3HOQdKSbkFyjxcaQF0iSJCotx6kphe0Vh1GXobFO88p47IsHAaq5%2BymjeZyi94Mptt6NATdKW0eduZQOfdHZIS4DvQ4J%2B8WVBP%2BjvmrDwsw4Nv6yQY6mAGBZGFYqykOJ5c9invhjEpg6boqVhheDmwASOZnum9A%2FQgDmuZHqUj2nSoanj6af%2BUa%2BeJWV7U%2BkApRPVUe4llpbNA%2B2v1MQZNaDOYIPb8mYFcbysiU4UIxam3n73Tr%2BQFgDQqzxq0IplycaC2mrraI%2FGOz%2Ba3jHxEaf3%2BYfZB4drMA0wMVXU4IU7gGHHOsarGrWhvGuZiHzw%3D%3D&Expires=1765717898](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/images/47041337/2d66319c-7761-4ffe-9bdb-da530e1e340f/image.jpg?AWSAccessKeyId=ASIA2F3EMEYEVVUIBZVW&Signature=DFiS4GHkBtFmAKFXECSHK%2B5olEs%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEG0aCXVzLWVhc3QtMSJHMEUCIQDhKyxZdIyZLoqvIRKxcDCTpAFkoL9iUqt118dNPrAOrwIgSSQwWSEPFWqFnYe5HkaDcve7AJ2O86TJkKhHqj5MIksq8wQINhABGgw2OTk3NTMzMDk3MDUiDAnCL0hsNa%2BegwzmyyrQBEInPhjAAWLtPoq%2FT9K7lwvEBX1PdbNpS%2F9pmFo0H3ZSn5Ik20JDUCbKuCMMKL3bZCOoJtXTtoBfuyXRLdMNE21RJ7jZS1TugFTRoD1j3i0JoiOrsUtsVPmWfSjEO7NBe57b0oTzpVdSLI7uQz8UAlDDsjni9dhiv5Z8YSJGbIg2%2FBToaaxHt0fzUDH9Gn9kP8dG8SLHga5oWQCxYmCfg9PCZySOve%2F8nbwukUXVVFt1p3DIQOW3peDYdTy3LAHHySDnj0PQ0xU1BoEiGpxlkNueQRAaL8nFLmMOUde2SX8e23cUrrudumWlHtwY2%2BDNQxoYgrGhcpfLLeRer7ldJl6Z7F455n7zubpJ257Ulb9CaxV7161Hheq8aMayQ0WTOgbnpOAVlZbXD%2BMySbaMGNz%2FUprkne%2FwtWL7WTXt2HajkEQXoPp7DjeCuw9Mc9kM%2FJ%2FOp%2FBOWwJ1%2FN7I1F%2BqzBCfRdAoZJej9pxAvQcrEGkSbBzl%2F7Q64cfvIF%2B%2BghPl0kFxgWVt32hnmnB7nMjhqx%2BIgOd1AxO5f%2FF99rub90bAzuGjVp2mJDUT5kVksVzb9mD8AQdGn2QIvCQjv9neLX4POFSSpb5xwbzVLoOrA6LeqAVrAcLViAkUkcLaWg9vYbM8MN2GhJ9ETFN4GWi0dM9DR7cHSHyOHWaEsEFDQlDUw3HOQdKSbkFyjxcaQF0iSJCotx6kphe0Vh1GXobFO88p47IsHAaq5%2BymjeZyi94Mptt6NATdKW0eduZQOfdHZIS4DvQ4J%2B8WVBP%2BjvmrDwsw4Nv6yQY6mAGBZGFYqykOJ5c9invhjEpg6boqVhheDmwASOZnum9A%2FQgDmuZHqUj2nSoanj6af%2BUa%2BeJWV7U%2BkApRPVUe4llpbNA%2B2v1MQZNaDOYIPb8mYFcbysiU4UIxam3n73Tr%2BQFgDQqzxq0IplycaC2mrraI%2FGOz%2Ba3jHxEaf3%2BYfZB4drMA0wMVXU4IU7gGHHOsarGrWhvGuZiHzw%3D%3D&Expires=1765717898)
-2. [https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=efd40beeb46e4a7d854be0f51ee68a8e](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=efd40beeb46e4a7d854be0f51ee68a8e)
+## 6.2 Which data transformation tool??
+
+Choosing the right transformation tool in Fabric depends on **use case, skills, connectors, interface, and complexity**.image.jpg​
+
+---
+
+## Pipeline Copy activity
+
+- **Use when:** You need robust **data ingestion / migration** with **lightweight transforms** (type conversions, column mapping, merge/split files, flatten hierarchy).image.jpg​
+    
+- **Persona & skills:** Data engineer / data integrator with **ETL, SQL, JSON**; prefers **no‑code / low‑code**.image.jpg​
+    
+- **Interface:** Wizard + pipeline canvas.image.jpg​
+    
+- **Connectivity:** ~30+ sources, 18+ destinations.image.jpg​
+    
+- **Complexity & scale:** Low–medium transformation complexity, **low–high data volume**.image.jpg​
+    
+
+Use it for straightforward copy/landing jobs inside orchestrated Data Pipelines.
+
+---
+
+## Dataflow Gen2
+
+- **Use when:** You need **data ingestion + richer transformation/wrangling/profiling** in a GUI, reusable across reports/models.image.jpg​
+    
+- **Persona & skills:** Data engineer, integrator, **business analyst** with ETL / **M / SQL**.image.jpg​
+    
+- **Interface:** **Power Query** canvas.image.jpg​
+    
+- **Connectivity:** 150+ connectors; destinations include **Lakehouse, Azure SQL DB, Azure Data Explorer, Synapse**.image.jpg​
+    
+- **Complexity & scale:** Low–high transformation complexity (300+ functions), low–high data volume.image.jpg​
+    
+
+Pick this for self‑service friendly, repeatable transforms that still scale reasonably well.
+
+---
+
+## Spark (Notebook / Spark job definition)
+
+- **Use when:** You need maximum flexibility for **big‑data ingestion, complex transformations, processing, profiling** across structured + semi/unstructured data.image.jpg​
+    
+- **Persona & skills:** Data engineer, data scientist, developer with **Scala, Python, Spark SQL, R**.image.jpg​
+    
+- **Interface:** Notebook or Spark job definition.image.jpg​
+    
+- **Connectivity:** “Hundreds of Spark libraries” as sources/destinations.image.jpg​
+    
+- **Complexity & scale:** Low–very high transformation complexity; low–high data volume with full distributed compute.image.jpg​
+    
+
+Use Spark when you hit the limits of low‑code tools or need ML / custom logic tightly integrated with ETL.
+
+---
+
+## T‑SQL in Data Warehouse
+
+- **Use when:** You focus on **warehouse‑centric ETL/ELT**: ingest into a DW and transform inside using SQL (joins, MERGE, windowing).
+    
+- **Persona & skills:** Data engineer / data developer with **T‑SQL + data modeling** skills.
+    
+- **Interface:** T‑SQL query or notebook SQL cell.
+    
+- **Sources & destination:** Often **COPY INTO** from ADLS Gen2 / OneLake into **Data Warehouse tables**.
+    
+- **Complexity & scale:** Low–high transformation complexity, low–high volume (analytic SQL engine).
+    
+
+Best fit when the team is SQL‑heavy and the main target is a structured warehouse model.
+
+---
+
