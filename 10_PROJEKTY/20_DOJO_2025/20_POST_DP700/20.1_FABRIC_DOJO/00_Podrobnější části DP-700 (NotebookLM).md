@@ -1740,7 +1740,7 @@ Implementation notes:
 ---
 ---
 
-# 6 Ingestion 🤔
+# 6 Ingestion 🤔 | Transformation 🪓
 
 ## 6.1 Which data store choose?
 
@@ -1848,3 +1848,223 @@ Best fit when the team is SQL‑heavy and the main target is a structured wareho
 
 ---
 
+## 6.3 Shortcuts
+## Supported external sources (high level)
+
+From a Lakehouse you choose **Get data → New shortcut** and can point to:
+
+- **Dataverse/Dynamics** → appears as **shortcut tables** under `Tables/`.
+    
+- **Delta Lake, Iceberg** in external storage → appear as **Delta/Iceberg table shortcuts** under `Tables/`.
+    
+- **AWS S3, Google Cloud Storage, ADLS Gen2** folders with files (CSV, JSON, etc.) → appear as **folder shortcuts** under `Files/`.
+    
+
+Fabric then treats these shortcuts almost like native Lakehouse objects for querying and downstream processing.
+
+---
+
+## Why use shortcuts?
+
+- Avoids **data duplication** and cross‑cloud copies; you query/transform external data in‑place.
+    
+- Simplifies **bronze layer** design: a Bronze Lakehouse can aggregate many external sources via shortcuts and expose a unified view.
+    
+
+---
+
+## 6.4 Mirroring – core idea
+
+Mirroring **replicates an external operational database into Fabric** in an analytics‑friendly format with **near real‑time sync and no classic ETL**.  
+Fabric continuously ingests changes from the source, so you get an always‑up‑to‑date analytical copy for reporting and downstream processing.
+
+---
+
+## Supported mirrored sources
+
+From **New item → Get data → Mirrored …** you can currently choose (preview set):
+
+- Azure SQL Database
+    
+- Azure SQL Managed Instance
+    
+- Azure Cosmos DB
+    
+- Snowflake
+    
+- Databricks Unity Catalog (metadata mirroring + shortcuts)
+    
+- Generic **Mirrored database (preview)** and **Open Mirrored DB** for broader patterns.
+    
+
+All of them land into a **Fabric SQL Database / Mirrored DB** that behaves like a native Fabric analytical store.
+
+---
+
+## When to use mirroring
+
+- You have an **OLTP / operational** system (e.g. Azure SQL, Cosmos, Snowflake) and want analytics **without building/maintaining ETL pipelines**.
+    
+- You need **low‑latency** replication (near real‑time) but still want separation between operational workload and reporting workload.
+    
+- You want to treat the mirrored DB as a **source for Lakehouse/Warehouse/Lakehouse shortcuts** or as a direct reporting source.
+    
+
+---
+
+## Shortcuts vs Mirroring – summary
+
+|Aspect|Shortcuts|Mirroring|
+|---|---|---|
+|Data movement|**No copy** – logical pointer to external data.|**Yes** – data replicated into Fabric analytical store.|
+|Latency|Depends on source; reads live data at query time.|Near real‑time sync stream from source to Fabric.|
+|Source types|Files, Delta/Iceberg tables, Dataverse, S3/GCS/ADLS folders.|Operational DBs: Azure SQL, SQL MI, Cosmos, Snowflake, Databricks UC, etc.|
+|Workload impact on source|Queries hit source directly; can increase source load and cross‑cloud egress.|Change feed‑based replication; designed to minimize impact, analytics run on Fabric copy.|
+|Governance & performance|Data stays scattered; performance and security depend on each source.|Centralized in Fabric, easier to secure, cache and optimize.|
+|Typical use|Broad **data lake aggregation** without duplication, Bronze layer over many storages.|**Operational DB offloading** for analytics and reporting with minimal ETL.|
+
+**Plusy shortcuts:** žádné kopírování dat, levné na storage, rychlé onboarding více zdrojů.  
+**Mínusy shortcuts:** závislost na výkonu zdroje, možné egress náklady, složitější governance napříč systémy.
+
+**Plusy mirroringu:** centralizovaný analytický store ve Fabricu, nízká latence, menší zátěž OLTP, snadnější zabezpečení a optimalizace.  
+**Mínusy mirroringu:** data se kopírují (storage + správa), podporuje jen vybrané databázové zdroje.
+
+---
+
+## 6.5 Data ingestion with Data Pipelines
+
+Data Pipelines are the **main orchestrator for batch and near real‑time ingestion** into Fabric, typically using the **Copy activity** plus supporting activities for control flow.
+
+---
+
+## Sources & destinations
+
+From the Copy activity you can choose from many **sources** (image shows only a subset):
+
+- Databases: SQL Server, Azure SQL, Oracle, SAP HANA, Snowflake, PostgreSQL, MySQL, etc.
+    
+- Files/services: Folders, Azure Blobs, ADLS Gen2, S3, REST/HTTP, SharePoint, Dynamics, and more.
+    
+
+**Destinations:**
+
+- **File data** → Lakehouse **Files** area.
+    
+- **Table data** → any Fabric data store (Lakehouse tables, Warehouse, KQL DB, etc.).
+    
+- Plus many external data stores when doing outbound loads.
+    
+
+---
+
+## Typical ingestion pattern in a pipeline
+
+1. **Copy** from source to Bronze Lakehouse/Warehouse (full or incremental).
+    
+2. Optional **validation / logging** steps (stored procedures, notebooks, REST calls).
+    
+3. **Trigger downstream**: transformation pipelines/notebooks, semantic model refresh, or alerts.
+    
+
+You combine this with the orchestration concepts from section 4 (dependencies, triggers, metadata‑driven / parent‑child patterns) to build robust ingestion solutions.
+
+---
+
+## 6.6 Data Transformation
+## 6.6.1 With T‑SQL – exam focus
+
+For DP‑700, T‑SQL is mainly about **doing real warehouse work inside Fabric DW**: creating tables and loading data, modelling facts/dimensions, keys, and implementing security.  
+The Fabric Dojo notebook is a deep‑dive practice file; below je shrnutí, co z něj potřebuješ umět.
+
+---
+
+## What this T‑SQL block covers
+
+- **Table creation & ingestion methods** for Fabric Data Warehouse
+    
+    - `CREATE TABLE`, `ALTER TABLE`, `COPY INTO`, `INSERT … SELECT`, `MERGE` for upserts.
+        
+- **Primary keys & surrogate keys**
+    
+    - Defining non‑enforced PKs, using surrogate keys (BIGINT identity) in dimensional models.
+        
+- **Dimensional modelling in T‑SQL**
+    
+    - Joins mezi fakty a dimenzemi.
+        
+    - Implementace SCD (Type 1/2) pomocí `MERGE`, `INSERT`, `UPDATE`.
+        
+- **Security in Fabric DW**
+    
+    - RLS pomocí security policies, CLS/OLS přes role a `GRANT`, kombinace s item‑level permissions.
+        
+
+Notebook tě vede prakticky přes tyto scénáře v jednom DW připojeném k T‑SQL.
+
+---
+
+## What is assumed as prerequisites
+
+Z modulu 6.6 se **neučí základy SQL**, ty musíš umět předem:
+
+- `SELECT`, `WHERE`, `GROUP BY`, `HAVING`, agregace.
+    
+- `INSERT`, `UPDATE`, `DELETE`.
+    
+- Ranking funkce (`ROW_NUMBER`, `RANK`, `DENSE_RANK`, `NTILE`).
+    
+- `UNION`, `UNION ALL`.
+    
+- Znalost T‑SQL datových typů.
+    
+- Tvorba views, stored procedures, functions.
+    
+- Spouštění DW dotazů z Data Pipelines (Stored Procedure / Script / Lookup activities).
+    
+
+Tohle DP‑700 bere jako samozřejmý základ; zkouška tě pak testuje na **aplikaci** T‑SQL v prostředí Fabric DW, ne na syntaxi začátečníků.
+
+---
+
+## 6.6.2 Data Transformation with PySpark – overview
+
+This notebook is a **PySpark deep‑dive for Fabric data engineers**, focused on what DP‑700 expects you to know: Spark engine basics, Lakehouse integration, table creation/loading and core transformations.  
+It assumes you already know Python/Spark fundamentals and uses one Lakehouse plus sample files in the `Files/` folder for hands‑on work.
+
+---
+
+## 1. Notebook fundamentals
+
+- Shows how to work with **multiple languages** in one Fabric notebook (PySpark, Spark SQL, Markdown) and how to **parameterize** notebooks (e.g. environment, paths).
+    
+- Demonstrates `notebookutils` helpers (for orchestration, file access, secrets, etc.), which you already saw in orchestration with notebooks.
+    
+
+---
+
+## 2. Table creation in Lakehouse
+
+- Creating and overwriting Lakehouse tables using both **Spark SQL** and **PySpark DataFrame writes** (`saveAsTable`, `save` to `Tables/` or `Files/`).
+    
+- Covers how managed vs unmanaged Delta tables map to **Tables/** vs **Files/** in a Fabric Lakehouse.
+    
+
+---
+
+## 3. Loading methods
+
+- Different ingestion paths with PySpark: reading CSV/JSON/Parquet from `Files/`, external storage, then writing to Delta tables.
+    
+- Shows **overwrite vs append** patterns and how they relate to **full vs incremental** loading that you studied in section 5.1.
+    
+
+---
+
+## 4. Transformation basics
+
+- Demonstrates common DataFrame operations that DP‑700 expects you to recognize: selects, filters, joins, aggregations, window functions, simple data quality checks, etc.
+    
+- Purpose is not to be exhaustive Spark training, but to make you comfortable reading and reasoning about PySpark ETL code in exam scenarios.
+    
+
+---
