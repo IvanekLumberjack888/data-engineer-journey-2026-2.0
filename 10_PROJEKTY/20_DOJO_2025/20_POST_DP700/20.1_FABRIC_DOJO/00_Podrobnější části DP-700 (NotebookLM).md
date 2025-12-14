@@ -2228,3 +2228,18 @@ In practice, the pattern is:
 - Typical exam scenario: streaming events from Event Hub into a **Lakehouse Delta table** with checkpoints for reliability, then using that table for downstream analytics.
     
 ---
+
+## 7.4 Process / analyze data using KQL – co znát
+
+- Mít přehled o **Eventhouse a KQL Database** jako primárním úložišti pro logy a time‑series.
+    
+- Umět číst a psát základní KQL dotazy: `take/limit`, `project`, `extend`, `sort`, `where`, `summarize`, `join`.
+    
+- Vědět, že existují **management commands** (např. práce s databázemi, tabulkami, retencí) a že se používají pro správu, ne pro běžnou analytiku.
+    
+
+---
+
+## KQL window functions – navazující téma
+
+- Window funkce pracují nad **seřazenou (serialized) množinou řádků** a 
