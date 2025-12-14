@@ -1970,7 +1970,7 @@ You combine this with the orchestration concepts from section 4 (dependencies, t
 
 ---
 
-## 6.6 Data Transformation
+## 6.6 Data Transformation 🧙🏽‍♂️
 ## 6.6.1 With T‑SQL – exam focus
 
 For DP‑700, T‑SQL is mainly about **doing real warehouse work inside Fabric DW**: creating tables and loading data, modelling facts/dimensions, keys, and implementing security.  
@@ -2068,3 +2068,37 @@ It assumes you already know Python/Spark fundamentals and uses one Lakehouse plu
     
 
 ---
+---
+
+# 7 Real-time streaming
+
+Real‑time data in Fabric means processing **continuous event streams with very low latency**, instead of periodic batch loads with a natural time lag.
+
+---
+
+## 7.1 Real‑time vs batch – mindset
+
+- **Batch processing** loads and analyzes data in chunks (daily/hourly loads etc.); decisions are based on already‑stored history and some delay between event and insight is acceptable.
+    
+- **Real‑time systems** ingest and analyze events as they happen, often connected to the physical world via sensors (IoT, telemetry, GPS, temperature), and are more complex and costly but critical in domains like finance, fraud detection, logistics, transport and large consumer apps.
+    
+
+---
+
+## Real‑time ecosystem in Microsoft Fabric
+
+Fabric provides several components that you combine into real‑time solutions:
+
+- **Spark Structured Streaming** – code‑first streaming framework running on the Spark engine for large‑scale real‑time ingestion and analysis.
+    
+- **Eventstreams** – no‑code streaming ingestion with basic transformations and routing from sources (e.g. Event Hubs/IoT Hub, custom endpoints) to sinks like Eventhouse and Lakehouse.
+    
+- **Eventhouse (KQL Databases)** – primary store for time‑series / log data, optimized for high‑rate ingestion and KQL querying.
+    
+- **KQL Querysets** – place to author and run KQL queries over KQL DBs, focused on interactive analytics over large time‑series datasets.
+    
+- **Real‑time Dashboards** – visualize KQL results live without needing Power BI, for monitoring and operational views.
+    
+
+Together these let you build pipelines where events flow from sources into Fabric, are stored in Eventhouse or Lakehouse, queried with KQL or Spark and surfaced in dashboards with second‑level latency.
+
