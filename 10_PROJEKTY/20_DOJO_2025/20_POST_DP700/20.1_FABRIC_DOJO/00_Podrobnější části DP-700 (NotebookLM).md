@@ -583,3 +583,457 @@ You can feed these to NotebookLM or use them as flashcards:
     
 
 ---
+---
+
+# 2 LIFECYCLE MANAGEMENT
+
+## 2.1 Configure Version Control – core idea
+
+Version control in Fabric means connecting a **workspace** to a **Git repository** (Azure DevOps or GitHub) so that changes to items are tracked as code.  
+For DP‑700 you need to know required tenant settings, how the connection works, and **what is / is not committed** to Git.
+
+---
+
+## Tenant‑level settings (Fabric admin)
+
+Before any workspace can sync to Git, a **Fabric tenant admin** must enable specific settings.
+
+Key options:
+
+- “Users can synchronize workspace items with their Git repositories.”
+    
+- If using GitHub: “Users can sync workspace items with GitHub repositories.”
+    
+- Optional but relevant: “Users can export items to Git repositories in other geographical locations.” (cross‑region export)
+    
+
+Exam angle: if a scenario says “users cannot connect workspaces to Git”, check tenant‑level permissions first.
+
+---
+
+## Connecting a workspace to Azure DevOps Git
+
+When linking a Fabric workspace to **Azure DevOps (ADO)**, you must specify:
+
+- ADO **Organization**.
+    
+- ADO **Project**.
+    
+- **Repository** within that project.
+    
+- **Branch** to sync with.
+    
+- Optional: **folder path** – if set, workspace content is written into that subfolder; if empty, it goes to the repo root.
+    
+
+Fabric then writes definitions of supported items into the repo; changes can be committed, reviewed (PRs) and deployed.
+
+---
+
+## Connecting a workspace to GitHub
+
+For **GitHub** integration, configuration is slightly different:
+
+- **Display name** for the connection (any friendly name).
+    
+- **Personal Access Token (PAT)** generated in GitHub with appropriate scopes.
+    
+- **Repository URL** (including owner/name).
+    
+
+Once connected, Fabric syncs supported item definitions to that repo and branch, similar to ADO.
+
+---
+
+## What gets committed to version control?
+
+DP‑700 expects you to know that not everything in Fabric is stored in Git.
+
+General rules:
+
+- **NOT committed**:
+    
+    - Tabular **data** in data stores or semantic models (no actual data rows).
+        
+    - **Files** (e.g. Lakehouse files area, Environment files).
+        
+    - **Refresh schedules**.
+        
+- **Data Warehouse**:
+    
+    - The **structure** of the warehouse (CREATE TABLE / CREATE VIEW etc.) is committed as code.
+        
+    - A **SQL Project** representation of the warehouse is also checked in (ties into database projects later).
+        
+- **Lakehouse**:
+    
+    - Only **metadata** like name and description is versioned; actual files/data are not.
+        
+
+Implication (very exam‑relevant):
+
+> If something is **not** in version control, it typically also **cannot be deployed** via standard CI/CD and deployment pipelines.
+
+---
+
+## Self‑check / moderator questions
+
+You can use these as NotebookLM prompts or flashcards:
+
+1. Which **tenant‑level settings** must be enabled before users can connect a Fabric workspace to Git?
+    
+2. What specific fields are required to connect a workspace to an **Azure DevOps** Git repository?
+    
+3. What credentials and information are needed to connect to **GitHub** from a Fabric workspace?
+    
+4. Name three things that **do NOT** get checked into version control from a Fabric workspace.
+    
+5. What aspects of a **Data Warehouse** are stored in version control, and why is this important for CI/CD?
+    
+6. What is actually committed for a **Lakehouse** when syncing to Git?
+    
+7. In an exam scenario, if the requirement is “deploy warehouse schema changes between environments using CI/CD”, which artifact must exist in Git?
+    
+8. How would you explain to a stakeholder why data rows themselves are not stored in Git, only definitions and code?
+    
+
+---
+## 2.3 Deployment Pipelines – core idea
+
+Deployment Pipelines move (copy) supported Fabric items through **stages** like DEV → TEST → PROD, where each stage is a separate Fabric workspace.  
+Goal: enforce a way of working where content is tested before reaching Production, either manually or via REST API‑driven automation.
+
+---
+
+## Key exam concepts
+
+- **Stages**
+    
+    - 2–10 stages per pipeline; each stage maps to one workspace (names are arbitrary: Dev/Test/Prod/UAT, etc.).
+        
+    - Deploying means copying items from one stage’s workspace to the next stage’s workspace.
+        
+- **Item pairing**
+    
+    - When an item is first deployed from Stage A to Stage B, a hidden pairing link is created.
+        
+    - Even if you rename items later, the pairing remains; subsequent deployments overwrite the paired item in the target stage.
+        
+- **Auto‑binding**
+    
+    - Some items are auto‑bound to dependencies during deployment.
+        
+    - Examples:
+        
+        - Reports auto‑bind to their semantic models.
+            
+        - Notebooks auto‑bind to their default Lakehouse and Environment.
+            
+    - Result: you often cannot deploy just one item; its bound dependency is deployed or re‑bound as well.
+        
+- **Deployment Rules**
+    
+    - Rules that automatically adjust settings/parameters when deploying between stages.
+        
+    - Used to switch connections (e.g. Dev DB → Test DB → Prod DB), change Lakehouse, or other environment‑specific configs without manual edits.
+        
+
+---
+
+## Supported Fabric items (high‑level)
+
+Deployment Pipelines support many item types, including (preview where noted):
+
+- Dashboards, Reports, Paginated reports, Real‑time Dashboards.
+    
+- Semantic models (from .pbix, non‑PUSH).
+    
+- Data pipelines (preview), Dataflows Gen2 (preview), Datamarts (preview).
+    
+- Lakehouse (preview), Warehouse (preview), SQL database (preview), Mirrored database (preview).
+    
+- Notebook, Environment (preview), Eventhouse/KQL database, Eventstream (preview), KQL Queryset.
+    
+- Activator, Org apps (preview), Power BI Dataflows.
+    
+
+For DP‑700, you mainly need to know **they exist and are supported**, not every nuance per item.
+
+---
+
+## What actually gets deployed?
+
+Same rule as with Version Control: **if something is not written to Git, it is not deployed between stages.**
+
+- **NOT deployed:**
+    
+    - Tabular **data** in data stores or semantic models (only definitions move, not rows).
+        
+    - **File data** (Lakehouse files area, Environment files, etc.).
+        
+    - **Refresh schedules** – must usually be configured manually in Production and are not easily scripted with current REST APIs.
+        
+- **Data Warehouse:**
+    
+    - **Schema/structure** (tables, views, etc.) is deployed, but data is not.
+        
+- **Lakehouse:**
+    
+    - Lakehouse **tables and files are not deployed** between stages.
+        
+
+Exam‑relevant principle:
+
+> If you need data in each stage, you must load it there (e.g. via pipelines), not rely on the deployment pipeline to move data.
+
+---
+
+## Deployment Pipelines API (for automated CI/CD)
+
+While the UI allows any user to promote content between stages, you can also automate deployments via REST APIs.
+
+Key endpoint:
+
+- **Deploy Stage Content** – deploys items from a specified stage of a pipeline.
+    
+    - Can deploy **all items** in that stage or a **selected subset**.
+        
+    - Uses **List Deployment Pipeline Stages** to find stage IDs.
+        
+    - Integrated with **Long Running Operations** APIs to check operation state and results for up to 24 hours after completion.
+        
+
+This enables hybrid patterns: simple manual deployments for day‑to‑day work, plus scripted deployments embedded in a CI/CD pipeline when needed.
+
+---
+
+## Self‑check / moderator questions
+
+1. What is a **Deployment Pipeline** in Fabric and how does it relate to workspaces and stages?
+    
+2. How does **item pairing** work and what happens if you rename an item in one of the stages?
+    
+3. Explain **auto‑binding** in the context of reports, semantic models, notebooks and Lakehouses. When can auto‑binding surprise you?
+    
+4. What are **Deployment Rules** used for and give an example of a typical rule between Dev, Test and Prod.
+    
+5. Name at least five different Fabric item types that are supported by Deployment Pipelines.
+    
+6. List three things that **do not get deployed** between stages and explain why.
+    
+7. What gets deployed for a **Data Warehouse**, and what does **not**?
+    
+8. How would you ensure data exists in Test and Prod stages if Deployment Pipelines do not move data?
+    
+9. Which REST API operation allows you to deploy content from one stage to another, and how do you monitor its progress?
+    
+
+---
+
+## 2.2 Implement database projects – core idea
+
+A **Database Project** is a way to manage a Fabric **Data Warehouse schema as code**, so you can deploy changes reliably across environments using CI/CD.  
+It is an additional option next to Deployment Pipelines; the big advantage is that the technology and tooling (SQL projects + DACPAC) have been proven in SQL Server world for many years.
+
+---
+
+## How Fabric uses Database Projects
+
+- When you connect a Fabric **Data Warehouse** to Git, the warehouse is stored in the repo as a **SQL Database Project** automatically.
+    
+- The project contains the warehouse schema (tables, views, etc.) in a structured, file‑based format that can be edited, built and deployed.
+    
+
+This setup enables:
+
+- **Code review** of schema changes in PRs.
+    
+- **Automated builds** and **deployments** via Azure Pipelines.
+    
+
+---
+
+## Typical workflow with SQL Database Projects (VS Code)
+
+A common manual/semiautomated process looks like this:
+
+1. **Clone** your Azure DevOps repository locally.
+    
+2. **Install** the **SQL Database Projects** extension in VS Code.
+    
+3. **Open/connect** the local Database Project in VS Code using the extension.
+    
+4. **Modify** the warehouse schema in the project (add/alter tables, views, etc.).
+    
+5. **Build** the project to create a **DACPAC** file (Data‑tier Application Package).
+    
+6. **Publish** the DACPAC to a Fabric Data Warehouse (manual or via Azure Pipeline).
+    
+
+In a proper CI/CD pipeline:
+
+- A developer commits changes to Git.
+    
+- Azure Pipelines automatically triggers: build Database Project → produce DACPAC → deploy DACPAC to the target warehouse.
+    
+
+---
+
+## Why DACPAC and Database Projects matter (exam view)
+
+- A **DACPAC** is a packaged representation of the desired database schema that deployment tools can compare with the target and generate the necessary changes (diff deploy).
+    
+- It provides a consistent and repeatable way to roll schema changes through Dev → Test → Prod without manually scripting all ALTER statements.
+    
+
+Key points to remember:
+
+- Database Projects + DACPAC are the **primary mechanism** when the question is about _automated, repeatable schema deployment_ for Fabric Data Warehouses.
+    
+- Deployment Pipelines move Fabric items between workspaces, but Database Projects give you **fine‑grained control over schema evolution** and fit naturally into Azure Pipelines‑based CI/CD.
+    
+
+---
+
+## Self‑check / moderator questions
+
+1. What is a **Database Project** in the context of a Fabric Data Warehouse, and how does it relate to Git?
+    
+2. Why might you choose **Database Projects + DACPAC** instead of relying only on Deployment Pipelines for warehouse changes?
+    
+3. Describe the typical VS Code‑based workflow for changing a Fabric Data Warehouse schema using a Database Project.
+    
+4. What is a **DACPAC** and how is it used in CI/CD for database deployments?
+    
+5. In an automated pipeline, what are the main steps that happen after a developer commits a schema change to Git?
+    
+6. In an exam scenario asking for a “reliable, automated way to promote Data Warehouse schema changes across environments”, which combination of tools would you propose and why?
+    
+
+---
+---
+
+# 3 Security and Governance
+
+## 3.1 Workspace-level access controls – core idea
+
+Workspace access is granted to **users or groups (Entra ID / M365)**, and this access applies to **everything inside that workspace** unless overridden at item level.  
+When you share a workspace, you always assign one of the **workspace roles**: Admin, Member, Contributor, or Viewer.
+
+---
+
+## Workspace roles and precedence
+
+- The **creator** of a workspace automatically becomes a **Workspace Admin**.
+    
+- If a person has multiple role assignments (e.g. via several security groups), the **highest role wins**.
+    
+
+High‑level capabilities (you do not need the full table for DP‑700, just the gist):
+
+- **Admin** – full control: manage workspace, roles, settings, and all items.
+    
+- **Member** – can create, edit, delete most items and publish content.
+    
+- **Contributor** – can create and edit some content, but with more restrictions than Member.
+    
+- **Viewer** – read‑only access, can view and interact with reports/dashboards but not edit.
+    
+
+For exact capabilities per role, Microsoft has an official table, but DP‑700 usually tests whether you conceptually know who can **manage** vs. who can **edit** vs. who can only **view**.
+
+---
+
+## Self-check / moderator questions
+
+You can use these in NotebookLM or Obsidian:
+
+1. When you share a workspace with a user or Entra ID security group, what are you actually assigning to them?
+    
+2. What are the four workspace‑level roles in Fabric and, at a high level, what kind of permissions does each imply?
+    
+3. Who becomes **Admin** of a new workspace by default, and how can this be changed later?
+    
+4. If a user is both in a Viewer group and a Member group for the same workspace, which role is effective and why?
+    
+5. In an exam scenario, which role would you assign to:
+    
+    - someone who should **manage access and settings** for the workspace?
+        
+    - someone who should **build and publish reports and datasets**?
+        
+    - someone who should **only consume reports and dashboards**?
+        
+
+---
+
+## 3.2 Item-level access controls – core idea
+
+Item-level access is used when you **do not want to give someone access to everything in a workspace**, but only to specific objects (items).  
+Almost all Fabric items support item-level sharing, except **Data Pipelines** and **Dataflows**, which still rely on workspace-level access.
+
+---
+
+## How item-level sharing works
+
+- Each item type (Warehouse, Lakehouse, Report, Semantic model, etc.) has its **own specific set of permissions** when you share it.
+    
+- When you grant item-level access, the user or group can find that item via the **OneLake data hub**, even if they do not have workspace access.
+    
+
+Practical use:
+
+- Use item-level sharing to expose **only the needed objects** to consumers or partner teams, while keeping the rest of the workspace isolated.
+    
+
+---
+
+## Example: Data Warehouse item permissions
+
+When you share a **Data Warehouse** at item level, you see several permission checkboxes; they layer on top of each other.
+
+- **Read** (no extra boxes checked)
+    
+    - User can see the Warehouse in OneLake data hub, but **no access to any tables** by default.
+        
+    - This is useful if you plan to assign **granular T‑SQL permissions** later (e.g. object-level security).
+        
+- **ReadData**
+    
+    - Grants read access to **all tables** in the Warehouse via the **T‑SQL endpoint**.
+        
+- **ReadAll**
+    
+    - Extends ReadData: user can also read the **underlying OneLake files**, so data is available to other engines (e.g. Spark).
+        
+- **Build**
+    
+    - Allows the user to **build reports** on top of the **default semantic model** generated by the Warehouse.
+        
+
+For DP‑700 you mainly need to distinguish:
+
+- Read vs ReadData vs ReadAll.
+    
+- Build as the permission required to create reports on the Warehouse model.
+    
+
+---
+
+## Self-check / moderator questions
+
+1. Why would you use **item-level access** instead of giving someone workspace-level access?
+    
+2. Which Fabric items **do not** currently support item-level sharing and still require workspace‑level permissions?
+    
+3. What does a user actually gain if you share a Warehouse with them at **Read** level only?
+    
+4. How does **ReadData** differ from **ReadAll** for a Warehouse item?
+    
+5. Which permission must a user have to **build reports** on top of a Warehouse’s default semantic model?
+    
+6. In a scenario where a data engineer wants Spark access to Warehouse data without workspace access, which Warehouse permission is needed and why?
+    
+
+---
+
