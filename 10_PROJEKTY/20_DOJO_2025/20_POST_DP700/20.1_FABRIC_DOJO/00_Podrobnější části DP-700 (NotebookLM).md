@@ -1037,3 +1037,237 @@ For DP‑700 you mainly need to distinguish:
 
 ---
 
+## 3.3 RLS / CLS / OLS / File-level access – core principles
+
+Granular security in Fabric is always applied **per engine** (Warehouse, Lakehouse, KQL, Semantic model, etc.), and high‑level access (workspace / item) can **override** granular rules.  
+For DP‑700 you must understand how to implement **RLS** (row‑level), **CLS** (column‑level), **OLS** (object‑level) in a Warehouse, and **file‑level access** in a Lakehouse.
+
+---
+
+## RLS in Data Warehouse – 3‑step pattern
+
+Prerequisite: the user/role must already have access to the table via either: workspace Viewer, item‑level ReadData, or object‑level security.
+
+Implementation pattern:
+
+1. (Optional) Create a dedicated **Security schema** to keep all security objects together.
+    
+2. Create a **T‑SQL inline table‑valued function** that returns allowed rows based on the logged‑in user (`USER_NAME()`).
+    
+3. Create a **SECURITY POLICY** that applies the filter predicate to the target table.
+    
+
+Exam takeaway: RLS in Warehouse is implemented through **security policies + filter functions**, not via simple WHERE clauses in views.
+
+---
+
+## CLS & OLS in Data Warehouse
+
+Prerequisite for CLS/OLS demo pattern: the user/role should have **Read** permission only at item level on the Warehouse (no workspace role).
+
+- **OLS (Object‑Level Security)** – control access at table level.
+    
+    - Grant `SELECT` on specific tables to a role/user (e.g. `GRANT SELECT ON Sales.Orders TO [SalesReps];`).
+        
+    - Users see only allowed tables; others are effectively hidden.
+        
+- **CLS (Column‑Level Security)** – control access at column level.
+    
+    - Grant `SELECT` on **specific columns** in a table to a role/user (e.g. `GRANT SELECT ON Sales.CustomerDetails (CustomerId, AccountCreationDate) TO [SalesReps];`).
+        
+    - Sensitive columns not granted are not visible.
+        
+
+Key principle: combine **Read** at item level with precise `GRANT` statements to implement CLS/OLS.
+
+---
+
+## File-level access for Lakehouse (preview)
+
+Workspace Admins, Members and Contributors can define **folder‑level roles** for Lakehouse tables/files.
+
+Pattern:
+
+1. Define a **role** and select which **tables and files/folders** it can access.
+    
+2. Add **users or groups** to that role.
+    
+
+This uses the **OneLake data access model** and gives RBAC‑style control over which folders in the Lakehouse users can read/write, separate from workspace roles.
+
+`%%text` 
+#### `RBAC‑style = **Role-Based Access Control**, česky „řízení přístupu založené na rolích“.`
+
+##### `Co to znamená`
+
+- `Neuděluješ oprávnění jednotlivým uživatelům „kus po kuse“, ale nejdřív vytvoříš **roli** (např. SalesReaders, DataEngineers), té roli přiřadíš oprávnění, a **uživatele jen přidáváš do rolí**.`
+    
+- `Uživatel tak nepřímo zdědí všechna práva, která má daná role – jednodušší správa i audit, hlavně ve velkých týmech.`
+    
+
+##### `Proč je to důležité ve Fabricu`
+
+- `Stejný princip používáš u **Warehouse CLS/OLS** (role + GRANT SELECT) i u **Lakehouse file-level access** (role + povolené složky/tabulky).`
+    
+- `Když se změní tým nebo přijdou noví lidi, jen je přesuneš mezi rolemi, nemusíš editovat stovky individuálních přístupů.`
+    
+
+
+---
+
+## Critical exam warnings
+
+- If you give users **higher‑level access** (e.g. workspace Contributor or item‑level wide permissions), they can bypass your fine‑grained RLS/CLS/OLS/file rules.
+    
+- You must define access **for each engine** plus again in the **semantic model**; securing only the Warehouse is not enough if users query via Power BI model.
+    
+---
+
+## 3.4 Dynamic Data Masking – core behavior
+
+- When a user runs a T‑SQL query on a masked column, they see a masked value; the real value stays unchanged in storage.
+    
+- Users with high‑privilege roles (e.g. db_owner / elevated permissions) can still bypass or inspect unmasked data, hence DDM is a **privacy/convenience feature**, not a full security boundary.
+    
+
+You apply masks **per column**, either:
+
+- At table creation with `CREATE TABLE ... MASKED WITH (FUNCTION = '...')`, or
+    
+- Later with `ALTER TABLE ... ALTER COLUMN ... ADD MASKED WITH (FUNCTION = '...')`.
+    
+
+---
+
+## Four mask function types
+
+1. **Default mask**
+    
+    - Generic full masking, format depends on data type (e.g. strings become Xs, numbers 0).
+        
+    - Syntax example: `Phone varchar(12) MASKED WITH (FUNCTION = 'default()')`.
+        
+2. **Email mask**
+    
+    - Shows first letter + generic domain, e.g. `aXXX@XXXX.com`.
+        
+    - Syntax example: `Email varchar(100) MASKED WITH (FUNCTION = 'email()')`.
+        
+3. **Random mask (for numeric types)**
+    
+    - Returns a random value in a specified numeric range.
+        
+    - Example: `Account_Number bigint MASKED WITH (FUNCTION = 'random(1000, 9999)')`.
+        
+4. **Custom String / Partial mask**
+    
+    - Shows prefix and/or suffix, masks the middle with a pattern string.
+        
+    - Generic syntax: `MASKED WITH (FUNCTION = 'partial(prefix,[padding],suffix)')`.
+        
+    - Example: `ALTER COLUMN [PhoneNumber] ADD MASKED WITH (FUNCTION = 'partial(1,"XXXXXXX",0)')`.
+        
+
+Special note:
+
+- **DATETIME** has no dedicated mask; using `default()` will show `1900‑01‑01 00:00:00` for all values.
+    
+
+---
+
+## Relationship to RLS / CLS / OLS
+
+- DDM should **always be used together** with proper access controls (RLS/CLS/OLS), not as a standalone security measure.
+    
+- It is relatively easy to work around if a user already has broad query capabilities, so think of it as **data obfuscation for less‑privileged roles**, not a hard security wall.
+    
+Dynamic Data Masking (DDM) changes **how data is shown in query results**, not the underlying stored values.  
+In Fabric, it works in **Data Warehouse** and **Lakehouse SQL endpoint** for T‑SQL queries and must always be combined with RLS/CLS/OLS, not used as the only protection.
+
+---
+
+## 3.5 Apply sensitivity labels to items – core idea
+
+- Applying a label to a Fabric item signals how it should be handled (sharing, export, encryption, warnings, etc.).
+    
+- In some regulated industries, using labels is required for compliance with information protection regulations.
+    
+
+Typical examples:
+
+- Label a semantic model containing personal data as **Confidential**.
+    
+- Label a public, non‑sensitive report as **Public** or **General**.
+    
+
+---
+
+## Relationship to Domains and default labels
+
+- One of the **Domain‑level settings** in Fabric allows you to specify a **default sensitivity label for that domain**.
+    
+- This means that new items created in that domain can automatically inherit a baseline label (for example, all Finance domain items start as _Confidential_).
+    
+
+This ties domain‑based data organization directly to information protection policies from Purview.
+
+Sensitivity labels are a **data governance / information protection** feature that classify how sensitive a Fabric item is (e.g. _Public, Internal, Confidential, Highly Confidential_).  
+They are created and centrally managed in **Microsoft Purview**, and then applied to Fabric items like semantic models, reports or datasets.
+
+---
+
+## Admin prerequisites
+
+- A Fabric admin must enable:
+    
+    - **Item certification** in the Admin Portal.
+        
+    - **Master data endorsement** in the Admin Portal.
+        
+- Only then can users see and use **Certified** and **Master data** badges in the UI.
+    
+
+---
+
+## Promoted
+
+- Meaning: item is **ready for sharing and reuse**, as judged by its creators.
+    
+- Who can apply: **any user with write permissions** on the item.
+    
+- Scope: all Fabric and Power BI items **except Power BI dashboards** can be promoted.
+    
+
+Use case: mark “good, but not formally approved” content so others know it is suitable for broader use.
+
+---
+
+## Certified
+
+- Meaning: item **meets the organization’s quality standards** and is considered reliable and authoritative across the org.
+    
+- Who can request: **any user** can request certification.
+    
+- Who can approve/apply: only **users designated by a Fabric admin** (certifiers).
+    
+
+Use case: official, governed datasets/reports that business users should prefer over ad‑hoc versions.
+
+---
+
+## Master data
+
+- Meaning: item is a **core, authoritative source of organizational data** – a “single source of truth” for things like product codes or customer lists.
+    
+- Scope: only items that **contain data** (e.g. Lakehouse, semantic model) can be labeled as Master data.
+    
+- Who can apply: only **specific users configured by the Fabric admin** in tenant settings.
+    
+
+Use case: signal which data objects are the master source to be used by downstream systems and reports.
+
+Item endorsement is a **governance signal** that marks which Fabric items are recommended or authoritative for reuse: **Promoted**, **Certified**, or **Master data**.  
+Whether you can use these badges at all depends on **tenant settings** that Fabric admins must enable first.
+
+---
+
