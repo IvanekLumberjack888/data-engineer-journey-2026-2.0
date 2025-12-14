@@ -2163,3 +2163,5 @@ You can route the processed stream to:
 - **Fabric Activator** – to drive alerting and automated actions based on live stream values.
     
 
+---
+
