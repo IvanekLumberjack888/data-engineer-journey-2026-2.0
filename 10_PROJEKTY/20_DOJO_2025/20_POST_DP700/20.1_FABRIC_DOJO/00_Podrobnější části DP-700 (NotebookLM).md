@@ -2197,3 +2197,34 @@ You can route the processed stream to:
 
 ---
 
+## 7.3 Spark Structured Streaming
+
+Spark Structured Streaming in Fabric lets you treat a **data stream as an unbounded table** where new events continually append as new rows.
+
+---
+
+## Concept and API basics
+
+- Fabric Spark is a managed implementation of open‑source Spark, so you can use the **full Spark Structured Streaming API**.
+    
+- Streaming code reuses the same **DataFrame + Spark SQL** concepts as batch: you read a stream with `spark.readStream` and write it with `df.writeStream`.
+    
+
+In practice, the pattern is:
+
+- `spark.readStream.format(...).options(...).load()` → create a streaming DataFrame from a source such as Event Hubs.
+    
+- Apply transformations (`withColumn`, `select`, `from_json`, joins, aggregations).
+    
+- `df.writeStream.format("delta").option("checkpointLocation", ...).outputMode("append").toTable("...")` → continuously append to a Delta table in a Lakehouse.
+    
+
+---
+
+## Why it matters for DP‑700
+
+- You must recognize that **Structured Streaming code looks very similar to batch DataFrame code**, only using `readStream`/`writeStream`.
+    
+- Typical exam scenario: streaming events from Event Hub into a **Lakehouse Delta table** with checkpoints for reliability, then using that table for downstream analytics.
+    
+---
