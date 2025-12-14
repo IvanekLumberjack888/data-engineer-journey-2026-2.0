@@ -2076,7 +2076,7 @@ Real‑time data in Fabric means processing **continuous event streams with very
 
 ---
 
-## 7.1 Real‑time vs batch – mindset
+## 7.0 Real‑time vs batch – mindset
 
 - **Batch processing** loads and analyzes data in chunks (daily/hourly loads etc.); decisions are based on already‑stored history and some delay between event and insight is acceptable.
     
@@ -2101,6 +2101,38 @@ Fabric provides several components that you combine into real‑time solutions:
     
 
 Together these let you build pipelines where events flow from sources into Fabric, are stored in Eventhouse or Lakehouse, queried with KQL or Spark and surfaced in dashboards with second‑level latency.
+
+---
+
+# 7.1 Real-time Choice ➿ or 🧬
+
+In Fabric you choose between **Spark Structured Streaming** and **Eventstreams** as the main streaming engines.
+
+---
+
+## Spark Structured Streaming – when to choose it
+
+- Best when you are **already using Spark for data engineering** and want to extend batch pipelines to streaming with the same APIs.
+    
+- **Pro‑code** approach: you can implement complex transformations, advanced windowing, custom business logic and unit tests for reliability.
+    
+- Ideal for **migrating existing Spark streaming code** from other platforms and when you want to **stream directly into a Lakehouse** as your primary store.
+    
+
+Use Spark Structured Streaming for heavy, code‑driven real‑time ETL where your team is comfortable with PySpark/Scala.
+
+---
+
+## Eventstreams – when to choose it
+
+- Completely **no‑code**, easy to learn and manage through a visual canvas.
+    
+- Fits scenarios where you **do not need very complex transformations** on the incoming stream, but mainly routing, filtering, basic aggregates and windowing.
+    
+- Offers a **wider set of output destinations** than Spark alone: Lakehouse, KQL Database (Eventhouse), Activator and even another Eventstream (derived streams).
+    
+
+Use Eventstreams when you want fast time‑to‑value for real‑time ingestion and routing without building or maintaining custom streaming code.
 
 ---
 
