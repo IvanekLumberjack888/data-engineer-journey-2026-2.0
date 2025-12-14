@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.2_PORTFOLIO/PROJEKTY_NÁPADY.md",
+                "file": "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.1_FABRIC_DOJO/00_notebookLM workflow.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "PROJEKTY_NÁPADY"
+              "title": "00_notebookLM workflow"
             }
           }
         ]
@@ -199,8 +199,10 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
-    "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.1_FABRIC_DOJO/03_KOMUNITA.md",
     "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.1_FABRIC_DOJO/01_PLÁN_DOJO.md",
+    "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.1_FABRIC_DOJO/00_notebookLM workflow.md",
+    "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.2_PORTFOLIO/PROJEKTY_NÁPADY.md",
+    "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.1_FABRIC_DOJO/03_KOMUNITA.md",
     "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.1_FABRIC_DOJO/02_PROJEKT_REÁLNÝ.md",
     "10_PROJEKTY/20_DOJO_2025/README_DOJO.md",
     "01_DENNÍ_LOGY/2025-12-14 (neděle) - 50. week.md",
@@ -224,8 +226,6 @@
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10_INDEX.md",
     "00_MATRIX/00_INDEX.md",
     "00_MATRIX/02_CHECKLIST.md",
-    "00_MATRIX/01_PLÁN.md",
-    "01_DENNÍ_LOGY/2025-12-09 (úterý) - 50. week.md",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.21 DATA ANALYST WITH PYTHON/Engeto_study_plan/0. Osnova z TODO/00 OSNOVA z TODO.pdf",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.28 AI/CheatSheet-Python-4_-Classes.pdf",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.28 AI/CheatSheet-Python-6_-Coding-Interview-Questions.pdf",
