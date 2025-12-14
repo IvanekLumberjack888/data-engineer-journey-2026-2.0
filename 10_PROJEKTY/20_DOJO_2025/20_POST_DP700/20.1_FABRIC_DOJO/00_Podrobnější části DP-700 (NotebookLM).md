@@ -1270,4 +1270,140 @@ Item endorsement is a **governance signal** that marks which Fabric items are re
 Whether you can use these badges at all depends on **tenant settings** that Fabric admins must enable first.
 
 ---
+---
+
+# 4 Orchestration
+
+## 4.1 Orchestration 🎼
+## 4.1.1 With Data Pipeline – core idea
+
+For DP‑700, the **primary orchestration tool** you must know is the **Data Pipeline**.  
+It is a low/no‑code orchestrator that can control almost any Fabric item plus many external services (Databricks, ADF, Functions, REST APIs, etc.).
+
+---
+
+## Data Pipeline as orchestrator
+
+- Pipelines let you chain activities into a workflow: ingest, transform, load, notify, call external systems.
+    
+- Compared to notebook‑based orchestration, pipelines are more declarative, visual and easier for mixed teams (data engineers + analysts).
+    
+
+Typical orchestration actions:
+
+- Run Copy Data activities.
+    
+- Trigger notebooks, stored procedures, REST endpoints.
+    
+- Branch logic based on success/failure, outputs or conditions.
+    
+
+---
+
+## Copy Data activity – main ingestion mechanism
+
+Copy Data is the **main activity for ingesting data into Fabric** via pipelines.
+
+**Sources** (examples):
+
+- On‑prem SQL and other DBs via on‑premises data gateway.
+    
+- Most Azure services, major cloud storage providers.
+    
+- REST APIs with basic pagination.
+    
+- HTTP endpoints and open web data.
+    
+
+**Destinations**:
+
+- **File data** → Lakehouse **Files** area.
+    
+- **Table data** → any Fabric data store (Lakehouse tables, Warehouse, KQL DB, etc.).
+    
+- Many external data stores as sinks.
+    
+
+---
+
+## Dependencies between activities
+
+Activities are connected with **dependency conditions** that control flow:
+
+- **On Success** – run next activity only if previous one succeeded.
+    
+- **On Fail** – run next activity only if previous one failed (e.g. send alert).
+    
+- **On Skip** – run next activity only if previous one was skipped.
+    
+- **On Completion** – run next activity after previous one finishes, regardless of outcome.
+    
+
+This allows classic patterns: retry branches, notification flows, cleanup steps, etc.
+
+---
+
+## Active vs Inactive activities
+
+- Activities can be marked **Active** or **Inactive**.
+    
+- Inactive activities remain in the pipeline design but do not execute, which is useful for temporarily disabling steps without deleting them.
+    
+---
+
+## 4.1.2 Orchestration with Notebook – core idea
+
+A Fabric **Notebook** can act as an orchestrator by calling other notebooks via the `notebookutils` package.  
+This lets you build custom flows in Python, either **in parallel** or via a simple in‑code **DAG (directed acyclic graph)** definition.
+
+---
+
+## Parallel execution with `runMultiple`
+
+- Import helper: `from notebookutils import notebook as nb`.
+    
+- Run several notebooks in parallel:
+    
+    - `nb.runMultiple(['NotebookNameOne', 'NotebookNameTwo'])` executes all listed notebooks at the same time.
+        
+
+Use when:
+
+- You have independent steps that do not depend on each other and can safely run in parallel to reduce total time.
+    
+
+---
+
+## Ordered execution with a DAG object
+
+You can define a **Python DAG object** describing activities, timeouts, retries and dependencies.
+
+Key DAG elements:
+
+- `activities`: list of notebook activities; each has:
+    
+    - `name` – unique activity name.
+        
+    - `path` – notebook path.
+        
+    - `timeoutPerCellInSeconds`.
+        
+    - Optional: `retry`, `retryIntervalInSeconds`, `dependencies` (list of other activity names).
+        
+- `timeoutInSeconds`: max total runtime for the entire DAG (default 12 hours).
+    
+
+Behavior:
+
+- If `Notebook2` lists `dependencies: ["Notebook1"]`, it will **only start after Notebook1 finishes successfully**, i.e. a simple in‑code orchestration graph.
+    
+
+---
+
+## Pipelines vs Notebook‑based orchestration
+
+Historically, the advantage of notebook‑orchestrated flows was that **all notebooks shared the same Spark session**, saving capacity.  
+With the introduction of **Session Tags** in Data Pipelines, you can now also have multiple pipeline‑triggered notebooks share the same Spark session, so the capacity benefit is less critical; the main difference is now **code‑first (Notebook) vs visual (Pipeline)** orchestration style.
+
+---
 
