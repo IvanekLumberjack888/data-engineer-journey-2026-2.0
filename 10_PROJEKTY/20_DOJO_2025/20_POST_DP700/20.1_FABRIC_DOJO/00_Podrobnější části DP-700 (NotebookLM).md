@@ -4367,4 +4367,519 @@ python
 This completes **10.2 Lakehouse Monitoring & Optimization**. The next sections will cover **Eventhouse/KQL** (10.3) and **Semantic Model Refresh** (10.4) to complete the data stores module.
 
 ---
+## 10.3 Eventhouse/ KQL Monitoring & Optimization – core idea
+
+**Eventhouse** is Fabric's real-time analytics engine powered by **Kusto Query Language (KQL)**. Monitoring focuses on **capacity consumption** (Real-Time Intelligence items consume CUs at a high rate) and **workspace-level monitoring** (auto-provisioned Monitoring Eventhouse with query logs, ingestion logs, metrics).
+
+Optimization centers on **KQL best practices**: reducing data volume early in queries, using efficient string operators (`has` vs. `contains`), and applying case-sensitive operators when possible. For the DP-700 exam, you need to understand how to enable Workspace Monitoring and the key KQL optimization principles.
+
+---
+
+## Monitoring Eventhouse
+
+## Capacity Metrics App – high-rate CU consumption
+
+## Why it matters
+
+**Real-Time Intelligence (RTI) items** (Eventstreams, Eventhouses, KQL databases) consume **capacity units at a very high rate** compared to batch processing tools (pipelines, notebooks).
+
+## How to use
+
+1. Install the **Capacity Metrics App** in your Fabric capacity.
+    
+2. Filter by **Eventhouse** or **KQL database** activities.
+    
+3. Analyze which queries or ingestion operations consume the most capacity.
+    
+
+## Key exam point
+
+If a question mentions "your Real-Time Intelligence solution is experiencing throttling", the first step is to check **Capacity Metrics App** to identify high-consumption queries or ingestion streams.
+
+---
+
+## Workspace Monitoring – Eventhouse to monitor Eventhouses
+
+## What is Workspace Monitoring?
+
+**Workspace Monitoring** is a **preview feature** that auto-provisions a **Monitoring Eventhouse** when enabled at the workspace level. This Eventhouse stores detailed logs for all workspace items, including:
+
+- **Eventhouses** (query logs, ingestion logs, metrics)
+    
+- **Semantic models**
+    
+- **Mirrored databases**
+    
+- **GraphQL operations**
+    
+
+## How to enable
+
+1. Open **Workspace Settings**.
+    
+2. Navigate to **Workspace Monitoring (Preview)**.
+    
+3. Toggle **Enable Workspace Monitoring**.
+    
+4. Fabric creates a **Monitoring Eventhouse** in your workspace.
+    
+
+## Key distinction
+
+- **Monitoring Hub** = does **not** include Eventhouse query logs.
+    
+- **Workspace Monitoring Eventhouse** = stores **detailed KQL query logs** and ingestion metrics.
+    
+
+---
+
+## Eventhouse Monitoring Tables
+
+When you enable Workspace Monitoring, the **Monitoring Eventhouse** contains five key tables:
+
+## 1. EventhouseCommandLogs
+
+**What it tracks**: List of **commands** run on an Eventhouse KQL database (e.g., `.create table`, `.alter policy`, `.show tables`).
+
+**Use case**: Track administrative operations (schema changes, policy updates).
+
+## 2. EventhouseDataOperationLogs
+
+**What it tracks**: List of **data operations** (e.g., ingestion, exports, materialized view refreshes).
+
+**Use case**: Monitor data movement into/out of the Eventhouse.
+
+## 3. EventhouseIngestionResultLogs
+
+**What it tracks**: Results from **data ingestion operations** (succeeded, failed, rows ingested).
+
+**Use case**: Troubleshoot ingestion failures (missing data, schema mismatches).
+
+## 4. EventhouseMetrics
+
+**What it tracks**: Metrics for **ingestions**, **materialized views**, and **continuous exports** (throughput, latency, errors).
+
+**Use case**: Monitor performance trends over time.
+
+## 5. EventhouseQueryLogs
+
+**What it tracks**: List of **KQL queries** executed on the Eventhouse (query text, execution time, user, status).
+
+**Use case**: Identify slow queries, frequently-run queries, and query failures.
+
+---
+
+## Using Monitoring Eventhouse for troubleshooting
+
+## Example: Identify slow queries
+
+text
+
+`EventhouseQueryLogs | where Duration > 5s  // Queries taking > 5 seconds | project Timestamp, User, QueryText, Duration | order by Duration desc`
+
+## Example: Track ingestion failures
+
+text
+
+`EventhouseIngestionResultLogs | where Status == "Failed" | project Timestamp, Database, Table, ErrorMessage | order by Timestamp desc`
+
+## Example: Monitor query frequency
+
+text
+
+`EventhouseQueryLogs | summarize QueryCount = count() by QueryText | order by QueryCount desc | take 10  // Top 10 most frequently run queries`
+
+---
+
+## KQL Optimization and Best Practices
+
+**Reference**: [MICROSOFT 🔗 Best practices for Kusto Query Language queries](https://learn.microsoft.com/en-us/kusto/query/best-practices?view=microsoft-fabric)
+
+KQL is intuitive for ad-hoc queries, but optimization is critical for production workloads (large datasets, frequent queries, capacity constraints).
+
+---
+
+## Key optimization principle: Reduce data volume early
+
+## Core concept
+
+**"A query's performance depends directly on the amount of data it needs to process. The less data is processed, the quicker the query (and the fewer resources it consumes)."**
+
+KQL queries execute **top-to-bottom**. Apply filters and projections **as early as possible** to minimize the data passed to subsequent operations.
+
+## Example: BAD (filter late)
+
+text
+
+`SensorReadings | join SensorMetadata on SensorID between ['1221' ... '1229'] | where SensorID between ['1221' ... '1229']`
+
+**Problem**: The `join` processes **all** rows from `SensorReadings` before filtering.
+
+## Example: GOOD (filter early)
+
+text
+
+`SensorReadings | where SensorID between ['1221' ... '1229']  // Filter FIRST | join SensorMetadata on SensorID`
+
+**Benefit**: The `join` only processes the filtered subset of data.
+
+---
+
+## Example: Add time-based filtering
+
+## BAD (no time filter)
+
+text
+
+`SensorReadings | where SensorID == "123" | join SensorMetadata on SensorID`
+
+**Problem**: Scans the entire table history (potentially years of data).
+
+## GOOD (time filter first)
+
+text
+
+`SensorReadings | where Timestamp > ago(24h)  // Filter to last 24 hours FIRST | where SensorID == "123" | join SensorMetadata on SensorID`
+
+**Benefit**: KQL uses time-based indexing to skip irrelevant data shards.
+
+---
+
+## String operator optimization
+
+## `has` vs. `contains`
+
+|**Operator**|**Match Type**|**Performance**|**Use Case**|
+|---|---|---|---|
+|`has`|**Exact token match**|Fast (uses index)|Search for full words (e.g., "error", "warning")|
+|`contains`|**Substring match**|Slower (full scan)|Search for partial strings (e.g., "err" matches "error", "terror")|
+
+## Example
+
+text
+
+`// GOOD: Fast (indexed search) Logs | where Message has "error" // BAD: Slow (substring scan) Logs | where Message contains "err"`
+
+**Exam tip**: If a question asks "how do you optimize a KQL query searching for the word 'error' in log messages?", the answer is **use `has` instead of `contains`**.
+
+---
+
+## Case-sensitive operator optimization
+
+## `has` vs. `has_cs`
+
+|**Operator**|**Case Sensitivity**|**Performance**|**Use Case**|
+|---|---|---|---|
+|`has`|Case-insensitive|Slower|When you don't know the exact case|
+|`has_cs`|Case-sensitive|Faster (more selective)|When you know the exact case|
+
+## Example
+
+text
+
+`// GOOD: Fast (exact case match) Logs | where Severity has_cs "ERROR" // BAD: Slower (case-insensitive) Logs | where Severity has "error"`
+
+## Equality operators
+
+|**Operator**|**Case Sensitivity**|**Performance**|
+|---|---|---|
+|`==`|Case-sensitive|Fast|
+|`=~`|Case-insensitive|Slower|
+
+---
+
+## Additional KQL best practices (from Microsoft docs)
+
+## 1. Use `datetime` columns for time filtering
+
+- KQL has **efficient indexing** on `datetime` columns.
+    
+- Always filter by time **early** in the query.
+    
+
+text
+
+`// GOOD Events | where Timestamp > ago(1h) | where EventType == "UserLogin"`
+
+## 2. Avoid `*` (full-text search)
+
+text
+
+`// BAD: Searches all columns Events | where * has "error" // GOOD: Search specific column Events | where Message has "error"`
+
+## 3. Use `materialize()` for reused expressions
+
+text
+
+`let FilteredData = materialize(     Events    | where Timestamp > ago(1h)    | where Severity == "Error" ); FilteredData | summarize count() by EventType; FilteredData | summarize avg(Duration) by User;`
+
+**Benefit**: The filtered dataset is computed **once** and reused.
+
+---
+
+## Self-check / moderator questions
+
+1. Why do **Real-Time Intelligence (RTI) items** consume capacity units at a high rate?
+    
+2. Where do you monitor **Eventhouse capacity consumption**?
+    
+3. What is **Workspace Monitoring** and how do you enable it?
+    
+4. What happens when you enable Workspace Monitoring in a workspace?
+    
+5. What are the five tables in the **Monitoring Eventhouse**?
+    
+6. Which table tracks **KQL query execution** in the Monitoring Eventhouse?
+    
+7. Which table tracks **ingestion failures** in the Monitoring Eventhouse?
+    
+8. What is the most important KQL optimization principle?
+    
+9. Why should you apply **time-based filters early** in a KQL query?
+    
+10. What is the difference between **`has`** and **`contains`**?
+    
+11. When should you use **`has_cs`** instead of **`has`**?
+    
+12. What is the difference between **`==`** and **`=~`**?
+    
+13. Why should you avoid using **`*`** (wildcard) in KQL queries?
+    
+14. What does **`materialize()`** do and when should you use it?
+    
+15. If a KQL query scans millions of rows but only needs data from the last 24 hours, what optimization should you apply?
+    
+
+---
+
+This completes **10.3 Eventhouse/KQL Monitoring & Optimization**. The final section (10.4) will cover **Semantic Model Refresh Monitoring** to complete Module 10.
+
+---
+## 10.4 Semantic Model Refresh Monitoring – core idea
+
+**Semantic Model refresh** is the process of updating Power BI datasets with the latest data from source systems. Monitoring depends on **how the refresh was triggered**: manual/scheduled refreshes and pipeline-triggered refreshes are monitored via **Monitoring Hub**, while **Semantic Link** (Python-based) provides programmatic monitoring with `fabric.list_refresh_requests()`.
+
+For the DP-700 exam, you need to understand the four refresh trigger methods, where to monitor each type, and how to use Semantic Link for refresh orchestration and monitoring.
+
+---
+
+## Four ways to trigger Semantic Model refresh
+
+As covered in the **Triggering section (Module 4.2)**, there are four methods to refresh a Semantic Model:
+
+## 1. Direct Lake auto-refresh
+
+**What it is**: Automatic refresh triggered when the underlying OneLake data changes (for Direct Lake semantic models only).
+
+**How it works**: Fabric detects changes in the Lakehouse/Warehouse and automatically refreshes the semantic model without manual intervention.
+
+**When to use**: When your semantic model uses **Direct Lake mode** and you want near-real-time data without scheduling.
+
+## 2. Scheduled refresh
+
+**What it is**: Pre-configured refresh schedule set in the **Semantic Model Settings**.
+
+**How it works**: You define a refresh frequency (e.g., daily at 6 AM) and Fabric executes the refresh automatically.
+
+**When to use**: For **Import mode** semantic models or when you need predictable, regular refresh cycles.
+
+## 3. Data Pipeline: Semantic Model Refresh activity
+
+**What it is**: A dedicated **Semantic Model Refresh activity** in a Data Pipeline that triggers the refresh as part of an orchestration flow.
+
+**How it works**: The pipeline executes the refresh activity after upstream data processing (e.g., after a notebook loads data into a Lakehouse).
+
+**When to use**: When you need **orchestrated refreshes** that depend on other pipeline activities completing first.
+
+## 4. Semantic Link (sempy)
+
+**What it is**: Python-based refresh using the **Semantic Link library** (`sempy.fabric`).
+
+**How it works**: You call `fabric.refresh_dataset()` from a notebook to trigger the refresh programmatically.
+
+**When to use**: When you need **dynamic, conditional refresh logic** (e.g., "refresh only if new data is available") or **partition-level refreshes**.
+
+---
+
+## Monitoring Hub – primary monitoring location
+
+## What it monitors
+
+The **Monitoring Hub** is the first place to check when you want to monitor Semantic Model refreshes. It tracks:
+
+- **Manual refreshes** (triggered by clicking "Refresh now" in the UI).
+    
+- **Scheduled refreshes** (configured in Semantic Model Settings).
+    
+- **Pipeline-triggered refreshes** (via Semantic Model Refresh activity).
+    
+
+## How to use
+
+1. Open the **Monitoring Hub**.
+    
+2. Filter by **Semantic model** to see all semantic model refresh runs.
+    
+3. Find the semantic model you care about and **right-click → Historical runs**.
+    
+4. You see the **full refresh history** (succeeded, failed, in progress, canceled).
+    
+
+## Drilling into refresh details
+
+Click on a specific refresh run to view:
+
+- **Start time** and **End time** – when the refresh began and completed.
+    
+- **Duration** – how long the refresh took.
+    
+- **Status** – succeeded, failed, or canceled.
+    
+- **Error details** (if failed) – specific error message and failure reason.
+    
+- **Refresh type** – full refresh or incremental refresh.
+    
+- **Tables refreshed** – which tables were updated (for partition-level refreshes).
+    
+
+## Key exam point
+
+If a question asks "where do you check the status of a scheduled semantic model refresh?", the answer is **Monitoring Hub**.
+
+---
+
+## Semantic Link – programmatic refresh and monitoring
+
+## What is Semantic Link?
+
+**Semantic Link** (`sempy`) is a Python library for interacting with Power BI semantic models from Fabric notebooks. It supports:
+
+- **Triggering refreshes** (`fabric.refresh_dataset()`).
+    
+- **Monitoring refresh status** (`fabric.list_refresh_requests()`).
+    
+- **Querying semantic model metadata** (tables, columns, relationships).
+    
+
+## Triggering a refresh with Semantic Link
+
+python
+
+`import sempy.fabric as fabric # Set workspace and semantic model names workspace_name = "Fabric Dojo" semantic_model_name = "sales_analytics" # Trigger a full refresh fabric.refresh_dataset(workspace=workspace_name, dataset=semantic_model_name)`
+
+**Note**: This triggers a **full refresh** of the entire semantic model.
+
+---
+
+## Partition-level refresh with Semantic Link
+
+## What is partition-level refresh?
+
+Instead of refreshing the **entire semantic model**, you can refresh **specific tables or partitions** (e.g., only refresh the "Sales_2025" partition).
+
+## How to implement
+
+python
+
+`import sempy.fabric as fabric # Trigger partition-level refresh fabric.refresh_dataset(     workspace="Fabric Dojo",    dataset="sales_analytics",    refresh_type="automatic",  # or "full", "dataOnly", etc.    objects=[        {"table": "Sales", "partition": "Sales_2025_Q1"}    ] )`
+
+**Use case**: Large semantic models where refreshing the entire model takes hours. Partition-level refresh allows you to refresh only the changed data.
+
+**Reference**: [Semantic Link documentation for partition-level refresh](https://learn.microsoft.com/en-us/python/api/semantic-link-sempy/sempy.fabric?view=semantic-link-python#sempy-fabric-refresh-dataset)
+
+---
+
+## Monitoring refreshes with Semantic Link
+
+## Using `fabric.list_refresh_requests()`
+
+After triggering a refresh, you can monitor its status programmatically:
+
+python
+
+`import sempy.fabric as fabric # Get refresh history for a semantic model df = fabric.list_refresh_requests(dataset="sales_analytics") # Display refresh history as a Pandas DataFrame display(df)`
+
+## What the DataFrame contains
+
+|**Column**|**Description**|
+|---|---|
+|`Request ID`|Unique identifier for the refresh request|
+|`Refresh Type`|Full, incremental, or partition-level|
+|`Start Time`|When the refresh started|
+|`End Time`|When the refresh completed (or null if still running)|
+|`Status`|Completed, Failed, In Progress, Cancelled|
+|`Service Exception (JSON)`|Error details (if failed)|
+
+## Use cases
+
+- **Track refresh performance** – analyze refresh duration trends over time.
+    
+- **Automate failure alerts** – check if the last refresh failed and send a notification.
+    
+- **Debug refresh issues** – extract error messages from `Service Exception (JSON)`.
+    
+
+---
+
+## Comparison: Monitoring Hub vs. Semantic Link
+
+|**Feature**|**Monitoring Hub**|**Semantic Link**|
+|---|---|---|
+|**Monitoring scope**|All semantic model refreshes (manual, scheduled, pipeline)|Only refreshes triggered via Semantic Link or API|
+|**UI vs. Code**|UI-based (point-and-click)|Code-based (Python notebook)|
+|**Filtering**|Filter by workspace, item type, status|Query refresh history with pandas (custom filtering)|
+|**Use case**|Quick troubleshooting, visual inspection|Automated monitoring, custom analytics, programmatic alerts|
+
+---
+
+## Self-check / moderator questions
+
+1. What are the four ways to trigger a Semantic Model refresh?
+    
+2. What is **Direct Lake auto-refresh** and when should you use it?
+    
+3. Where do you monitor **scheduled semantic model refreshes**?
+    
+4. Where do you monitor **pipeline-triggered semantic model refreshes**?
+    
+5. How do you access the **Historical runs** for a semantic model in Monitoring Hub?
+    
+6. What information is displayed in the **refresh details** view?
+    
+7. What is **Semantic Link** and what library do you import to use it?
+    
+8. What is the Python function to **trigger a semantic model refresh**?
+    
+9. What is the Python function to **monitor semantic model refresh status**?
+    
+10. What is the difference between a **full refresh** and a **partition-level refresh**?
+    
+11. Why would you use a **partition-level refresh** instead of a full refresh?
+    
+12. What does `fabric.list_refresh_requests()` return?
+    
+13. Can you use **Monitoring Hub** to monitor refreshes triggered by Semantic Link?
+    
+14. When should you use **Semantic Link** instead of the **Monitoring Hub**?
+    
+
+---
+
+## 🎉 Module 10 Complete: Monitor/Optimize Data Stores
+
+You've now completed all four sections of **Module 10**:
+
+- **10.1 Warehouse** – Query Activity tab, DMVs, queryinsights, VOrder, SHOWPLAN, caching
+    
+- **10.2 Lakehouse** – OPTIMIZE, VACUUM, VOrder (session/table/cell), partitioning
+    
+- **10.3 Eventhouse/KQL** – Workspace Monitoring Eventhouse, KQL best practices (`has` vs. `contains`, reduce data early)
+    
+- **10.4 Semantic Model** – Monitoring Hub, Semantic Link (refresh and monitor)
+    
+
+This completes the **entire monitoring and optimization section** of the DP-700 exam. You now have a complete end-to-end framework for monitoring and optimizing **data processing tools** (pipelines, dataflows, notebooks, eventstreams) and **data stores** (warehouse, lakehouse, eventhouse, semantic models).
+
+---
+---
 
