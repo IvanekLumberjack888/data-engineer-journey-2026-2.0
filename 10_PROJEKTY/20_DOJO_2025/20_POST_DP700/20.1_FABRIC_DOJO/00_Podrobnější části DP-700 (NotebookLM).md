@@ -1774,7 +1774,7 @@ Conceptual mapping:
 
 ---
 
-## Why these patterns matter for DP‑700
+## Why patterns matter for DP‑700
 
 DP‑700 scenarios often describe diagrams like “source → real‑time processing → bronze/silver/gold” and ask which Fabric components or layers to use. Understanding the simple streaming pipeline and the streaming medallion architecture helps you correctly place ingestion, transformation, storage, and reporting pieces in Real‑Time Intelligence questions.
 
@@ -4765,7 +4765,7 @@ If a question asks "where do you check the status of a scheduled semantic model 
 
 python
 
-`import sempy.fabric as fabric # Set workspace and semantic model names workspace_name = "Fabric Dojo" semantic_model_name = "sales_analytics" # Trigger a full refresh fabric.refresh_dataset(workspace=workspace_name, dataset=semantic_model_name)`
+`import sempy.fabric as fabric # Set workspace and semantic model names workspace_name = "Fabric D..." semantic_model_name = "sales_analytics" # Trigger a full refresh fabric.refresh_dataset(workspace=workspace_name, dataset=semantic_model_name)`
 
 **Note**: This triggers a **full refresh** of the entire semantic model.
 
@@ -4781,7 +4781,7 @@ Instead of refreshing the **entire semantic model**, you can refresh **specific 
 
 python
 
-`import sempy.fabric as fabric # Trigger partition-level refresh fabric.refresh_dataset(     workspace="Fabric Dojo",    dataset="sales_analytics",    refresh_type="automatic",  # or "full", "dataOnly", etc.    objects=[        {"table": "Sales", "partition": "Sales_2025_Q1"}    ] )`
+`import sempy.fabric as fabric # Trigger partition-level refresh fabric.refresh_dataset(     workspace="Fabric D...",    dataset="sales_analytics",    refresh_type="automatic",  # or "full", "dataOnly", etc.    objects=[        {"table": "Sales", "partition": "Sales_2025_Q1"}    ] )`
 
 **Use case**: Large semantic models where refreshing the entire model takes hours. Partition-level refresh allows you to refresh only the changed data.
 
