@@ -2297,3 +2297,86 @@ KQL is a first‑class query language in the **Streaming data / Real‑time** ar
 Being familiar with KQL basics, filtering, aggregations, management commands, and window functions ensures you can choose KQL when it is the right analytical engine and interpret KQL‑based solutions in DP‑700 questions confidently.
 
 ---
+
+## 7.5 Window functions (in Eventstreams) – core idea
+
+Window functions in Eventstreams take an infinite real‑time stream and split it into time‑based windows so you can compute aggregates (average, min, max, sum) over each window instead of per individual event. This helps both with real‑time decision‑making (summary statistics over recent data) and with reducing stored volume by keeping, for example, 30‑second averages instead of every second‑level reading.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+
+---
+
+## Windowing in Eventstreams: Aggregate vs Group By
+
+In Eventstreams, windowing is implemented with two transformations: **Aggregate** and **Group By**.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+
+- **Aggregate** recomputes the aggregate every time a new event arrives, over a configured window length (for example “last 60 seconds” for average wind speed).[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+    
+- **Group By** groups all events that fall inside a given window and computes one aggregated result per window, using one of five window types (tumbling, hopping, snapshot, sliding, session).[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+    
+
+---
+
+## High‑level classification of window types
+
+The five Group By window functions can be remembered using two dimensions: whether the **window length** is fixed or variable, and whether windows **overlap** or not.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+
+- Fixed length, non‑overlapping → Tumbling window.
+    
+- Fixed length, overlapping with explicit hop → Hopping window.
+    
+- Fixed length, overlapping with automatic sliding → Sliding window.
+    
+- Variable length, non‑overlapping per session → Session window.
+    
+- Point‑in‑time windows keyed by timestamp → Snapshot window.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+    
+
+---
+
+## Tumbling and Hopping windows
+
+**Tumbling window**
+
+- Description: Fixed‑length windows with **no overlap**, dividing the stream into consecutive chunks.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+    
+- Example: “Each hour, calculate the average air temperature in my living room,” producing 24 hourly averages per day.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+    
+
+**Hopping window**
+
+- Description: Fixed‑length windows that **can overlap**, controlled by a separate hop size.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+    
+- Example: “Calculate the average bedroom temperature over the past hour, but recompute every 12 minutes,” giving overlapping 1‑hour windows shifted by 12 minutes.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+    
+
+---
+
+## Snapshot and Sliding windows
+
+**Snapshot window**
+
+- Description: Aggregates over **point‑in‑time snapshots**, ideal for bursty sensors that send multiple readings in a single event.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+    
+- Typical usage: A temperature sensor emits readings every 15 minutes in a batch; the snapshot window uses `system.timestamp()` so you can compute the average for all readings within each emitted event.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+    
+
+**Sliding window**
+
+- Description: Uses a fixed time‑window length (for example 10 seconds) and automatically generates many **overlapping windows** across the stream.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+    
+- Typical usage: Monitoring taxi usage and raising an alert whenever the total concurrent journeys exceed 350 during any 10‑second period, often combined with a filter on the aggregated value.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+    
+
+---
+
+## Session windows
+
+**Session window**
+
+- Description: Groups together events that occur close in time within a logical session (for example, a website visit), with **variable window length** and non‑overlapping windows per user/session.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+    
+- Typical usage: Website analytics such as “total number of pages visited by a user in a single session,” where events cluster during activity and stop when the user leaves.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+    
+
+For DP‑700 exam scenarios, look for wording like “per session,” “user visit,” or “events within an inactivity threshold” to identify when a session window is the appropriate choice.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+
+1. [https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)
