@@ -3731,6 +3731,640 @@ The **Data Insights** dashboard provides real-time visibility into Eventstream p
 This completes **Module 9: Monitor/Optimize Data Processing Tools**. You now have a comprehensive framework for monitoring and optimizing **Data Pipelines**, **Dataflows**, **Spark Notebooks**, and **Eventstreams**. Next up is **Module 10: Monitor/Optimize Data Stores** (Lakehouse, Warehouse, Eventhouse, Semantic Models).
 
 ---
-
+---
 # 10 Monitor/ Optimize Stores
+
+## 10.1 Warehouse Monitoring & Optimization – core idea
+
+The **Fabric Data Warehouse** is a T-SQL-based relational data store optimized for analytical workloads. Monitoring focuses on **query performance** (execution time, resource consumption) using both UI-based tools (**Query Activity tab**) and T-SQL queries (**queryinsights schema**, **Dynamic Management Views**).
+
+Optimization strategies include **VOrder** (read-optimized Parquet file format), **Query Plans** (analyze execution plans with SHOWPLAN), and **Caching** (automatic in-memory and SSD caching). For the DP-700 exam, you need to understand when to use each monitoring tool and when to disable VOrder.
+
+---
+
+## Two broad groups of monitoring tools
+
+Fabric provides two categories of monitoring tools for the Data Warehouse:
+
+## UI-based monitoring
+
+- **Capacity Metrics App** – capacity consumption across all Warehouse operations.
+    
+- **Query Activity tab** – query execution history, long-running queries, frequently-run queries (with ability to cancel active queries).
+    
+
+## Query-based monitoring (T-SQL)
+
+- **queryinsights schema** – historical query performance data (completed requests, sessions).
+    
+- **Dynamic Management Views (DMVs)** – live query lifecycle insights (active connections, sessions, requests).
+    
+
+---
+
+## Capacity Metrics App – capacity utilization
+
+## What it monitors
+
+The **Capacity Metrics App** tracks **capacity unit (CU) consumption** for Warehouse operations. You can filter by **Warehouse activities** to see which queries or load operations consume the most capacity.
+
+## How to use
+
+1. Install the **Capacity Metrics App** in your Fabric capacity.
+    
+2. Filter by **item type = Warehouse** to see only Warehouse-related capacity consumption.
+    
+3. Analyze which operations (queries, loads, refreshes) consume the most CUs.
+    
+
+## When to use
+
+- You are experiencing **capacity throttling** and need to identify high-consumption queries.
+    
+- You want to track **Warehouse capacity trends** over time.
+    
+- You are planning capacity scaling or optimizing query performance.
+    
+
+## Exam tip
+
+If a question asks "how do you identify which Warehouse queries consume the most capacity?", the answer is **Capacity Metrics App** (not Query Activity tab, which focuses on execution time, not capacity consumption).
+
+---
+
+## Query Activity tab – UI-based query monitoring
+
+The **Query Activity tab** is a **native UI** within the Fabric Data Warehouse that provides query execution visibility **without writing T-SQL**. It has three key views:
+
+## 1. Query runs
+
+**What it shows**: All queries that have been (and are currently being) executed against the Warehouse.
+
+**Key features**:
+
+- **Real-time status** – see queries that are currently running.
+    
+- **Cancel long-running queries** – you can manually cancel a query from this UI.
+    
+- **Query text** – view the exact SQL statement executed.
+    
+- **Execution time** – start time, duration, status (succeeded, failed, canceled).
+    
+
+**Use case**: You receive a report that "the Warehouse is slow", and you want to quickly identify if a long-running query is blocking other operations.
+
+## 2. Long-running queries
+
+**What it shows**: Queries ordered by their **Median Run Duration** (to expose queries that consistently take a long time).
+
+**Key difference from Query runs**:
+
+- **Query runs** shows individual executions.
+    
+- **Long-running queries** aggregates multiple executions of the same query and sorts by median duration.
+    
+
+**Use case**: You want to identify which queries are **consistently slow** (not just one-time outliers) for optimization.
+
+## 3. Frequently-run queries
+
+**What it shows**: Queries ordered by their **Run Count** (to expose queries that are executed most often).
+
+**Use case**: You want to optimize queries that have the **highest impact** (even if they are fast individually, running them 10,000 times per day can consume significant capacity).
+
+---
+
+## queryinsights schema – T-SQL-based query analysis
+
+The **queryinsights schema** exposes the same data as the **Query Activity tab**, but allows you to perform **custom T-SQL analysis** (joins, filters, aggregations).
+
+## Four key views
+
+## 1. exec_requests_history
+
+**What it returns**: Information about each **completed SQL request/query**.
+
+**Key columns**:
+
+- `request_id` – unique identifier for the query.
+    
+- `session_id` – session that executed the query.
+    
+- `start_time`, `end_time`, `total_elapsed_time` – execution timing.
+    
+- `command` – SQL query text.
+    
+- `status` – succeeded, failed, canceled.
+    
+
+**Use case**: Custom analysis of query performance (e.g., "show all queries that took > 5 minutes in the last 24 hours").
+
+## 2. exec_sessions_history
+
+**What it returns**: Information about each **completed session** (a session can execute multiple queries).
+
+**Use case**: Track which users or applications are querying the Warehouse most frequently.
+
+## 3. frequently_run_queries
+
+**What it returns**: Queries ordered by **Run Count** (similar to the UI view, but queryable with T-SQL).
+
+**Use case**: Identify high-frequency queries for caching or pre-aggregation strategies.
+
+## 4. long_running_queries
+
+**What it returns**: Queries ordered by **query execution time** (similar to the UI view, but queryable with T-SQL).
+
+**Use case**: Identify optimization candidates (queries with high median or max execution time).
+
+---
+
+## Dynamic Management Views (DMVs) – live query monitoring
+
+## What are DMVs?
+
+**Dynamic Management Views** provide **real-time visibility** into active connections, sessions, and requests. Unlike `queryinsights` (which stores historical data), DMVs show **what is happening right now**.
+
+## Three key DMVs
+
+## 1. sys.dm_exec_connections
+
+**What it returns**: Information about each **connection** established between the Warehouse and the engine.
+
+**Use case**: Identify how many active connections are open (useful for troubleshooting connection pool exhaustion).
+
+## 2. sys.dm_exec_sessions
+
+**What it returns**: Information about each **session** authenticated between the item and the engine.
+
+**Use case**: Identify which users are currently connected to the Warehouse.
+
+## 3. sys.dm_exec_requests
+
+**What it returns**: Information about each **active request** in a session.
+
+**Use case**: Identify queries that are **currently running** (not just completed queries).
+
+## Relationship between DMVs
+
+The three DMVs are related hierarchically:
+
+text
+
+`Connection (sys.dm_exec_connections)   ↓ Session (sys.dm_exec_sessions)   ↓ Request (sys.dm_exec_requests)`
+
+- One **connection** can have multiple **sessions**.
+    
+- One **session** can have multiple **requests** (queries).
+    
+
+---
+
+## Optimization tools
+
+## VOrder – optimized Parquet format
+
+## What is VOrder?
+
+**VOrder** is a Fabric-specific optimization applied when writing Parquet files. It reorganizes data within the file to make **reads extremely fast** (at the cost of slightly slower writes).
+
+## Default behavior
+
+By default, the Fabric Data Warehouse **always writes VOrder'd files**.
+
+## When to disable VOrder
+
+You can disable VOrder at the **Warehouse level** (not per-table) with:
+
+sql
+
+`ALTER DATABASE CURRENT SET VORDER = OFF;`
+
+**WARNING**: Disabling VOrder is **irreversible** (you cannot re-enable it).
+
+## When to disable VOrder
+
+Use **VOrder = OFF** for **write-heavy Warehouses**:
+
+- **Raw Warehouse** – ingests data from sources (mostly writes, minimal reads).
+    
+- **Staging Warehouse** – temporary storage for ETL (high write volume, low read volume).
+    
+
+**Do not disable VOrder** for **read-heavy Warehouses**:
+
+- **Analytics Warehouse** – used by Direct Lake semantic models (read-optimized is critical).
+    
+
+## Exam scenario
+
+"A Warehouse is used as a staging layer for ETL pipelines and experiences slow write performance. Semantic models do not read from this Warehouse. What optimization should you apply?" → **Disable VOrder**.
+
+---
+
+## Query Plans (SHOWPLAN) – preview feature
+
+## What it does
+
+**SET SHOWPLAN_XML ON** generates a **query execution plan** in XML format, which can be visualized in **SQL Server Management Studio (SSMS)**.
+
+## How to use
+
+1. Connect to the Fabric Warehouse using **SSMS**.
+    
+2. Run:
+    
+    sql
+    
+    `SET SHOWPLAN_XML ON; SELECT * FROM FactSales WHERE Year = 2025;`
+    
+3. SSMS displays the **execution plan** (operators, costs, joins).
+    
+
+## Use case
+
+Identify **query bottlenecks** (missing indexes, inefficient joins, table scans).
+
+## Exam tip
+
+If a question mentions "how do you analyze the execution plan of a T-SQL query in Fabric Warehouse?", the answer is **SET SHOWPLAN_XML ON** (and visualize in SSMS).
+
+---
+
+## Caching – automatic performance optimization
+
+## What is caching?
+
+Fabric Data Warehouse automatically caches query results in two layers:
+
+- **In-memory cache** – fastest (RAM-based).
+    
+- **SSD cache** – fast (disk-based, larger capacity).
+    
+
+## Key characteristics
+
+- **Automatic** – you cannot manually configure or disable caching.
+    
+- **Transparent** – queries automatically benefit from caching without code changes.
+    
+- **Invalidation** – cache is invalidated when underlying data changes.
+    
+
+## Use case
+
+Repeated queries (e.g., dashboard refreshes) benefit from caching without additional tuning.
+**How it works:**  https://learn.microsoft.com/en-us/fabric/data-warehouse/caching
+
+---
+
+## Self-check / moderator questions
+
+1. What are the two broad groups of monitoring tools for Fabric Data Warehouse?
+    
+2. What is the difference between **Query Activity tab** and **queryinsights schema**?
+    
+3. Which tool shows **real-time active queries** (not historical)?
+    
+4. What is the purpose of the **Capacity Metrics App** for Warehouse monitoring?
+    
+5. What are the three views in the **Query Activity tab**?
+    
+6. What is the difference between **Long-running queries** and **Frequently-run queries**?
+    
+7. What does **exec_requests_history** in the `queryinsights` schema return?
+    
+8. What is the relationship between **sys.dm_exec_connections**, **sys.dm_exec_sessions**, and **sys.dm_exec_requests**?
+    
+9. What is **VOrder** and what does it optimize?
+    
+10. When should you **disable VOrder** in a Fabric Warehouse?
+    
+11. Can you disable VOrder for a specific table only?
+    
+12. What happens if you disable VOrder (is it reversible)?
+    
+13. How do you generate a query execution plan in Fabric Warehouse?
+    
+14. What tool do you use to visualize the execution plan?
+    
+15. Is Warehouse caching manual or automatic?
+    
+
+---
+
+This gives you a complete framework for monitoring and optimizing Fabric Data Warehouse. The next sections will cover **Lakehouse** (10.2), **Eventhouse/KQL** (10.3), and **Semantic Model Refresh** (10.4).
+
+---
+## 10.2 Lakehouse Monitoring & Optimization – core idea
+
+**Lakehouse** optimization focuses on **Delta Lake table maintenance** (OPTIMIZE, VACUUM, VOrder) and **partitioning strategies**. Unlike Warehouse (which monitors T-SQL queries), Lakehouse optimization is primarily about **file management** and **Spark performance tuning**.
+
+Monitoring for Lakehouse uses the same **Spark Notebook monitoring tools** covered in section 9.3 (Monitoring Hub, Spark History Server). This section focuses on **optimization-only** techniques specific to Delta Lake tables.
+
+For the DP-700 exam, you need to understand the three Table Maintenance operations, when to apply VOrder at different levels (session, table, cell), and partitioning best practices.
+
+---
+
+## Monitoring Lakehouse (reference to Spark Notebook monitoring)
+
+Since Lakehouse tables are typically read/written using **Spark Notebooks** or **Spark Job Definitions**, monitoring follows the same patterns as **section 9.3: Spark Notebook Monitoring**:
+
+- **Monitoring Hub** – track notebook runs that read/write Lakehouse tables.
+    
+- **Spark History Server** – analyze Spark job performance (stages, tasks, data shuffle).
+    
+- **Monitor Run Series** – track performance trends over time.
+    
+
+**Key exam point**: There is no separate "Lakehouse Monitoring Hub". You monitor the **Spark jobs that interact with the Lakehouse**, not the Lakehouse itself.
+
+---
+
+## Table Maintenance – UI-based ad-hoc optimization
+
+**Table Maintenance** is a Fabric feature that provides a **UI-based** way to perform Delta Lake maintenance operations without writing code.
+
+## How to access
+
+1. Open your **Lakehouse** in the workspace.
+    
+2. **Right-click** on any Delta table.
+    
+3. Select **Maintenance**.
+    
+4. Choose from three operations: **Optimize**, **VOrder**, **Vacuum**.
+    
+
+---
+
+## Three Table Maintenance operations
+
+## 1. OPTIMIZE – file compaction
+
+## What it does
+
+**OPTIMIZE** compacts many small Parquet files into larger Parquet files (ideally **~1GB each**). This is also called **bin-packing**.
+
+## Why it's needed
+
+Over time, Delta tables accumulate **small files** (especially with frequent appends or updates). Small files hurt performance because:
+
+- Spark must open/close many files (I/O overhead).
+    
+- Metadata operations (listing files) slow down.
+    
+- Query planning takes longer.
+    
+
+## When to use
+
+- After many **incremental loads** (e.g., hourly appends).
+    
+- When you notice **slow query performance** on a table.
+    
+- Before running **large analytical queries** or **semantic model refreshes**.
+    
+
+## Exam scenario
+
+"A Lakehouse table has 10,000 small Parquet files (average 5MB each) and query performance is degrading. What should you do?" → **Run OPTIMIZE**.
+
+---
+
+## 2. VOrder – read-optimized Parquet format
+
+## What it does
+
+**VOrder** applies Microsoft's proprietary algorithm to reorganize data within Parquet files for **super-fast read performance**. This is especially important for **Direct Lake semantic models** (Power BI reports reading directly from OneLake).
+
+## When to use
+
+- Tables used by **Direct Lake semantic models** (analytics, reporting).
+    
+- Tables with **read-heavy workloads** (dashboards, BI tools).
+    
+
+## When **NOT** to use VOrder (same as Warehouse)
+
+- **Write-heavy tables** (raw ingestion, staging layers).
+    
+- Tables that are **rarely read** (archival data).
+    
+
+---
+
+## 3. VACUUM – remove obsolete files
+
+## What it does
+
+**VACUUM** removes Parquet files that are **no longer part of the Delta log** (e.g., old versions from updates/deletes) after a retention threshold (e.g., 7 days).
+
+## Benefits
+
+- **Reduces OneLake storage costs** (fewer files stored).
+    
+- **Cleans up outdated files** that are no longer needed.
+    
+
+## Trade-off
+
+- **Disables Delta Time Travel** beyond the vacuum retention period.
+    
+- You **cannot** query historical versions of the table older than the retention threshold.
+    
+
+## When to use
+
+- When storage costs are a concern.
+    
+- When you don't need long-term time travel (e.g., staging tables, raw data).
+    
+
+## Exam scenario
+
+"A Lakehouse table consumes 500GB of storage, but only 100GB is current data. The rest is from old versions. Time travel is not required. What should you do?" → **Run VACUUM**.
+
+---
+
+## Code-based optimizations – programmatic table maintenance
+
+The **Table Maintenance UI** is great for ad-hoc operations, but you can also schedule these operations using **Spark SQL** or **PySpark** in a notebook.
+
+## OPTIMIZE – Spark SQL
+
+sql
+
+`%%sql OPTIMIZE <table_name> VORDER;`
+
+**Note**: Adding `VORDER` at the end applies VOrder **after** compaction.
+
+## OPTIMIZE – PySpark
+
+python
+
+`from delta.tables import * deltaTable = DeltaTable.forPath(spark, "Tables/sales") deltaTable.optimize().executeCompaction()`
+
+## VACUUM – Spark SQL
+
+sql
+
+`VACUUM your_delta_table;`
+
+**Default retention**: 7 days (configurable).
+
+---
+
+## VOrder in Lakehouse – three configuration levels
+
+Unlike Warehouse (where VOrder is set at the database level), **Lakehouse VOrder** can be configured at three levels:
+
+## 1. Session-level (applies to all writes in the session)
+
+sql
+
+`%%sql SET spark.sql.parquet.vorder.enabled = TRUE;`
+
+**Use case**: Enable VOrder for all tables written in a specific notebook session.
+
+## 2. Table-level (persistent across all writes to that table)
+
+## During table creation
+
+sql
+
+`%%sql CREATE TABLE person (id INT, name STRING, age INT) USING parquet TBLPROPERTIES("delta.parquet.vorder.enabled" = "true");`
+
+## Alter existing table
+
+sql
+
+`%%sql ALTER TABLE person SET TBLPROPERTIES("delta.parquet.vorder.enabled" = "true");`
+
+**Use case**: Permanently enable VOrder for a specific table (e.g., Gold layer analytics table).
+
+## 3. Cell-level (dataframe writer – one-time write)
+
+python
+
+`df.write \   .format("delta") \  .option("delta.parquet.vorder.enabled", "true") \  .mode("overwrite") \  .saveAsTable("sales")`
+
+**Use case**: Apply VOrder for a single write operation without changing session or table defaults.
+
+---
+
+## VOrder default values
+
+|**Configuration**|**Default Value**|
+|---|---|
+|Session-level (`spark.sql.parquet.vorder.enabled`)|`true`|
+|Table-level (`TBLPROPERTIES("delta.parquet.vorder.enabled")`)|`false`|
+|Dataframe writer option (`parquet.vorder.enabled`)|`unset` (inherits session-level)|
+
+**Key exam point**: By default, **session-level VOrder is ON**, but **table-level VOrder is OFF**. If you want a table to always write VOrdered files (regardless of session settings), set it at the **table level**.
+
+---
+
+## VOrder in a Medallion architecture
+
+Similar to Warehouse optimization, you can apply different VOrder strategies across Lakehouse layers:
+
+|**Layer**|**VOrder**|**Reason**|
+|---|---|---|
+|**BRONZE** (raw ingestion)|OFF|Write-heavy, minimal reads|
+|**SILVER** (transformed)|OFF|Still write-heavy, intermediate processing|
+|**GOLD** (analytics)|ON|Read-heavy, used by semantic models|
+
+**Key exam point**: Only the **GOLD layer** (used for BI/analytics) should have VOrder enabled. Bronze/Silver layers benefit from faster writes by disabling VOrder.
+
+---
+
+## Partitioning – distributed processing optimization
+
+## What is partitioning?
+
+**Partitioning** splits a large table into smaller **physical subdirectories** based on column values (e.g., partition by `year`, `month`). Spark can then process each partition in parallel.
+
+## Benefits
+
+- **Parallel processing** – Spark reads multiple partitions simultaneously.
+    
+- **Data skipping** – Spark only reads relevant partitions (e.g., "WHERE year = 2025" skips other years).
+    
+- **Improved performance** – especially for large tables (>1GB).
+    
+
+## Implementing partitioning in PySpark
+
+python
+
+`df.write \   .mode("overwrite") \  .format("delta") \  .partitionBy("year", "month") \  .save("Tables/flights_partitioned")`
+
+---
+
+## Partitioning best practices
+
+## 1. Don't over-optimize early
+
+- **Wait** until you have **large datasets** (millions of rows) before partitioning.
+    
+- Premature partitioning causes the **small file problem** (many tiny partitions).
+    
+
+## 2. Choose partition columns carefully
+
+- **High cardinality** = bad (e.g., `customer_id` with millions of values → millions of partitions).
+    
+- **Low cardinality** = good (e.g., `year`, `region`, `status` with a few distinct values).
+    
+- **Commonly filtered** = ideal (e.g., "WHERE year = 2025" benefits from year partitioning).
+    
+
+## 3. Aim for ~1GB partitions
+
+- Too small (< 100MB) → small file problem.
+    
+- Too large (> 2GB) → limited parallelism.
+    
+- **Optimal** → ~1GB per partition.
+    
+
+---
+
+## Self-check / moderator questions
+
+1. What is the difference between **OPTIMIZE** and **VOrder**?
+    
+2. What does **VACUUM** do, and what is the trade-off?
+    
+3. How do you access **Table Maintenance** in the Lakehouse UI?
+    
+4. What is the Spark SQL command to run OPTIMIZE with VOrder?
+    
+5. At which three levels can you configure VOrder in Lakehouse?
+    
+6. What is the default value for **session-level VOrder**?
+    
+7. What is the default value for **table-level VOrder**?
+    
+8. Why should you **disable VOrder** in the Bronze and Silver layers of a Medallion architecture?
+    
+9. What is **partitioning** and how does it improve Spark performance?
+    
+10. What are the three best practices for partitioning Delta tables?
+    
+11. What is the **small file problem** and how does OPTIMIZE solve it?
+    
+12. Can you use Delta Time Travel after running VACUUM?
+    
+13. If a table has 10,000 small files (5MB each), which operation should you run?
+    
+14. If a table is used by a Direct Lake semantic model, should you enable VOrder?
+    
+
+---
+
+This completes **10.2 Lakehouse Monitoring & Optimization**. The next sections will cover **Eventhouse/KQL** (10.3) and **Semantic Model Refresh** (10.4) to complete the data stores module.
+
+---
 
