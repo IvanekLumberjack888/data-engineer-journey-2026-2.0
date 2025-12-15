@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01_DENNÍ_LOGY/2025-12-15 (pondělí) - 51. week.md",
+                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/7_KQL_EVENTHOUSE.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2025-12-15 (pondělí) - 51. week"
+              "title": "7_KQL_EVENTHOUSE"
             }
           }
         ]
@@ -199,9 +199,11 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/9_MONITORING.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/12_ADMINISTRACE.md",
+    "01_DENNÍ_LOGY/2025-12-15 (pondělí) - 51. week.md",
     "SECURITY.md",
     "01_DENNÍ_LOGY/2025-12-14 (neděle) - 50. week.md",
-    "01_DENNÍ_LOGY/2025-12-15 (pondělí) - 51. week.md",
     "30_ZDROJE/YOUTUBE/Fabric Základy in 40 minutes - Will.md",
     "30_ZDROJE/YOUTUBE/Reactor YT DP-700 Prep for Exam Day and Open Q&A.md",
     "30_ZDROJE/YOUTUBE/Aleksi DP-700 Exam Prep.md",
@@ -225,8 +227,6 @@
     "40_ARCHIV/new-journey.md",
     "30_ZDROJE/NtbLM/Přehled česky.md",
     "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
-    "30_ZDROJE/Learn_Microsoft_Fabric/Web Naučte se Microsoft Fabric - Fabric Foundation (with Will Needam).md",
-    "30_ZDROJE/30.2_INTEGRATIONS/GitHub-setup.md",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.21 DATA ANALYST WITH PYTHON/Engeto_study_plan/0. Osnova z TODO/00 OSNOVA z TODO.pdf",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.28 AI/CheatSheet-Python-4_-Classes.pdf",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.28 AI/CheatSheet-Python-6_-Coding-Interview-Questions.pdf",
