@@ -2229,17 +2229,71 @@ In practice, the pattern is:
     
 ---
 
-## 7.4 Process / analyze data using KQL – co znát
+## 7.4 Process / analyze data using KQL – core idea
 
-- Mít přehled o **Eventhouse a KQL Database** jako primárním úložišti pro logy a time‑series.
+This topic is about using **Kusto Query Language (KQL)** to query and analyze data stored in **Eventhouse / KQL databases** in Microsoft Fabric. For DP‑700, you need to understand where KQL fits in the real‑time stack and be able to read and compose core KQL query patterns for analytics and monitoring.
+
+---
+
+## Eventhouse and KQL Database
+
+In Fabric real‑time analytics, **Eventhouse** is the logical container for one or more **KQL databases** that store high‑volume, time‑series or log data, often ingested from streaming sources. You use KQL queries over these databases for dashboards, investigative analysis, and operational monitoring scenarios.
+
+Key expectations for DP‑700:
+
+- Understand what an Eventhouse is and how it relates to other Fabric items such as Eventstreams, Lakehouses, and warehouses.
     
-- Umět číst a psát základní KQL dotazy: `take/limit`, `project`, `extend`, `sort`, `where`, `summarize`, `join`.
-    
-- Vědět, že existují **management commands** (např. práce s databázemi, tabulkami, retencí) a že se používají pro správu, ne pro běžnou analytiku.
+- Know that KQL databases are optimized for large append‑only telemetry and log workloads rather than classic relational modeling.
     
 
 ---
 
-## KQL window functions – navazující téma
+## Core KQL query skills
 
-- Window funkce pracují nad **seřazenou (serialized) množinou řádků** a 
+KQL uses a **pipe‑based** syntax where queries start from a table and apply operators in sequence like a processing pipeline. You should be comfortable with basics such as selecting and shaping data, applying expressions, and controlling result size.
+
+Important operators for the exam:
+
+- Basics: `take`, `limit`, `project`, `extend`, `sort` and simple scalar functions (string, numeric, datetime).
+    
+- Time awareness: working with timestamp fields, ordering by time, and selecting recent data.
+    
+
+---
+
+## Filtering and aggregation patterns
+
+Filtering is done primarily with the `where` operator, which restricts rows based on predicates like time ranges, device IDs, or severity. Typical exam scenarios will describe real‑time telemetry where you filter on a time window and some dimension (for example, a specific service or region).
+
+Aggregations are handled with `summarize`, grouping by one or more columns such as time bins, region, or device. Common patterns include counts per time interval, averages and min/max by device, and combined aggregations for monitoring metrics.
+
+---
+
+## Management commands and operational aspects
+
+KQL also includes **management commands** used to configure and operate Eventhouse and KQL databases, not to query business data directly. DP‑700 expects you to recognize these as administrative tools for controlling retention, caching, ingestion, and performance.
+
+Examples of concepts to recognize:
+
+- Setting or inspecting retention and caching policies on databases and tables.
+    
+- Checking ingestion status and system metrics to troubleshoot performance or reliability issues.
+    
+
+---
+
+## KQL window functions
+
+Beyond simple `summarize`, KQL supports **window functions** that perform calculations over ordered sets of rows, such as time‑series windows or partitions by key. These functions enable moving averages, running totals, and session‑like analytics that are important for advanced telemetry analysis.
+
+For DP‑700, you should conceptually understand when a scenario calls for a window function rather than a straightforward grouped aggregate, especially when the requirement mentions running aggregates over an ordered sequence of events.
+
+---
+
+## Why this matters for DP‑700
+
+KQL is a first‑class query language in the **Streaming data / Real‑time** area of Fabric and complements T‑SQL, PySpark, and Spark Structured Streaming. Exam questions will often describe data flowing into Eventhouse/KQL DB and ask how to query, aggregate, or manage it using appropriate KQL constructs and management commands.
+
+Being familiar with KQL basics, filtering, aggregations, management commands, and window functions ensures you can choose KQL when it is the right analytical engine and interpret KQL‑based solutions in DP‑700 questions confidently.
+
+---
