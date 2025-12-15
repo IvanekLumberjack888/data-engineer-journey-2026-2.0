@@ -1792,16 +1792,16 @@ For DP‑700, choosing between **Lakehouse, Warehouse and Eventhouse (KQL DB)** 
 
 ## Lakehouse – when to choose it
 
-- Best for **unstructured, semi‑structured and structured** data together (files + tables) with **Spark / PySpark / Spark SQL / R** as primary dev tools.image.jpg​
+- Best for **unstructured, semi‑structured and structured** data together (files + tables) with **Spark / PySpark / Spark SQL / R** as primary dev to
     
-- Ideal for data engineers/data scientists, large‑scale batch processing, flexible schema, and when you want both files and tables in OneLake with shortcuts support.image.jpg​
+- Ideal for data engineers/data scientists, large‑scale batch processing, flexible schema, and when you want both files and tables in OneLake with shortcuts supp
     
 
 ---
 
 ## Warehouse – when to choose it
 
-- Best for **structured and semi‑structured (JSON) data** where primary skill is **SQL** and you need **multi‑table transactions**.image.jpg​
+- Best for **structured and semi‑structured (JSON) data** where primary skill is **SQL** and you need **multi‑table transaction
     
 - Fits data warehouse developers/architects, strong T‑SQL workloads, MERGE‑heavy ETL, and when you want tightly controlled schema plus CI/CD over SQL projects.image.jpg​
     
