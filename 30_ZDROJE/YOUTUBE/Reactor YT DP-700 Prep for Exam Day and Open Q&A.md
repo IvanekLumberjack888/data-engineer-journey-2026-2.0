@@ -1,4 +1,4 @@
-# Ze série [YT: DP-700 Prep for Exam Day and Oper Q&A](https://youtube.com/playlist?list=PLmsFUfdnGr3zGZfY0QFatlvoargXNU2EZ&si=cKmbUuzcak8kr7S9)
+# Ze série [YT: DP-700 Prep for Exam Day and Open Q&A](https://youtube.com/playlist?list=PLmsFUfdnGr3zGZfY0QFatlvoargXNU2EZ&si=cKmbUuzcak8kr7S9)
 # 🚀 DP-700 Part 1: Implement and Manage Analytics Solutions
 
 Video představuje první část akcelerované přípravy na certifikaci DP-700 zaměřenou na implementaci a správu analytických řešení v Microsoft Fabric. Níže je strukturované shrnutí v češtině vhodné do Obsidianu.[youtube](https://www.youtube.com/watch?v=Cd8BCXxZM8E&list=PLmsFUfdnGr3zGZfY0QFatlvoargXNU2EZ&index=4)​
