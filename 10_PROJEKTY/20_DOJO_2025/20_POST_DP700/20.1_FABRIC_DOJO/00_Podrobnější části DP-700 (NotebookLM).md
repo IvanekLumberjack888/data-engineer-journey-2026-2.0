@@ -2300,83 +2300,138 @@ Being familiar with KQL basics, filtering, aggregations, management commands, an
 
 ## 7.5 Window functions (in Eventstreams) – core idea
 
-Window functions in Eventstreams take an infinite real‑time stream and split it into time‑based windows so you can compute aggregates (average, min, max, sum) over each window instead of per individual event. This helps both with real‑time decision‑making (summary statistics over recent data) and with reducing stored volume by keeping, for example, 30‑second averages instead of every second‑level reading.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+Window functions in Eventstreams take an infinite real‑time stream and split it into time‑based windows so you can compute aggregates (average, min, max, sum) over each window instead of per individual event. This helps both with real‑time decision‑making (summary statistics over recent data) and with reducing stored volume by keeping, for example, 30‑second averages instead of every second‑level reading.
+
+In Eventstreams, windowing is implemented with two transformations: **Aggregate** and **Group By**. Aggregate gives you a continuously updated view over a time window, while Group By produces one result per discrete window using specific window types.
 
 ---
 
 ## Windowing in Eventstreams: Aggregate vs Group By
 
-In Eventstreams, windowing is implemented with two transformations: **Aggregate** and **Group By**.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+**Aggregate transformation**
 
-- **Aggregate** recomputes the aggregate every time a new event arrives, over a configured window length (for example “last 60 seconds” for average wind speed).[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+- Recomputes the aggregate every time a new event arrives, over a configured window length such as “last 60 seconds”.
     
-- **Group By** groups all events that fall inside a given window and computes one aggregated result per window, using one of five window types (tumbling, hopping, snapshot, sliding, session).[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+- Typical question pattern: “What is the average value over the last N seconds right now?” – you want a rolling, continuously refreshed metric.
     
+
+**Group By transformation**
+
+- Groups events that fall inside a defined window and outputs one aggregated row for that window.
+    
+- Supports five window types: **Tumbling**, **Hopping**, **Snapshot**, **Sliding**, and **Session**, each designed for a different streaming pattern.
+    
+
+For the exam, decide first if the scenario describes a rolling real‑time metric (Aggregate) or discrete buckets/sessions (Group By), then pick the window type if Group By is implied.
 
 ---
 
 ## High‑level classification of window types
 
-The five Group By window functions can be remembered using two dimensions: whether the **window length** is fixed or variable, and whether windows **overlap** or not.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+You can remember the five Group By window functions using two questions:
 
-- Fixed length, non‑overlapping → Tumbling window.
+- Is the window length **fixed** or **variable**?
     
-- Fixed length, overlapping with explicit hop → Hopping window.
+- Do windows **overlap**, or are they **non‑overlapping**?
     
-- Fixed length, overlapping with automatic sliding → Sliding window.
+
+This leads to:
+
+- Fixed length, non‑overlapping → **Tumbling window**.
     
-- Variable length, non‑overlapping per session → Session window.
+- Fixed length, overlapping with explicit hop → **Hopping window**.
     
-- Point‑in‑time windows keyed by timestamp → Snapshot window.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+- Fixed length, overlapping with automatic sliding → **Sliding window**.
+    
+- Variable length, non‑overlapping per session → **Session window**.
+    
+- Point‑in‑time windows keyed by timestamp → **Snapshot window**.
     
 
 ---
 
 ## Tumbling and Hopping windows
 
-**Tumbling window**
+## Tumbling window
 
-- Description: Fixed‑length windows with **no overlap**, dividing the stream into consecutive chunks.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+- **Description**: Fixed‑length windows that do **not** overlap; the stream is divided into consecutive blocks (for example, 1‑minute or 1‑hour chunks).
     
-- Example: “Each hour, calculate the average air temperature in my living room,” producing 24 hourly averages per day.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+- **Example**: “Each hour, calculate the average air temperature in my living room.” You get 24 aggregated values per day, one for each hour, each representing all readings in that hour.
     
 
-**Hopping window**
+## Hopping window
 
-- Description: Fixed‑length windows that **can overlap**, controlled by a separate hop size.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+- **Description**: Fixed‑length windows that **can overlap**; you define both the window length and a hop size (how far the window moves each time).
     
-- Example: “Calculate the average bedroom temperature over the past hour, but recompute every 12 minutes,” giving overlapping 1‑hour windows shifted by 12 minutes.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+- **Example**: “Calculate the average bedroom temperature over the past hour, but recompute every 12 minutes.” The one‑hour window hops forward by 12 minutes, so many windows overlap.
     
+
+Exam cue: if the requirement says “over the last X minutes, recomputed every Y minutes” with Y < X, it is almost always a hopping window.
 
 ---
 
 ## Snapshot and Sliding windows
 
-**Snapshot window**
+## Snapshot window
 
-- Description: Aggregates over **point‑in‑time snapshots**, ideal for bursty sensors that send multiple readings in a single event.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+- **Description**: Aggregates over **point‑in‑time snapshots**, ideal for bursty sensors that send multiple readings in a single event or at the same timestamp.
     
-- Typical usage: A temperature sensor emits readings every 15 minutes in a batch; the snapshot window uses `system.timestamp()` so you can compute the average for all readings within each emitted event.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+- **Use case**: A temperature sensor emits a batch of readings every 15 minutes; you want the average of the readings in each batch. A snapshot window groups values by the event timestamp and aggregates per timestamp.
     
 
-**Sliding window**
+## Sliding window
 
-- Description: Uses a fixed time‑window length (for example 10 seconds) and automatically generates many **overlapping windows** across the stream.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+- **Description**: Uses a fixed time‑window length (for example 10 seconds) and automatically creates many **overlapping** windows across the stream. You typically combine it with a filter so you only emit windows whose aggregate meets some condition.
     
-- Typical usage: Monitoring taxi usage and raising an alert whenever the total concurrent journeys exceed 350 during any 10‑second period, often combined with a filter on the aggregated value.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+- **Use case**: “Raise an alert if the total number of concurrent taxi journeys is above 350 during any 10‑second period.” The sliding window continuously checks every possible 10‑second span, not just at discrete hops.
     
+
+Exam cue: wording like “during any N‑second interval” or “whenever at any time the metric exceeds X over the last N seconds” suggests a sliding window.
 
 ---
 
 ## Session windows
 
-**Session window**
+## Session window
 
-- Description: Groups together events that occur close in time within a logical session (for example, a website visit), with **variable window length** and non‑overlapping windows per user/session.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+- **Description**: Groups events that occur close together in time into variable‑length sessions, usually per user or device. For a given key (user, device), session windows do not overlap; they are separated by inactivity gaps.
     
-- Typical usage: Website analytics such as “total number of pages visited by a user in a single session,” where events cluster during activity and stop when the user leaves.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+- **Use case**: Website analytics such as “total number of pages visited by a user in one session.” The user might click multiple pages, pause, and eventually leave; events during that visit form a single session window.
     
 
-For DP‑700 exam scenarios, look for wording like “per session,” “user visit,” or “events within an inactivity threshold” to identify when a session window is the appropriate choice.[skool](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)​
+Exam cues for session windows:
 
-1. [https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe](https://www.skool.com/fabricdojo/classroom/27cd6f5c?md=32e9f47c4c5a4ccd8d6d9470060d17fe)
+- The scenario talks about “sessions”, “user visits”, or “activity separated by periods of inactivity”.
+    
+- The window length is not fixed ahead of time; it depends on how long the user stays active, plus a defined inactivity timeout.
+    
+
+---
+
+## How to think about window functions for DP‑700
+
+When you see a streaming scenario in the exam, ask yourself:
+
+1. Do I need a **rolling** view over the last N time units (Aggregate) or **discrete blocks/sessions** (Group By)?
+    
+2. If Group By, is the window length fixed or variable?
+    
+3. If fixed, do I need overlapping windows (hopping or sliding) or clean, non‑overlapping blocks (tumbling)?
+    
+4. If variable, is this about user/device sessions (session) or point‑in‑time bursts with shared timestamps (snapshot)?
+    
+
+Use this quick mapping:
+
+- Fixed + non‑overlapping → Tumbling.
+    
+- Fixed + overlapping with explicit hop size → Hopping.
+    
+- Fixed + overlapping without explicit hop, “any N‑second interval” → Sliding.
+    
+- Variable + session/inactivity logic → Session.
+    
+- Point‑in‑time burst / same timestamp → Snapshot.
+    
+---
+
