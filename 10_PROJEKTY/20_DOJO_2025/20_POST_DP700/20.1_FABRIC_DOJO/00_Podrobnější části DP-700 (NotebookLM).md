@@ -2477,3 +2477,183 @@ Use this quick mapping:
     
 ---
 
+## 8 MONITORING 👀🙈👓
+
+## 8.1 Fabric-wide monitoring tools – core idea
+
+Microsoft Fabric provides **three main tools** for monitoring at different organizational levels: **Monitoring Hub** (tenant-level), **Capacity Metrics App** (capacity-level), and **Workspace Monitoring** (workspace-level, preview).
+
+Each tool serves a distinct purpose and monitors different aspects of your Fabric environment. Understanding which tool to use for which scenario is critical for the DP-700 exam.
+
+---
+
+## The three monitoring levels in Fabric
+
+Fabric monitoring operates at three hierarchical levels:
+
+1. **Tenant-level** – monitor all Fabric items across all capacities and workspaces you have access to.
+    
+2. **Capacity-level** – monitor compute consumption and billing across all workspaces within a specific Fabric capacity.
+    
+3. **Workspace-level** – monitor item-specific logs and operations within a single workspace.
+    
+
+Key exam distinction:
+
+- **Monitoring Hub** = cross-workspace visibility of **run status and failures**.
+    
+- **Capacity Metrics App** = cross-workspace visibility of **capacity consumption and throttling**.
+    
+- **Workspace Monitoring** = deep **item-level logs** for specific workspace items (preview feature).
+    
+
+---
+
+## Monitoring Hub (Tenant-level)
+
+## What it monitors
+
+**Run status** of Fabric items across all workspaces you have access to. You use it to identify failures, review historic runs, and navigate to failed items for detailed debugging.
+
+## Supported items
+
+- Data Pipelines
+    
+- Dataflow Gen2
+    
+- Notebooks
+    
+- Spark Job Definitions
+    
+- Semantic Model refreshes
+    
+
+## Key characteristics
+
+- **Tenant-wide scope** – you see items from any workspace where you have at least read access.
+    
+- **Run-centric view** – focused on execution history (succeeded, failed, in progress, canceled).
+    
+- **Navigation hub** – click on a failed item to open its detailed logs or error messages.
+    
+
+## When to use
+
+- You need to quickly identify which pipeline or notebook failed across multiple workspaces.
+    
+- You want to review historic runs without opening each workspace individually.
+    
+- You are troubleshooting a failure and need to navigate to the item's detailed error logs.
+    
+
+---
+
+## Capacity Metrics App (Capacity-level)
+
+## What it monitors
+
+**Capacity consumption** (compute utilization) across all item types within a Fabric capacity. It shows billable operations, throttling events, and CU (Capacity Unit) consumption over time.
+
+## Supported items
+
+**All Fabric items** that consume capacity – essentially everything (pipelines, dataflows, notebooks, semantic models, lakehouses, warehouses, etc.).
+
+## Key characteristics
+
+- **Power BI App** – you install it into your Fabric capacity as a pre-built Power BI report.
+    
+- **Capacity-level scope** – monitors all workspaces within a single capacity.
+    
+- **CU consumption metrics** – shows which items consume the most capacity units and when throttling occurs.
+    
+
+## When to use
+
+- You need to analyze which workspaces or items are consuming the most capacity.
+    
+- You want to identify throttling events and optimize resource allocation.
+    
+- You are planning capacity scaling or investigating performance bottlenecks related to capacity limits.
+    
+
+## Important nuance
+
+The Capacity Metrics App does **not** show individual run failures or error messages – it only tracks **resource consumption**. For failure investigation, use the Monitoring Hub instead.
+
+---
+
+## Workspace Monitoring (Workspace-level, preview)
+
+## What it monitors
+
+**Item-level logs** for specific workspace activities. When enabled, Fabric provisions an **Eventhouse** in your workspace to store granular logs.
+
+## Supported items (as of preview)
+
+- GraphQL operations
+    
+- Eventhouse
+    
+- Mirrored databases
+    
+- Semantic Models
+    
+
+## Key characteristics
+
+- **Preview feature** – unlikely to appear in the DP-700 exam, but useful to know for future scenarios.
+    
+- **Eventhouse-backed** – logs are stored in an auto-provisioned Eventhouse, which you can query with KQL.
+    
+- **Workspace-scoped** – only tracks activities within the workspace where it is enabled.
+    
+
+## When to use
+
+- You need granular logs for semantic model queries, eventhouse operations, or mirrored database sync activities.
+    
+- You want to perform custom KQL queries on workspace activity logs.
+    
+- You are building custom dashboards or alerts based on item-level logs.
+    
+
+---
+
+## Comparison table: which tool for which scenario
+
+|**Scenario**|**Tool to use**|
+|---|---|
+|Identify which pipeline failed across multiple workspaces|Monitoring Hub|
+|Investigate capacity throttling and CU consumption|Capacity Metrics App|
+|Review historic runs of a specific notebook|Monitoring Hub|
+|Analyze which workspace consumes the most capacity|Capacity Metrics App|
+|Query granular logs for semantic model refresh operations|Workspace Monitoring (preview)|
+|Navigate to a failed dataflow's detailed error message|Monitoring Hub|
+
+---
+
+## Self-check / moderator questions
+
+1. What is the primary difference between **Monitoring Hub** and **Capacity Metrics App**?
+    
+2. Which tool would you use to identify **capacity throttling** events?
+    
+3. Which Fabric items are **not supported** in the Monitoring Hub (e.g., eventhouse, warehouse)?
+    
+4. What happens when you enable **Workspace Monitoring** in a workspace?
+    
+5. Why is **Workspace Monitoring** unlikely to appear in the DP-700 exam?
+    
+6. If a pipeline fails, which tool provides the **run history and error messages**?
+    
+7. Can you use the **Capacity Metrics App** to see which user triggered a notebook run?
+    
+8. What is the scope of the **Monitoring Hub** – workspace, capacity, or tenant?
+    
+
+---
+
+This structure gives you a clear framework for understanding when to use each monitoring tool. The next sections (9.1–9.4) will dive into **item-specific monitoring** for pipelines, dataflows, notebooks, and eventstreams.
+
+---
+
