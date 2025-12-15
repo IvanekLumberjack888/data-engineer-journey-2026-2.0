@@ -3150,3 +3150,587 @@ This structured approach gives you a complete framework for monitoring and optim
 
 ---
 
+## 9.3 Spark Notebook Monitoring & Optimization – core idea
+
+**Spark Notebooks** and **Spark Job Definitions** are the code-first data processing tools in Fabric, powered by Apache Spark. Monitoring involves three layers: **Monitoring Hub** (high-level run status), **Monitor Run Series** (performance trends over time), and **Spark History Server** (deep-dive job analysis with DAG visualization, logs, and query plans).
+
+For the DP-700 exam, you need to understand where to find Spark job details, how to interpret executor metrics, and when to use the History Server for optimization.
+
+---
+
+## Monitoring Hub – high-level Spark job status
+
+## What it shows
+
+When you click on a **Notebook** or **Spark Job Definition** in the Monitoring Hub, you see a list of **every Spark job executed** from a particular Spark session.
+
+## Key information displayed
+
+- **Job ID** – unique identifier for the Spark job.
+    
+- **Status** – succeeded, failed, running, canceled.
+    
+- **Start time** and **Duration** – when the job started and how long it ran.
+    
+- **Submitted by** – who triggered the notebook (user or pipeline).
+    
+
+## When to use
+
+Use the **Monitoring Hub** when:
+
+- You need to quickly identify **which notebook run failed**.
+    
+- You want to review **recent run history** across multiple workspaces.
+    
+- You are troubleshooting a scheduled notebook that didn't complete.
+    
+
+## Important exam distinction
+
+The Monitoring Hub shows **session-level** information (entire notebook execution), not **individual Spark stages or tasks**. For that level of detail, use the **Spark History Server**.
+
+---
+
+## Monitor Run Series – performance trends over time
+
+## What it does
+
+**Monitor Run Series** provides **time-series statistics** for your Spark notebook or job definition. It shows performance metrics aggregated over multiple runs.
+
+## Key metrics displayed
+
+- **Execution duration** – how long each run took (trend analysis).
+    
+- **Peak memory usage** – maximum memory consumed by executors.
+    
+- **Data read/write volume** – how much data was processed.
+    
+- **Success rate** – percentage of successful runs over time.
+    
+
+## When to use
+
+Use **Monitor Run Series** when:
+
+- You want to **track performance degradation** (e.g., "why is this notebook taking longer each day?").
+    
+- You are validating the impact of **optimization changes** (e.g., after tuning partition sizes).
+    
+- You need to identify **resource consumption patterns** for capacity planning.
+    
+
+## Exam tip
+
+If a question asks "how do you track whether a Spark notebook's performance is degrading over time?", the answer is **Monitor Run Series**.
+
+---
+
+## Spark History Server – deep-dive optimization tool
+
+## What it is
+
+The **Spark History Server** is a web-based UI (inherited from Apache Spark) that provides **granular visibility** into Spark job execution. It shows:
+
+- **DAG (Directed Acyclic Graph)** – visual representation of Spark stages and dependencies.
+    
+- **Stage details** – task-level metrics (duration, data shuffle, spill, skew).
+    
+- **Executor logs** – stdout/stderr logs from Spark executors.
+    
+- **Query plans** – logical and physical plans for Spark SQL queries.
+    
+- **Event timeline** – task scheduling and execution timeline.
+    
+
+## How to access
+
+1. From the **Monitoring Hub**, click on a specific **notebook run**.
+    
+2. Click on the **View Details** or **Spark UI** link (depends on Fabric version).
+    
+3. You are redirected to the **Spark History Server** for that job.
+    
+
+---
+
+## Spark History Server – key sections
+
+## Jobs tab
+
+Shows all **Spark jobs** triggered by the notebook. Each notebook cell that executes a Spark action (e.g., `.count()`, `.write()`, `.show()`) creates a job.
+
+## Stages tab
+
+Each **job** is divided into **stages** (logical grouping of tasks). Key metrics:
+
+- **Duration** – how long the stage took.
+    
+- **Tasks** – number of tasks (parallel units of work).
+    
+- **Shuffle read/write** – data exchanged between stages.
+    
+- **Spill (memory/disk)** – data that didn't fit in memory and was written to disk.
+    
+
+## Storage tab
+
+Shows **cached DataFrames** or **RDDs** in memory. Useful for verifying that `.cache()` or `.persist()` is working as expected.
+
+## Executors tab
+
+Shows **executor-level metrics**:
+
+- **Active tasks** – tasks currently running on each executor.
+    
+- **Failed tasks** – tasks that failed and were retried.
+    
+- **Memory usage** – heap memory, off-heap memory, and storage memory.
+    
+
+## SQL tab (for Spark SQL queries)
+
+Shows **query execution plans**:
+
+- **Logical plan** – high-level query structure (joins, filters, aggregations).
+    
+- **Physical plan** – low-level execution strategy (hash joins, broadcast joins, scans).
+    
+
+Use this to identify **query optimization opportunities** (e.g., missing broadcast joins, inefficient filters).
+
+---
+
+## Common Spark optimization patterns
+
+## Partition tuning
+
+**Problem**: Too few partitions → underutilized cluster. Too many partitions → excessive overhead.
+
+**Solution**:
+
+- Use `.repartition(N)` to increase partitions (for large datasets).
+    
+- Use `.coalesce(N)` to decrease partitions (for small datasets after filtering).
+    
+
+**Exam scenario**: "A Spark notebook processes 10GB of data but only uses 2 executors. How do you improve parallelism?" → Increase partitions.
+
+## Data skew handling
+
+**Problem**: One partition has significantly more data than others, causing a **straggler task** that delays the entire stage.
+
+**Solution**:
+
+- Use **salting** (add random key to distribute data).
+    
+- Use **adaptive query execution (AQE)** to automatically handle skew (enabled by default in Fabric).
+    
+
+**Exam scenario**: "One task in a Spark stage takes 10x longer than others." → Data skew issue.
+
+## Broadcast joins
+
+**Problem**: Joining two large tables triggers a **shuffle** (expensive operation).
+
+**Solution**:
+
+- If one table is small (< 10MB by default), use `.broadcast()` to send it to all executors.
+    
+
+python
+
+`from pyspark.sql.functions import broadcast df_large.join(broadcast(df_small), "key")`
+
+**Exam scenario**: "A Spark job spends 80% of time in shuffle. One of the joined tables is 5MB." → Use broadcast join.
+
+## Caching/Persisting
+
+**Problem**: Recomputing the same DataFrame multiple times (e.g., used in multiple actions).
+
+**Solution**:
+
+- Use `.cache()` (default: memory) or `.persist(StorageLevel.MEMORY_AND_DISK)` to store intermediate results.
+    
+
+python
+
+`df = spark.read.parquet("path/to/data") df_filtered = df.filter(df.age > 30).cache() df_filtered.count()  # Computed and cached df_filtered.show()   # Read from cache`
+
+**Exam scenario**: "A Spark notebook runs the same filter multiple times. How do you improve performance?" → Use `.cache()`.
+
+---
+
+## Self-check / moderator questions
+
+1. Where do you first look when a Spark notebook fails?
+    
+2. What information does the **Monitoring Hub** show for Spark notebooks?
+    
+3. What is the difference between **Monitor Run Series** and **Spark History Server**?
+    
+4. How do you access the **Spark History Server** for a specific notebook run?
+    
+5. What is a **Spark stage** and how does it relate to a **Spark job**?
+    
+6. What does **shuffle read/write** indicate in the Stages tab?
+    
+7. What does **spill (memory/disk)** mean in Spark metrics?
+    
+8. How do you check if a DataFrame is successfully cached in memory?
+    
+9. What is **data skew** and how does it impact Spark job performance?
+    
+10. When should you use `.repartition()` vs. `.coalesce()`?
+    
+11. What is a **broadcast join** and when should you use it?
+    
+12. If a Spark notebook runs the same transformation multiple times, how do you optimize it?
+    
+13. What is the default storage level for `.cache()` in Spark?
+    
+14. How do you identify which Spark stage is the bottleneck in a job?
+    
+
+---
+
+This gives you a complete framework for monitoring and optimizing Spark Notebooks in Fabric. The final section (9.4) will cover **Eventstream Monitoring & Optimization** to complete the data processing tools module.
+
+---
+## 9.4 Eventstream Monitoring & Optimization – core idea
+
+**Eventstreams** are the low-code, real-time data ingestion and transformation tool in Fabric. Unlike batch processing tools (Data Pipelines, Dataflows, Notebooks), Eventstreams operate continuously, so monitoring focuses on **throughput metrics** (messages and bytes) and **runtime logs** (warnings, errors, information).
+
+For the DP-700 exam, you need to understand the four key metrics in **Data Insights**, how to interpret **runtime logs**, and how to troubleshoot common Eventstream issues like throttling, backpressure, and destination failures.
+
+---
+
+## Where to monitor Eventstreams
+
+Unlike Data Pipelines and Notebooks, Eventstreams are **not listed in the Monitoring Hub** in the same way. Instead, monitoring happens **within the Eventstream item itself**:
+
+1. Open the **Eventstream** in your workspace.
+    
+2. Navigate to the **Data Insights** tab (metrics dashboard).
+    
+3. Navigate to the **Runtime logs** tab (error and warning logs).
+    
+
+## Key exam distinction
+
+- **Data Pipeline / Notebook / Dataflow** → monitor in **Monitoring Hub** first, then drill into item-specific logs.
+    
+- **Eventstream** → monitor **directly in the Eventstream UI** (Data Insights and Runtime logs tabs).
+    
+
+---
+
+## Data Insights – four key metrics
+
+The **Data Insights** dashboard provides real-time visibility into Eventstream performance. It tracks **message throughput** and **data volume** over time.
+
+## Four main metrics
+
+## 1. IncomingMessages (Count)
+
+**What it measures**: The number of events or messages **sent to** the Eventstream over a specified period.
+
+**Use cases**:
+
+- Verify that the **source** is actively sending data.
+    
+- Identify spikes or drops in incoming traffic.
+    
+- Validate that event ingestion is working as expected.
+    
+
+**Exam scenario**: "An Eventstream should be receiving data from an Azure Event Hub, but downstream reports show no data. Where do you check first?" → **IncomingMessages** in Data Insights.
+
+## 2. OutgoingMessages (Count)
+
+**What it measures**: The number of events or messages **flowing out** from the Eventstream to destinations over a specified period.
+
+**Use cases**:
+
+- Verify that the **destination** is receiving data.
+    
+- Detect backpressure (IncomingMessages > OutgoingMessages).
+    
+- Confirm that transformations are not filtering out all records.
+    
+
+**Exam scenario**: "IncomingMessages shows 10,000 events, but OutgoingMessages shows 0. What is the likely issue?" → Destination configuration error or transformation logic issue.
+
+## 3. IncomingBytes (Bytes)
+
+**What it measures**: The volume of data (in bytes) **ingested** by the Eventstream over a specified period.
+
+**Use cases**:
+
+- Monitor data volume trends (e.g., daily growth, seasonal spikes).
+    
+- Estimate capacity consumption (larger payloads consume more capacity).
+    
+- Identify unusually large message sizes.
+    
+
+## 4. OutgoingBytes (Bytes)
+
+**What it measures**: The volume of data (in bytes) **sent** from the Eventstream to destinations over a specified period.
+
+**Use cases**:
+
+- Verify that data is being written to destinations.
+    
+- Compare with IncomingBytes to detect data loss or filtering.
+    
+- Monitor destination write performance.
+    
+
+---
+
+## Interpreting Data Insights metrics – common patterns
+
+## Healthy Eventstream
+
+- **IncomingMessages** ≈ **OutgoingMessages** (steady flow).
+    
+- **IncomingBytes** ≈ **OutgoingBytes** (minimal transformation overhead).
+    
+- No spikes or drops in the time series.
+    
+
+## Backpressure (destination bottleneck)
+
+- **IncomingMessages** > **OutgoingMessages** (data piling up).
+    
+- Possible causes:
+    
+    - Destination is **throttled** (e.g., Lakehouse write limits).
+        
+    - Destination is **slow** (e.g., external API with rate limits).
+        
+    - Transformation logic is **too complex** (blocking the pipeline).
+        
+
+## Data loss or filtering
+
+- **IncomingMessages** > **OutgoingMessages** (but no errors in logs).
+    
+- Possible causes:
+    
+    - **Filter transformation** is removing most events.
+        
+    - **Schema mismatch** – events don't match expected format and are silently dropped.
+        
+
+## Source disconnection
+
+- **IncomingMessages** drops to zero (but Eventstream is running).
+    
+- Possible causes:
+    
+    - **Source connection failed** (e.g., Event Hub SAS token expired).
+        
+    - **Source paused or stopped** (e.g., IoT devices offline).
+        
+
+---
+
+## Runtime logs – troubleshooting abnormal behavior
+
+## What are runtime logs?
+
+**Runtime logs** are system-generated logs created by the **Eventstream engine** whenever something abnormal happens. They are not user-defined logs – they are automatically generated by Fabric.
+
+## Three log levels
+
+## 1. Information
+
+- **Severity**: Low.
+    
+- **Purpose**: Normal operational messages (e.g., "Eventstream started", "transformation applied").
+    
+- **Action**: No action required – informational only.
+    
+
+## 2. Warning
+
+- **Severity**: Medium.
+    
+- **Purpose**: Potential issues that don't stop the Eventstream but may impact performance or data quality.
+    
+- **Examples**:
+    
+    - "Destination write latency is high."
+        
+    - "Some events were retried due to transient errors."
+        
+- **Action**: Monitor closely – may need optimization.
+    
+
+## 3. Error
+
+- **Severity**: High.
+    
+- **Purpose**: Critical issues that prevent data flow or cause failures.
+    
+- **Examples**:
+    
+    - "Failed to connect to destination."
+        
+    - "Schema validation error – event rejected."
+        
+    - "Authentication failure."
+        
+- **Action**: Immediate troubleshooting required.
+    
+
+## How to access runtime logs
+
+1. Open the **Eventstream** item.
+    
+2. Click on the **Runtime logs** tab.
+    
+3. Filter by **log level** (information, warning, error).
+    
+4. Click on a specific log entry to view **detailed error message** and **timestamp**.
+    
+
+---
+
+## Common Eventstream issues and troubleshooting
+
+## Issue 1: IncomingMessages = 0 (no data from source)
+
+**Possible causes**:
+
+- Source connection failed (expired credentials, network issue).
+    
+- Source is not sending data (upstream system offline).
+    
+- Source configuration is incorrect (wrong Event Hub namespace, topic, or table).
+    
+
+**Troubleshooting**:
+
+- Check **Runtime logs** for connection errors.
+    
+- Verify source credentials (SAS token, connection string, service principal).
+    
+- Test source connectivity outside of Fabric (e.g., Azure Portal for Event Hubs).
+    
+
+## Issue 2: OutgoingMessages = 0 (no data to destination)
+
+**Possible causes**:
+
+- Destination configuration error (wrong Lakehouse table, KQL database, or endpoint).
+    
+- Transformation logic filters out all events.
+    
+- Destination authentication failed (item-level permissions, workspace access).
+    
+
+**Troubleshooting**:
+
+- Check **Runtime logs** for destination write errors.
+    
+- Review transformation logic – add a debug output to verify intermediate results.
+    
+- Verify destination permissions (Contributor or higher on target Lakehouse/KQL database).
+    
+
+## Issue 3: IncomingMessages > OutgoingMessages (backpressure)
+
+**Possible causes**:
+
+- Destination is throttled (capacity limits, write quotas).
+    
+- Transformation is too slow (complex aggregations, joins).
+    
+- Destination is unavailable (maintenance, outage).
+    
+
+**Troubleshooting**:
+
+- Scale destination capacity (increase Lakehouse compute, add Event Hub partitions).
+    
+- Simplify transformation logic (move heavy processing downstream).
+    
+- Enable **buffering** or **partitioning** in Eventstream settings (if supported).
+    
+
+---
+
+## Optimization best practices for Eventstreams
+
+## 1. Minimize transformation complexity
+
+- Eventstreams are designed for **simple, low-latency transformations** (filtering, column mapping, window aggregations).
+    
+- For **complex joins or aggregations**, consider using **Spark Structured Streaming** or **KQL Database** instead.
+    
+
+## 2. Use appropriate destination partitioning
+
+- When writing to **Lakehouse**, ensure the target table is properly **partitioned** to avoid write contention.
+    
+- When writing to **KQL Database**, use **batching policies** to optimize ingestion performance.
+    
+
+## 3. Monitor capacity consumption
+
+- Eventstreams consume **capacity units** continuously (unlike batch jobs).
+    
+- Use the **Capacity Metrics App** to track Eventstream capacity usage over time.
+    
+- Schedule high-volume ingestion during **off-peak hours** if possible.
+    
+
+## 4. Enable schema validation at the source
+
+- Use **schema validation** in Eventstream transformations to catch malformed events early.
+    
+- Reject or route invalid events to a **dead-letter queue** (separate destination) for later analysis.
+    
+
+---
+
+## Self-check / moderator questions
+
+1. Where do you monitor Eventstream performance (which UI location)?
+    
+2. What are the four key metrics in the **Data Insights** dashboard?
+    
+3. What does **IncomingMessages** measure?
+    
+4. What does **OutgoingMessages** measure?
+    
+5. If **IncomingMessages = 10,000** but **OutgoingMessages = 0**, what are two possible causes?
+    
+6. What does **IncomingBytes** measure, and how does it differ from **IncomingMessages**?
+    
+7. What are **Runtime logs** and who creates them?
+    
+8. What are the three log levels in Eventstream runtime logs?
+    
+9. If an Eventstream shows **IncomingMessages = 0**, how do you troubleshoot the issue?
+    
+10. What is **backpressure** and how does it manifest in Data Insights metrics?
+    
+11. What is the difference between monitoring an **Eventstream** vs. monitoring a **Data Pipeline**?
+    
+12. Why should you avoid complex transformations in Eventstreams?
+    
+13. Where do you check Eventstream capacity consumption over time?
+    
+
+---
+
+This completes **Module 9: Monitor/Optimize Data Processing Tools**. You now have a comprehensive framework for monitoring and optimizing **Data Pipelines**, **Dataflows**, **Spark Notebooks**, and **Eventstreams**. Next up is **Module 10: Monitor/Optimize Data Stores** (Lakehouse, Warehouse, Eventhouse, Semantic Models).
+
+---
+
+# 10 Monitor/ Optimize Stores
+
