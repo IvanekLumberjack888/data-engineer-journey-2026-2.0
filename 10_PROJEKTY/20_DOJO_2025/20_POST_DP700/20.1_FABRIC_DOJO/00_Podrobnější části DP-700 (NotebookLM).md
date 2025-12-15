@@ -2477,7 +2477,7 @@ Use this quick mapping:
     
 ---
 
-## 8 MONITORING 👀🙈👓
+# 8 MONITORING 👀🙈👓
 
 ## 8.1 Fabric-wide monitoring tools – core idea
 
@@ -2654,6 +2654,499 @@ The Capacity Metrics App does **not** show individual run failures or error mess
 ---
 
 This structure gives you a clear framework for understanding when to use each monitoring tool. The next sections (9.1–9.4) will dive into **item-specific monitoring** for pipelines, dataflows, notebooks, and eventstreams.
+
+---
+
+# 9 Monitor / Optimize Processing
+
+## 9.1 Data Pipeline Monitoring & Optimization – core idea
+
+**Data Pipelines** are the primary low-code orchestration tool in Microsoft Fabric. Monitoring and optimizing them involves tracking run status through the **Monitoring Hub**, investigating failures via **activity-level error messages**, configuring **retry logic** for transient failures, and tuning **Copy Data settings** for performance and fault tolerance.
+
+For the DP-700 exam, you need to understand where to find pipeline failures, how to debug activity-level errors, and how to implement error-handling patterns (retry, on-fail dependencies, custom alerting).
+
+---
+
+## Monitoring Hub – your first stop for pipeline failures
+
+## What it does
+
+The **Monitoring Hub** shows all pipeline runs across workspaces you have access to. For scheduled pipelines, this is where you check run status (succeeded, failed, in progress, canceled).
+
+## How to use it
+
+1. Navigate to **Monitoring Hub** (tenant-wide view).
+    
+2. Filter by **Data pipeline** to see all pipeline runs.
+    
+3. Click on a **failed pipeline run** to drill into details.
+    
+
+## Key exam point
+
+If a question asks "where do you first look when a scheduled pipeline fails?", the answer is **Monitoring Hub** (unless custom alerting is already configured).
+
+---
+
+## Output pane in Data Pipeline Activities Status
+
+## What it shows
+
+When you open a specific pipeline run, you see the **activities graph** with color-coded status (green = success, red = failed). Click on a **failed activity** to view the **Error details** pane.
+
+## Error details pane contains
+
+- **Error message** – human-readable description of what went wrong.
+    
+- **Error code** – system error code (e.g., `UserErrorConfigurationIssue`).
+    
+- **Failure type** – transient vs. persistent error.
+    
+- **Activity ID** – unique identifier for the activity run.
+    
+
+## When to use
+
+Always drill into the **error message** before troubleshooting. It tells you:
+
+- Was it a connection failure (transient)?
+    
+- Was it a permission issue (RLS, item-level access)?
+    
+- Was it a data schema mismatch?
+    
+
+---
+
+## Inputs and Outputs – debugging tool during development and failures
+
+## What they show
+
+For each pipeline activity, you can inspect:
+
+- **Input** – the parameters and configuration passed to the activity (JSON format).
+    
+- **Output** – the result returned by the activity after execution.
+    
+
+## Use cases
+
+- **Debugging** – verify that the correct values are being passed (e.g., table name, file path).
+    
+- **Development** – check intermediate results during pipeline authoring.
+    
+- **Validation** – confirm that dynamic parameters are resolved correctly.
+    
+
+## Exam tip
+
+If a question mentions "how do you verify that a pipeline parameter is correctly passed to a Copy Data activity?", the answer is to inspect the **Input** of that activity.
+
+---
+
+## Copy Data activity – error-handling and optimization
+
+## Retry activities
+
+Many pipeline activities (Copy Data, Notebook, Web, etc.) support a **Retry** setting:
+
+- **Retry count** – how many times to retry on failure (default: 0).
+    
+- **Retry interval** – delay (in seconds) between retry attempts (default: 30).
+    
+
+## When to use Retry
+
+Use **Retry** for **transient failures**:
+
+- Connection timeout to external API or database.
+    
+- Temporary network issue.
+    
+- Short-lived resource unavailability.
+    
+
+**Do not use Retry** for **persistent failures**:
+
+- Incorrect credentials (will fail every time).
+    
+- Missing table or file (schema issue).
+    
+- Permission denied (access control issue).
+    
+
+---
+
+## Copy Data Settings – performance tuning and logging
+
+The **Settings** tab of a Copy Data activity has several optimization and logging options:
+
+## Intelligent throughput optimization
+
+- **What it does** – assigns CPU resources (4–256 units) to the Copy Data operation.
+    
+- **Higher value** = more parallelism and faster copy (but higher capacity consumption).
+    
+- **Lower value** = slower copy but less capacity impact.
+    
+
+## Degree of copy parallelism
+
+- **Default** – 128 parallel threads.
+    
+- **Use case** – increase parallelism when copying large files or many files to reduce load time.
+    
+- **Trade-off** – higher parallelism consumes more capacity units.
+    
+
+## Fault tolerance
+
+- **Skip incompatible rows** – if a row cannot be copied (e.g., schema mismatch), skip it and continue.
+    
+- **Skip incompatible files** – if a file cannot be copied, skip it and continue.
+    
+- **Use case** – useful when copying semi-structured data where some records may not conform to the target schema.
+    
+
+## Enable logging
+
+- **What it does** – writes detailed log files to **Azure Blob Storage** (not OneLake).
+    
+- **Use case** – track which rows/files were skipped, which failed, and why.
+    
+
+## Enable staging
+
+- **What it does** – uses an intermediate storage layer (Workspace staging or external Blob) before loading to the destination.
+    
+- **Use case** – improves performance for large data transfers and provides a recovery point if the final load fails.
+    
+
+---
+
+## On Fail dependencies – control flow for error handling
+
+## What it is
+
+In the pipeline canvas, you can define **On Success**, **On Failure**, and **On Completion** dependencies between activities.
+
+## Best practice for alerting
+
+- Use **On Fail** dependency to send notifications **only when there's a failure**.
+    
+- Connect the failed activity to a **Web activity** or **Office 365 Outlook activity** to send an email or call an API.
+    
+
+## Parent-child pipeline pattern
+
+In a **parent-child architecture**:
+
+- The **child pipeline** executes the core logic.
+    
+- The **parent pipeline** orchestrates multiple child pipelines.
+    
+- Use **On Fail** in the parent to capture all child failures and send **one consolidated notification** instead of multiple alerts.
+    
+
+---
+
+## Custom alerting and logging solutions
+
+While Fabric provides **out-of-the-box monitoring** (Monitoring Hub, Capacity Metrics App), you can also build **custom logging solutions**:
+
+## Approach 1: Log to Fabric SQL Database
+
+- Create a **logging table** in a Fabric Warehouse or SQL Database.
+    
+- Use a **Script activity** or **Stored Procedure** to write pipeline run metadata (status, duration, error message) after each run.
+    
+
+## Approach 2: Log to KQL Database (Eventhouse)
+
+- Create a **KQL table** for pipeline logs.
+    
+- Use a **Web activity** to POST run data to the KQL ingestion endpoint.
+    
+- Query logs with KQL for custom dashboards or real-time alerts.
+    
+
+## When to use custom logging
+
+- You need **centralized logging** across multiple workspaces or capacities.
+    
+- You want to track **business-specific metrics** (e.g., number of rows processed, SLA compliance).
+    
+- You need to integrate pipeline monitoring with external systems (e.g., ServiceNow, PagerDuty).
+    
+
+---
+
+## Self-check / moderator questions
+
+1. Where do you first look when a scheduled Data Pipeline fails?
+    
+2. What information does the **Error details** pane provide when you click on a failed activity?
+    
+3. How do you verify that a pipeline parameter is correctly passed to a Copy Data activity?
+    
+4. What is the difference between **Retry** and **On Fail** dependency?
+    
+5. When should you use **Retry** for a Copy Data activity?
+    
+6. What does **Intelligent throughput optimization** control in Copy Data settings?
+    
+7. What is the default value for **Degree of copy parallelism** in Copy Data?
+    
+8. How does **Fault tolerance** help when copying data with schema mismatches?
+    
+9. What is the benefit of using a **parent-child pipeline architecture** for error handling?
+    
+10. Where can you write custom pipeline logs (two options)?
+    
+11. If you enable **Enable logging** in Copy Data settings, where are the logs written?
+    
+12. What is the purpose of **Enable staging** in Copy Data settings?
+    
+
+---
+
+This gives you a complete framework for monitoring and optimizing Data Pipelines. Next sections (9.2–9.4) will cover **Dataflows**, **Spark Notebooks**, and **Eventstreams** in the same structured format.
+
+---
+
+## 9.2 Dataflow Monitoring & Optimization – core idea
+
+**Dataflow Gen2** is the Power Query-based data transformation tool in Fabric. Monitoring involves checking the **workspace icon** for failures, reviewing **Refresh History** for detailed run logs, and troubleshooting errors at the query and transformation step level.
+
+Optimization strategies include **Fast Copy** (bypassing Power Query for simple loads) and **Enable Staging** (offloading transformations to T-SQL or Spark engines for complex workloads). Understanding when to use each optimization is critical for the DP-700 exam.
+
+---
+
+## Monitoring Dataflow Gen2 – detecting failures
+
+## Where to look first
+
+Unlike Data Pipelines, Dataflow Gen2 failures are **not immediately visible** in the Monitoring Hub (Dataflows are included, but not as prominently as pipelines). Instead:
+
+1. **Workspace view** – a **warning icon** appears next to the Dataflow if the last refresh failed.
+    
+2. **Power BI report** – end users or report owners may notice stale data or refresh errors in the semantic model.
+    
+
+## Why this matters for the exam
+
+If a question asks "a business user reports stale data in a Power BI report powered by a Dataflow Gen2", your first troubleshooting step is to **check the Dataflow refresh status in the workspace view**.
+
+---
+
+## Refresh History – drill into failure details
+
+## How to access
+
+1. **Right-click** on the Dataflow Gen2 in the workspace view.
+    
+2. Select **Refresh History**.
+    
+3. You see a list of all previous refreshes with status (succeeded, failed, canceled).
+    
+
+## What you see in Refresh History
+
+- **Start time** – when the refresh began.
+    
+- **Duration** – how long the refresh took.
+    
+- **Status** – succeeded or failed (with a red icon).
+    
+- **Type** – on-demand or scheduled refresh.
+    
+
+## Drilling into a failed run
+
+Click on a **failed refresh run** to open the detailed view. This shows:
+
+- **Tables** – which tables/queries in the Dataflow succeeded or failed.
+    
+- **Errors** – specific error messages for each failed query (e.g., "connection timeout", "column not found", "permission denied").
+    
+- **Activities** – step-by-step breakdown of the refresh process.
+    
+
+---
+
+## Dataflow Gen2 optimization strategies
+
+Dataflow Gen2 transformations are powered by the **Power Query (Mashup) engine** by default. While Mashup is great for ad-hoc transformations, it is **slower** than T-SQL or Spark engines for large datasets.
+
+Fabric provides two optimization features to accelerate Dataflow performance: **Fast Copy** and **Enable Staging**.
+
+---
+
+## Fast Copy – bypass Power Query for simple loads
+
+## What it does
+
+**Fast Copy** uses the same backend as the **Data Pipeline Copy Data activity**. Instead of routing data through the Mashup engine, Fabric performs a **direct copy** from source to destination.
+
+## When to use
+
+- You are doing a **simple extract-and-load** (no complex transformations).
+    
+- Your source connector is supported by Fast Copy.
+    
+
+## Supported connectors (as of current Fabric release)
+
+- ADLS Gen2
+    
+- Azure Blob Storage
+    
+- Azure SQL Database
+    
+- Fabric Lakehouse
+    
+- PostgreSQL
+    
+- On-premise SQL Server (via gateway)
+    
+- Fabric Warehouse
+    
+- Oracle
+    
+- Snowflake
+    
+
+## Limitations
+
+- **No complex transformations** – Fast Copy works only for basic column mapping and filtering.
+    
+- **Connector-specific** – not all connectors support Fast Copy.
+    
+
+## Exam tip
+
+If a question describes a scenario where "a Dataflow Gen2 is copying data from Azure SQL Database to a Lakehouse with minimal transformations and you want to optimize performance", the answer is **enable Fast Copy**.
+
+---
+
+## Enable Staging – offload transformations to T-SQL or Spark
+
+## What it does
+
+**Enable Staging** changes the Dataflow execution model to use an intermediate **staging layer** (Warehouse or Lakehouse). Instead of performing all transformations in the Mashup engine, Fabric:
+
+1. Uses **Mashup engine** to extract data from the source.
+    
+2. Writes the raw data to a **Staging Warehouse or Lakehouse**.
+    
+3. Uses **T-SQL** or **Spark engine** (not Mashup) to perform transformations.
+    
+4. Mashup engine reads the transformed data and writes it to the final destination.
+    
+
+## Execution flow comparison
+
+## Staging Disabled (default)
+
+text
+
+`Data Source → Mashup Engine (extract + transform + load) → Destination`
+
+## Staging Enabled
+
+text
+
+`Data Source → Mashup Engine (extract) → Staging Lakehouse → T-SQL/Spark (transform) → Mashup Engine (load) → Destination`
+
+## When to use Enable Staging
+
+Use **Enable Staging** when:
+
+- You have **large datasets** (millions of rows).
+    
+- You have **complex transformations** (multiple joins, aggregations, window functions).
+    
+- You want to leverage **T-SQL or Spark performance** instead of Mashup.
+    
+
+## When **NOT** to use Enable Staging
+
+**Do not** use Enable Staging when:
+
+- You have **small datasets** (< 100K rows).
+    
+- You have **simple transformations** (basic column mapping, filtering).
+    
+- The overhead of writing to/from staging exceeds the transformation time.
+    
+
+## Key exam point
+
+If a question describes "a Dataflow Gen2 with complex aggregations and joins on a 10 million row dataset", the answer is **enable staging** to offload transformations to T-SQL or Spark.
+
+---
+
+## Optimization best practices
+
+Beyond Fast Copy and Enable Staging, consider these Dataflow Gen2 optimization patterns:
+
+## Query folding
+
+- **What it is** – Power Query pushes transformations down to the source database instead of processing them in Fabric.
+    
+- **When it works** – when the source supports query folding (e.g., SQL databases, data warehouses).
+    
+- **How to verify** – right-click a query step in Power Query and check if "View Native Query" is available.
+    
+
+## Reduce query complexity
+
+- **Minimize merges and joins** – each merge/join increases processing time.
+    
+- **Filter early** – apply filters at the source to reduce data volume.
+    
+- **Avoid unnecessary columns** – remove unused columns early in the transformation.
+    
+
+## Schedule refreshes during off-peak hours
+
+- Dataflow Gen2 refreshes consume **capacity units**.
+    
+- Schedule large refreshes during **low-usage periods** to avoid throttling.
+    
+
+---
+
+## Self-check / moderator questions
+
+1. Where do you first look when a Dataflow Gen2 refresh fails?
+    
+2. How do you access **Refresh History** for a Dataflow Gen2?
+    
+3. What information is displayed in the **detailed refresh view** for a failed run?
+    
+4. What is the difference between **Fast Copy** and **Enable Staging**?
+    
+5. Which connectors are supported by **Fast Copy**?
+    
+6. When should you use **Fast Copy** instead of the default Mashup engine?
+    
+7. What is the default transformation engine for Dataflow Gen2?
+    
+8. Describe the execution flow when **Enable Staging** is enabled.
+    
+9. Why does **Enable Staging** add overhead, and when is this overhead justified?
+    
+10. What is **query folding** and how does it improve Dataflow performance?
+    
+11. If a Dataflow Gen2 has complex joins and aggregations on 10 million rows, which optimization should you enable?
+    
+12. If a Dataflow Gen2 is doing a simple copy from Azure SQL Database to a Lakehouse, which optimization should you enable?
+    
+
+---
+
+This structured approach gives you a complete framework for monitoring and optimizing Dataflow Gen2. Next sections (9.3–9.4) will cover **Spark Notebooks** and **Eventstreams** in the same format.
 
 ---
 
