@@ -1736,6 +1736,48 @@ Implementation notes:
     
 - ETL becomes more complex (correct inserts/updates and date ranges), but you gain complete change history.
     
+---
+
+## 5.3 Streaming data patterns – core idea
+
+Streaming data patterns describe how real‑time events flow through Microsoft Fabric from source to final analytical consumption. For DP‑700, you mainly need to recognize a simple streaming pipeline and how the medallion (bronze–silver–gold) architecture applies to streaming workloads.
+
+---
+
+## Simple streaming architecture
+
+A basic streaming setup starts with a **real‑time source** such as Event Hubs, IoT devices, or applications emitting events continuously. These events are ingested into Fabric Real‑Time Intelligence, processed by a streaming engine (for example Eventstreams, Spark Structured Streaming, or KQL), and then written to sinks like Lakehouse tables, KQL databases, or warehouses for analytics and dashboards.
+
+Typical stages you should be able to name:
+
+- Source → ingestion into Real‑Time Intelligence.
+    
+- Real‑time processing / routing.
+    
+- Persisted storage and analytical consumption in Fabric.
+    
+
+---
+
+## Streaming medallion architecture
+
+The **medallion architecture** extends to streaming data by applying bronze, silver, and gold layers to event flows. Instead of only batch files, streaming events are progressively refined as they move through these layers.
+
+Conceptual mapping:
+
+- **Bronze (raw streaming)**: Raw or lightly processed event data, typically append‑only, stored for replay and audit.
+    
+- **Silver (curated streaming)**: Cleaned and standardized data with schema enforcement, quality checks, and applied business rules.
+    
+- **Gold (consumption‑ready)**: Aggregated, modeled, or denormalized data optimized for BI reports, semantic models, and low‑latency queries.
+    
+
+---
+
+## Why these patterns matter for DP‑700
+
+DP‑700 scenarios often describe diagrams like “source → real‑time processing → bronze/silver/gold” and ask which Fabric components or layers to use. Understanding the simple streaming pipeline and the streaming medallion architecture helps you correctly place ingestion, transformation, storage, and reporting pieces in Real‑Time Intelligence questions.
+
 
 ---
 ---
