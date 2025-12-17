@@ -104,8 +104,8 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "10_PROJECTS/10.1_DP700-FABRIC/10.1_NOTES/Bez názvu.md",
-                "collapseAll": false,
+                "file": "01_DENNÍ_LOGY/2025-12-17 (středa) - 51. week.md",
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -114,7 +114,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Zpětné odkazy pro Bez názvu"
+              "title": "Zpětné odkazy pro 2025-12-17 (středa) - 51. week"
             }
           },
           {
@@ -166,16 +166,17 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "10_PROJECTS/10.1_DP700-FABRIC/10.1_NOTES/Bez názvu.md",
+                "file": "01_DENNÍ_LOGY/2025-12-17 (středa) - 51. week.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Přehled Bez názvu"
+              "title": "Přehled 2025-12-17 (středa) - 51. week"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
