@@ -164,11 +164,11 @@ Virtual links k external data.
 
 ## ✅ Checklist: Co musím umět (CZ)
 
-- [ ] Pochopit rozdíl mezi Files (raw) a Tables (Delta)
-- [ ] Vysvětlit proč je Lakehouse lepší než separátní Lake + Warehouse
-- [ ] Napsat základní PySpark: read, select, filter, groupBy, write
+- [x] Pochopit rozdíl mezi Files (raw) a Tables (Delta)
+- [x] Vysvětlit proč je Lakehouse lepší než separátní Lake + Warehouse
+- [x] Napsat základní PySpark: read, select, filter, groupBy, write
 - [ ] Rozlišit lazy evaluation vs actions
-- [ ] Implementovat OneLake shortcuts
+- [x] Implementovat OneLake shortcuts
 - [ ] Chápat roli Spark compute engine v architektuře
 - [ ] Prakticky vytvořit lakehouse s Files + Tables
 
