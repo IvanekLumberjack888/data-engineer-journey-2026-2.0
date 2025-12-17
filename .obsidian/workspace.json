@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md",
+                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/3_DELTA_LAKE.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2_LAKEHOUSE_SPARK"
+              "title": "3_DELTA_LAKE"
             }
           }
         ]
@@ -104,7 +104,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md",
+                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/3_DELTA_LAKE.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Zpětné odkazy pro 2_LAKEHOUSE_SPARK"
+              "title": "Zpětné odkazy pro 3_DELTA_LAKE"
             }
           },
           {
@@ -166,13 +166,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md",
+                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/3_DELTA_LAKE.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Přehled 2_LAKEHOUSE_SPARK"
+              "title": "Přehled 3_DELTA_LAKE"
             }
           }
         ],
@@ -200,6 +200,7 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md",
     "01_DENNÍ_LOGY/2025-12-17 (středa) - 51. week.md",
     "01_DENNÍ_LOGY/2025-12-16 (úterý) - 51. week.md",
     "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will/DP-700 EXAM PREP COURSE.md",
@@ -226,7 +227,6 @@
     "30_ZDROJE/PYSPARK_KÓDY.md",
     "30_ZDROJE/SKILL_DP700_STUDY_HELPER.md",
     "30_ZDROJE/30.1_ODKAZY/Webové-zdroje.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md",
     "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.21 DATA ANALYST WITH PYTHON/Engeto_study_plan/0. Osnova z TODO/00 OSNOVA z TODO.pdf",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.28 AI/CheatSheet-Python-4_-Classes.pdf",

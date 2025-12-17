@@ -167,10 +167,10 @@ Virtual links k external data.
 - [x] Pochopit rozdíl mezi Files (raw) a Tables (Delta)
 - [x] Vysvětlit proč je Lakehouse lepší než separátní Lake + Warehouse
 - [x] Napsat základní PySpark: read, select, filter, groupBy, write
-- [ ] Rozlišit lazy evaluation vs actions
+- [x] Rozlišit lazy evaluation vs actions
 - [x] Implementovat OneLake shortcuts
-- [ ] Chápat roli Spark compute engine v architektuře
-- [ ] Prakticky vytvořit lakehouse s Files + Tables
+- [x] Chápat roli Spark compute engine v architektuře
+- [x] Prakticky vytvořit lakehouse s Files + Tables
 
 ---
 
