@@ -170,13 +170,13 @@ VACUUM sales RETAIN 168 HOURS
 
 ## ✅ Checklist: Co musím umět (CZ)
 
-- [ ] Definovat ACID transactions a proč jsou důležité
-- [ ] Vysvětlit schema enforcement
-- [ ] Použít time-travel syntax pro historická data
-- [ ] Aplikovat Z-ordering pro query optimization
-- [ ] Pochopit versionování tabulky
-- [ ] Implementovat UPSERT operace
-- [ ] Monitorit table cleanup s VACUUM a OPTIMIZE
+- [x] Definovat ACID transactions a proč jsou důležité
+- [x] Vysvětlit schema enforcement
+- [x] Použít time-travel syntax pro historická data
+- [x] Aplikovat Z-ordering pro query optimization
+- [x] Pochopit versionování tabulky
+- [x] Implementovat UPSERT operace
+- [x] Monitorit table cleanup s VACUUM a OPTIMIZE
 
 ---
 
