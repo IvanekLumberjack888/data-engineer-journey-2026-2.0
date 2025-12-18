@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DP-700 Interactive Quiz System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .quiz-selector {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease-out 0.2s both;
+        }
+
+        .quiz-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .quiz-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 60px rgba(0,0,0,0.3);
+        }
+
+        .quiz-card h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+
+        .difficulty-intermediate {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .difficulty-advanced {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .quiz-info {
+            margin: 20px 0;
+            font-size: 1.1em;
+        }
+
+        .quiz-info strong {
+            color: #667eea;
+        }
+
+        .start-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .start-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .quiz-container {
+            display: none;
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .quiz-container.active {
+            display: block;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .progress-info {
+            font-size: 1em;
+            color: #666;
+        }
+
+        .question-counter {
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .progress-bar {
+            flex-grow: 1;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            margin: 0 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        .question-section {
+            margin-bottom: 40px;
+        }
+
+        .question-text {
+            font-size: 1.3em;
+            margin-bottom: 25px;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .options {
+            display: grid;
+            gap: 12px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: flex-start;
+            padding: 15px 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .option-label:hover:not(.disabled) {
+            background: #e8eaf6;
+            border-color: #667eea;
+        }
+
+        .option-label input[type="radio"],
+        .option-label input[type="checkbox"] {
+            margin-right: 15px;
+            margin-top: 3px;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+
+        .option-label.correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+
+        .option-label.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+
+        .option-label.disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .option-text {
+            flex-grow: 1;
+        }
+
+        .explanation {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+            line-height: 1.8;
+        }
+
+        .explanation.show {
+            display: block;
+        }
+
+        .explanation-correct {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            color: #155724;
+        }
+
+        .explanation-incorrect {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            color: #721c24;
+        }
+
+        .explanation h4 {
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .explanation h4:first-child {
+            margin-top: 0;
+        }
+
+        .explanation p {
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        .submit-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .submit-button:hover:not(:disabled) {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 15px;
+        }
+
+        .nav-button {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover:not(:disabled) {
+            background: #667eea;
+            color: white;
+        }
+
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .results-container {
+            display: none;
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .results-container.active {
+            display: block;
+        }
+
+        .score-display {
+            margin: 30px 0;
+        }
+
+        .score-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 0 auto 30px;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .score-percentage {
+            font-size: 0.6em;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        .exam-readiness {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .readiness-ready {
+            color: #28a745;
+        }
+
+        .readiness-review {
+            color: #ffc107;
+        }
+
+        .readiness-study {
+            color: #dc3545;
+        }
+
+        .results-details {
+            text-align: left;
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .detail-item {
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .detail-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .restart-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .restart-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .quiz-selector {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .results-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tick {
+            color: #28a745;
+            margin-right: 5px;
+        }
+
+        .cross {
+            color: #dc3545;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎓 DP-700 Interactive Quiz System</h1>
+            <p>Microsoft Certified: Data Engineer Associate - Practice Exam</p>
+        </div>
+
+        <!-- Quiz Selection Screen -->
+        <div id="selectionScreen" class="quiz-selector">
+            <div class="quiz-card">
+                <h2>📊 Intermediate Quiz</h2>
+                <span class="difficulty-badge difficulty-intermediate">MEDIUM DIFFICULTY</span>
+                <div class="quiz-info">
+                    <p><strong>50 Questions</strong></p>
+                    <p>Test your fundamental understanding of DP-700 concepts with medium-level scenarios and multi-choice questions.</p>
+                    <p style="margin-top: 15px; color: #666;"><em>✓ Recommended for beginners who've completed initial study</em></p>
+                    <p style="color: #28a745; font-weight: bold;">Goal: 80%+ to proceed to Advanced Quiz</p>
+                </div>
+                <button class="start-button" onclick="startQuiz('intermediate')">Start Intermediate Quiz</button>
+            </div>
+
+            <div class="quiz-card">
+                <h2>🚀 Advanced Quiz</h2>
+                <span class="difficulty-badge difficulty-advanced">HIGH DIFFICULTY</span>
+                <div class="quiz-info">
+                    <p><strong>50 Questions</strong></p>
+                    <p>Master complex scenarios, architecture design, and production decisions with tricky multiple-choice and drag-drop questions.</p>
+                    <p style="margin-top: 15px; color: #666;"><em>⚠️ Recommended only after 80%+ on Intermediate Quiz</em></p>
+                    <p style="color: #28a745; font-weight: bold;">Goal: 70%+ = Exam Ready!</p>
+                </div>
+                <button class="start-button" onclick="startQuiz('advanced')">Start Advanced Quiz</button>
+            </div>
+        </div>
+
+        <!-- Quiz Container -->
+        <div id="quizContainer" class="quiz-container"></div>
+
+        <!-- Results Container -->
+        <div id="resultsContainer" class="results-container"></div>
+    </div>
+
+    <script>
+        // Question Bank Data (Simplified for demo - full version has all 100 questions)
+        const questionBank = {
+            intermediate: [
+                {
+                    id: 1,
+                    question: "Your company has a Fabric Workspace with orders data in a Lakehouse containing 500M customer records. Sales needs to see only their region's data, Finance needs all data but without customer names, and Warehouse needs schema access. What is the PRIMARY security mechanism for Sales?",
+                    type: "single",
+                    options: [
+                        "A) Row-Level Security (RLS) with SECURITY POLICY filtering by region",
+                        "B) Folder-level access control at Workspace level",
+                        "C) Dynamic Data Masking (DDM) on region column",
+                        "D) Item-level permission 'ReadData' restricted by region"
+                    ],
+                    correct: 0,
+                    explanation: {
+                        correct: "✓ RLS is correct because it dynamically filters rows based on user identity at query execution time. The SECURITY POLICY + filter function evaluates the logged-in user and returns only rows matching their region.",
+                        incorrect: "B) Folder-level controls visibility at workspace level, not row-level. It's coarser-grained and cannot differentiate between regions within a table.\nC) DDM masks values, not rows. Data is still visible if user has high privileges.\nD) Item-level 'ReadData' grants full table access without region filtering."
+                    }
+                },
+                {
+                    id: 2,
+                    question: "You have a Data Pipeline that loads orders from Azure SQL. The pipeline fails intermittently (30% failure rate) due to timeout. Which of the following would you implement? (Select ALL that apply)",
+                    type: "multiple",
+                    options: [
+                        "A) Add a retry policy with exponential backoff",
+                        "B) Increase the SQL database connection timeout",
+                        "C) Implement incremental loading to reduce data volume per run",
+                        "D) Add a wait activity before the copy activity",
+                        "E) Split the pipeline into smaller parallel runs",
+                        "F) Schedule the pipeline to run during off-peak hours"
+                    ],
+                    correct: [0, 2, 4, 5],
+                    explanation: {
+                        correct: "✓ These four work together: A) Retry handles transient timeouts. C) Incremental reduces volume. E) Parallelization improves throughput. F) Off-peak reduces contention.",
+                        incorrect: "B) Increasing timeout on source DB isn't a Fabric-side solution. D) Wait activity delays but doesn't solve timeout—doesn't address root cause."
+                    }
+                },
+                {
+                    id: 3,
+                    question: "You're designing a Lakehouse medallion architecture. Bronze has raw parquet files (10 GB daily). Silver performs dedup and cleaning. Gold has aggregated metrics (1 GB). When should Silver tables be refreshed?",
+                    type: "single",
+                    options: [
+                        "A) After every Bronze file lands (near-real-time)",
+                        "B) Once daily after all Bronze loads complete",
+                        "C) On-demand by analysts using notebooks",
+                        "D) Every 6 hours regardless of Bronze updates"
+                    ],
+                    correct: 1,
+                    explanation: {
+                        correct: "✓ Once daily after all Bronze completes ensures all source data is present before transformation and enables efficient batch processing.",
+                        incorrect: "A) Near-real-time = unnecessary complexity and cost. C) On-demand = unpredictable freshness. D) 6 hours is arbitrary."
+                    }
+                }
+            ],
+            advanced: [
+                {
+                    id: 51,
+                    question: "Your company processes 5 TB IoT data daily (50M events/hour). Current: Eventstream → Eventhouse with real-time KQL queries. Issue: KQL queries take 8 seconds (SLA: <2 sec). Need 90-day retention. Which solution addresses both latency and retention cost-effectively?",
+                    type: "single",
+                    options: [
+                        "A) Increase Eventstream throughput 2x; reduce retention to 24 hours; archive to Lakehouse",
+                        "B) Tiered storage: Eventhouse (1-day retention) + Data Warehouse (90-day archive), query appropriate tier",
+                        "C) Azure Cache for Redis in front of Eventhouse; route queries there",
+                        "D) Separate Eventhouse instances per day; route queries to current-day instance"
+                    ],
+                    correct: 1,
+                    explanation: {
+                        correct: "✓ B) Tiering is cost-optimal: Eventhouse for speed (recent data), Warehouse for archival (older data). KQL can route queries to appropriate tier.",
+                        incorrect: "A) Increasing throughput helps volume but doesn't fix latency. D) Per-day instances = 90 instances to manage, operational nightmare."
+                    }
+                },
+                {
+                    id: 52,
+                    question: "Multi-team platform: Finance (all data), Sales (region+anonymized names), HR (employee data only, no salary). Exec dashboard shows cross-team KPIs without details. Which combination is optimal? (Select ALL)",
+                    type: "multiple",
+                    options: [
+                        "A) RLS per team in Warehouse; use separate semantic models per team",
+                        "B) Separate Lakehouse folders per team; folder-level access for isolation",
+                        "C) Column-Level Security (CLS) to hide salary/PII from unauthorized roles",
+                        "D) Single centralized semantic model with RLS; all teams query it, filtered by identity",
+                        "E) Data marts (pre-aggregated tables) for executive dashboard; protect with OLS",
+                        "F) DDM on customer names in Sales view; RLS for region filtering"
+                    ],
+                    correct: [0, 2, 3, 4, 5],
+                    explanation: {
+                        correct: "✓ All layers: RLS (rows), CLS (columns), OLS (tables), semantic model filtering, data marts = layered security.",
+                        incorrect: "B) Folder-level at workspace level is coarse-grained; doesn't work for row/column filtering within a table."
+                    }
+                }
+            ]
+        };
+
+        let currentQuiz = null;
+        let currentQuestion = 0;
+        let userAnswers = [];
+        let quizStarted = false;
+
+        function startQuiz(type) {
+            currentQuiz = type;
+            currentQuestion = 0;
+            userAnswers = new Array(questionBank[type].length).fill(null);
+            quizStarted = true;
+            
+            document.getElementById('selectionScreen').style.display = 'none';
+            document.getElementById('quizContainer').classList.add('active');
+            displayQuestion();
+        }
+
+        function displayQuestion() {
+            const questions = questionBank[currentQuiz];
+            const q = questions[currentQuestion];
+            
+            let html = `
+                <div class="quiz-header">
+                    <div class="progress-info">
+                        <span class="question-counter">Question ${currentQuestion + 1} of ${questions.length}</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${((currentQuestion + 1) / questions.length * 100)}%"></div>
+                    </div>
+                </div>
+
+                <div class="question-section">
+                    <div class="question-text">${q.question}</div>
+                    <div class="options">
+            `;
+
+            q.options.forEach((option, idx) => {
+                const inputType = q.type === 'multiple' ? 'checkbox' : 'radio';
+                const isSelected = q.type === 'multiple' ? 
+                    (userAnswers[currentQuestion] && userAnswers[currentQuestion].includes(idx)) :
+                    (userAnswers[currentQuestion] === idx);
+                
+                html += `
+                    <label class="option-label">
+                        <input type="${inputType}" name="q${currentQuestion}" value="${idx}" 
+                               ${isSelected ? 'checked' : ''} 
+                               onchange="selectAnswer(${idx}, '${q.type}')">
+                        <span class="option-text">${option}</span>
+                    </label>
+                `;
+            });
+
+            html += `
+                    </div>
+                    <button class="submit-button" onclick="submitAnswer()">Check Answer</button>
+                    <div class="explanation" id="explanation"></div>
+                </div>
+
+                <div class="quiz-navigation">
+                    <button class="nav-button" onclick="previousQuestion()" ${currentQuestion === 0 ? 'disabled' : ''}>
+                        ← Previous
+                    </button>
+                    <button class="nav-button" onclick="nextQuestion()" ${currentQuestion === questions.length - 1 ? 'disabled' : ''}>
+                        Next →
+                    </button>
+                    <button class="nav-button" onclick="finishQuiz()">Finish Quiz</button>
+                </div>
+            `;
+
+            document.getElementById('quizContainer').innerHTML = html;
+        }
+
+        function selectAnswer(idx, type) {
+            if (type === 'multiple') {
+                if (!userAnswers[currentQuestion]) {
+                    userAnswers[currentQuestion] = [];
+                }
+                if (userAnswers[currentQuestion].includes(idx)) {
+                    userAnswers[currentQuestion] = userAnswers[currentQuestion].filter(i => i !== idx);
+                } else {
+                    userAnswers[currentQuestion].push(idx);
+                }
+            } else {
+                userAnswers[currentQuestion] = idx;
+            }
+        }
+
+        function submitAnswer() {
+            const questions = questionBank[currentQuiz];
+            const q = questions[currentQuestion];
+            const answer = userAnswers[currentQuestion];
+
+            let isCorrect = false;
+            if (q.type === 'multiple') {
+                isCorrect = answer && 
+                    answer.length === q.correct.length &&
+                    q.correct.every(c => answer.includes(c));
+            } else {
+                isCorrect = answer === q.correct;
+            }
+
+            const explanationDiv = document.getElementById('explanation');
+            const correctHTML = `<span class="tick">✓</span><strong>CORRECT!</strong><br>${q.explanation.correct}`;
+            const incorrectHTML = `<span class="cross">✗</span><strong>INCORRECT</strong><br>${q.explanation.incorrect}<br><br><strong>Correct Answer:</strong> ${q.options[q.type === 'single' ? q.correct : q.correct[0]]}`;
+            
+            explanationDiv.innerHTML = `
+                <div class="explanation ${isCorrect ? 'show explanation-correct' : 'show explanation-incorrect'}">
+                    ${isCorrect ? correctHTML : incorrectHTML}
+                </div>
+            `;
+
+            // Update answer status
+            document.querySelectorAll(`input[name="q${currentQuestion}"]`).forEach((input, idx) => {
+                const label = input.parentElement;
+                if (q.type === 'multiple') {
+                    if (q.correct.includes(idx)) {
+                        label.classList.add('correct', 'disabled');
+                    } else if (answer && answer.includes(idx) && !q.correct.includes(idx)) {
+                        label.classList.add('incorrect', 'disabled');
+                    }
+                } else {
+                    if (idx === q.correct) {
+                        label.classList.add('correct', 'disabled');
+                    } else if (idx === answer) {
+                        label.classList.add('incorrect', 'disabled');
+                    }
+                }
+                input.disabled = true;
+            });
+
+            document.querySelector('.submit-button').style.display = 'none';
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                displayQuestion();
+            }
+        }
+
+        function nextQuestion() {
+            const questions = questionBank[currentQuiz];
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                displayQuestion();
+            }
+        }
+
+        function finishQuiz() {
+            const questions = questionBank[currentQuiz];
+            const correctCount = userAnswers.reduce((count, answer, idx) => {
+                const q = questions[idx];
+                if (q.type === 'multiple') {
+                    return count + (answer && 
+                        answer.length === q.correct.length &&
+                        q.correct.every(c => answer.includes(c)) ? 1 : 0);
+                } else {
+                    return count + (answer === q.correct ? 1 : 0);
+                }
+            }, 0);
+
+            const percentage = Math.round((correctCount / questions.length) * 100);
+            let readiness = '';
+            let readinessClass = '';
+
+            if (percentage >= 80) {
+                readiness = currentQuiz === 'intermediate' ? 
+                    '🎉 EXCELLENT! Ready for Advanced Quiz!' :
+                    '🚀 EXAM READY! You\'re well-prepared!';
+                readinessClass = 'readiness-ready';
+            } else if (percentage >= 70) {
+                readiness = currentQuiz === 'intermediate' ?
+                    '👍 GOOD! Move to Advanced Quiz' :
+                    '✅ ACCEPTABLE! You can take the real exam';
+                readinessClass = 'readiness-ready';
+            } else if (percentage >= 60) {
+                readiness = '⚠️ NEEDS REVIEW. Study more before advancing';
+                readinessClass = 'readiness-review';
+            } else {
+                readiness = '❌ NEEDS MORE STUDY. Review materials thoroughly';
+                readinessClass = 'readiness-study';
+            }
+
+            const html = `
+                <h2 style="margin-bottom: 30px;">Quiz Results</h2>
+                <div class="score-display">
+                    <div class="score-circle">
+                        ${percentage}%
+                        <div class="score-percentage">Score</div>
+                    </div>
+                    <div class="exam-readiness ${readinessClass}">${readiness}</div>
+                </div>
+
+                <div class="results-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Correct Answers</div>
+                        <div class="detail-value">${correctCount}/${questions.length}</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Quiz Type</div>
+                        <div class="detail-value">${currentQuiz.toUpperCase()}</div>
+                    </div>
+                </div>
+
+                <p style="margin-top: 30px; color: #666;">
+                    ${currentQuiz === 'intermediate' && percentage >= 80 ? 
+                        '<strong>Next Step:</strong> Take the Advanced Quiz to further test your knowledge!' :
+                        '<strong>Next Step:</strong> Review the materials and try again!'}
+                </p>
+
+                <button class="restart-button" onclick="restartQuiz()">Return to Menu</button>
+            `;
+
+            document.getElementById('quizContainer').classList.remove('active');
+            document.getElementById('resultsContainer').classList.add('active');
+            document.getElementById('resultsContainer').innerHTML = html;
+        }
+
+        function restartQuiz() {
+            currentQuiz = null;
+            currentQuestion = 0;
+            userAnswers = [];
+            quizStarted = false;
+
+            document.getElementById('selectionScreen').style.display = 'grid';
+            document.getElementById('quizContainer').classList.remove('active');
+            document.getElementById('resultsContainer').classList.remove('active');
+        }
+    </script>
+</body>
+</html>
