@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/12_ADMINISTRACE.md",
+                "file": "30_ZDROJE/EXTERNÍ_LINKY.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,21 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "12_ADMINISTRACE"
+              "title": "EXTERNÍ_LINKY"
+            }
+          },
+          {
+            "id": "773320a2e6e88ebe",
+            "type": "leaf",
+            "state": {
+              "type": "webviewer",
+              "state": {
+                "url": "https://community.fabric.microsoft.com/t5/Webinars-and-Video-Gallery/Fabric-Monday-96-Materialized-Lake-View-and-Optimal-Refresh/td-p/4883328",
+                "title": "Fabric Monday 96: Materialized Lake View and Optim... - Microsoft Fabric Community",
+                "mode": "webview"
+              },
+              "icon": "globe-2",
+              "title": "Fabric Monday 96: Materialized Lake View and Optim... - Microsoft Fabric Community"
             }
           }
         ]
@@ -200,8 +214,14 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/10_BEZPEČNOST.md",
+    "30_ZDROJE/EXTERNÍ_LINKY.md",
+    "30_ZDROJE/YOUTUBE/Fabric Základy in 40 minutes - Will.md",
+    "30_ZDROJE/YOUTUBE/Aleksi DP-700 Exam Prep.md",
+    "30_ZDROJE/YOUTUBE/Reactor YT DP-700 Prep for Exam Day and Open Q&A.md",
     "01_DENNÍ_LOGY/2025-12-20 (sobota) - 51. week.md",
+    "01_DENNÍ_LOGY/2025-12-21 (neděle) - 51. week.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/12_ADMINISTRACE.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/10_BEZPEČNOST.md",
     "01_DENNÍ_LOGY/2025-12-19 (pátek) - 51. week.md",
     "01_DENNÍ_LOGY/2025-12-18 (čtvrtek) - 51. week.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/5_MEDALLION_ARCHITEKTURA.md",
@@ -217,17 +237,11 @@
     "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will/DP-700 EXAM PREP COURSE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/7_KQL_EVENTHOUSE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/9_MONITORING.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/12_ADMINISTRACE.md",
     "01_DENNÍ_LOGY/2025-12-15 (pondělí) - 51. week.md",
     "SECURITY.md",
     "01_DENNÍ_LOGY/2025-12-14 (neděle) - 50. week.md",
-    "30_ZDROJE/YOUTUBE/Fabric Základy in 40 minutes - Will.md",
-    "30_ZDROJE/YOUTUBE/Reactor YT DP-700 Prep for Exam Day and Open Q&A.md",
-    "30_ZDROJE/YOUTUBE/Aleksi DP-700 Exam Prep.md",
     "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.1_FABRIC_DOJO/00_Podrobnější části DP-700 (NotebookLM).md",
-    "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.1_FABRIC_DOJO/01_PLÁN_DOJO.md",
     "Pasted image 20251214144011.png",
-    "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.1_FABRIC_DOJO/00_notebookLM workflow.md",
     "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.21 DATA ANALYST WITH PYTHON/Engeto_study_plan/0. Osnova z TODO/00 OSNOVA z TODO.pdf",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.28 AI/CheatSheet-Python-4_-Classes.pdf",
