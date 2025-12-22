@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01_DENNÍ_LOGY/2025-12-22 (pondělí) - 52. week.md",
+                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/7_KQL_EVENTHOUSE.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2025-12-22 (pondělí) - 52. week"
+              "title": "7_KQL_EVENTHOUSE"
             }
           },
           {
@@ -214,8 +214,15 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
-    "01_DENNÍ_LOGY/2025-12-21 (neděle) - 51. week.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/6_REAL_TIME.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/3_DELTA_LAKE.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/7_KQL_EVENTHOUSE.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/5_MEDALLION_ARCHITEKTURA.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/4_DATAFLOW_PIPELINE.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md",
     "01_DENNÍ_LOGY/2025-12-22 (pondělí) - 52. week.md",
+    "01_DENNÍ_LOGY/2025-12-21 (neděle) - 51. week.md",
     "30_ZDROJE/NtbLM/Přehled česky.md",
     "30_ZDROJE/EXTERNÍ_LINKY.md",
     "30_ZDROJE/YOUTUBE/Fabric Základy in 40 minutes - Will.md",
@@ -226,21 +233,14 @@
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/10_BEZPEČNOST.md",
     "01_DENNÍ_LOGY/2025-12-19 (pátek) - 51. week.md",
     "01_DENNÍ_LOGY/2025-12-18 (čtvrtek) - 51. week.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/5_MEDALLION_ARCHITEKTURA.md",
     "00_MATRIX/01_PLÁN.md",
     "30_ZDROJE/30.1_ODKAZY/DP700_Quiz_Interactive.html",
     "01_DENNÍ_LOGY/2025-12-17 (středa) - 51. week.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/7_LAB_SECURITY.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/6_LAB_KQL.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/2_LAB_SPARK.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/3_DELTA_LAKE.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md",
     "01_DENNÍ_LOGY/2025-12-16 (úterý) - 51. week.md",
     "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will/DP-700 EXAM PREP COURSE.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/7_KQL_EVENTHOUSE.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/9_MONITORING.md",
-    "01_DENNÍ_LOGY/2025-12-15 (pondělí) - 51. week.md",
-    "SECURITY.md",
     "Pasted image 20251214144011.png",
     "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.21 DATA ANALYST WITH PYTHON/Engeto_study_plan/0. Osnova z TODO/00 OSNOVA z TODO.pdf",

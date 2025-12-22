@@ -148,14 +148,14 @@ Fabric component pro real-time analytics.
 
 ## ✅ Checklist: Co musím umět (CZ)
 
-- [ ] Napsat KQL query s filter, project, summarize
-- [ ] Používat temporal operátory (ago, between, range)
-- [ ] Vytvořit materialized views v Eventhouse
-- [ ] Pochopit partitioning pro optimalizaci
-- [ ] Konfigurovat retention policies
-- [ ] Implementovat alerting na KQL query
-- [ ] Debugovat performance problémů v KQL
-- [ ] Rozlišit kdy KQL vs SQL
+- [x] Napsat KQL query s filter, project, summarize
+- [x] Používat temporal operátory (ago, between, range)
+- [x] Vytvořit materialized views v Eventhouse
+- [x] Pochopit partitioning pro optimalizaci
+- [x] Konfigurovat retention policies
+- [x] Implementovat alerting na KQL query
+- [x] Debugovat performance problémů v KQL
+- [x] Rozlišit kdy KQL vs SQL
 
 ---
 

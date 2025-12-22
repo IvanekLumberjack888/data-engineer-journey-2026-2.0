@@ -132,13 +132,13 @@ Co můžeš vytvořit v workspace:
 
 ## ✅ Checklist: Co musím umět (CZ)
 
-- [ ] Vysvětlit rozdíl mezi Fabric a samostatnými Azure službami
-- [ ] Pochopit OneLake jako unified storage layer
-- [ ] Vytvořit workspace a nastavit role
-- [ ] Rozlišit Fabric experiences (Data Engineering, Warehouse, atd.)
-- [ ] Pochopit Capacity Units (CU) a billing model
-- [ ] Znát základní Fabric items (lakehouse, warehouse, notebook, pipeline)
-- [ ] Implementovat základní workspace governance
+- [x] Vysvětlit rozdíl mezi Fabric a samostatnými Azure službami
+- [x] Pochopit OneLake jako unified storage layer
+- [x] Vytvořit workspace a nastavit role
+- [x] Rozlišit Fabric experiences (Data Engineering, Warehouse, atd.)
+- [x] Pochopit Capacity Units (CU) a billing model
+- [x] Znát základní Fabric items (lakehouse, warehouse, notebook, pipeline)
+- [x] Implementovat základní workspace governance
 
 ---
 
