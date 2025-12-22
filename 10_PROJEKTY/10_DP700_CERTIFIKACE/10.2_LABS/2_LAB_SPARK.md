@@ -127,11 +127,11 @@ df_lazy.show(10)  # Action triggers execution
 
 ## ✅ Success Criteria
 
-- [ ] Notebook `Lab02_Transformations` vytvořený
-- [ ] PySpark filter, select, groupBy běží
-- [ ] Silver table `silver_product_summary` vytvořená
-- [ ] Rozumíš lazy evaluation (transformations vs actions)
-- [ ] Umíš chain multiple transformations
+- [x] Notebook `Lab02_Transformations` vytvořený
+- [x] PySpark filter, select, groupBy běží
+- [x] Silver table `silver_product_summary` vytvořená
+- [x] Rozumíš lazy evaluation (transformations vs actions)
+- [x] Umíš chain multiple transformations
 
 ---
 

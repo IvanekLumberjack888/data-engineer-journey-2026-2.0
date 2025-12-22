@@ -71,14 +71,14 @@ Centrální místo pro správu.
 
 ## 🛠️ PRAXE
 
-- [ ] Access admin portal
-- [ ] Review tenant settings
-- [ ] Check capacity info
-- [ ] Add user
-- [ ] Assign roles
-- [ ] View capacity metrics
-- [ ] Audit log review
-- [ ] Create custom report
+- [x] Access admin portal
+- [x] Review tenant settings
+- [x] Check capacity info
+- [x] Add user
+- [x] Assign roles
+- [x] View capacity metrics
+- [x] Audit log review
+- [x] Create custom report
 ---
 
 ## 🔗 EXTERNÍ LINKY

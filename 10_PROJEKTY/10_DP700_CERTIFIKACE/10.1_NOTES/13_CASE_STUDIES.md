@@ -58,14 +58,14 @@
 
 ## 🛠️ PRAXE
 
-- [ ] Design solution pro Scenario 1
-- [ ] Architecture diagram
-- [ ] Tool selection
-- [ ] Data flow mapping
-- [ ] Security design
-- [ ] Performance considerations
-- [ ] Cost estimation
-- [ ] Implementation roadmap
+- [x] Design solution pro Scenario 1
+- [x] Architecture diagram
+- [x] Tool selection
+- [x] Data flow mapping
+- [x] Security design
+- [x] Performance considerations
+- [x] Cost estimation
+- [x] Implementation roadmap
 
 ---
 

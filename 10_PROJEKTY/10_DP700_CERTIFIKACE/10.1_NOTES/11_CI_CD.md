@@ -61,13 +61,13 @@ MultiStage deployment.
 
 ## 🛠️ PRAXE
 
-- [ ] Create deployment pipeline
-- [ ] Configure 3 stages (Dev/Test/Prod)
-- [ ] Link Git repository
-- [ ] Deploy content from Dev → Test
-- [ ] Deploy from Test → Prod
-- [ ] Test rollback
-- [ ] Monitor deployments
+- [x] Create deployment pipeline
+- [x] Configure 3 stages (Dev/Test/Prod)
+- [x] Link Git repository
+- [x] Deploy content from Dev → Test
+- [x] Deploy from Test → Prod
+- [x] Test rollback
+- [x] Monitor deployments
 ---
 
 ## 🔗 EXTERNÍ LINKY

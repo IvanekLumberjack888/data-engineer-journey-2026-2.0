@@ -86,14 +86,14 @@ Označit data dle sensitivity.
 
 ## 🛠️ PRAXE
 
-- [ ] Setup workspace roles
-- [ ] Add user with permissions
-- [ ] Create RLS rule
-- [ ] Test RLS (login as user)
-- [ ] Column masking
-- [ ] Audit logs review
-- [ ] Data classification
-- [ ] Explore Purview
+- [x] Setup workspace roles
+- [x] Add user with permissions
+- [x] Create RLS rule
+- [x] Test RLS (login as user)
+- [x] Column masking
+- [x] Audit logs review
+- [x] Data classification
+- [x] Explore Purview
 ---
 
 ## 🔗 EXTERNÍ LINKY
