@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/2_LAB_SPARK.md",
+                "file": "30_ZDROJE/SLOVNÍK_CZ.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2_LAB_SPARK"
+              "title": "SLOVNÍK_CZ"
             }
           },
           {
@@ -214,6 +214,10 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
+    "30_ZDROJE/EXTERNÍ_LINKY.md",
+    "30_ZDROJE/NtbLM/Os 1.12.25 🗺️ 20denní studijní plán.md",
+    "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.2_PORTFOLIO/CASE_STUDIES.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/2_LAB_SPARK.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/1_LAB_LAKEHOUSE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/13_CASE_STUDIES.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/12_ADMINISTRACE.md",
@@ -231,16 +235,12 @@
     "01_DENNÍ_LOGY/2025-12-22 (pondělí) - 52. week.md",
     "01_DENNÍ_LOGY/2025-12-21 (neděle) - 51. week.md",
     "30_ZDROJE/NtbLM/Přehled česky.md",
-    "30_ZDROJE/EXTERNÍ_LINKY.md",
     "30_ZDROJE/YOUTUBE/Fabric Základy in 40 minutes - Will.md",
     "30_ZDROJE/YOUTUBE/Aleksi DP-700 Exam Prep.md",
     "30_ZDROJE/YOUTUBE/Reactor YT DP-700 Prep for Exam Day and Open Q&A.md",
     "01_DENNÍ_LOGY/2025-12-20 (sobota) - 51. week.md",
     "01_DENNÍ_LOGY/2025-12-19 (pátek) - 51. week.md",
-    "01_DENNÍ_LOGY/2025-12-18 (čtvrtek) - 51. week.md",
-    "00_MATRIX/01_PLÁN.md",
     "30_ZDROJE/30.1_ODKAZY/DP700_Quiz_Interactive.html",
-    "01_DENNÍ_LOGY/2025-12-17 (středa) - 51. week.md",
     "Pasted image 20251214144011.png",
     "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.21 DATA ANALYST WITH PYTHON/Engeto_study_plan/0. Osnova z TODO/00 OSNOVA z TODO.pdf",
