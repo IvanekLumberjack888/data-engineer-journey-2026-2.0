@@ -39,8 +39,8 @@ SELECT * FROM Sales WHERE Amount > 100
 ### Indexes & Performance
 
 **Clustered Index:**
-- Određuje physical row order
-- Jedan po tablici
+- Určuje fyz. pořadí - physical row order
+- Jeden na tabulku
 - Usually na PRIMARY KEY
 
 ```sql
@@ -49,17 +49,17 @@ CREATE CLUSTERED INDEX idx_id ON Sales(ID)
 
 **Non-clustered Index:**
 - Separate structure
-- Više mogućih
-- Za česte WHERE/JOIN kolone
+- Více možností
+- Pro časté WHERE/JOIN
 
 ```sql
 CREATE NONCLUSTERED INDEX idx_region ON Sales(Region)
 ```
 
 **Columnstore Index:**
-- Za analitiku
-- Kompresija
-- Brže za agregacije
+- Za analytiku
+- Komprese
+- Rychlejší pro agregace
 
 ```sql
 CREATE CLUSTERED COLUMNSTORE INDEX idx_ccs ON Sales
@@ -94,15 +94,15 @@ EXEC usp_GetSalesByRegion 'North'
 
 ## 🛠️ PRAXE
 
-- [ ] Create table
-- [ ] Insert data
-- [ ] Update rows
-- [ ] Delete rows
-- [ ] Create index (clustered)
-- [ ] Create view
-- [ ] Query view
-- [ ] Create procedure
-- [ ] Execute procedure
+- [x] Create table
+- [x] Insert data
+- [x] Update rows
+- [x] Delete rows
+- [x] Create index (clustered)
+- [x] Create view
+- [x] Query view
+- [x] Create procedure
+- [x] Execute procedure
 ---
 
 ## 🔗 EXTERNÍ LINKY

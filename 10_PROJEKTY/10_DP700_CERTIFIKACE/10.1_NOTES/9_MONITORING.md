@@ -66,14 +66,14 @@ Jak SQL engine bude spouštět query.
 
 ## 🛠️ PRAXE
 
-- [ ] Query DMVs for stats
-- [ ] Analyze execution plan
-- [ ] Identify slow queries
-- [ ] Add index
-- [ ] Re-run query (compare)
-- [ ] Update statistics
-- [ ] Monitor in Monitor Hub
-- [ ] Check Capacity Metrics
+- [x] Query DMVs for stats
+- [x] Analyze execution plan
+- [x] Identify slow queries
+- [x] Add index
+- [x] Re-run query (compare)
+- [x] Update statistics
+- [x] Monitor in Monitor Hub
+- [x] Check Capacity Metrics
 ---
 
 ## 🔗 EXTERNÍ LINKY

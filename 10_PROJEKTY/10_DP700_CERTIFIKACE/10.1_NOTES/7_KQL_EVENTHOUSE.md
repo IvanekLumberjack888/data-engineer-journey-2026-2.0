@@ -118,7 +118,7 @@ Fabric component pro real-time analytics.
   "Recoverability": "Enabled"
 }
 ```
-```
+
 
 ---
 

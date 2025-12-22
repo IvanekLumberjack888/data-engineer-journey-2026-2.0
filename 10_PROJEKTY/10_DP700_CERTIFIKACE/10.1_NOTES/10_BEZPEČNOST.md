@@ -9,7 +9,7 @@
 ### Multi-Layer Security
 
 **Vrstvy:**
-1. Authentication (kdo si)
+1. Authentication (kdo jsi)
 2. Authorization (co můžeš)
 3. Encryption (bezpečnost)
 4. Auditing (co se stalo)

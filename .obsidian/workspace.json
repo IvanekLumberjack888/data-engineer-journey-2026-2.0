@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/7_KQL_EVENTHOUSE.md",
+                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/10_BEZPEČNOST.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "7_KQL_EVENTHOUSE"
+              "title": "10_BEZPEČNOST"
             }
           },
           {
@@ -214,10 +214,12 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/6_REAL_TIME.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/3_DELTA_LAKE.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/7_KQL_EVENTHOUSE.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/9_MONITORING.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/8_WAREHOUSE_SQL.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/5_MEDALLION_ARCHITEKTURA.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/6_REAL_TIME.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/7_KQL_EVENTHOUSE.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/3_DELTA_LAKE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/4_DATAFLOW_PIPELINE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md",
@@ -239,8 +241,6 @@
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/7_LAB_SECURITY.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/6_LAB_KQL.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/2_LAB_SPARK.md",
-    "01_DENNÍ_LOGY/2025-12-16 (úterý) - 51. week.md",
-    "30_ZDROJE/Learn_Microsoft_Fabric/DP-700 prep with Will/DP-700 EXAM PREP COURSE.md",
     "Pasted image 20251214144011.png",
     "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
     "10_PROJEKTY/11 MOJE PROJEKTY/11.2 PROGRAMMING/11.21 DATA ANALYST WITH PYTHON/Engeto_study_plan/0. Osnova z TODO/00 OSNOVA z TODO.pdf",
