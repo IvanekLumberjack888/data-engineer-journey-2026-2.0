@@ -79,14 +79,13 @@ BikeData
 | take 100
 ```
 
-- [ ] Data viditelná v Eventhouse
+- [x] Data viditelná v Eventhouse
 
 ---
 
 ## Pozorování
 
-- Kolik events/sec přichází?
-- Jaké jsou top 3 stanice?
+Relativně OK
 
 ---
 

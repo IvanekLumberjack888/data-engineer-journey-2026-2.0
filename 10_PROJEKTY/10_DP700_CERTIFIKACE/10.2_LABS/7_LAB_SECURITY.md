@@ -8,6 +8,9 @@ Nastavit role-based access control a row-level security.
 
 ## Praxe - Krok za krokem
 
+Tak to je v prdeli, jelikož to nemohu ani provést.
+Až budu mít od Tenanta přístup tak to zkusím.
+
 ### Krok 1: Workspace Roles
 
 ```
@@ -94,8 +97,7 @@ SELECT * FROM Sales
 
 ---
 
-## Hotovo s Labs! 🎉
+## skoro Hotovo s Labs! 🎉
 
-Teď máš praktické zkušenosti se všemi core Fabric features.
+Zbýtvá pouze tohle LAB_SECURITY
 
-Příště: Case studies + exam prep.

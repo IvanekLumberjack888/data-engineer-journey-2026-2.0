@@ -15,7 +15,7 @@ BikeData
 | take 10
 ```
 
-- [ ] First 10 rows viditelné
+- [x] First 10 rows viditelné
 
 ### Krok 2: Filter
 
@@ -25,7 +25,7 @@ BikeData
 | take 20
 ```
 
-- [ ] Filtrované výsledky
+- [x] Filtrované výsledky
 
 ### Krok 3: Aggregation
 
@@ -37,7 +37,7 @@ BikeData
   TotalEvents = count()
 ```
 
-- [ ] Agregace zobrazena
+- [x] Agregace zobrazena
 
 ### Krok 4: Group by
 
@@ -47,7 +47,7 @@ BikeData
 | sort by TotalBikes desc
 ```
 
-- [ ] Grouping + sort funguje
+- [x] Grouping + sort funguje
 
 ### Krok 5: Time Window
 
@@ -57,7 +57,7 @@ BikeData
 | sort by timestamp asc
 ```
 
-- [ ] 5-minute windows viditelné
+- [x] 5-minute windows viditelné
 
 ### Krok 6: Multiple Conditions
 
@@ -69,14 +69,12 @@ BikeData
 | sort by Max desc
 ```
 
-- [ ] Komplexní query funguje
+- [x] Komplexní query funguje
 
 ---
 
 ## Pozorování
-
-- Která stanice má nejvíc průměrně kol?
-- Jaký je trend v čase?
+relativně zajímavé
 
 ---
 
