@@ -16,7 +16,7 @@ Vytvořit Dataflow Gen2 (no-code ETL) s transformacemi.
 3. Create
 ```
 
-- [ ] Dataflow vytvořen
+- [x] Dataflow vytvořen
 
 ### Krok 2: Connect to Source
 
@@ -27,7 +27,7 @@ Vytvořit Dataflow Gen2 (no-code ETL) s transformacemi.
 2. Connect
 ```
 
-- [ ] Zdroj připojen
+- [x] Zdroj připojen
 
 ### Krok 3: Add Transformations
 
@@ -38,7 +38,7 @@ Vytvořit Dataflow Gen2 (no-code ETL) s transformacemi.
 3. OK
 ```
 
-- [ ] Filter aplikován
+- [x] Filter aplikován
 
 **Transform 2: Column rename**
 ```
@@ -47,7 +47,7 @@ Vytvořit Dataflow Gen2 (no-code ETL) s transformacemi.
 3. OK
 ```
 
-- [ ] Rename aplikován
+- [x] Rename aplikován
 
 **Transform 3: Group by**
 ```
@@ -57,7 +57,7 @@ Vytvořit Dataflow Gen2 (no-code ETL) s transformacemi.
 4. OK
 ```
 
-- [ ] Agregace aplikována
+- [x] Agregace aplikována
 
 ### Krok 4: Set Destination
 
@@ -68,7 +68,7 @@ Vytvořit Dataflow Gen2 (no-code ETL) s transformacemi.
 4. Create new table
 ```
 
-- [ ] Destination nastaveno
+- [x] Destination nastaveno
 
 ### Krok 5: Publish & Refresh
 
@@ -78,7 +78,7 @@ Vytvořit Dataflow Gen2 (no-code ETL) s transformacemi.
 3. Wait for completion
 ```
 
-- [ ] Dataflow se spustil
+- [x] Dataflow se spustil
 
 ### Krok 6: Verify Output
 
@@ -88,14 +88,14 @@ Vytvořit Dataflow Gen2 (no-code ETL) s transformacemi.
 3. View data
 ```
 
-- [ ] Output ověřen
+- [x] Output ověřen
 
 ---
 
 ## Pozorování
 
-- Kolik řádků bylo transformováno?
-- Jak dlouho trvala transformace?
+- Kolik řádků bylo transformováno? 150
+- Jak dlouho trvala transformace? 00:00:23
 
 ---
 

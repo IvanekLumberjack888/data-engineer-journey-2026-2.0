@@ -16,7 +16,7 @@ Vytvořit Data Warehouse. Načíst data. T-SQL queries.
 3. Create
 ```
 
-- [ ] Warehouse vytvořen
+- [x] Warehouse vytvořen
 
 ### Krok 2: Create Table
 
@@ -30,7 +30,7 @@ CREATE TABLE Sales (
 )
 ```
 
-- [ ] Tabulka vytvořena
+- [x] Tabulka vytvořena
 
 ### Krok 3: Load Data
 

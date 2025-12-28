@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md",
+                "file": "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/4_LAB_WAREHOUSE.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "1_FABRIC_ARCHITEKTURA"
+              "title": "4_LAB_WAREHOUSE"
             }
           },
           {
@@ -214,6 +214,10 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/3_LAB_DATAFLOW.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/2_LAB_SPARK.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/1_LAB_LAKEHOUSE.md",
+    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/3_DELTA_LAKE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/4_DATAFLOW_PIPELINE.md",
@@ -228,8 +232,6 @@
     "30_ZDROJE/EXTERNÍ_LINKY.md",
     "30_ZDROJE/NtbLM/Os 1.12.25 🗺️ 20denní studijní plán.md",
     "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.2_PORTFOLIO/CASE_STUDIES.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/2_LAB_SPARK.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/1_LAB_LAKEHOUSE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/13_CASE_STUDIES.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/12_ADMINISTRACE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/11_CI_CD.md",
@@ -239,8 +241,6 @@
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/5_MEDALLION_ARCHITEKTURA.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/6_REAL_TIME.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/7_KQL_EVENTHOUSE.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md",
-    "01_DENNÍ_LOGY/2025-12-22 (pondělí) - 52. week.md",
     "30_ZDROJE/30.1_ODKAZY/DP700_Quiz_Interactive.html",
     "Pasted image 20251214144011.png",
     "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
