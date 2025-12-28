@@ -49,7 +49,7 @@ Vytvořit Eventstream pro real-time data. Nastavit transformace a destinace.
 5. Create
 ```
 
-- [ ] Transformace přidána
+- [x] Transformace přidána
 
 ### Krok 5: Add Destination
 
@@ -60,7 +60,7 @@ Vytvořit Eventstream pro real-time data. Nastavit transformace a destinace.
 4. Create
 ```
 
-- [ ] Destinace přidána
+- [x] Destinace přidána
 
 ### Krok 6: Publish
 
@@ -69,7 +69,7 @@ Vytvořit Eventstream pro real-time data. Nastavit transformace a destinace.
 2. Data začne téct do Eventhouse
 ```
 
-- [ ] Eventstream běží
+- [x] Eventstream běží
 
 ### Krok 7: Query Eventhouse
 
