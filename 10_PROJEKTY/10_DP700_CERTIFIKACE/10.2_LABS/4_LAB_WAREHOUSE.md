@@ -43,7 +43,8 @@ WITH (
 )
 ```
 
-- [ ] Data načtena
+fabric.microsoft.com/0440f257-9783-43c3-a3b8-a30173258e32/Files/sales.csv
+- [x] Data načtena
 
 ### Krok 4: Basic Query
 
@@ -51,7 +52,7 @@ WITH (
 SELECT TOP 100 * FROM Sales
 ```
 
-- [ ] Query spuštěn
+- [x] Query spuštěn
 
 ### Krok 5: Create Index
 
