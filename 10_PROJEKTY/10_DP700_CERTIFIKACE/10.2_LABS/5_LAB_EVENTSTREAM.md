@@ -16,7 +16,7 @@ Vytvořit Eventstream pro real-time data. Nastavit transformace a destinace.
 3. Create
 ```
 
-- [ ] Eventhouse vytvořen
+- [x] Eventhouse vytvořen
 
 ### Krok 2: Create Eventstream
 
@@ -26,7 +26,7 @@ Vytvořit Eventstream pro real-time data. Nastavit transformace a destinace.
 3. Create
 ```
 
-- [ ] Eventstream vytvořen
+- [x] Eventstream vytvořen
 
 ### Krok 3: Add Source (Sample Data)
 
@@ -37,7 +37,7 @@ Vytvořit Eventstream pro real-time data. Nastavit transformace a destinace.
 4. Create
 ```
 
-- [ ] Zdroj přidán
+- [x] Zdroj přidán
 
 ### Krok 4: Add Transformation
 
