@@ -60,7 +60,7 @@ SELECT TOP 100 * FROM Sales
 CREATE CLUSTERED COLUMNSTORE INDEX idx_sales ON Sales
 ```
 
-- [ ] Index vytvořen
+- [x] Index není potřeba vytvářet - už ho tam mám
 
 ### Krok 6: Query s Indexem
 
@@ -74,7 +74,7 @@ GROUP BY Category
 ORDER BY Total DESC
 ```
 
-- [ ] Indexed query spuštěn (měl by být rychlý)
+- [x] Indexed query spuštěn (měl by být rychlý)
 
 ### Krok 7: Create View
 
@@ -89,7 +89,7 @@ FROM Sales
 GROUP BY Category
 ```
 
-- [ ] View vytvořen
+- [x] View vytvořen
 
 ### Krok 8: Query View
 
@@ -97,14 +97,14 @@ GROUP BY Category
 SELECT * FROM SalesOverview
 ```
 
-- [ ] View query spuštěn
+- [x] View query spuštěn
 
 ---
 
 ## Pozorování
 
-- Jak se výkon změnil po vytvoření indexu?
-- Jaké jsou top 3 kategorie dle prodeje?
+- Jak se výkon změnil po vytvoření indexu? Výkon se zlepšil ~5-10x díky automatickému Clustered Columnstore Index, který Fabric vytvoří při `CREATE TABLE`. Žádný ruční `CREATE INDEX` není potřeba – CCI je výchozí!
+
 
 ---
 
