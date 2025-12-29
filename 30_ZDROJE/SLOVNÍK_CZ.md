@@ -63,17 +63,18 @@ Rychlá reference pro pojmy v DP-700
 
 ## E
 
-| EN | CZ | Kontext |
-|----|----|---------|
-| Entra ID | Entra ID | Azure authentication |
-| ELT | Extract, Load, Transform | Load raw, transform later |
-| ETL | Extract, Transform, Load | Transform, then load |
-| Event | Událost | Something happened |
-| Eventstream | Tok událostí | Real-time stream |
-| Eventhouse | Event storage | KQL databáze |
-| Execute | Spustit | Běh kódu |
-| Execution Plan | Plán spuštění | Query optimization |
-| Export | Exportovat | Data ven |
+| EN                        | CZ                       | Kontext                           |
+| ------------------------- | ------------------------ | --------------------------------- |
+| Entra ID                  | Entra ID                 | Azure authentication              |
+| ELT                       | Extract, Load, Transform | Load raw, transform later         |
+| ETL                       | Extract, Transform, Load | Transform, then load              |
+| Enhancing data governance | Zlepšování správy dat    | Co umožňuje rozhraní API skeneru? |
+| Event                     | Událost                  | Something happened                |
+| Eventstream               | Tok událostí             | Real-time stream                  |
+| Eventhouse                | Event storage            | KQL databáze                      |
+| Execute                   | Spustit                  | Běh kódu                          |
+| Execution Plan            | Plán spuštění            | Query optimization                |
+| Export                    | Exportovat               | Data ven                          |
 
 ## F
 
