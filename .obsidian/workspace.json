@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01_DENNÍ_LOGY/2025-12-28 (neděle) - 52. week.md",
+                "file": "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.1_FABRIC_DOJO/01_PLÁN_DOJO.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2025-12-28 (neděle) - 52. week"
+              "title": "01_PLÁN_DOJO"
             }
           },
           {
@@ -214,6 +214,9 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
+    "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.1_FABRIC_DOJO/00_Podrobnější části DP-700 (NotebookLM).md",
+    "01_DENNÍ_LOGY/2025-12-29 (pondělí) - 1. week.md",
+    "01_DENNÍ_LOGY/2025-12-28 (neděle) - 52. week.md",
     "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.2_PORTFOLIO/CASE_STUDIES.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/7_LAB_SECURITY.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/6_LAB_KQL.md",
@@ -226,7 +229,6 @@
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/3_DELTA_LAKE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/4_DATAFLOW_PIPELINE.md",
-    "01_DENNÍ_LOGY/2025-12-28 (neděle) - 52. week.md",
     "01_DENNÍ_LOGY/2025-12-27 (sobota) - 52. week.md",
     "01_DENNÍ_LOGY/2025-12-26 (pátek) - 52. week.md",
     "01_DENNÍ_LOGY/2025-12-25 (čtvrtek) - 52. week.md",
@@ -239,8 +241,6 @@
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/13_CASE_STUDIES.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/12_ADMINISTRACE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/11_CI_CD.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/10_BEZPEČNOST.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/9_MONITORING.md",
     "30_ZDROJE/30.1_ODKAZY/DP700_Quiz_Interactive.html",
     "Pasted image 20251214144011.png",
     "30_ZDROJE/Learn_Microsoft_Fabric/Workspaces.excalidraw",
