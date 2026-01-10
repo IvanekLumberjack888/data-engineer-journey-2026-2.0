@@ -3,6 +3,18 @@
 [![Obsidian Vault](https://img.shields.io/badge/Obsidian-vault-purple)](https://obsidian.md/) 
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-yellow.svg)](LICENSE)
 [![GitHub repo](https://img.shields.io/badge/github-repo-blue)](https://github.com/IvanekLumberjack888/data-engineer-journey-2026-2.0)
+# 📊 Analýza vlivu HDP na mzdy a ceny potravin v ČR (2006–2018)
+
+<div align="center">
+
+![SQL Badge](https://img.shields.io/badge/SQL-PostgreSQL-blue?style=for-the-badge&logo=postgresql)
+![Data Analysis](https://img.shields.io/badge/Data-Analysis-orange?style=for-the-badge&logo=chart.js)
+![ENGETO](https://img.shields.io/badge/ENGETO-Project-green?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
+
+</div>
+
+---
 
 ---
 

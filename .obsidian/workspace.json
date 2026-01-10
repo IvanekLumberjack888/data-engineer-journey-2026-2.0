@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.2_PORTFOLIO/PROJEKTY_NÁPADY.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "PROJEKTY_NÁPADY"
+              "title": "README"
             }
           },
           {
@@ -214,6 +214,9 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
+    "SECURITY.md",
+    "30_ZDROJE/Zde jsou manuály a různé zajímavé informace.md",
+    "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.2_PORTFOLIO/PROJEKTY_NÁPADY.md",
     "01_DENNÍ_LOGY/2026-01-10 (sobota) - 2. week.md",
     "01_DENNÍ_LOGY/2026-01-01 (čtvrtek) - 1. week.md",
     "01_DENNÍ_LOGY/2025-12-31 (středa) - 1. week.md",
@@ -237,9 +240,6 @@
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/4_DATAFLOW_PIPELINE.md",
     "01_DENNÍ_LOGY/2025-12-27 (sobota) - 52. week.md",
     "01_DENNÍ_LOGY/2025-12-26 (pátek) - 52. week.md",
-    "01_DENNÍ_LOGY/2025-12-25 (čtvrtek) - 52. week.md",
-    "01_DENNÍ_LOGY/2025-12-24 (středa) - 52. week.md",
-    "01_DENNÍ_LOGY/2025-12-23 (úterý) - 52. week.md",
     "01_DENNÍ_LOGY/christmas",
     "30_ZDROJE/30.1_ODKAZY/DP700_Quiz_Interactive.html",
     "Pasted image 20251214144011.png",
