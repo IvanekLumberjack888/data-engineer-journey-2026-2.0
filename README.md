@@ -16,6 +16,7 @@ Complete study vault for **DP-700: Microsoft Fabric Data Engineer Associate** ce
 **Current Status (29.11.2025):** Theory ~95% ✅ | DOJO prep | Repo polish
 
 > **Update (1 Jan 2026):** First DP-700 attempt was unsuccessful. This is clear feedback that I need to focus more on hands-on labs and practical scenarios. Study plan adjusted accordingly.
+> > **Also on 1 Jan 2026:** Discovered **Fabric Forge** from Aleksi – excellent hands-on project-based learning with community support. Added to study plan.
 
 ---
 
@@ -33,11 +34,11 @@ Complete study vault for **DP-700: Microsoft Fabric Data Engineer Associate** ce
 
 ---
 
-- **Fabric Forge** (from Aleksi – hands-on projects, community)
+- **[Fabric Forge](https://www.skool.com/fabricforge)** (from Aleksi – hands-on projects, community)
 ## 🗂️ Repository Structure
 
 ```
-DATA-ENGINEER-JOURNEY-2026/
+ATA-ENGINEER-JOURNEY-2026/
 ├── 00_MATRIX/                  # 📌 Overview, plans, checklists
 ├── 01_DENNÍ_LOGY/              # 📝 Daily logs and progress
 ├── 10_PROJEKTY/                # 🎯 Active projects
@@ -110,4 +111,5 @@ This is a personal learning repository, but feedback and suggestions are welcome
 ---
 
 **Last Updated:** 29 November 2025
+
 
