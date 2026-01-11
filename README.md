@@ -15,6 +15,8 @@ Complete study vault for **DP-700: Microsoft Fabric Data Engineer Associate** ce
 **Exam Target:** End of December 2025  
 **Current Status (29.11.2025):** Theory ~95% ✅ | DOJO prep | Repo polish
 
+> **Update (1 Jan 2026):** First DP-700 attempt was unsuccessful. This is clear feedback that I need to focus more on hands-on labs and practical scenarios. Study plan adjusted accordingly.
+
 ---
 
 ## 📅 Journey Timeline
@@ -31,6 +33,7 @@ Complete study vault for **DP-700: Microsoft Fabric Data Engineer Associate** ce
 
 ---
 
+- **Fabric Forge** (from Aleksi – hands-on projects, community)
 ## 🗂️ Repository Structure
 
 ```
@@ -107,3 +110,4 @@ This is a personal learning repository, but feedback and suggestions are welcome
 ---
 
 **Last Updated:** 29 November 2025
+
