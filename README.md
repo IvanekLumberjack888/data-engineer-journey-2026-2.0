@@ -16,8 +16,7 @@ Complete study vault for **DP-700: Microsoft Fabric Data Engineer Associate** ce
 **Current Status (29.11.2025):** Theory ~95% ✅ | DOJO prep | Repo polish
 
 > **Update (1 Jan 2026):** First DP-700 attempt was unsuccessful. This is clear feedback that I need to focus more on hands-on labs and practical scenarios. Study plan adjusted accordingly.
-> > **Also on 8 Jan 2026:** Discovered **Fabric Forge** from Aleksi – excellent hands-on project-based learning with community support. Added to study plan.├── 20_DOJO_2025
-> > (https://www.skool.com/fabricforge)
+> > **Also on 8 Jan 2026:** Discovered **Fabric Forge** from Aleksi – excellent hands-on project-based learning with community support. Added to study plan.
 
 ---
 
@@ -46,17 +45,18 @@ ATA-ENGINEER-JOURNEY-2026/
 │   ├── 10_DP700_CERTIFIKACE/   # DP-700 certification (40 days)
 │   │   ├── 10.1_NOTES/         # Theory (13 modules)
 │   │   └── 10.2_LABS/          # Practice (7 labs)
-│   ├── 20_DOJO_2025/               # Fabric DOJO (3-4 week sprint)
-└── 20_OBLASTI/                 # 🎓 Long-term knowledge (no deadline)
-│   └── 20_KARIÉRNÍ_RŮST.md     # Career development
-├── 30_ZDROJE/                  # 📚 Materials, templates, links
+│   ├── 20_DOJO_2025/           # Fabric DOJO (3-4 week sprint)
+│   └── 30_FABRIC_FORGE_2026/   # Fabric Forge (hands-on projects)
+└── 30_OBLASTI/                 # 🎓 Long-term knowledge (no deadline)
+│   └── 30_KARIÉRNÍ_RŮST.md     # Career development
+├── 40_ZDROJE/                  # 📚 Materials, templates, links
 │   ├── SLOVNÍK_CZ.md           # EN→CZ glossary (95+ terms)
 │   ├── KQL_PŘÍKAZY.md          # KQL snippets
 │   ├── PYSPARK_KÓDY.md         # Python code samples
 │   ├── SQL_SCRIPTS.md          # SQL scripts
 │   ├── EXTERNÍ_LINKY.md        # All external links
 │   └── ŠABLONY/                # Note templates
-└── 40_ARCHIV/                  # 📦 Completed items
+└── 50_ARCHIV/                  # 📝 Completed items
 ```
 
 ---
@@ -78,8 +78,8 @@ ATA-ENGINEER-JOURNEY-2026/
 - **Microsoft Fabric** (Lakehouse, Data Warehouse, Real-Time Intelligence)
 - **Python, SQL, PySpark, KQL**
 - **Git & GitHub** (versioning and sync)
-- **Fabric Dojo** (real-world project, community)
-
+- **Fabric Dojo** (real-world project, community skool.com)
+- **Fabric Forge** (real-world project, community skool.com)
 ---
 
 ## 🎯 Goals
@@ -110,8 +110,3 @@ This is a personal learning repository, but feedback and suggestions are welcome
 - Fork it for your own learning journey
 
 ---
-
-**Last Updated:** 29 November 2025
-
-
-
