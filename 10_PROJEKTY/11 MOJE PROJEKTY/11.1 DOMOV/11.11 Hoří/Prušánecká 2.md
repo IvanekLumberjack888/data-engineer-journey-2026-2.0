@@ -1,3 +1,0 @@
-- [x] vyměnit SIM
-- [x] George-potvrzování
-- [x] Koupelnovou skříňku níž
