@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "01_DENNÍ_LOGY/2026-01-14 (středa) - 3. week.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "2026-01-14 (středa) - 3. week"
             }
           },
           {
@@ -214,6 +214,8 @@
   },
   "active": "e33c863b8b007f22",
   "lastOpenFiles": [
+    "README.md",
+    "01_DENNÍ_LOGY/2026-01-14 (středa) - 3. week.md",
     "SECURITY.md",
     "30_ZDROJE/Zde jsou manuály a různé zajímavé informace.md",
     "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.2_PORTFOLIO/PROJEKTY_NÁPADY.md",
@@ -238,8 +240,6 @@
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/3_DELTA_LAKE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/4_DATAFLOW_PIPELINE.md",
-    "01_DENNÍ_LOGY/2025-12-27 (sobota) - 52. week.md",
-    "01_DENNÍ_LOGY/2025-12-26 (pátek) - 52. week.md",
     "01_DENNÍ_LOGY/christmas",
     "30_ZDROJE/30.1_ODKAZY/DP700_Quiz_Interactive.html",
     "Pasted image 20251214144011.png",
