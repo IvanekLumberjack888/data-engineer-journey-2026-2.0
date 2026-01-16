@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "a9572c36febe97f8",
+        "id": "63e0cefad04d3394",
         "type": "tabs",
         "children": [
           {
-            "id": "e33c863b8b007f22",
+            "id": "f229e0dfe9bdfe4e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01_DENNÍ_LOGY/2026-01-14 (středa) - 3. week.md",
+                "file": "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.1_FABRIC_DOJO/Bez názvu.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,21 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2026-01-14 (středa) - 3. week"
-            }
-          },
-          {
-            "id": "773320a2e6e88ebe",
-            "type": "leaf",
-            "state": {
-              "type": "webviewer",
-              "state": {
-                "url": "https://community.fabric.microsoft.com/t5/Webinars-and-Video-Gallery/Fabric-Monday-96-Materialized-Lake-View-and-Optimal-Refresh/td-p/4883328",
-                "title": "Fabric Monday 96: Materialized Lake View and Optim... - Microsoft Fabric Community",
-                "mode": "webview"
-              },
-              "icon": "globe-2",
-              "title": "Fabric Monday 96: Materialized Lake View and Optim... - Microsoft Fabric Community"
+              "title": "Bez názvu"
             }
           }
         ]
@@ -212,10 +198,12 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "e33c863b8b007f22",
+  "active": "f229e0dfe9bdfe4e",
   "lastOpenFiles": [
-    "README.md",
+    "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.1_FABRIC_DOJO/Bez názvu.md",
+    "01_DENNÍ_LOGY/2026-01-16 (pátek) - 3. week.md",
     "01_DENNÍ_LOGY/2026-01-14 (středa) - 3. week.md",
+    "README.md",
     "SECURITY.md",
     "30_ZDROJE/Zde jsou manuály a různé zajímavé informace.md",
     "10_PROJEKTY/20_DOJO_2025/20_POST_DP700/20.2_PORTFOLIO/PROJEKTY_NÁPADY.md",
@@ -238,8 +226,6 @@
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.2_LABS/1_LAB_LAKEHOUSE.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/1_FABRIC_ARCHITEKTURA.md",
     "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/2_LAKEHOUSE_SPARK.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/3_DELTA_LAKE.md",
-    "10_PROJEKTY/10_DP700_CERTIFIKACE/10.1_NOTES/4_DATAFLOW_PIPELINE.md",
     "01_DENNÍ_LOGY/christmas",
     "30_ZDROJE/30.1_ODKAZY/DP700_Quiz_Interactive.html",
     "Pasted image 20251214144011.png",
