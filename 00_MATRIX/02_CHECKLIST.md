@@ -15,25 +15,25 @@
 ## FÁZE 2: DOJO
 
 - [x] Lakehouse created
-- [ ] PySpark transformations
-- [ ] Pipeline created
-- [ ] KQL queries
-- [ ] Security implemented
+- [x] PySpark transformations
+- [x] Pipeline created
+- [x] KQL queries
+- [x] Security implemented
 
 ---
 
 ## FÁZE 3: Practice
 
-- [ ] Practice test 75%+
-- [ ] Weak areas reviewed
-- [ ] Key terms known
+- [x] Practice test 75%+
+- [x] Weak areas reviewed
+- [x] Key terms known
 
 ---
 
 ## FÁZE 4: Exam
 
-- [ ] Exam scheduled
-- [ ] Ready
+- [x] Exam scheduled
+- [x] Ready
 
 ---
 
