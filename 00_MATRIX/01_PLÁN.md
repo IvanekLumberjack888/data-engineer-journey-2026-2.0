@@ -46,11 +46,11 @@ Commitment   Teorie       DOJO         Practice     EXAM
 
 ## 📚 FÁZE 3: Practice (16-22.12)
 
-- [ ] Practice test 1
-- [ ] Practice test 2
-- [ ] Review mistakes
-- [ ] Final review of all modules
-- [ ] Labs 3-7 completion
+- [x] Practice test 1
+- [x] Practice test 2
+- [x] Review mistakes
+- [x] Final review of all modules
+- [x] Labs 3-7 completion
 
 **Links:**
 - [Practice Assessment](https://learn.microsoft.com/cs-cz/credentials/certifications/fabric-analytics-engineer-associate/practice/assessment?assessment-type=practice&assessmentId=90)
@@ -60,8 +60,8 @@ Commitment   Teorie       DOJO         Practice     EXAM
 
 ## 🎓 FÁZE 4: EXAM (23-31.12)
 
-- [ ] Exam scheduled
-- [ ] Exam completed
+- [x] Exam scheduled
+- [x] Exam completed
 - [ ] DP-700 certified! 🎉
 
 ---
